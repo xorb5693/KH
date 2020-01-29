@@ -18,13 +18,13 @@ public class Example {
 	
 	public void exam2() {
 		//변수 4개 생성
-		//각 변수 선언 후 본인 정보 입력 후 출력
 		
 		String name = "박태규";	//이름을 저장할 변수 -> String
 		int age = 27;	//나이를 저장할 변수 -> int
 		String address = "서울시 구로구 궁동 190-146 중앙하이츠빌 A동 302호";	//주소를 저장할 변수 -> String
 		char sex = '남';	//성별(남/녀) -> char
-		
+
+		//각 변수 선언 후 본인 정보 입력 후 출력
 		System.out.println("이름 : " + name);
 		System.out.println("나이 : " + age);
 		System.out.println("주소 : " + address);
