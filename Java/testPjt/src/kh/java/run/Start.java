@@ -12,6 +12,7 @@ public class Start {
 		
 		pm.printHello(); //메소드 호출
 		pm.printHi();
+		pm.test();
 	}
 
 }
