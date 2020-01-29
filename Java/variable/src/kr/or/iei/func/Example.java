@@ -30,4 +30,23 @@ public class Example {
 		System.out.println("주소 : " + address);
 		System.out.println("성별 : " + sex);
 	}
+	
+	public void exam3() {
+		int num = 2147483647;
+		int result = num + 1;	//오버플로 발생
+		System.out.println(result);
+	}
+	
+	public void exam4() {
+		int num1 = 10;
+		int num2 = 20;
+		double fNum = 12.548923154875231;
+		
+//		System.out.println("정수형 변수 num안에 들어있는 값은 " + num1 + "입니다.");
+//		System.out.printf("정수형 변수 num안에 들어있는 값은 %d입니다.\n", num1);
+		System.out.println(num1 + " + " + num2 + " = " + (num1 + num2) + "입니다.");
+		System.out.printf("%d + %d = %d입니다.\n", num1, num2, num1 + num2);
+		System.out.println("실수형 변수 fNum안에 들어있는 값은 " + fNum + "입니다.");
+		System.out.printf("실수형 변수 fNum안에 들어있는 값은 %.5f입니다.\n", fNum);
+	}
 }
