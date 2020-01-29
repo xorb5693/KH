@@ -1,5 +1,9 @@
 package kr.or.iei.func;
 
+import java.util.Scanner;
+import java.io.*;
+import java.util.InputMismatchException;
+
 public class Example {
 	
 	public void exam1() {
@@ -48,5 +52,32 @@ public class Example {
 		System.out.printf("%d + %d = %d입니다.\n", num1, num2, num1 + num2);
 		System.out.println("실수형 변수 fNum안에 들어있는 값은 " + fNum + "입니다.");
 		System.out.printf("실수형 변수 fNum안에 들어있는 값은 %.5f입니다.\n", fNum);
+	}
+	
+	public void scan() throws InputMismatchException {
+		Scanner sc = new Scanner(System.in);
+		//정수형 입력받는 방법
+		System.out.print("정수 입력 : ");
+		int num1 = sc.nextInt();
+		System.out.println("사용자가 입력한 정수 값 : " + num1);
+		
+		//실수형 입력받는 방법
+		System.out.print("실수 입력 : ");
+		double fnum = sc.nextDouble();
+		System.out.println("사용자가 입력한 실수 값 : " + fnum);
+		
+		System.out.print("첫번째 문자열 입력 : ");
+		String str1 = sc.next();	//띄어쓰기의 인지 불가능. 띄어쓰기 없을 때 사용.
+		System.out.println("str1 : " + str1);
+		
+		sc.nextLine();
+				
+		System.out.print("두번째 문자열 입력 : ");
+		String str2 = sc.nextLine();
+		System.out.println("str2 : " + str2);
+		
+		System.out.print("문자 입력 : ");
+		char ch = sc.next().charAt(0);
+		System.out.println("사용자가 입력한 문자 : " + ch);
 	}
 }
