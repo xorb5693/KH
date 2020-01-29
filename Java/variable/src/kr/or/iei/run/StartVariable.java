@@ -8,6 +8,7 @@ public class StartVariable {
 		
 		Example ex = new Example();
 		ex.exam1();
+		ex.exam2();
 	}
 
 }
