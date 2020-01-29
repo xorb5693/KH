@@ -13,6 +13,7 @@ public class HelloJava {
 			for (int i = 0; i < 10; i++) {
 				str = bf.readLine();
 				System.out.println(str);
+				System.out.println("test");
 			}
 		} catch (IOException ie) {
 			System.err.println(1);
