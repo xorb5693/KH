@@ -48,5 +48,7 @@ public class Example {
 		System.out.println("첫번째 문자 : " + str.charAt(0));
 		System.out.println("두번째 문자 : " + str.charAt(1));
 		System.out.println("세번째 문자 : " + str.charAt(2));
+		//유니코드 출력
+		System.out.println((int)str.charAt(0));
 	}
 }
