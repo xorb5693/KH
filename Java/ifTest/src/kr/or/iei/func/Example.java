@@ -75,20 +75,6 @@ public class Example {
 		}
 	}
 	
-	public void test1() {
-		System.out.print("정수를 입력하세요 : ");
-		int num = sc.nextInt();
-		
-		if (num % 2 == 0) {
-			System.out.println("짝수입니다.");
-		} else {
-			System.out.println("홀수입니다.");
-		}
-//		if (num % 2 != 0) {
-//			System.out.println("홀수입니다.");
-//		}
-	}
-	
 	public void exam4() {
 		System.out.println("========= 놀이공원 프로그램 =========");
 		
@@ -168,5 +154,73 @@ public class Example {
 		}
 		
 		System.out.println();
+	}
+	
+	public void exam7() {
+		System.out.println("========= 대/소문자 변환 프로그램 =========");
+		
+		System.out.print("문자입력 : ");
+		char ch = sc.next().charAt(0);
+		
+		System.out.println("===== 결과 =====");
+		
+		if (ch >= 97 && ch <= 122) {
+			System.out.println("소문자를 입력하였습니다.");
+			System.out.printf("대문자로 변환 : %c\n", ch^32);
+		} else if (ch >= 65 && ch <= 90) {
+			System.out.println("대문자를 입력하였습니다.");
+			System.out.printf("소문자로 변환 : %c\n", ch^32);
+		} else {
+			System.out.println("잘못입력하셨습니다. 영문자를 입력해주세요.");
+		}
+		
+		System.out.println();
+	}
+	
+	public void exam8() {
+		
+		System.out.print("정수입력 : ");
+		int num = sc.nextInt();
+		
+		System.out.println("===== 결과 =====");
+		
+		if (num % 3 == 0 && num % 4 == 0 && num != 0) {
+			System.out.printf("[%d]은(는) 3의 배수면서 4의 배수입니다.\n", num);
+		} else if(num % 3 == 0 && num != 0) {
+			System.out.printf("[%d]은(는) 3의 배수입니다.\n", num);
+		} else if(num % 4 == 0 && num != 0) {
+			System.out.printf("[%d]은(는) 4의 배수입니다.\n", num);
+		} else {
+			System.out.printf("[%d]은(는) 3의 배수도 4의 배수도 아닙니다.", num);
+		}
+	}
+	
+	public void test1() {
+		System.out.print("정수를 입력하세요 : ");
+		int num = sc.nextInt();
+		
+		if (num % 2 == 0) {
+			System.out.println("짝수입니다.");
+		} else {
+			System.out.println("홀수입니다.");
+		}
+//		if (num % 2 != 0) {
+//			System.out.println("홀수입니다.");
+//		}
+	}
+	
+	public void test2() {
+		System.out.print("1~3 사이 수를 입력하세요 : ");
+		int num = sc.nextInt();
+		
+		if (num == 1) {
+			System.out.println("One");
+		} else if (num == 2) {
+			System.out.println("Two");
+		} else if (num == 3) {
+			System.out.println("Three");
+		} else {
+			System.out.println("잘못입력했습니다.");
+		}
 	}
 }

@@ -15,6 +15,9 @@ public class Run {
 		ex.exam4();
 		ex.exam5();
 		ex.exam6();
+		ex.test2();
+		ex.exam7();
+		ex.exam8();
 	}
 
 }
