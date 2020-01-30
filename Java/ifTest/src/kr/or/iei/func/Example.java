@@ -184,11 +184,13 @@ public class Example {
 		
 		System.out.println("===== 결과 =====");
 		
-		if (num % 3 == 0 && num % 4 == 0 && num != 0) {
+		if (num == 0) {
+				System.out.printf("[%d]은(는) 3의 배수도 4의 배수도 아닙니다.", num);
+		}else if (num % 3 == 0 && num % 4 == 0) {
 			System.out.printf("[%d]은(는) 3의 배수면서 4의 배수입니다.\n", num);
-		} else if(num % 3 == 0 && num != 0) {
+		} else if(num % 3 == 0) {
 			System.out.printf("[%d]은(는) 3의 배수입니다.\n", num);
-		} else if(num % 4 == 0 && num != 0) {
+		} else if(num % 4 == 0) {
 			System.out.printf("[%d]은(는) 4의 배수입니다.\n", num);
 		} else {
 			System.out.printf("[%d]은(는) 3의 배수도 4의 배수도 아닙니다.", num);
