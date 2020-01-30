@@ -4,7 +4,15 @@
 - 이 폴더는 KH 정보교육 Java 파일들을 모아놓기 위한 폴더입니다.
 
 **2. 목록**
-- firstProject1 : Commit Test용
-- testPjt : 실행 클래스, 기능제공 클래스 설명
-- printInfomationPjt : 실행 클래스, 기능제공 클래스 실습문제 1
-- shoppingPjt : 실행 클래스, 기능제공 클래스 실습문제 2
+- 1일차(2020-01-28)
+  - firstProject1 : Commit Test용
+- 2일차(2020-01-29)
+  - testPjt : 실행 클래스, 기능제공 클래스 설명, 자료형
+  - printInfomationPjt : 실행 클래스, 기능제공 클래스 실습문제 1
+  - shoppingPjt : 실행 클래스, 기능제공 클래스 실습문제 2
+  - variable : 변수 선언, 및 입·출력 테스트
+  - printQue1 : 변수 선언 및 출력 메소드 실습문제 1
+  - printQue2 : 변수 선언 및 출력 메소드 실습문제 2
+  - printScanQue1 : 변수 입·출력 메소드 실습문제 1
+  - printScanQue2 : 변수 입·출력 메소드 실습문제 2
+  - printScanQue3 : 변수 입·출력 메소드 실습문제 3
