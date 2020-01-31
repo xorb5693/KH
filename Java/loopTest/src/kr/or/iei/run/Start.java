@@ -8,6 +8,7 @@ public class Start {
 
 		Loop lo = new Loop();
 		lo.forTest();
+		lo.whileTest();
 	}
 
 }
