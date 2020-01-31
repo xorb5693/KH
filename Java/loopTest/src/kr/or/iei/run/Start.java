@@ -9,6 +9,10 @@ public class Start {
 		Loop lo = new Loop();
 		lo.forTest();
 		lo.whileTest();
+		lo.doWhileTest();
+		lo.forTest2();
+		lo.loopTest();
+		lo.loopTest2();
 	}
 
 }
