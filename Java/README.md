@@ -16,3 +16,10 @@
   - printScanQue1 : 변수 입·출력 메소드 실습문제 1
   - printScanQue2 : 변수 입·출력 메소드 실습문제 2
   - printScanQue3 : 변수 입·출력 메소드 실습문제 3
+- 3일차(2020-01-30)
+  - operatorTest : 연산자 테스트
+  - operatorQue1 : 연산자 실습문제 1
+  - operatorQue2 : 연산자 실습문제 2
+  - ifTest : if문 테스트 및 실습문제
+  - switchTest : switch문 테스트
+  - switchQue1 : switch문 실습문제
