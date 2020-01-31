@@ -150,3 +150,28 @@
       2. switch
 - 제작 프로그램
   - Java : operatorTest, operatorQue1, operatorQue2, ifTest, switchTest, switchQue1
+
+**- 4일차(2020-01-31)**
+- 제어문
+  - 반복문
+    - 반복문의 종류
+      1. for
+          - 가장 보편적인 반복문으로 가독성이 높고, 초기, 조건, 증감문을 한번에 선언해서 사용
+      2. while
+          - 특정 조건이 만족되는 동안 명령을 계속해서 반복적으로 수행함
+          - for문과 다르게 초기식을 미리 작성하고, 증감문도 실행코드 내부에 직접 작성해야 함
+      3. do~while
+          - while문과 유사하지만 조건문이 뒤에 위치하기 때문에 조건문에 맞지 않더라도 1번은 무조건 실행
+    - 무한 루프
+      1. for(;;) { 실행문 }
+      2. while(true) { 실행문 }
+  - 분기문
+    - 분기문의 종류
+      1. break
+          - 반복문을 빠져 나가는 구문
+          - 반복문 수행 중 break;구문을 만나는 경우 곧장 반복문을 빠져 나옴
+      2. continue
+          - 반복문 수행 중 continue;를 만나는 경우 아래를 실행하지 않고 반복문을 다시 실행
+          - for문의 경우 증감식으로 이동
+- 제작 프로그램
+  - Java : loopTest, loopQue1, loopQue2, loopQue3
