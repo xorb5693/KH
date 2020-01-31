@@ -69,11 +69,20 @@ public class Example {
 		System.out.print("두번째 수 입력 : ");
 		int num2 = sc.nextInt();
 		
-		for (int i = num1; i <= num2; i++) {
-			sum += i;
+		if (num1 > num2) {
+			for (int i = num2; i <= num1; i++) {
+				sum += i;
+			}
+			
+			System.out.println(num2 + " ~ " + num1 + "의 정수의 합 : " + sum);
+		} else {
+			for (int i = num1; i <= num2; i++) {
+				sum += i;
+			}
+			
+			System.out.println(num1 + " ~ " + num2 + "의 정수의 합 : " + sum);	
 		}
 		
-		System.out.println(num1 + " ~ " + num2 + "의 정수의 합 : " + sum);
 		
 		System.out.println();
 	}
