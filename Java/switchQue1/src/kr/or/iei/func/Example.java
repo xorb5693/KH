@@ -36,7 +36,7 @@ public class Example {
 	}
 
 	public void exam2() {
-		System.out.println("작학금 지불 시스템입니다");
+		System.out.println("장학금 지불 시스템입니다");
 		System.out.print("학점을 입력하세요(A, B, C, D, F) : ");
 		char ch = sc.next().charAt(0);
 
@@ -97,31 +97,31 @@ public class Example {
 		int score = sc.nextInt();
 
 		if (score < 0 || score > 100) {
+			//잘못된 숫자 판별
 			System.out.println("잘못된 입력(0~100 사이 입력)");
 		} else {
 			int grade = score / 10;
 			switch (grade) {
 			case 10:
 			case 9:
+				//90~100점
 				System.out.println(score + "점 ==> A 등급");
 				break;
 			case 8:
+				//80~89점
 				System.out.println(score + "점 ==> B 등급");
 				break;
 			case 7:
+				//70~79점
 				System.out.println(score + "점 ==> C 등급");
 				break;
 			case 6:
+				//60~69점
 				System.out.println(score + "점 ==> D 등급");
 				break;
-			case 5:
-			case 4:
-			case 3:
-			case 2:
-			case 1:
-			case 0:
+			default : 
+				//0~59점
 				System.out.println(score + "점 ==> F 등급");
-				break;
 			}
 		}
 		System.out.println();
