@@ -39,24 +39,24 @@ public class Game {
 			}
 
 			//난수 생성
-			int rand_num = rand.nextInt(99) + 1;
-			int user_num;
+			int randNum = rand.nextInt(99) + 1;
+			int userNum;
 			int count = 1;
 
 			System.out.println("<< Game Start >>");
 
 			while (true) {
 				System.out.print(count + " 회차 번호 입력 : ");
-				user_num = Integer.parseInt(sc.next());
+				userNum = Integer.parseInt(sc.next());
 
-				if (user_num < 1 || user_num > 99) {
+				if (userNum < 1 || userNum > 99) {
 					//숫자 범위를 벗어나면 오류 메시지 출력.
 					System.out.println("입력범위 오류");
-				} else if (user_num > rand_num) {
+				} else if (userNum > randNum) {
 					//사용자가 입력한 숫자보다 난수가 더 작으면 down을 출력하고 count에 1을 더한다.
 					System.out.println("<< DOWN >>");
 					count++;
-				} else if (user_num < rand_num) {
+				} else if (userNum < randNum) {
 					//사용자가 입력한 숫자보다 난수가 더 크면 up을 출력하고 count에 1을 더한다.
 					System.out.println("<< UP >>");
 					count++;
@@ -77,11 +77,11 @@ public class Game {
 		int win = 0;
 		int lose = 0;
 		//사용자가 입력한 숫자와 컴퓨터가 입력한 숫자를 저장할 변수
-		int user_num, com_num;
+		int userNum, comNum;
 
 		while (true) {
 			//게임 종료를 선택할 때 해당 정보를 저장할 변수
-			boolean end_game = false;
+			boolean endGame = false;
 			
 			System.out.println("Baskin Robbins31 Game");
 			System.out.println("1. Game Start");
@@ -112,50 +112,52 @@ public class Game {
 
 			while (true) {
 				System.out.print("Input Number(1~3) : ");
-				user_num = Integer.parseInt(sc.next());
+				userNum = Integer.parseInt(sc.next());
 
 				System.out.println("<< Your Turn >>");
-				if (user_num < 1 || user_num > 3) {
+				if (userNum < 1 || userNum > 3) {
 					System.out.println("1~3 사이 값을 입력해주세요.");
 					continue;
 				}
 				
 				//사용자가 입력한 1~3사이의 숫자를 baskin에 더하면서 화면에 출력한다.
-				for (int i = 0; i < user_num; i++) {
+				for (int i = 0; i < userNum; i++) {
 					baskin++;
 					System.out.println(baskin + "!");
 					if (baskin == 31) {
-						//baskin이 31이 된 순간 end_game을 true로 바꾸고 lose를 1 올린 다음 반복문을 종료한다.
+						//baskin이 31이 된 순간 endGame을 true로 바꾸고 lose를 1 올린 다음 반복문을 종료한다.
 						System.out.println("패배ㅠㅠ");
 						lose++;
-						end_game = true;
+						endGame = true;
 						break;
 					}
 				}
 
-				//end_game이 true 즉, 사용자가 패배한 경우 시작 화면으로
-				if (end_game == true)
+				//endGame이 true 즉, 사용자가 패배한 경우 시작 화면으로
+				if (endGame == true) {
 					break;
+				}
 
 				System.out.println("<< Computer Turn >>");
-				com_num = rand.nextInt(3) + 1;
+				comNum = rand.nextInt(3) + 1;
 
 				//컴퓨터가 난수로 만들어낸 숫자를 baskin에 더하면서 화면에 출력한다.
-				for (int i = 0; i < com_num; i++) {
+				for (int i = 0; i < comNum; i++) {
 					baskin++;
 					System.out.println(baskin + "!");
 					if (baskin == 31) {
-						//baskin이 31이 된 순간 end_game을 true로 바꾸고 win을 1 올린 다음 반복문을 종료한다.
+						//baskin이 31이 된 순간 endGame을 true로 바꾸고 win을 1 올린 다음 반복문을 종료한다.
 						System.out.println("승리!");
 						win++;
-						end_game = true;
+						endGame = true;
 						break;
 					}
 				}
 
-				//end_game이 true 즉, 사용자가 승리한 경우 시작 화면으로
-				if (end_game == true)
+				//endGame이 true 즉, 사용자가 승리한 경우 시작 화면으로
+				if (endGame == true) {
 					break;
+				}
 			}
 
 		}
@@ -171,14 +173,14 @@ public class Game {
 		int lose = 0;
 		int draw = 0;
 		//사용자의 주사위와 컴퓨터의 주사위의 숫자를 저장할 변수
-		int user_dice1, user_dice2, user_dice3, com_dice1, com_dice2, com_dice3;
+		int userDice1, userDice2, userDice3, comDice1, comDice2, comDice3;
 		//주사위의 합을 저장할 변수
-		int user_sum, com_sum;
+		int userSum, comSum;
 		//게임을 계속하는지의 여부를 저장하기 위한 변수
-		boolean end_game = false;
+		boolean endGame = false;
 
 		while (true) {
-			end_game = false;
+			endGame = false;
 			System.out.println("===== Dice Game =====");
 			System.out.println("1. Game Start");
 			System.out.println("2. Game Score");
@@ -211,23 +213,23 @@ public class Game {
 			while (true) {
 				System.out.println("<< Game Start >>");
 
-				user_dice1 = rand.nextInt(6) + 1;
-				user_dice2 = rand.nextInt(6) + 1;
-				user_dice3 = rand.nextInt(6) + 1;
-				user_sum = user_dice1 + user_dice2 + user_dice3;
-				System.out.println("1번째 주사위 값 : " + user_dice1);
-				System.out.println("2번째 주사위 값 : " + user_dice2);
-				System.out.println("3번째 주사위 값 : " + user_dice3);
-				System.out.println("내 주사위 총 합 : " + user_sum);
+				userDice1 = rand.nextInt(6) + 1;
+				userDice2 = rand.nextInt(6) + 1;
+				userDice3 = rand.nextInt(6) + 1;
+				userSum = userDice1 + userDice2 + userDice3;
+				System.out.println("1번째 주사위 값 : " + userDice1);
+				System.out.println("2번째 주사위 값 : " + userDice2);
+				System.out.println("3번째 주사위 값 : " + userDice3);
+				System.out.println("내 주사위 총 합 : " + userSum);
 				System.out.print("배팅 하시겠습니까[y/n] : ");
 				//배팅 여부
 				char again = sc.next().charAt(0);
 
 				if (again == 'y') {
-					com_dice1 = rand.nextInt(6) + 1;
-					com_dice2 = rand.nextInt(6) + 1;
-					com_dice3 = rand.nextInt(6) + 1;
-					com_sum = com_dice1 + com_dice2 + com_dice3;
+					comDice1 = rand.nextInt(6) + 1;
+					comDice2 = rand.nextInt(6) + 1;
+					comDice3 = rand.nextInt(6) + 1;
+					comSum = comDice1 + comDice2 + comDice3;
 					while (true) {
 						System.out.print("얼마를 배팅하시겠습니까(현재 내 소지금 " + money + "원) : ");
 						int batting = Integer.parseInt(sc.next());
@@ -236,19 +238,19 @@ public class Game {
 							System.out.println("금액이 부족합니다. 다시 입력해주세요.");
 							continue;
 						} else {
-							System.out.println("컴퓨터 1번째 주사위 값 : " + com_dice1);
-							System.out.println("컴퓨터 2번째 주사위 값 : " + com_dice2);
-							System.out.println("컴퓨터 3번째 주사위 값 : " + com_dice3);
-							System.out.println("컴퓨터 주사위 총 합 : " + com_sum);
+							System.out.println("컴퓨터 1번째 주사위 값 : " + comDice1);
+							System.out.println("컴퓨터 2번째 주사위 값 : " + comDice2);
+							System.out.println("컴퓨터 3번째 주사위 값 : " + comDice3);
+							System.out.println("컴퓨터 주사위 총 합 : " + comSum);
 							System.out.println("<< 결과 >>");
 							
 							//승패 여부에 따라 소지금 증감 연산 및 win, lose, draw의 증가.
-							if (user_sum > com_sum) {
+							if (userSum > comSum) {
 								System.out.println("승리!!!!!");
 								System.out.println("+" + batting + "원!!");
 								money += batting;
 								win++;
-							} else if (user_sum == com_sum) {
+							} else if (userSum == comSum) {
 								System.out.println("비겼습니다......");
 								draw++;
 							} else {
@@ -260,7 +262,7 @@ public class Game {
 								//만약 소지금이 0원이 되면 게임을 다시 시작하지 않고 바로 시작화면으로 돌아간다.
 								if (money == 0) {
 									System.out.println("거지 Bye~");
-									end_game = true;
+									endGame = true;
 									break;
 								}
 							}
@@ -268,8 +270,8 @@ public class Game {
 							System.out.print("한번 더 하시겠습니까[y/n] : ");
 							again = sc.next().charAt(0);
 							if (again != 'y') { 
-								//화면에 y를 입력하지 않으면 end_game을 true로 바꾼다.
-								end_game = true;
+								//화면에 y를 입력하지 않으면 endGame을 true로 바꾼다.
+								endGame = true;
 							}
 							
 							break;
@@ -280,8 +282,10 @@ public class Game {
 					break;
 				}
 				
-				//end_game이 true면 게임의 시작화면으로 돌아간다.
-				if (end_game) break;
+				//endGame이 true면 게임의 시작화면으로 돌아간다.
+				if (endGame) {
+					break;
+				}
 			}
 
 		}
