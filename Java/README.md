@@ -31,3 +31,10 @@
 - 5일차(2020-02-03)
   - randomPjt : 난수 생성 테스트
   - randomQue : 난수 생성 실습문제
+- 6일차(2020-02-04)
+  - arrayPjt : 배열 테스트
+  - arrayQue1 : 배열 실습문제 1
+  - arrayQue2 : 배열 및 버블, 선택, 삽입 정렬 실습문제 2
+  - arrayQue3 : 배열 실습문제 3 모텔 관리
+  - arrayQue4 : 배열 실습문제 4 배열 복사
+  - arrayQue5 : 배열 실습문제 5 로또
