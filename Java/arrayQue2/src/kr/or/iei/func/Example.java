@@ -83,16 +83,22 @@ public class Example {
 
 			//삽입정렬
 			for (i = 0; i < num.length - 1; i++) {
+				
+				//1사이클당 i + 1번째 수를 기억한다. 
 				remember = num3[i + 1];
 
 				for (j = i; j >= 0; j--) {
+					
+					// i번째부터 0번까지 역으로 진행하며 만약 그 수가 i + 1번째 수보다 작으면 그 수를 뒤로 옮긴다.
 					if (remember < num3[j]) {
 						num3[j + 1] = num3[j];
 					} else {
+						//만약 그 수가 i + 1번째 수보다 크다면 반복문을 빠져 나온다.
 						break;
 					}
 				}
 				
+				//i + 1번째의 수를 자기보다 작 수 즉, j번째 수의 뒤인 j + 1번째에 위치시킨다.
 				num3[j + 1] = remember;
 			}
 			
