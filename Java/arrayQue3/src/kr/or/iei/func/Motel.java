@@ -15,7 +15,7 @@ public class Motel {
 		while(true) {
 			
 			System.out.println("1. 입실\t2. 퇴실\t3. 방보기\t4.종료");
-			
+			System.out.print("선택 > ");
 			select = sc.nextInt();
 			
 			switch(select) {
@@ -40,7 +40,7 @@ public class Motel {
 			}
 			
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			} catch(InterruptedException ie) {
 				
 			}
