@@ -28,3 +28,6 @@
   - loopQue1 : for문 실습문제
   - loopQue2 : while문 실습문제
   - loopQue3 : 중첩 for문 실습문제
+- 5일차(2020-02-03)
+  - randomPjt : 난수 생성 테스트
+  - randomQue : 난수 생성 실습문제

@@ -175,3 +175,11 @@
           - for문의 경우 증감식으로 이동
 - 제작 프로그램
   - Java : loopTest, loopQue1, loopQue2, loopQue3
+
+**- 5일차(2020-02-03)**
+- 난수
+  - 임의의 값, 무작위로 만들어지는 알 수 없는 값
+  - Random rand = new Random(); rand.nextInt();로 사용 가능
+  - rand.nextInt(10);으로 0~9 범위의 숫자를 랜덤으로 추출 가능
+- 제작 프로그램
+  - Java : randomPjt, randomQue
