@@ -31,8 +31,10 @@ public class Lotto {
 					lottoOne();
 				} else if (select == 2) {
 					lottoLoop();
-				} else {
+				} else if (select == 3) {
 					break;
+				} else {
+					System.out.println("1~3 사이의 숫자를 입력해 주세요.");
 				}
 
 			} catch (NumberFormatException ne) {
@@ -57,14 +59,14 @@ public class Lotto {
 				if (number < 1 || number > 45) {
 					System.out.println("잘못입력하셨습니다. 1~45중 한개를 입력해주세요.");
 				} else {
-					for (i = 0; i < userNum.length; i++) {
+					for (i = 0; i <= count; i++) {
 						if (userNum[i] == number) {
 							System.out.println("이미 중복된 번호입니다. 다시 입력해주세요.");
 							break;
 						}
 					}
 
-					if (i == userNum.length) {
+					if (i == count + 1) {
 						userNum[count] = number;
 						count++;
 					}
@@ -93,13 +95,13 @@ public class Lotto {
 			while (count != 6) {
 				number = rand.nextInt(45) + 1;
 
-				for (i = 0; i < comNum.length; i++) {
+				for (i = 0; i <= count; i++) {
 					if (comNum[i] == number) {
 						break;
 					}
 				}
 
-				if (i == comNum.length) {
+				if (i == count + 1) {
 					comNum[count] = number;
 					count++;
 				}
@@ -178,14 +180,14 @@ public class Lotto {
 			if (number < 1 || number > 45) {
 				System.out.println("잘못입력하셨습니다. 1~45중 한개를 입력해주세요.");
 			} else {
-				for (i = 0; i < userNum.length; i++) {
+				for (i = 0; i <= count; i++) {
 					if (userNum[i] == number) {
 						System.out.println("이미 중복된 번호입니다. 다시 입력해주세요.");
 						break;
 					}
 				}
 
-				if (i == userNum.length) {
+				if (i == count + 1) {
 					userNum[count] = number;
 					count++;
 				}
@@ -212,13 +214,13 @@ public class Lotto {
 			while (count != 6) {
 				number = rand.nextInt(45) + 1;
 
-				for (i = 0; i < comNum.length; i++) {
+				for (i = 0; i <= count; i++) {
 					if (comNum[i] == number) {
 						break;
 					}
 				}
 
-				if (i == comNum.length) {
+				if (i == count + 1) {
 					comNum[count] = number;
 					count++;
 				}
@@ -268,13 +270,13 @@ public class Lotto {
 				System.out.println("1등");
 				break;
 			case 5:
-				System.out.println("2등");
-				break;
-			case 4:
 				System.out.println("3등");
 				break;
-			case 3:
+			case 4:
 				System.out.println("4등");
+				break;
+			case 3:
+				System.out.println("5등");
 				break;
 			default:
 				System.out.println("꽝");
