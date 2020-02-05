@@ -295,6 +295,7 @@ public class Example {
 			}
 			System.out.println();
 		}
+		System.out.println("----------------------------------------");
 	}
 
 	public void exam4() {
@@ -314,10 +315,10 @@ public class Example {
 		while (num != max) {
 			switch (caseCheck) {
 			case 0:
-				//왼쪽에서 오른쪽으로 진행하는 경우, 행은 고정, 열만 변경. 열의 값은 감소.
+				// 왼쪽에서 오른쪽으로 진행하는 경우, 행은 고정, 열만 변경. 열의 값은 감소.
 				for (i = startColumn; i > startColumn - count; i--) {
 					arr[startRow][i] = num;
-//					System.out.println("arr[" + startRow + "][" + i + "] = " + num);
+					// System.out.println("arr[" + startRow + "][" + i + "] = " + num);
 					num++;
 				}
 				startColumn = i + 1;
@@ -325,20 +326,20 @@ public class Example {
 				count--;
 				break;
 			case 1:
-				//위쪽에서 아래쪽으로 진행하는 경우, 열은 고정, 행만 변경. 행의 값은 증가.
+				// 위쪽에서 아래쪽으로 진행하는 경우, 열은 고정, 행만 변경. 행의 값은 증가.
 				for (i = startRow; i < startRow + count; i++) {
 					arr[i][startColumn] = num;
-//					System.out.println("arr[" + i + "][" + startColumn + "] = " + num);
+					// System.out.println("arr[" + i + "][" + startColumn + "] = " + num);
 					num++;
 				}
 				startRow = i - 1;
 				startColumn++;
 				break;
 			case 2:
-				//오른쪽에서 왼쪽으로 진행하는 경우, 행은 고정, 열만 변경. 열의 값은 증가.
+				// 오른쪽에서 왼쪽으로 진행하는 경우, 행은 고정, 열만 변경. 열의 값은 증가.
 				for (i = startColumn; i < startColumn + count; i++) {
 					arr[startRow][i] = num;
-//					System.out.println("arr[" + startRow + "][" + i + "] = " + num);
+					// System.out.println("arr[" + startRow + "][" + i + "] = " + num);
 					num++;
 				}
 				startColumn = i - 1;
@@ -346,10 +347,10 @@ public class Example {
 				count--;
 				break;
 			case 3:
-				//아래쪽에서 위쪽으로 진행하는 경우, 열은 고정, 행만 변경. 행의 값은 감소.
+				// 아래쪽에서 위쪽으로 진행하는 경우, 열은 고정, 행만 변경. 행의 값은 감소.
 				for (i = startRow; i > startRow - count; i--) {
 					arr[i][startColumn] = num;
-//					System.out.println("arr[" + i + "][" + startColumn + "] = " + num);
+					// System.out.println("arr[" + i + "][" + startColumn + "] = " + num);
 					num++;
 				}
 				startRow = i + 1;
@@ -357,7 +358,7 @@ public class Example {
 				break;
 			}
 
-//			System.out.println("caseCheck : " + caseCheck);
+			// System.out.println("caseCheck : " + caseCheck);
 			caseCheck = (caseCheck + 1) % 4;
 		}
 
@@ -368,5 +369,118 @@ public class Example {
 			}
 			System.out.println();
 		}
+		System.out.println("----------------------------------------");
+	}
+
+	public void exam5() {
+
+		System.out.print("2차원 배열 크기 입력(정방형) > ");
+		int insert = sc.nextInt();
+
+		int arr[][] = new int[insert][insert];
+		// 증감 상태를 저장하기 위한 변수. 1이면 증가, -1이면 감소 상태이다.
+		int course = 1;
+		// 현재 행과 열을 저장하기 위한 변수.
+		int row = 0;
+		int column = 0;
+		// 1사이클에서 몇회 계산을 진행해야 하는지 저장하기 위한 변수.
+		int count = arr.length * 2 - 1;
+		int i, j;
+		int num = 1;
+
+		while (true) {
+
+			for (i = 0; i < count / 2 + 1; i++) {
+				// System.out.println("arr[" + row + "][" + column + "] = " + num);
+				arr[row][column] = num;
+				// course가 1이면 column이 1 증가, -1이면 column이 1 감소한다.
+				column = (column * course + 1) * course;
+				num++;
+			}
+
+			column = (column * course - 1) * course;
+
+			for (i = count / 2 + 1; i < count; i++) {
+				// System.out.println("arr[" + row + "][" + column + "] = " + num);
+				row = (row * course + 1) * course;
+				arr[row][column] = num;
+				num++;
+			}
+
+			count -= 2;
+
+			if (count < 0) {
+				break;
+			} else {
+				course *= -1;
+			}
+
+			column = (column * course + 1) * course;
+		}
+
+		// 출력
+		for (i = 0; i < arr.length; i++) {
+			for (j = 0; j < arr[i].length; j++) {
+				System.out.printf("%d\t", arr[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println("----------------------------------------");
+	}
+
+	public void exam6() {
+
+		System.out.print("2차원 배열 크기 입력(정방형) > ");
+		int insert = sc.nextInt();
+
+		int arr[][] = new int[insert][insert];
+		// 증감 상태를 저장하기 위한 변수. 1이면 증가, -1이면 감소 상태이다.
+		int course = -1;
+		// 현재 행과 열을 저장하기 위한 변수.
+		int row = 0;
+		int column = insert - 1;
+		// 1사이클에서 몇회 계산을 진행해야 하는지 저장하기 위한 변수.
+		int count = arr.length * 2 - 1;
+		int i, j;
+		int num = 1;
+
+		while (true) {
+
+			for (i = 0; i < count / 2 + 1; i++) {
+//				System.out.println("arr[" + row + "][" + column + "] = " + num);
+				arr[row][column] = num;
+				// course가 1이면 column이 1 증가, -1이면 column이 1 감소한다.
+				column = (column * course + 1) * course;
+				num++;
+			}
+
+			column = (column * course - 1) * course;
+			course *= -1;
+
+			for (i = count / 2 + 1; i < count; i++) {
+//				System.out.println("arr[" + row + "][" + column + "] = " + num);
+				row = (row * course + 1) * course;
+				arr[row][column] = num;
+				num++;
+			}
+
+			count -= 2;
+
+			if (count < 0) {
+				break;
+			}
+
+			column = (column * course + 1) * course;
+		}
+
+		// 출력
+		for (i = 0; i < arr.length; i++) {
+			for (j = 0; j < arr[i].length; j++) {
+				System.out.printf("%d\t", arr[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println("----------------------------------------");
+
 	}
 }
