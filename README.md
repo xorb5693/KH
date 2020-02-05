@@ -218,3 +218,19 @@
   - hashcode() 메소드 사용
 - 제작 프로그램
   - Java : arrayPjt, arrayQue1, arrayQue2, arrayQue3, arrayQue4, arrayQue5
+
+**- 7일차(2020-02-05)**
+- 이차원 배열
+  - 1차원 배열 안에 다른 배열을 넣는 것
+  - 배열은 저장된 값마다  인덱스 번호 두개로 설정되고 앞번호는 행, 뒷번호는 열
+  - 선언 방법
+    - 자료형[][] 변수명 => int[][] arr;
+    - 자료형 변수명[][] => int arr[][];
+  - 배열의 할당
+    - 변수명 = new 자료형[행의 크기][열의 크기]; => arr = new int[5][6]; : 5X6의 2차원 배열 할당
+  - 사용법  
+    int arr[][] = new int[5][4];  
+    arr.length; => 행의 크기 : 5  
+    arr[i].length; => 열의 크기 : 4  
+- 제작 프로그램
+  - Java : arrayQue6, kakaoQue
