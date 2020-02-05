@@ -132,4 +132,28 @@ public class ArrayTest {
 
 		System.out.println("----------------------");
 	}
+	
+	public void arrayTest4() {
+		int arr[][] = new int[3][5];
+
+		int k = 1;
+		
+		//순서대로 값 대입
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				arr[i][j] = k;
+				k++;
+			}
+		}
+		
+		//출력
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.printf("%d\t", arr[i][j]);
+			}
+			System.out.println();
+		}
+		
+		System.out.println("----------------------");
+	}
 }
