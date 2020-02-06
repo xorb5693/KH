@@ -447,7 +447,7 @@ public class Example {
 		while (true) {
 
 			for (i = 0; i < count / 2 + 1; i++) {
-//				System.out.println("arr[" + row + "][" + column + "] = " + num);
+				// System.out.println("arr[" + row + "][" + column + "] = " + num);
 				arr[row][column] = num;
 				// course가 1이면 column이 1 증가, -1이면 column이 1 감소한다.
 				column = (column * course + 1) * course;
@@ -458,7 +458,7 @@ public class Example {
 			course *= -1;
 
 			for (i = count / 2 + 1; i < count; i++) {
-//				System.out.println("arr[" + row + "][" + column + "] = " + num);
+				// System.out.println("arr[" + row + "][" + column + "] = " + num);
 				row = (row * course + 1) * course;
 				arr[row][column] = num;
 				num++;
@@ -482,5 +482,65 @@ public class Example {
 		}
 		System.out.println("----------------------------------------");
 
+	}
+
+	public void exam7() { // 달팽이배열
+		System.out.print("2차원 배열 크기 입력(정방형) > ");
+		int size = sc.nextInt();
+		int[][] arr = new int[size][size]; // 입력받은크기의 정방형 배열 생성
+		int k = 1; // 배열안의 채울 값 변수
+		int inc = 1; // 인덱스번호 증감용 변수
+		int r = 0; // 2차원배열 행 인덱스번호
+		int c = -1; // 2차원배열 열 인덱스번호
+		while (size > 0) {
+			for (int i = 0; i < size; i++) {
+				c = c + inc;
+				arr[r][c] = k;
+				k++;
+			}
+			size--;
+			for (int i = 0; i < size; i++) {
+				r = r + inc;
+				arr[r][c] = k;
+				k++;
+			}
+			inc = -inc;
+		}
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + "\t");
+			}
+			System.out.println();
+		}
+	}
+
+	public void exam8() {
+		System.out.print("2차원 배열 크기 입력(정방형) > ");
+		int size = sc.nextInt();
+		int[][] arr = new int[size][size]; // 입력받은크기의 정방형 배열 생성
+		int k = 1; // 배열안의 채울 값 변수
+		int inc = -1; // 인덱스번호 증감용 변수
+		int r = 0; // 2차원배열 행 인덱스번호
+		int c = size; // 2차원배열 열 인덱스번호
+		while (size > 0) {
+			for (int i = 0; i < size; i++) {
+				c = c + inc;
+				arr[r][c] = k;
+				k++;
+			}
+			size--;
+			inc = -inc;
+			for (int i = 0; i < size; i++) {
+				r = r + inc;
+				arr[r][c] = k;
+				k++;
+			}
+		}
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + "\t");
+			}
+			System.out.println();
+		}
 	}
 }

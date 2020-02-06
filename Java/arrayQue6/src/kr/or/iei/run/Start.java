@@ -13,6 +13,9 @@ public class Start {
 		ex.exam4();
 		ex.exam5();
 		ex.exam6();
+		ex.exam7();
+		ex.exam8();
+		
 	}
 
 }
