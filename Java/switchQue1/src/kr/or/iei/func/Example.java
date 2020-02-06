@@ -19,7 +19,7 @@ public class Example {
 		case 8:
 		case 10:
 		case 12:
-			System.out.println("12월달은 31일까지 있습니다.");
+			System.out.println(month + "월달은 31일까지 있습니다.");
 			break;
 		case 2:
 			System.out.println("2월달은 28일까지 있습니다.");
@@ -28,7 +28,7 @@ public class Example {
 		case 6:
 		case 9:
 		case 11:
-			System.out.println("11월달은 30일까지 있습니다.");
+			System.out.println(month + "월달은 30일까지 있습니다.");
 			break;
 		}
 
