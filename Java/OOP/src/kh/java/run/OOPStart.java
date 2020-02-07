@@ -30,51 +30,51 @@ public class OOPStart {
 				}
 				break;
 			case 2 :
-				if (tv.power) {
-					System.out.println("채널 : " + tv.channel);
-					System.out.println("볼륨 : " + tv.volume);
+				if (tv.getPower()) {
+					System.out.println("채널 : " + tv.getChannel());
+					System.out.println("볼륨 : " + tv.getVolume());
 				} else {
 					System.out.println("전원을 켜주세요.");
 				}
 				break;
 			case 3 :
-				if (tv.power) {
+				if (tv.getPower()) {
 					tv.channelUp();
-					System.out.println("현재 채널 : " + tv.channel);
+					System.out.println("현재 채널 : " + tv.getChannel());
 				} else {
 					System.out.println("전원을 켜주세요.");
 				}
 				break;
 			case 4 :
-				if (tv.power) {
+				if (tv.getPower()) {
 					tv.channelDown();
-					System.out.println("현재 채널 : " + tv.channel);
+					System.out.println("현재 채널 : " + tv.getChannel());
 				} else {
 					System.out.println("전원을 켜주세요.");
 				}
 				break;
 			case 5 :
-				if (tv.power) {
+				if (tv.getPower()) {
 					tv.volumeUp();
-					System.out.println("현재 볼륨 : " + tv.volume);
+					System.out.println("현재 볼륨 : " + tv.getVolume());
 				} else {
 					System.out.println("전원을 켜주세요.");
 				}
 				break;
 			case 6 :
-				if (tv.power) {
+				if (tv.getPower()) {
 					tv.volumeDown();
-					System.out.println("현재 볼륨 : " + tv.volume);
+					System.out.println("현재 볼륨 : " + tv.getVolume());
 				} else {
 					System.out.println("전원을 켜주세요.");
 				}
 				break;
 			case 7 :
-				if (tv.power) {
+				if (tv.getPower()) {
 					System.out.print("채널을 입력하세요 : ");
 					int chNum = sc.nextInt();
 					tv.channelChange(chNum);
-					System.out.println("현재 채널 : " + tv.channel);
+					System.out.println("현재 채널 : " + tv.getChannel());
 				} else {
 					System.out.println("전원을 켜주세요.");
 				}

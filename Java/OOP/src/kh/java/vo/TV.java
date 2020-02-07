@@ -4,15 +4,60 @@ public class TV {
 	
 	//크기, 전원, 채널, 볼륨 변수
 	//전원, 채널, 볼륨 기능
-	public int inch = 120;
-	public boolean power = false;
-	public int channel = 1;
-	public int volume = 0;
+	private int inch;
+	private boolean power;
+	private int channel;
+	private int volume;
+	
+	//생성자의 오버로딩
+	public TV() {
+		//기본 생성자
+	}
+	
+	public TV(int inch, boolean power, int channel, int volume) {
+		//매개변수 생성자
+		this.inch = inch;
+		this.power = power;
+		this.channel = channel;
+		this.volume = volume;
+	}
 	
 	public boolean power() {
 		System.out.println("전원기능");
 		power = !power;
 		return power;
+	}
+	
+	public boolean getPower() {
+		return power;
+	}
+	
+	public int getInch() {
+		return inch;
+	}
+	
+	public int getChannel() {
+		return channel;
+	}
+	
+	public int getVolume() {
+		return volume;
+	}
+	
+	public void setPower(boolean power) {
+		this.power = power;
+	}
+	
+	public void setInch(int inch) {
+		this.inch = inch;
+	}
+	
+	public void setChannel(int channel) {
+		this.channel = channel;
+	}
+	
+	public void setVolume(int volume) {
+		this.volume = volume;
 	}
 	
 	public void channelUp() {
