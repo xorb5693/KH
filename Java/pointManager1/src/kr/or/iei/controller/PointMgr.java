@@ -169,7 +169,7 @@ public class PointMgr {
 				user[i] = user[i + 1];
 			}
 
-			user[index] = null;
+			user[index - 1] = null;
 			index--;
 			System.out.println("회원 탈퇴가 완료되었습니다.");
 		}
