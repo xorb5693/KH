@@ -40,8 +40,8 @@ public class Silver {
 		return point;
 	}
 	
-	public int bonusPoint() {
-		int bonus = (int) (point * 0.02);
+	public double bonusPoint() {
+		double bonus = point * 0.02;
 		return bonus;
 	}
 }
