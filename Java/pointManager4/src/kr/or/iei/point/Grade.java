@@ -1,6 +1,6 @@
 package kr.or.iei.point;
 
-public class Grade {
+public abstract class Grade {
 	
 	private String name;
 	private String grade;
@@ -40,7 +40,5 @@ public class Grade {
 		return point;
 	}
 
-	public double getBonus() {
-		return getPoint() * 0.02;
-	}
+	public abstract double getBonus();
 }
