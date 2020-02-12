@@ -30,4 +30,11 @@ public class Snack extends Goods {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+	
+	@Override
+	public String toString() {
+		//제품명\t가격\t재고\t성인여부\t칼로리\t무게
+		String str = getName() + "\t" + getPrice() + "\t" + getStock() + "\t" + (getAdult() ? "O" : "X") + "\t" + kcal + "\t" + weight;
+		return str;
+	}
 }

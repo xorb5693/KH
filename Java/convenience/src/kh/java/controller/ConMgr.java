@@ -92,11 +92,30 @@ public class ConMgr {
 				insertProduct();
 				break;
 			case 2 :
-				printDrink();
-				printInstantFood();
-				printSnack();
-				printMedicine();
-				printEtc();
+				System.out.println("\n===== 음료 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t용량\t칼로리");
+				printArr(d, dIndex);
+				
+				System.out.println("\n===== 즉석 식품 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t유통기한\t\t칼로리");
+				printArr(iFood, iIndex);
+				
+				System.out.println("\n===== 과자 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t칼로리\t무게");
+				printArr(s, sIndex);
+				
+				System.out.println("\n===== 즉석 식품 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t유통기한");
+				printArr(m, mIndex);
+				
+				System.out.println("\n===== 기타 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부");
+				printArr(etc, eIndex);
+//				printDrink();
+//				printInstantFood();
+//				printSnack();
+//				printMedicine();
+//				printEtc();
 				delay();
 				break;
 			case 3 :
@@ -190,13 +209,22 @@ public class ConMgr {
 		}
 	}
 	
+	//다양성을 이용한 모든 물품 출력 가능 메소드
+	public void printArr(Goods[] product, int index) {
+		for (int i = 0; i < index; i++) {
+			System.out.println((i + 1) + "\t" + product[i]);
+		}
+	}
+	
 	public void printDrink() {
 
 		System.out.println("\n===== 음료 =====");
 		System.out.println("No.\t제품명\t가격\t재고\t성인여부\t용량\t칼로리");
 		
 		for (int i = 0; i < dIndex; i++) {
-			System.out.println((i + 1) + "\t" + d[i].getName() + "\t" + d[i].getPrice() + "\t" + d[i].getStock() + "\t" + (d[i].getAdult() ? "O" : "X") + "\t" + d[i].getAmount() + "\t" + d[i].getKcal());
+//			System.out.println((i + 1) + "\t" + d[i].getName() + "\t" + d[i].getPrice() + "\t" + d[i].getStock() + "\t" + (d[i].getAdult() ? "O" : "X") + "\t" + d[i].getAmount() + "\t" + d[i].getKcal());
+			//toString을 이용한 출력
+			System.out.println((i + 1) + "\t" + d[i]);
 		}
 	}
 	
@@ -310,23 +338,33 @@ public class ConMgr {
 			
 			switch(select) {
 			case 1 :
-				printDrink();
+				System.out.println("\n===== 음료 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t용량\t칼로리");
+				printArr(d, dIndex);
 				dIndex = deleteProduct(d, dIndex);
 				break;
 			case 2 :
-				printInstantFood();
+				System.out.println("\n===== 즉석 식품 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t유통기한\t\t칼로리");
+				printArr(iFood, iIndex);
 				iIndex = deleteProduct(iFood, iIndex);
 				break;
 			case 3 :
-				printSnack();
+				System.out.println("\n===== 과자 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t칼로리\t무게");
+				printArr(s, sIndex);
 				sIndex = deleteProduct(s, sIndex);
 				break;
 			case 4 :
-				printMedicine();
+				System.out.println("\n===== 즉석 식품 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부\t유통기한");
+				printArr(m, mIndex);
 				mIndex = deleteProduct(m, mIndex);
 				break;
 			case 5 :
-				printEtc();
+				System.out.println("\n===== 기타 =====");
+				System.out.println("No.\t제품명\t가격\t재고\t성인여부");
+				printArr(etc, eIndex);
 				eIndex = deleteProduct(etc, eIndex);
 				break;
 			case 0 :

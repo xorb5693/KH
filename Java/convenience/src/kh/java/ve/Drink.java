@@ -31,4 +31,11 @@ public class Drink extends Goods {
 	public void setKcal(int kcal) {
 		this.kcal = kcal;
 	}
+	
+	@Override
+	public String toString() {
+		//제품명\t가격\t재고\t성인여부\t용량\t칼로리
+		String str = getName() + "\t" + getPrice() + "\t" + getStock() + "\t" + (getAdult() ? "O" : "X") + "\t" + amount + "\t" + kcal;
+		return str;
+	}
 }

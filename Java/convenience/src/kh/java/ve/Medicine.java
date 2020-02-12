@@ -20,4 +20,11 @@ public class Medicine extends Goods {
 	public void setExpired(String expired) {
 		this.expired = expired;
 	}
+	
+	@Override
+	public String toString() {
+		//제품명\t가격\t재고\t성인여부\t유통기한
+		String str = getName() + "\t" + getPrice() + "\t" + getStock() + "\t" + (getAdult() ? "O" : "X") + "\t" + expired;
+		return str;
+	}
 }

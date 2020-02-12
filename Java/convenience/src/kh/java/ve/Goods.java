@@ -52,4 +52,11 @@ public class Goods {
 		this.adult = adult;
 	}
 	
+	@Override
+	public String toString() {
+		//제품명\t가격\t재고\t성인여부
+		String str = name + "\t" + price + "\t" + stock + "\t" + (getAdult() ? "O" : "X");
+		return str;
+	}
+	
 }
