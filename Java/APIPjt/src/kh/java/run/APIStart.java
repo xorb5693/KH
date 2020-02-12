@@ -10,6 +10,9 @@ public class APIStart {
 		test.bufferTest();
 		test.tokenTest();
 		test.stringTest();
+		test.mathTest();
+		test.calendarTest();
+		test.calendarTest2();
 	}
 
 }

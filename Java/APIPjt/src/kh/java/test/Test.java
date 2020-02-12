@@ -1,5 +1,6 @@
 package kh.java.test;
 
+import java.util.Calendar;
 import java.util.StringTokenizer;
 
 public class Test {
@@ -89,4 +90,48 @@ public class Test {
 		
 		System.out.println(sb);
 	}
+
+	public void mathTest() {
+		System.out.println(Math.abs(-20));		//절대값 출력
+		System.out.println(Math.ceil(3.14));	//소수점 아래 올림
+		System.out.println(Math.floor(3.9));	//소수점 아래 내림
+		System.out.println(Math.round(3.5));	//소수점 아래 반올림
+		System.out.println(Math.random());		//0.0 ~ 1.0 범위의 임의의 값 추출
+		System.out.println(Math.max(1, 2));		//두 수를 비교 후 큰 값 리턴
+		System.out.println(Math.min(1, 2));		//두 수를 비교 후 작은 값 리턴	
+	}
+
+	public void calendarTest() {
+		Calendar today = Calendar.getInstance();
+		//GregorianCalendar 객체 생성
+		
+		System.out.println(today.get(Calendar.YEAR));		//연도 출력
+		System.out.println(today.get(Calendar.MONTH));		//월 출력(0월부터 출력한다)
+		System.out.println(today.get(Calendar.DATE));		//일 출력
+		System.out.println(today.get(Calendar.AM_PM));		//오전 오후 출력(오전 : 0, 오후 : 1)
+		System.out.println(today.get(Calendar.HOUR));		//시 출력
+		System.out.println(today.get(Calendar.MINUTE));		//분 출력
+		System.out.println(today.get(Calendar.SECOND));		//초 출력
+		System.out.println(today.get(Calendar.DAY_OF_WEEK));//일주일의 몇번째 요일인지 출력(1 : 일요일, 7 : 토요일)
+		
+		//set 메소드를 통해 날짜를 편집하여 사용 가능
+		today.set(Calendar.YEAR, 2050);
+		System.out.println(today.get(Calendar.YEAR));
+		
+		System.out.println(today.getTimeInMillis());		//현재 시간, 기준점 : 1970년 1월 1일 9시 0분 00초부터 지금까지 지난 시간을 ms단위로 계산
+	}
+	
+	public void calendarTest2() {
+
+		Calendar day1 = Calendar.getInstance();
+		Calendar day2 = Calendar.getInstance();
+		
+		day2.set(Calendar.YEAR, 2021);
+		long day11 = day1.getTimeInMillis();
+		long day22 = day2.getTimeInMillis();
+		long day = day22 - day11;
+		day /= (1000 * 86400);
+		System.out.println(day);
+	}
+	
 }
