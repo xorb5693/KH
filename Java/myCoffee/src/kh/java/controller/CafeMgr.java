@@ -12,6 +12,7 @@ import kh.java.vo.Juice;
 public class CafeMgr {
 
 	int totalPrice = 100000;
+	int clientMoney = 0;
 
 	// size = false : smll, ture : large
 	// temp = false : hot, true : cold
@@ -36,6 +37,12 @@ public class CafeMgr {
 	int eIndex;
 
 	Goods[] cart = new Goods[20];
+	int cartIndex;
+
+	Coffee oc = new Coffee();
+	Juice oj = new Juice();
+	Dessert od = new Dessert();
+	Goods oe = new Goods();
 
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -132,7 +139,7 @@ public class CafeMgr {
 
 	public void main() {
 		while (true) {
-			System.out.println("===== GS25 =====");
+			System.out.println("===== CAFFE BENE =====");
 			System.out.println("1. 알바");
 			System.out.println("2. 손님");
 			System.out.println("3. 납품업체");
@@ -170,6 +177,7 @@ public class CafeMgr {
 	public void alba() {
 		while (true) {
 			System.out.println("===== 일해라 알바야 =====");
+			System.out.println("보유 금액 : " + totalPrice);
 			System.out.println("1. 새 제품 등록");
 			System.out.println("2. 현재 재고 현황 보기");
 			System.out.println("3. 재고 요청");
@@ -185,15 +193,17 @@ public class CafeMgr {
 					insertProduct();
 					break;
 				case 2:
-					printCoffee();
-					printJuice();
-					printDesert();
-					printEtc();
+					printCoffee(c);
+					printJuice(j);
+					printDessert(d);
+					printEtc(etc);
 					delay();
 					break;
 				case 3:
+					updateProduct();
 					break;
 				case 4:
+					deleteProduct();
 					break;
 				case 0:
 					return;
@@ -285,7 +295,7 @@ public class CafeMgr {
 		}
 	}
 
-	public void printCoffee() {
+	public void printCoffee(Coffee[] c) {
 
 		System.out.println("===== 커피 =====");
 		System.out.println("No.\t이름\t\t\t가격\t재고");
@@ -301,7 +311,7 @@ public class CafeMgr {
 
 	}
 
-	public void printJuice() {
+	public void printJuice(Juice[] j) {
 		System.out.println("===== 과일 주스 =====");
 		System.out.println("No.\t이름\t\t가격\t재고");
 
@@ -314,7 +324,7 @@ public class CafeMgr {
 		}
 	}
 
-	public void printDesert() {
+	public void printDessert(Dessert[] d) {
 		System.out.println("===== 디저트 =====");
 		System.out.println("No.\t이름\t\t가격\t재고\t유통기한");
 
@@ -328,7 +338,7 @@ public class CafeMgr {
 		}
 	}
 
-	public void printEtc() {
+	public void printEtc(Goods[] e) {
 		System.out.println("===== 기타 =====");
 		System.out.println("No.\t이름\t가격\t재고");
 
@@ -337,12 +347,609 @@ public class CafeMgr {
 		}
 	}
 
+	public void deleteProduct() {
+		while (true) {
+
+			System.out.println("===== 제품 삭제 ======");
+			System.out.println("1. 커피 삭제");
+			System.out.println("2. 과일 주스 삭제");
+			System.out.println("3. 디저트 삭제");
+			System.out.println("4. 기타 삭제");
+			System.out.println("0. 이전으로");
+			System.out.print("선택 > ");
+
+			try {
+				int select = Integer.parseInt(br.readLine());
+
+				switch (select) {
+				case 1:
+					printCoffee(c);
+					cIndex = deleteProduct(c, c1, c2, cIndex, oc);
+					break;
+				case 2:
+					jIndex = deleteProduct(j, j1, j2, jIndex, oj);
+					printJuice(j);
+					break;
+				case 3:
+					dIndex = deleteProduct(d, d1, d2, dIndex, od);
+					printDessert(d);
+					break;
+				case 4:
+					eIndex = deleteProduct(etc, etc1, etc2, eIndex, oe);
+					printEtc(etc);
+					break;
+				case 0:
+					System.out.println("이전 페이지로 돌아갑니다.");
+					delay();
+					return;
+				default:
+					System.out.println("0~4 사이의 숫자를 입력하세요.");
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+
+			delay();
+		}
+	}
+
+	public int deleteProduct(Goods[] product, Goods[] product1, Goods[] product2, int index, Object ojt) {
+		int selDelete;
+		String name = "";
+		while (true) {
+			try {
+				System.out.print("선택 > ");
+				selDelete = Integer.parseInt(br.readLine()) - 1;
+
+				if (selDelete >= 0 && selDelete < index) {
+					break;
+				} else {
+					System.out.println("1~" + index + "사이의 숫자를 입력해 주세요.");
+					continue;
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		}
+
+		if (ojt instanceof Coffee) {
+			name = (((Coffee) product[selDelete]).getTemp() ? "아이스" : "뜨거운") + " " + product[selDelete].getName() + " "
+					+ (((Coffee) product[selDelete]).getSize() ? "Large" : "Small");
+		} else if (ojt instanceof Juice) {
+			name = product[selDelete].getName() + " " + (((Juice) product[selDelete]).getSize() ? "Large" : "Small");
+		} else if (ojt instanceof Dessert) {
+			name = product[selDelete].getName() + " " + (((Dessert) product[selDelete]).getSize() ? "Large" : "Small");
+		} else if (ojt instanceof Goods) {
+			name = product[selDelete].getName();
+		}
+
+		System.out.print("[" + name + "]을(를) 삭제하시겠습니까?[y/n] : ");
+		try {
+			char ch = br.readLine().charAt(0);
+
+			if (ch == 'y') {
+				for (int i = selDelete; i < index - 1; i++) {
+					product[i] = product[i + 1];
+					product1[i] = product1[i + 1];
+					product2[i] = product2[i + 1];
+				}
+
+				product[--index] = null;
+				product1[index] = null;
+				product2[index] = null;
+				System.out.println("제품이 삭제되었습니다.");
+			} else {
+				System.out.println("제품 삭제를 취소하였습니다.");
+			}
+
+		} catch (IOException ie) {
+			ie.printStackTrace();
+		}
+		return index;
+	}
+
+	public void updateProduct() {
+		while (true) {
+
+			System.out.println("===== 재고 요청 ======");
+			System.out.println("1. 커피 요청");
+			System.out.println("2. 과일 주스 요청");
+			System.out.println("3. 디저트 요청");
+			System.out.println("4. 기타 요청");
+			System.out.println("0. 이전으로");
+			System.out.print("선택 > ");
+
+			try {
+				int select = Integer.parseInt(br.readLine());
+
+				switch (select) {
+				case 1:
+					printCoffee(c);
+					updateProduct(c, c1, cIndex, oc);
+					break;
+				case 2:
+					printJuice(j);
+					updateProduct(j, j1, jIndex, oj);
+					break;
+				case 3:
+					printDessert(d);
+					updateProduct(d, d1, dIndex, od);
+					break;
+				case 4:
+					printEtc(etc);
+					updateProduct(etc, etc1, eIndex, oe);
+					break;
+				case 0:
+					System.out.println("이전 페이지로 돌아갑니다.");
+					delay();
+					return;
+				default:
+					System.out.println("0~4 사이의 숫자를 입력하세요.");
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+
+			delay();
+		}
+	}
+
+	public void updateProduct(Goods[] product, Goods[] product1, int index, Object ojt) {
+
+		String name = "";
+		int select;
+
+		while (true) {
+			try {
+				System.out.print("선택 > ");
+				select = Integer.parseInt(br.readLine()) - 1;
+
+				if (select >= 0 && select < index) {
+					break;
+				} else {
+					System.out.println("1~" + index + "사이의 숫자를 입력해 주세요.");
+					continue;
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		}
+
+		if (ojt instanceof Coffee) {
+			name = (((Coffee) product[select]).getTemp() ? "아이스" : "뜨거운") + " " + product[select].getName() + " "
+					+ (((Coffee) product[select]).getSize() ? "Large" : "Small");
+		} else if (ojt instanceof Juice) {
+			name = product[select].getName() + " " + (((Juice) product[select]).getSize() ? "Large" : "Small");
+		} else if (ojt instanceof Dessert) {
+			name = product[select].getName() + " " + (((Dessert) product[select]).getSize() ? "Large" : "Small");
+		} else if (ojt instanceof Goods) {
+			name = product[select].getName();
+		}
+		while (true) {
+			try {
+				System.out.print("[" + name + "]을(를) 몇개 요청하시겠습니까 : ");
+				int count = Integer.parseInt(br.readLine());
+
+				if (totalPrice < product1[select].getPrice() * count) {
+					System.out.println("소지금이 부족합니다.");
+					System.out.println("현재 소지금 : " + totalPrice);
+					continue;
+				} else {
+					product1[select].setStock(product1[select].getStock() + count);
+					System.out.println("재고 요청이 완료되었습니다.");
+					return;
+				}
+
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		}
+	}
+
 	public void client() {
 
+		while (true) {
+			System.out.println(" ====== myCoffee ====== ");
+			System.out.println("현재 총 구매한 금액 : " + clientMoney + "원");
+			System.out.println("1. 쇼핑하기");
+			System.out.println("2. 장바구니 보기");
+			System.out.println("3. 장바구니 초기화");
+			System.out.println("0. 뒤로가기");
+			System.out.print("선택 > ");
+			try {
+				int sel = Integer.parseInt(br.readLine());
+
+				switch (sel) {
+				case 1:
+					shopping();
+					break;
+				case 2:
+					shoppingList();
+					break;
+				case 3:
+					shoppingListReset();
+					break;
+				case 0:
+					return;
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		}
+	}
+
+	public void shopping() {
+		while (true) {
+			System.out.println(" ====== 카페 구매 목록 ====== ");
+			System.out.println("1. [커피]");
+			System.out.println("2. [괴일쥬스]");
+			System.out.println("3. [디저트]");
+			System.out.println("4. [기타]");
+			System.out.println("0. 뒤로가기");
+			System.out.print("구매할 제품 카테고리를 선택해주세요 : ");
+
+			try {
+				int sel = Integer.parseInt(br.readLine());
+
+				switch (sel) {
+				case 1:
+					printCoffee(c);
+					buing(c);
+					break;
+				case 2:
+					printJuice(j);
+					buing(j);
+					break;
+				case 3:
+					printDessert(d);
+					buing(d);
+					break;
+				case 4:
+					printEtc(etc);
+					buing(etc);
+					break;
+				case 0:
+					return;
+				}
+				delay();
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		}
+	}
+
+	public void buing(Goods[] product) {
+		while (true) {
+
+			try {
+				System.out.print("구매할 제품 번호 입력 : ");
+				int nIndex = Integer.parseInt(br.readLine()) - 1;
+				System.out.print("구매할 개수를 입력 : ");
+				int count = Integer.parseInt(br.readLine());
+				if (product[nIndex].getStock() < count) {
+					System.out.println("재고가 부족합니다.");
+					System.out.println("이전메뉴로 돌아갑니다.");
+					break;
+				}
+				System.out.println("[" + product[nIndex].getName() + "]제품 " + count + "개를 구입");
+				System.out.print("장바구니에 담으시겠습니까[y/n]? : ");
+				char sel = br.readLine().charAt(0);
+				if (sel == 'y') {
+					// 가격, 재고, 상품이름
+					int price = product[nIndex].getPrice();
+					int stock = count;
+					String name = product[nIndex].getName();
+					cart[cartIndex++] = new Goods(name, price, stock);
+					product[nIndex].setStock(product[nIndex].getStock() - count);
+					clientMoney += price * stock;
+				} else if (sel == 'n') {
+					break;
+				} else {
+					System.out.println("잘못 입력하셨습니다.");
+					continue;
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+
+			break;
+		}
+	}
+
+	public void shoppingList() {
+		System.out.println(" ====== 장바구니 ====== ");
+		System.out.println("제품명\t가격\t수량");
+		int totalPrice = 0;
+		for (int i = 0; i < cartIndex; i++) {
+			System.out.println(cart[i].getName() + "\t" + cart[i].getPrice() + "\t" + cart[i].getStock());
+
+			totalPrice += cart[i].getPrice() * cart[i].getStock();
+		}
+		System.out.println("총 구매금액 : " + totalPrice + "원");
+
+		this.totalPrice += totalPrice;
+		delay();
+	}
+
+	public void shoppingListReset() {
+		cart = new Goods[10];
+		cartIndex = 0;
+		clientMoney = 0;
+		System.out.println("장바구니가 초기화 되었습니다.");
+		delay();
 	}
 
 	public void server() {
+		while (true) {
+			System.out.println("===== 납품업체 ======");
+			System.out.println("1. 재고추가");
+			System.out.println("2. 남품가능재고");
+			System.out.println("3. 재고요청확인");
+			System.out.println("0. 이전으로");
+			System.out.print("선택 > ");
 
+			try {
+				int sel = Integer.parseInt(br.readLine());
+				switch (sel) {
+				case 1:
+					delivery();
+					break;
+				case 2:
+					printCoffee(c2);
+					printJuice(j2);
+					printDessert(d2);
+					printEtc(etc2);
+					delay();
+					break;
+				case 3:
+					requestCoffee();
+					break;
+				default:
+					return;
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		}
+	}
+
+	public void delivery() {
+		while (true) {
+			System.out.println("===== 납품 추가 ======");
+			System.out.println("1. 커피 추가");
+			System.out.println("2. 과일 주스 추가");
+			System.out.println("3. 디저트 추가");
+			System.out.println("4. 기타 추가");
+			System.out.println("0. 이전으로");
+			System.out.print("선택 > ");
+
+			try {
+
+				int sel = Integer.parseInt(br.readLine());
+				switch (sel) {
+				case 1:
+					printCoffee(c2);
+					insertProduct(c);
+					break;
+				case 2:
+					printJuice(j2);
+					insertProduct(j);
+					break;
+				case 3:
+					printDessert(d2);
+					insertProduct(d);
+					break;
+				case 4:
+					printEtc(etc2);
+					insertProduct(etc);
+					break;
+				default:
+					return;
+				}
+			} catch (NumberFormatException ne) {
+				System.err.println("숫자를 입력해 주세요.");
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		}
+	}
+
+	public void insertProduct(Goods[] product) {
+
+		try {
+			System.out.println("===== 물품 추가=====");
+
+			System.out.print("추가할 제품 번호 입력 : ");
+			int index = Integer.parseInt(br.readLine()) - 1;
+			System.out.print("추가할 수 입력 : ");
+			int count = Integer.parseInt(br.readLine());
+			System.out.println("[" + (c2[index].getTemp() ? "아이스" : "뜨거운") + " " + c2[index].getName() + " "
+					+ (c2[index].getSize() ? "Large" : "Small") + "]제품 " + count + "개를 선택하셨습니다.");
+			System.out.print("해당 물품을 추가하시겠습니까[y/n]?");
+			char ch = br.readLine().charAt(0);
+			if (ch == 'y') {
+				count += c2[index].getStock();
+				c2[index].setStock(count);
+			}
+		} catch (NumberFormatException ne) {
+			System.err.println("숫자를 입력해 주세요.");
+		} catch (IOException ie) {
+			ie.printStackTrace();
+		}
+	}
+
+	public void requestCoffee() {
+		System.out.println("===== 커피 =====");
+		System.out.println("No.\t이름\t\t\t가격\t재고");
+
+		int count = 1;
+		int requestPrice = 0;
+		boolean requestCheck = false;
+
+		for (int i = 0; i < cIndex; i++) {
+			if (c1[i].getStock() != 0) {
+				String name = (c1[i].getTemp() ? "아이스" : "뜨거운") + " " + c1[i].getName() + " "
+						+ (c1[i].getSize() ? "Large" : "Small") + "\t";
+				for (int k = 0; k < (23 - name.length()) / 8; k++) {
+					name += "\t";
+				}
+				System.out.println((count++) + "\t" + name + c1[i].getPrice() + "\t" + c1[i].getStock());
+				requestPrice += c1[i].getPrice() * c1[i].getStock();
+				requestCheck = true;
+			}
+		}
+
+		System.out.println("===== 과일 주스 =====");
+		System.out.println("No.\t이름\t\t가격\t재고");
+
+		count = 1;
+
+		for (int i = 0; i < jIndex; i++) {
+			if (j1[i].getStock() != 0) {
+				String name = j1[i].getName() + " " + (j1[i].getSize() ? "Large" : "Small") + "\t";
+				for (int k = 0; k < (15 - name.length()) / 8; k++) {
+					name += "\t";
+				}
+				System.out.println((count++) + "\t" + name + j1[i].getPrice() + "\t" + j1[i].getStock());
+				requestPrice += j1[i].getPrice() * j1[i].getStock();
+				requestCheck = true;
+			}
+		}
+
+		System.out.println("===== 디저트 =====");
+		System.out.println("No.\t이름\t\t가격\t재고\t유통기한");
+
+		count = 1;
+
+		for (int i = 0; i < dIndex; i++) {
+			if (d1[i].getStock() != 0) {
+				String name = d1[i].getName() + " " + (d1[i].getSize() ? "Large" : "Small") + "\t";
+				for (int k = 0; k < (15 - name.length()) / 8; k++) {
+					name += "\t";
+				}
+				System.out.println((count++) + "\t" + name + d1[i].getPrice() + "\t" + d1[i].getStock() + "\t"
+						+ d1[i].getExpired());
+				requestPrice += d1[i].getPrice() * d1[i].getStock();
+				requestCheck = true;
+			}
+		}
+
+		System.out.println("===== 기타 =====");
+		System.out.println("No.\t이름\t가격\t재고");
+
+		count = 1;
+
+		for (int i = 0; i < eIndex; i++) {
+			if (etc1[i].getStock() != 0) {
+				System.out.println(
+						(count++) + "\t" + etc1[i].getName() + "\t" + etc1[i].getPrice() + "\t" + etc1[i].getStock());
+				requestPrice += etc1[i].getPrice() * etc1[i].getStock();
+				requestCheck = true;
+			}
+		}
+
+		if (requestCheck) {
+
+			System.out.print("재고요청을 승낙하겠습니까[y/n]? : ");
+
+			try {
+				char ch = br.readLine().charAt(0);
+
+				if (ch == 'y') {
+					for (int i = 0; i < cIndex; i++) {
+						if (c1[i].getStock() != 0) {
+							c[i].setStock(c[i].getStock() + c1[i].getStock());
+							c2[i].setStock(c2[i].getStock() - c1[i].getStock());
+							c1[i].setStock(0);
+						}
+					}
+
+					for (int i = 0; i < jIndex; i++) {
+						if (j1[i].getStock() != 0) {
+							j[i].setStock(j[i].getStock() + j1[i].getStock());
+							j2[i].setStock(j2[i].getStock() - j1[i].getStock());
+							j1[i].setStock(0);
+						}
+					}
+
+					for (int i = 0; i < dIndex; i++) {
+						if (d1[i].getStock() != 0) {
+							d[i].setStock(d[i].getStock() + d1[i].getStock());
+							d2[i].setStock(d2[i].getStock() - d1[i].getStock());
+							d1[i].setStock(0);
+						}
+					}
+
+					for (int i = 0; i < eIndex; i++) {
+						if (etc1[i].getStock() != 0) {
+							etc[i].setStock(etc[i].getStock() + etc1[i].getStock());
+							etc2[i].setStock(etc2[i].getStock() - etc1[i].getStock());
+							etc1[i].setStock(0);
+						}
+					}
+
+					totalPrice -= requestPrice;
+					System.out.println("재고 추가가 완료되었습니다.");
+					System.out.println("총 금액 : " + requestPrice);
+				} else {
+					System.out.println("취소하였습니다.");
+					System.out.print("재고 요청을 삭제하시겠습니까[y/n]? : ");
+					ch = br.readLine().charAt(0);
+
+					if (ch == 'y') {
+						for (int i = 0; i < cIndex; i++) {
+							if (c1[i].getStock() != 0) {
+								c1[i].setStock(0);
+							}
+						}
+
+						for (int i = 0; i < jIndex; i++) {
+							if (j1[i].getStock() != 0) {
+								j1[i].setStock(0);
+							}
+						}
+
+						for (int i = 0; i < dIndex; i++) {
+							if (d1[i].getStock() != 0) {
+								d1[i].setStock(0);
+							}
+						}
+
+						for (int i = 0; i < eIndex; i++) {
+							if (etc1[i].getStock() != 0) {
+								etc1[i].setStock(0);
+							}
+						}
+
+						System.out.println("재고 요청을 삭제하였습니다.");
+					}
+				}
+			} catch (IOException ie) {
+				ie.printStackTrace();
+			}
+		} else {
+			System.out.println("재고 요청이 없습니다.");
+		}
+
+		delay();
 	}
 
 	public void delay() {
