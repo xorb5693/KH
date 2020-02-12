@@ -39,11 +39,6 @@ public class CafeMgr {
 	Goods[] cart = new Goods[20];
 	int cartIndex;
 
-	Coffee oc = new Coffee();
-	Juice oj = new Juice();
-	Dessert od = new Dessert();
-	Goods oe = new Goods();
-
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	public CafeMgr() {
@@ -364,19 +359,19 @@ public class CafeMgr {
 				switch (select) {
 				case 1:
 					printCoffee(c);
-					cIndex = deleteProduct(c, c1, c2, cIndex, oc);
+					cIndex = deleteProduct(c, c1, c2, cIndex);
 					break;
 				case 2:
-					jIndex = deleteProduct(j, j1, j2, jIndex, oj);
 					printJuice(j);
+					jIndex = deleteProduct(j, j1, j2, jIndex);
 					break;
 				case 3:
-					dIndex = deleteProduct(d, d1, d2, dIndex, od);
 					printDessert(d);
+					dIndex = deleteProduct(d, d1, d2, dIndex);
 					break;
 				case 4:
-					eIndex = deleteProduct(etc, etc1, etc2, eIndex, oe);
 					printEtc(etc);
+					eIndex = deleteProduct(etc, etc1, etc2, eIndex);
 					break;
 				case 0:
 					System.out.println("이전 페이지로 돌아갑니다.");
@@ -395,7 +390,7 @@ public class CafeMgr {
 		}
 	}
 
-	public int deleteProduct(Goods[] product, Goods[] product1, Goods[] product2, int index, Object ojt) {
+	public int deleteProduct(Goods[] product, Goods[] product1, Goods[] product2, int index) {
 		int selDelete;
 		String name = "";
 		while (true) {
@@ -416,14 +411,14 @@ public class CafeMgr {
 			}
 		}
 
-		if (ojt instanceof Coffee) {
+		if (product[selDelete] instanceof Coffee) {
 			name = (((Coffee) product[selDelete]).getTemp() ? "아이스" : "뜨거운") + " " + product[selDelete].getName() + " "
 					+ (((Coffee) product[selDelete]).getSize() ? "Large" : "Small");
-		} else if (ojt instanceof Juice) {
+		} else if (product[selDelete] instanceof Juice) {
 			name = product[selDelete].getName() + " " + (((Juice) product[selDelete]).getSize() ? "Large" : "Small");
-		} else if (ojt instanceof Dessert) {
+		} else if (product[selDelete] instanceof Dessert) {
 			name = product[selDelete].getName() + " " + (((Dessert) product[selDelete]).getSize() ? "Large" : "Small");
-		} else if (ojt instanceof Goods) {
+		} else if (product[selDelete] instanceof Goods) {
 			name = product[selDelete].getName();
 		}
 
@@ -469,19 +464,19 @@ public class CafeMgr {
 				switch (select) {
 				case 1:
 					printCoffee(c);
-					updateProduct(c, c1, cIndex, oc);
+					updateProduct(c, c1, cIndex);
 					break;
 				case 2:
 					printJuice(j);
-					updateProduct(j, j1, jIndex, oj);
+					updateProduct(j, j1, jIndex);
 					break;
 				case 3:
 					printDessert(d);
-					updateProduct(d, d1, dIndex, od);
+					updateProduct(d, d1, dIndex);
 					break;
 				case 4:
 					printEtc(etc);
-					updateProduct(etc, etc1, eIndex, oe);
+					updateProduct(etc, etc1, eIndex);
 					break;
 				case 0:
 					System.out.println("이전 페이지로 돌아갑니다.");
@@ -500,7 +495,7 @@ public class CafeMgr {
 		}
 	}
 
-	public void updateProduct(Goods[] product, Goods[] product1, int index, Object ojt) {
+	public void updateProduct(Goods[] product, Goods[] product1, int index) {
 
 		String name = "";
 		int select;
@@ -523,14 +518,14 @@ public class CafeMgr {
 			}
 		}
 
-		if (ojt instanceof Coffee) {
+		if (product[select] instanceof Coffee) {
 			name = (((Coffee) product[select]).getTemp() ? "아이스" : "뜨거운") + " " + product[select].getName() + " "
 					+ (((Coffee) product[select]).getSize() ? "Large" : "Small");
-		} else if (ojt instanceof Juice) {
+		} else if (product[select] instanceof Juice) {
 			name = product[select].getName() + " " + (((Juice) product[select]).getSize() ? "Large" : "Small");
-		} else if (ojt instanceof Dessert) {
+		} else if (product[select] instanceof Dessert) {
 			name = product[select].getName() + " " + (((Dessert) product[select]).getSize() ? "Large" : "Small");
-		} else if (ojt instanceof Goods) {
+		} else if (product[select] instanceof Goods) {
 			name = product[select].getName();
 		}
 		while (true) {
