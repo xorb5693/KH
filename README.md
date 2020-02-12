@@ -431,6 +431,86 @@
   - Java : poly, pointManager4, abstractAndInterface, convenience
 
 **- 12일차(2020-02-12)**
+- Object
+  - 자바에서 상속은 필수
+  - 아무것도 상속하지 않더라도 암묵적으로 Object 클래스를 상속
+  - 결국 모든 클래스는 Object 클래스의 후손 클래스
+  - 아무 내용 없이 클래스를 만든 후 객체를 생성해보면, 작성한 적 없는 메소드들이 있는 것이 확인 가능
+  - 작성한 적 없는 메소드들은 모두 Object 클래스의 메소드로 기본상속
+  - 클래스가 공통적으로 포함하고 있어야 하는 기능을 포함
+  - 주요 메소드
+    - toString()  
+      ex) kh.java.test.Test1@7852e922  
+        1. kh.java.test. : 패키지 이름
+        2. Test1 : 클래스명
+        3. 7852e922 : 인스턴스 식별 값
+    - clone()
+      - 객체 자체를 복사하여 다른 객체에 사용할 때 사용하는 메소드
+      - clone() 메소드의 접근제어 지시자는 protected이므로 다른 패키지에서는 사용 불가
+      - 작성한 클래스에서 clone() 메소드를 사용하기 위해서는 overriding이 필요함
+		  - 기존의 clone() 메소드는 protected이기 때문에 바로 사용 불가, 생성한 클래스에서 clone() 메소드의 Override가 필요함.
+		  - 리턴 타입이 Object인 clone() 메소드는 Override한 클래스가 자식 클래스이기에 부모 클래스인 Object를 받을 수 없기에 명시적 형변환이 필요함.(down-casting)  
+        ex) Test t2 = (Test)t1.clone();
+    - equeals()
+      - 두 객체 사이의 내부 값을 비교할 때 사용
+- API(Application Programming Interface)
+  - 프로그래밍을 할 때 어떠한 특정 기능을 처리할 수 있도록 만들어 놓은 클래스나 메소드의 집합
+  - JAVA API
+    - 자바 언어를 사용하여 기능 구현을 할 수 있도록 미리 여러가지 기능을 정의해 놓은 API
+- String 관련 API
+  - String 클래스
+    - 문자열 값을 수정 못하는 immutable(불변) 성질을 가짐
+    - 수정시 수정된 문자열이 새로 할당되어 새 주소를 저장
+    - 문자열을 자주 수정하는 경우 메모리 낭비가 심함
+  - StringBuffer 클래스
+    - 문자열 값을 수정할 수 있는 mutable(가변) 성질을 가짐
+    - 수정시 수정된 기존 문자열이 수정
+    - 문자열을 자주 수정하는 경우 String보다 유용
+    - Thread Safe 기능 제공(성능저하 요인) : 작업이 진행중인 경우 다른 작업이 들어오면 그 접근을 막아줌
+    - 메소드
+      - stringBuffer.append(문자열) => 문자열을 버퍼의 끝에 추가
+      - stringBuffer.insert(정수, 문자열) => 정수 자리에 문자열 삽입
+      - stringBuffer.replace(정수1, 정수2, 문자열) => 정수1부터 정수2 앞까지 문자열로 대체
+      - stringBuffer.reverse() => 버퍼를 거꾸로
+      - stringBuffer.delete(정수1, 정수2) => 정수1부터 정수2 앞까지 삭제
+      - stringBuffer.capacity() => 실제 크기를 출력
+  - StringBuilder 클래스
+    - StringBuffer 클래스와 동일하지만, Thread Safe 기능이 제공되지 않음
+  - StringTokenizer 클래스
+    - 문자열을 분석하여 토큰으로 분리시켜주는 기능의 클래스
+    - 메소드
+      - stringTokenizer(문자열1, 문자열2) : 문자열1을 문자열2를 기준으로 자르는 생성자
+      - stirngTokenizer.countTokens() : 남아 있는 토큰의 개수를 출력
+      - stringTokenizer.nextToken() : 토큰을 가져옴. countTokens를 호출하면 1이 감소 됨
+      - stringTokenizer.hasMoreTokens() : 남아있는 토큰이 있는지 확인(true/false)
+- Math 클래스
+  - Math 클래스의 메소드는 객체를 선언하지 않고 바로 Math 클래스에서 호출 가능.
+  - 메소드
+    - Math.abs(수) : 절대값 출력
+    - Math.ceil(수) : 소수점 아래 올림
+    - Math.floor(수) : 소수점 아래 내림
+    - Math.round(수) : 소수점 아래 반올림
+    - Math.random() : 0.0 ~ 1.0 범위의 임의의 값 추출
+		- Math.max(수1, 수2) : 두 수를 비교 후 큰 값 리턴
+		- Math.min(수1, 수2) : 두 수를 비교 후 작은 값 리턴
+- 시간관련 클래스
+  - Calendar 클래스
+    - 현재 시간과 관련 있는 클래스
+    - Calendar 클래스는 추상클래스로, 생성자의 접근제어 지시자가 protected로 new 생성자()를 통해 객체를 생성할 수 없고, getInstance() 메소드를 이용하여 객체를 생성
+    - Calendar.getInstance() 메소드는 GregorianCalendar 객체 생성
+    - Calendar 클래스의 출력들은 모두 객체가 만들어지는 시간을 기준으로 만들어진다. 시간이 지난 후 출력을 하면 모두 객체를 만들었던 시간이 출력 된다.
+    - 메소드
+      - calendar.get(Calendar.YEAR) : 연도 출력
+      - calendar.get(Calendar.MONTH) : 월 출력(0월부터 출력한다)
+      - calendar.get(Calendar.DATE) : 일 출력
+      - calendar.get(Calendar.AM_PM) : 오전 오후 출력(오전 : 0, 오후 : 1)
+      - calendar.get(Calendar.HOUR) : 시 출력
+      - calendar.get(Calendar.MINUTE) : 분 출력
+      - calendar.get(Calendar.SECOND) : 초 출력
+      - calendar.get(Calendar.DAY_OF_WEEK) : 일주일의 몇번째 요일인지 출력(1 : 일요일, 7 : 토요일)
+      - calendar.set(Calendar.YEAR, 2050) : set 메소드를 통해 날짜를 편집하여 사용 가능
+      - calendar.getTimeInMillis() : 현재 시간, 기준점 : 1970년 1월 1일 9시 0분 00초부터 지금까지 지난 시간을 ms단위로 계산
+- 제작 프로그램 : ObjectTest, APIPjt
 
 ## 3. 이클립스 기능 ##
 - 단축키
@@ -443,3 +523,8 @@
 - 메소드
   - String.toLowerCase() : 문자열 내의 대문자를 소문자로 바꿔주는 메소드
   - String.toUpperCase() : 문자열 내의 소문자를 대문자로 바꿔주는 메소드
+- String
+  - new를 이용한 경우와 ""를 이용해 넣은 경우는 다르게 작동을 한다.
+  - '=='의 경우 다른 클래스는 문제 없지만 String만은 특이한 경우이기에 ""로 입력을 한 경우 같다고 출력이 된다.
+- java.lang
+  - java.lang 밑에 있는 클래스는 import를 하지 않아도 자동으로 import가 됨
