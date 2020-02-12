@@ -202,7 +202,15 @@
     2. 손님
       - 제품구매 
       - 구매목록확인
-
+- 12일차(2020-02-11)
+  - ObjectTest : Object 클래스 테스트
+    1. toString()
+  - APIPjt : Java API 테스트
+    1. StringBuffer 클래스 테스트
+    2. StringTokenizer 클래스 테스트
+    3. 두 가지를 이용한 테스트 실습 프로그램
+    4. Math 클래스 테스트
+    5. Calendar 클래스 테스트
 
 **3. 팀 프로젝트**
 - myCoffee : 커피 가게 관리 프로그램
