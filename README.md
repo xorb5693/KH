@@ -430,6 +430,8 @@
 - 제작 프로그램
   - Java : poly, pointManager4, abstractAndInterface, convenience
 
+**- 12일차(2020-02-12)**
+
 ## 3. 이클립스 기능 ##
 - 단축키
   - ctrl + shift + F : 자동 줄맞춤
