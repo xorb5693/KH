@@ -90,7 +90,7 @@ public class StudentMgr {
 		System.out.println("이름\t나이\t주소");
 
 		for (int i = 0; i < index; i++) {
-			System.out.println(students[i].getName() + "\t" + students[i].getAge() + "\t" + students[i].getAddr());
+			System.out.println(students[i]);
 		}
 	}
 
