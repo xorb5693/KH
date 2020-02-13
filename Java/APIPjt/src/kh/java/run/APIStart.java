@@ -15,6 +15,7 @@ public class APIStart {
 		test.calendarTest2();
 		test.dateTest();
 		test.dateFormatTest();
+		test.test();
 	}
 
 }

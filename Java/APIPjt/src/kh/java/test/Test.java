@@ -3,6 +3,7 @@ package kh.java.test;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Test {
@@ -156,6 +157,40 @@ public class Test {
 		
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		System.out.println(sdf2.format(today));
+	}
+	
+	public void test() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("입력 : ");
+		int num = 0;
+		String str = sc.next();
+		
+		//int number = (int)str; => 참조형이기에 불가능
+		//str = 100
+		//문자열 길이 측정 = 3
+		//문자형 배열 생성하여 한글자씩 입력 
+		//char[] arr = new char[3];
+		//{'1', '0', '0'}
+		//'1'- > 49, '0' -> 48
+		//(arr[0] - 48) * 100 + (arr[1] - 48) * 10 + (arr[2] - 48)
+		
+		char[] arr = new char[str.length()];
+		
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = str.charAt(i);
+			if (arr[i] < '0' || arr[i] > '9') {
+				System.out.println("숫자가 아닙니다.");
+				return;
+			}
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			num *= 10;
+			num += (arr[i] - 48);
+		}
+		
+		System.out.println(num);
+		System.out.println(Integer.parseInt(str));
 	}
 	
 }
