@@ -548,8 +548,46 @@
     - 기본 자료형인 int에 매칭되는 클래스
     - 메소드
       - Integer.parsInt(str) : 문자열을 숫자로 변환해 줘서 리턴함
-- 제작 프로그램
-  - Java : APIQue
+  - Boxing : Wrapper 클래스에 기본 자료형을 넣는 것  
+    ex)  
+    Integer num = new Integer(10);  
+    Double dd = new Double(3.14);  
+  - UnBoxing : Wrapper 클래스에 있는 기본 자료형을 꺼내는 것  
+    ex)  
+    int n = num.intValue();  
+    double d = dd.doubleValue();    
+  - Auto Boxing : Boxing을 생성자를 이용하지 않고 바로 사용 가능  
+    ex)  
+    Integer num = 10;  
+    Double dd = 3.14;
+  - Auto UnBoxing : UnBoxing을 value 메소드를 사용하지 않고 바로 가져오는 것  
+    ex)  
+    int n = num;  
+    double d = dd;
+  - Wrapper Class를 이용한 문자열 처리
+    - Wrapper 클래스를 이용하면 문자열 -> 기본 자료형, 기본 자료형 -> 문자열의 변환이 쉬움  
+      1. Wrapper.parseInt(str), parseDouble(str) 등 : 문자열을 각 타입의 기본 자료형으로 변환, char 제외(charAt 메소드 사용)
+      2. Wrapper.valueOf(num).toString : 각 기본 자료형을 문자열로 변환
+      3. String.valueOf(num) : String 클래스의 valueOf 메소드로 사용하여 기본 자료형을 문자열로 변환
+- 제네릭(Generics)
+  - JDK 1.5부터 제공되는 기능으로, 클래스 내부에서 사용할 데이터 타입을 객체 생성 시 지정하는 기법
+  - Generics Type
+    - 클래스의 객체 생성시 "<>"안에 내부에서 사용할 클래스명을 기입 -> 기본 자료형을 사용할 수 없음
+    - 클래스명<타입> 레퍼런스 = new 생성자<타입>();  
+      ex) ArrayList<Student>list = new ArrayList<Student>();  
+  - 제네릭 제한
+    - 제네릭은 해당 클래스의 객체가 만들어질 때 내부에서 데이터 타입 지정
+    - 이경우 의도치 않은 데이터 타입이 들어올 수 있음
+- Collection
+  - 메모리상에서 자료를 구조적으로 처리하는 방법을 자료구조라 함
+  - Collection은 자바에서 제공하는 자료구조를 담당하는 Framework
+  - 추가, 삭제, 정렬 등의 기능 처리가 간단하게 해결되어 자료구조적 알고리즘을 사용자가 별도로 구현할 필요가 없음
+	- 배열의 문제점
+		1. 한번 크기를 지정하면 변경할 수 없다.
+    2. 배열에 기록된 데이터에 대한 중간 위치의 추가, 삭제가 불편하다.
+    3. 한 타입의 데이터만 저장이 가능하다.
+- 제작 프로그램  
+  - Java : APIQue, wrapperClass, generics
 
 ## 3. 이클립스 기능 ##
 - 단축키
