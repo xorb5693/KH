@@ -510,7 +510,12 @@
       - calendar.get(Calendar.DAY_OF_WEEK) : 일주일의 몇번째 요일인지 출력(1 : 일요일, 7 : 토요일)
       - calendar.set(Calendar.YEAR, 2050) : set 메소드를 통해 날짜를 편집하여 사용 가능
       - calendar.getTimeInMillis() : 현재 시간, 기준점 : 1970년 1월 1일 9시 0분 00초부터 지금까지 지난 시간을 ms단위로 계산
-- 제작 프로그램 : ObjectTest, APIPjt
+- 제작 프로그램 
+	- Java : ObjectTest, APIPjt
+
+**- 13일차(2020-02-13)**
+- 제작 프로그램
+	- Java : 
 
 ## 3. 이클립스 기능 ##
 - 단축키
