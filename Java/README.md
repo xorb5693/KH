@@ -218,6 +218,18 @@
   - APIQue : Calendar 클래스 및 DateFormat 클래스 실습
     1. 오늘 날짜 yyyy년 MM월 dd일 W요일로 출력하기
     2. D-Day 계산기
+  - wrapperClass : Wrapper Class 테스트 및 실습
+    1. Wrapper Class 테스트
+    2. Wrapper Class를 이용한 계산기
+  - generics : 제네릭 테스트 프로그램
+    1. 제네릭 테스트
+    2. Object 클래스를 이용한 다형성과 제네릭의 차이
+    3. 2개의 제네릭을 사용할 때의 경우
+    4. 제네릭 제한
+  - collection : Collection 테스트 프로그램
+    1. ArrayList 각 기능 테스트
+    2. Collection의 정렬 기능
+    3. 9일차 studnetMgr List를 이용한 수정
 
 **3. 팀 프로젝트**
 - myCoffee : 커피 가게 관리 프로그램
