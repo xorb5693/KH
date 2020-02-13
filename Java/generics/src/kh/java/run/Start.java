@@ -41,11 +41,12 @@ public class Start {
 		
 		//제네릭 적용
 		AnimalMgr2<Tiger> am3 = new AnimalMgr2<Tiger>(t);
-		AnimalMgr2<Bear> am4 = new AnimalMgr2<Bear>(b);
+		//AniamlMgr2는 제네릭에 제한을 걸었기 때문에 Bear는 사용 불가
+//		AnimalMgr2<Bear> am4 = new AnimalMgr2<Bear>(b);
 		
 		//제네릭을 적용했기에 down-casting이 필요가 없음
 		am3.getData().getHp();
-		am4.getData().getHp();
+//		am4.getData().getHp();
 		
 		GenericEx2<String, Integer> ge2 = new GenericEx2<String, Integer>();
 	}

@@ -1,6 +1,6 @@
 package kh.java.test;
 
-public class Tiger {
+public class Tiger extends Animal {
 
 	private int hp;
 	
