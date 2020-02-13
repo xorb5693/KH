@@ -511,11 +511,24 @@
       - calendar.set(Calendar.YEAR, 2050) : set 메소드를 통해 날짜를 편집하여 사용 가능
       - calendar.getTimeInMillis() : 현재 시간, 기준점 : 1970년 1월 1일 9시 0분 00초부터 지금까지 지난 시간을 ms단위로 계산
 - 제작 프로그램 
-	- Java : ObjectTest, APIPjt
+  - Java : ObjectTest, APIPjt
 
 **- 13일차(2020-02-13)**
+- Date 클래스
+  - Java.util의 Date 클래스
+  - 시스템으로부터 현재 날짜, 시간정보를 가져와서 다룰 수 있게 만들어진 클래스로, 생성자 2개만 사용 가능하고 나머지는 deprecated(삭제 예정)
+  - Calendar 또는 GregorianCalendar 클래스 사용을 권장
+  - 생성자
+    - new Date() : 현재 시간을 기준으로 날짜를 나타내는 생성자
+    - new Date(long num) : num을 기준으로 날짜를 나타내는 생성자
+- SimpleDateFormat 클래스
+  - 보기 힘든 Date 클래스를 쉽게 보기 위해 원하는 format으로 출력 방법을 바꿔주는 클래스
+  - 생성자
+    - new SimpleDateFormat(String str) : str로 데이터 형식을 바꿔주게 하는 생성자
+  - 메소드
+    - simple.format(Date date) : date 클래스의 시간을 생성자에서 선언한 방식으로 문자열을 리턴함
 - 제작 프로그램
-	- Java : 
+  - Java : APIQue
 
 ## 3. 이클립스 기능 ##
 - 단축키
