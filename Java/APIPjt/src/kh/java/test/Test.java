@@ -1,6 +1,8 @@
 package kh.java.test;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.StringTokenizer;
 
 public class Test {
@@ -132,6 +134,28 @@ public class Test {
 		long day = day22 - day11;
 		day /= (1000 * 86400);
 		System.out.println(day);
+	}
+	
+	public void dateTest() {
+		//Date
+		Date date1 = new Date();
+		Calendar today = Calendar.getInstance();
+		today.set(Calendar.YEAR, 2021);
+		long testDate = today.getTimeInMillis();
+		Date date2 = new Date(testDate);
+		
+		System.out.println(date1);
+		System.out.println(date2);
+	}
+
+	public void dateFormatTest() {
+		
+		Date today = new Date();
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(sdf1.format(today));
+		
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+		System.out.println(sdf2.format(today));
 	}
 	
 }

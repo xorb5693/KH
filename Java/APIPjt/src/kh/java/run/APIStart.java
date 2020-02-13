@@ -13,6 +13,8 @@ public class APIStart {
 		test.mathTest();
 		test.calendarTest();
 		test.calendarTest2();
+		test.dateTest();
+		test.dateFormatTest();
 	}
 
 }
