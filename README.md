@@ -486,13 +486,14 @@
 - Math 클래스
   - Math 클래스의 메소드는 객체를 선언하지 않고 바로 Math 클래스에서 호출 가능.
   - 메소드
-    - Math.abs(수) : 절대값 출력
-    - Math.ceil(수) : 소수점 아래 올림
-    - Math.floor(수) : 소수점 아래 내림
-    - Math.round(수) : 소수점 아래 반올림
+    - Math.abs(num) : 절대값 출력
+    - Math.ceil(num) : 소수점 아래 올림
+    - Math.floor(num) : 소수점 아래 내림
+    - Math.round(num) : 소수점 아래 반올림
     - Math.random() : 0.0 ~ 1.0 범위의 임의의 값 추출
-		- Math.max(수1, 수2) : 두 수를 비교 후 큰 값 리턴
-		- Math.min(수1, 수2) : 두 수를 비교 후 작은 값 리턴
+    - Math.max(num1, num2) : 두 수를 비교 후 큰 값 리턴
+    - Math.min(num1, num2) : 두 수를 비교 후 작은 값 리턴
+    - Math.pow(num1, num2) : num1의 값을 num2번 거듭 제곱
 - 시간관련 클래스
   - Calendar 클래스
     - 현재 시간과 관련 있는 클래스
@@ -527,6 +528,26 @@
     - new SimpleDateFormat(String str) : str로 데이터 형식을 바꿔주게 하는 생성자
   - 메소드
     - simple.format(Date date) : date 클래스의 시간을 생성자에서 선언한 방식으로 문자열을 리턴함
+- Wrapper Class
+  - 기본 자료형을 객체화 해주는 클래스
+  - 기본 자료형 데이터를 포장하여 표현하기 때문에 Wrapper라고 부름
+  - 객체지향 프로그래밍의 경우 기본 자료형을 객체로 처리해야 하는 상황이 존재하는데 그러한 상황에서 사용하는 클래스  
+  
+  | 기본 자료형 | Wrapper Class | Wrapper Class로 기본자료형 변환 |  
+  | :-----: | :-----: | :-----: |  
+  | boolean | Boolean | Boolean wb = new Boolean(true) |  
+  | char | Character | Character wc = new Character('A') |  
+  | byte | Byte | Byte wb = new Byte((byte)1) |  
+  | short | Short | Short ws = new Short((short)2) |  
+  | int | Integer | Integer wi = new Integer(4) |  
+  | long | Long | Long wl = new Long(8) |  
+  | float | Float | Float wf = new Float(0.5f) |  
+  | double | Double | Double wd = new Double(0.77) |  
+  
+  - Integer 클래스
+    - 기본 자료형인 int에 매칭되는 클래스
+    - 메소드
+      - Integer.parsInt(str) : 문자열을 숫자로 변환해 줘서 리턴함
 - 제작 프로그램
   - Java : APIQue
 
@@ -546,3 +567,7 @@
   - '=='의 경우 다른 클래스는 문제 없지만 String만은 특이한 경우이기에 ""로 입력을 한 경우 같다고 출력이 된다.
 - java.lang
   - java.lang 밑에 있는 클래스는 import를 하지 않아도 자동으로 import가 됨
+
+## 5. 시험 ##
+1. 평가자 체크리스트  
+ex)
