@@ -118,7 +118,9 @@ public class Example {
 		System.out.println("오늘 날짜 : " + sdf.format(today.getTime()));
 		System.out.println("D-Day 날짜 : " + sdf.format(dDay.getTime()));
 		
-		long check = (dDay.getTimeInMillis() - today.getTimeInMillis()) / (1000 * 86400);
+		//오차를 없애기 위해 먼저 1000을 나눈다.
+		long check = dDay.getTimeInMillis() / 1000 - today.getTimeInMillis() / 1000;
+		check /= 86400;
 		
 		if (check < 0) {
 			System.out.println(Math.abs(check) + "일 지났습니다.");
