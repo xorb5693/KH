@@ -574,20 +574,39 @@
   - Generics Type
     - 클래스의 객체 생성시 "<>"안에 내부에서 사용할 클래스명을 기입 -> 기본 자료형을 사용할 수 없음
     - 클래스명<타입> 레퍼런스 = new 생성자<타입>();  
-      ex) ArrayList<Student>list = new ArrayList<Student>();  
   - 제네릭 제한
     - 제네릭은 해당 클래스의 객체가 만들어질 때 내부에서 데이터 타입 지정
-    - 이경우 의도치 않은 데이터 타입이 들어올 수 있음
+    - 이 경우 의도치 않은 데이터 타입이 들어올 수 있음
+    - 제네릭 사용시의 데이터 타입을 제한할 수 있음
 - Collection
   - 메모리상에서 자료를 구조적으로 처리하는 방법을 자료구조라 함
   - Collection은 자바에서 제공하는 자료구조를 담당하는 Framework
   - 추가, 삭제, 정렬 등의 기능 처리가 간단하게 해결되어 자료구조적 알고리즘을 사용자가 별도로 구현할 필요가 없음
-	- 배열의 문제점
-		1. 한번 크기를 지정하면 변경할 수 없다.
+  - 배열의 문제점
+    1. 한번 크기를 지정하면 변경할 수 없다.
     2. 배열에 기록된 데이터에 대한 중간 위치의 추가, 삭제가 불편하다.
     3. 한 타입의 데이터만 저장이 가능하다.
+  - Collection의 장점
+    1. 저장하는 크기의 제약이 없다.
+    2. 추가, 삭제, 정렬등의 기능처리가 간단하게 해결된다
+    3. 여러 타입을 저장할 수 있다.
+  - Collections.sort(List list) 메소드를 사용해 list의 오름차순 정렬
+  - Collections.reverse(List list) 메소드를 사용해 list를 반대로 저장
+- List
+  - 자료들을 순차적으로 나열한 자료구조
+  - 인덱스로 관리되며, 중복해서 객체 저장이 가능
+  - 배열과 가장 유사한 형태를 띄고 있다.
+  - 구현클래스 ArrayList, Vector, LinkedList가 존재
+  - ArrayList
+    - add(T) 메소드를 사용해 삽입
+    - add(int index, T) 메소드를 사용해 원하는 인덱스에 삽입
+    - get(int num) 메소드를 사용해 출력
+    - size() 메소드를 사용해 인덱스 값 출력
+    - remove(int num) 메소드를 사용해 삭제
+    - set(int index, T) 메소드를 사용해 원하는 인덱스의 내용을 수정
+    - clear() 메소드를 사용해 ArrayList 내용 전체 삭제  
 - 제작 프로그램  
-  - Java : APIQue, wrapperClass, generics
+  - Java : APIQue, wrapperClass, generics, collection
 
 ## 3. 이클립스 기능 ##
 - 단축키
@@ -605,7 +624,3 @@
   - '=='의 경우 다른 클래스는 문제 없지만 String만은 특이한 경우이기에 ""로 입력을 한 경우 같다고 출력이 된다.
 - java.lang
   - java.lang 밑에 있는 클래스는 import를 하지 않아도 자동으로 import가 됨
-
-## 5. 시험 ##
-1. 평가자 체크리스트  
-ex)
