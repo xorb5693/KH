@@ -608,18 +608,46 @@
     - isEmpty() 메소드를 사용해 현재 리스트가 비어있는지 파악 가능
     - for (T t : list) {  
       　　control문  
-      }  
-      : for-each문을 이용해 코드를 단축해 for문 내에서 get 메소드를 호출할 필요 없이 알아서 원하는 객체를 순회가 가능하다
+      } : for-each문을 이용해 코드를 단축해 for문 내에서 get 메소드를 호출할 필요 없이 알아서 원하는 객체를 순회가 가능하다
     - list.forEach(t -> {  
       　　control문  
-      });  
-      : ArrayList가 가지고 있는 forEach() 메소드를 이용해 람다식으로 객체의 순회가 가능하다
+      }); : ArrayList가 가지고 있는 forEach() 메소드를 이용해 람다식으로 객체의 순회가 가능하다
+    - Iterator iter = list.iterator();  
+      while(iter.hasNext()) {  
+      　　control문  
+      　　iter.next();  
+      } : Iterator를 이용한 반복문 순회가 가능하다
 - 제작 프로그램  
   - Java : APIQue, wrapperClass, generics, collection
 
 **- 14일차(2020-02-14)**
+- Set
+  - 저장 순서가 유지되지 않고, 중복 객체도 저장하지 못하는 자료구조
+  - 수하그로 비유하자면 집합
+  - null도 중복을 허용하지 않기 때문에 1개의 null만 저장이 가능
+  - 구현클래스 HashSet, TreeSet, LinkedSet이 존재
+  - 메소드
+    - add(T t) 메소드를 이용해 삽입. 리턴 값은 boolean으로, 삽입에 성공하면 true, 실패하면 false가 리턴된다.
+    - size() 메소드를 사용해 Set의 크기를 출력.
+    - Iterator를 사용하여 데이터를 순회하여 읽는다.(데이터 소멸 X, 데이터 복사 O)
+    - for-each를 사용하여 데이터를 순회하여 읽는다.
+    - ArrayList<> al = new ArrayList<>(Set data)를 사용하여 ArrayList로 만든 다음 순회하여 출력 가능하다.
+- Map
+  - 키(key)와 값(value)으로 구성되어 있으며 키와 값 모두 객체 타입
+  - 키는 중복 저장 불가(Set의 특성)
+  - 값은 중복 저장 가능(List의 특성)
+  - 중복된 키가 들어오는 경우 기존의 키에 해당하는 값에 덮어 쓴다.
+  - 구현 클래스는 HashMap, HashTable, LinkedHashMap, Properties, TreMap이 존재
+  - 키를 중복해서 넣으면 덮어쓰기가 되므로 이전 데이터가 사라짐.
+  - 메소드
+    - put(Key k, Value v) 메소드를 이용해 삽입한다.
+    - get(Key k) 메소드를 사용해 key에 해당하는 value를 출력하며 key가 없다면 null 리턴.
+    - map을 메소드 없이 출력(toString)하면 key=value 쌍으로 전체 테이블이 출력된다.
+    - remove(Key k) 메소드를 사용해 key에 해당하는 value가 함께 삭제 된다.
+    - containsKey(Key k) 메소드를 사용해 해당 key가 있는지 출력한다.
+    - keySet() 메소드를 사용해 key값을 뽑아내 Set으로 출력한다.
 - 제작 프로그램
-  - Java :
+  - Java : pointManager5, kakaoQueLRU
 
 ## 3. 이클립스 기능 ##
 - 단축키
