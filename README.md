@@ -597,16 +597,29 @@
   - 인덱스로 관리되며, 중복해서 객체 저장이 가능
   - 배열과 가장 유사한 형태를 띄고 있다.
   - 구현클래스 ArrayList, Vector, LinkedList가 존재
-  - ArrayList
-    - add(T) 메소드를 사용해 삽입
-    - add(int index, T) 메소드를 사용해 원하는 인덱스에 삽입
-    - get(int num) 메소드를 사용해 출력
+  - 메소드
+    - add(T t) 메소드를 사용해 삽입
+    - add(int index, T t) 메소드를 사용해 원하는 인덱스에 삽입
+    - get(int num) 메소드를 사용해 num번째를 출력
     - size() 메소드를 사용해 인덱스 값 출력
     - remove(int num) 메소드를 사용해 삭제
-    - set(int index, T) 메소드를 사용해 원하는 인덱스의 내용을 수정
+    - set(int index, T t) 메소드를 사용해 원하는 인덱스의 내용을 수정
     - clear() 메소드를 사용해 ArrayList 내용 전체 삭제  
+    - isEmpty() 메소드를 사용해 현재 리스트가 비어있는지 파악 가능
+    - for (T t : list) {  
+      　　control문  
+      }  
+      : for-each문을 이용해 코드를 단축해 for문 내에서 get 메소드를 호출할 필요 없이 알아서 원하는 객체를 순회가 가능하다
+    - list.forEach(t -> {  
+      　　control문  
+      });  
+      : ArrayList가 가지고 있는 forEach() 메소드를 이용해 람다식으로 객체의 순회가 가능하다
 - 제작 프로그램  
   - Java : APIQue, wrapperClass, generics, collection
+
+**- 14일차(2020-02-14)**
+- 제작 프로그램
+  - Java :
 
 ## 3. 이클립스 기능 ##
 - 단축키
