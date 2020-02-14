@@ -40,4 +40,10 @@ public class Student {
 		this.addr = addr;
 	}
 	
+	@Override
+	public String toString() {
+		
+		return getName() + "\t" + getAge() + "\t" + getAddr();
+	}
+	
 }
