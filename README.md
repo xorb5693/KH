@@ -649,6 +649,14 @@
     - keySet() 메소드를 사용해 key값을 뽑아내 Set으로 출력한다.
 - 제작 프로그램
   - Java : pointManager5, kakaoQueLRU
+  
+**- 15일차(2020-02-17)**
+- MVC 패턴
+  - Model : 데이터가 될 클래스
+  - View : 사용자 화면
+  - Controller : 사용자가 요청을 받고, 처리 후 다시 사용자에게 화면 전달
+- 제작 프로그램
+  - Java : ieiQue1, studentMgr, pointManager6
 
 ## 3. 이클립스 기능 ##
 - 단축키
@@ -656,6 +664,9 @@
   - F3 : 확인하고 싶은 메소드가 있다면 그곳에 커서를 클릭하고 F3키 클릭 => 다른 클래스에 존재하더라도 찾아감
   - ctrl + space : 누르면 자동 완성 기능
   - ctrl + Shift + o : 자동 import
+  - (alt + Shift + s) + C : 기본 생성자 등록
+  - (alt + Shift + s) + O : 매개변수 생성자 등록
+  - (alt + Shift + s) + R : getter, setter 등록
   
 ## 4. Java ##
 - 메소드
