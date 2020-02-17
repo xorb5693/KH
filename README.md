@@ -451,6 +451,7 @@
 		  - 기존의 clone() 메소드는 protected이기 때문에 바로 사용 불가, 생성한 클래스에서 clone() 메소드의 Override가 필요함.
 		  - 리턴 타입이 Object인 clone() 메소드는 Override한 클래스가 자식 클래스이기에 부모 클래스인 Object를 받을 수 없기에 명시적 형변환이 필요함.(down-casting)  
         ex) Test t2 = (Test)t1.clone();
+      - Cloneable 인터페이스의 구현이 필요
     - equeals()
       - 두 객체 사이의 내부 값을 비교할 때 사용
 - API(Application Programming Interface)
