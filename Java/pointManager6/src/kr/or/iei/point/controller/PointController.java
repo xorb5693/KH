@@ -43,7 +43,7 @@ public class PointController {
 	}
 
 	public void insertMember() {
-		Grade member = view.insertMember(this);
+		Grade member = view.insertMember(members.keySet());
 		if (member != null) {
 			members.put(member.getName(), member);
 			view.printMsg("회원이 등록되었습니다.");
@@ -57,7 +57,7 @@ public class PointController {
 		view.printMsg("\n----- 회원 1명 출력 -----");
 		String name = view.getName();
 		
-		if (searchName(name)) {
+		if (members.containsKey(name)) {
 			view.printOneMember(members.get(name));
 		} else {
 			view.printMsg("회원이 존재하지 않습니다.");
@@ -69,8 +69,8 @@ public class PointController {
 		view.printMsg("\n----- 회원 정보 수정 -----");
 		String name = view.getName();
 		
-		if (searchName(name)) {
-			Grade member = view.modifyMember(this, name);
+		if (members.containsKey(name)) {
+			Grade member = view.modifyMember(members.keySet(), name);
 			
 			if (member != null) {
 				if (member.getName().equals(name)) {
@@ -92,7 +92,7 @@ public class PointController {
 		view.printMsg("\n----- 회원 정보 삭제 -----");
 		String name = view.getName();
 		
-		if (searchName(name)) {
+		if (members.containsKey(name)) {
 			members.remove(name);
 			view.printMsg("회원 정보가 삭제되었습니다.");
 		} else {
@@ -100,14 +100,6 @@ public class PointController {
 		}
 	}
 
-	public boolean searchName(String name) {
-
-		if (members.containsKey(name)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 
 	public void delay() {
 		try {

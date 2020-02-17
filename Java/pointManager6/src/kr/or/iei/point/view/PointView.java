@@ -2,8 +2,8 @@ package kr.or.iei.point.view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
-import kr.or.iei.point.controller.PointController;
 import kr.or.iei.point.model.vo.Gold;
 import kr.or.iei.point.model.vo.Grade;
 import kr.or.iei.point.model.vo.Silver;
@@ -30,7 +30,7 @@ public class PointView {
 		return select;
 	}
 
-	public Grade insertMember(PointController pointCon) {
+	public Grade insertMember(Set<String> names) {
 
 		String grade, name;
 		int point;
@@ -52,7 +52,7 @@ public class PointView {
 			System.out.print("이름을 입력하세요 : ");
 			name = sc.next();
 
-			if (pointCon.searchName(name)) {
+			if (names.contains(name)) {
 				System.out.println("중복된 이름입니다. 다시 입력하세요.");
 			} else {
 				break;
@@ -103,7 +103,7 @@ public class PointView {
 		System.out.println("보너스 포인트 : " + member.getBonus());
 	}
 	
-	public Grade modifyMember(PointController pointCon, String name) {
+	public Grade modifyMember(Set<String> names, String name) {
 		
 		String nGrade, nName;
 		int nPoint;
@@ -125,7 +125,7 @@ public class PointView {
 			System.out.print("이름을 입력하세요 : ");
 			nName = sc.next();
 
-			if (pointCon.searchName(nName) && !nName.equals(name)) {
+			if (names.contains(nName) && !nName.equals(name)) {
 				System.out.println("중복된 이름입니다. 다시 입력하세요.");
 			} else {
 				break;
