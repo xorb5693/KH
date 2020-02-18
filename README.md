@@ -712,6 +712,41 @@
     　　Exception 처리     
     }
     - file.close와 같이 기존의 try~catch문에서는 자료의 반환이 필요한데 try with resource를 사용하면 자료의 반환이 필요 없이 자동으로 처리를 해준다.
+- 입출력(IO)
+  - Input과 Output의 약자로, 컴퓨터 내부 또는 외부 장치와 프로그램 간의 데이터를 주고 받는 것
+    - 입출력은 프로그램을 기준으로 한다.
+    - 프로그램을 기준으로 데이터가 들어오면 Input, 데이터가 나가면 Output이다.
+  - 스트림(stream)
+    - 데이터를 입출력하기 위한 통로
+    - 외부 자원과 입출력을 하기 위해서는 시스템으로부터 스트림을 얻어와 사용하고 난 다음 반드시 시스템에 반환
+    - java.io 패키지의 클래스들로 지원함
+    - 스트림은 단방향임 -> 입력과 출력이 동시에 일어나야 하는 경우 입력용 스트림과 출력용 스트림 2개가 필요함
+  - 입출력 절차
+    1. 외부 자원과 스트림 연결
+      - 외부 자원과의 데이터 이동 통로를 생성
+      - 스트림 클래스에 대한 객체를 생성
+    2. 데이터를 읽고 쓰기
+      - 레퍼런스.읽기 메소드(); 또는 레퍼런스.쓰기 메소드(); 호출
+    3. 데이터를 읽고 쓰기가 끝나면 OS에 스트림 반납
+  - 스트림의 분류
+    1. 전송 방향에 따른 분류
+      - 입력 스트림 : 디바이스로부터 데이터를 읽어오는 스트림 -> InputStream, Reader
+      - 출력 스트림 : 디바이스로 데이터를 출력하는 스트림 -> OutputStream, Writer
+    2. 전송 단위에 따른 분류
+      - 바이트 스트림 : 1byte 단위로 입력/출력하는 스트림 -> InputStream, OutputStream
+      - 문자 스트림 : 한문자(2byte) 단위로 입력/출력하는 스트림 -> Reader, Writer
+    3. 보조 스트림
+  - 바이트 스트림
+    - 바이트 단위로 데이터를 전송
+    - 바이트 단위로 구성된 파일(동영상, 이미지, 음악 등)을 전송할 때 사용
+  - FileOutputStream
+    - 사용법 : FileOutputStream fos = new FileOutputStream(String filename)
+    - write(byte[] bytes) 메소드를 사용하여 데이터를 전송하며, 데이터를 전송할 때 byte가 매개변수로 입력되므로 문자열을 getBytes() 메소드를 사용해 byte 배열로 만들어 전송한다.
+    - \r\n : 윈도우에서 개행을 하기 위해서는 해당 문자열을 입력해야 함(str = sc.readLine() + "\r\n")
+  - DataOutputStream
+    - 보조 스트림으로 홀로 사용은 불가능하다.
+    - 사용법 : DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filenmae))
+    - 데이터를 전송할 때 개행 처리가 필요 없고, write() 메소드가 아닌 writeChars(String str)를 사용하여 byte 배열로 변환이 필요 없다.
 
 ## 3. 이클립스 기능 ##
 - 단축키
