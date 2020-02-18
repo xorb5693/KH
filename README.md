@@ -739,14 +739,34 @@
   - 바이트 스트림
     - 바이트 단위로 데이터를 전송
     - 바이트 단위로 구성된 파일(동영상, 이미지, 음악 등)을 전송할 때 사용
-  - FileOutputStream
-    - 사용법 : FileOutputStream fos = new FileOutputStream(String filename)
-    - write(byte[] bytes) 메소드를 사용하여 데이터를 전송하며, 데이터를 전송할 때 byte가 매개변수로 입력되므로 문자열을 getBytes() 메소드를 사용해 byte 배열로 만들어 전송한다.
-    - \r\n : 윈도우에서 개행을 하기 위해서는 해당 문자열을 입력해야 함(str = sc.readLine() + "\r\n")
-  - DataOutputStream
-    - 보조 스트림으로 홀로 사용은 불가능하다.
-    - 사용법 : DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filenmae))
-    - 데이터를 전송할 때 개행 처리가 필요 없고, write() 메소드가 아닌 writeChars(String str)를 사용하여 byte 배열로 변환이 필요 없다.
+    - FileOutputStream
+      - 사용법 : FileOutputStream fos = new FileOutputStream(String filename)
+      - write(byte[] bytes) 메소드를 사용하여 데이터를 전송하며, 데이터를 전송할 때 byte가 매개변수로 입력되므로 문자열을 getBytes() 메소드를 사용해 byte 배열로 만들어 전송한다.
+      - \r\n : 윈도우에서 개행을 하기 위해서는 해당 문자열을 입력해야 함(str = sc.readLine() + "\r\n")
+    - DataOutputStream
+      - 보조 스트림으로 홀로 사용은 불가능하다.
+      - 사용법 : DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filenmae))
+      - 데이터를 전송할 때 개행 처리가 필요 없고, write() 메소드가 아닌 writeChars(String str)를 사용하여 byte 배열로 변환이 필요 없다.
+  - 문자 스트림
+    - FileWriter
+      - 사용법 : FileWriter fw = new FileWriter(String filename)
+      - FileOutputStream과 동일하게 사용 가능하다. 단, FileWrite는 문자 스트림이므로 byte 배열로의 변환이 필요 없다.
+    - BufferedWriter
+      - 사용법 : BufferedWriter bw = new BufferedWriter(new FileWriter(String filename))
+      - FileWriter와 마찬가지로 write 메소드를 사용해 출력을 한다.
+      - bw.newLine() 메소드를 통해 개행이 가능하다.
+    - BufferedReader
+      - 사용법 : BufferedReader br = new BufferedReader(new FileReader(String filename))
+      - readLine() 메소드를 사용해 파일에서 1줄씩 읽어온다.
+      - readLine()을 할 때 더 이상 읽어올 문자열이 없으면 null을 리턴한다.
+- File Class
+  - 사용법 : File file = new File(String filename)
+  - 메소드
+    - file.exists() : 해당 파일의 존재 여부 확인
+    - file.getName() : 파일의 이름 확인
+    - file.length() : 파일의 크기 확인(byte)
+    - file.getPath() : 파일의 상대 경로 확인(프로젝트 폴더 기준으로 보여준다)
+    - file.getAbsolutePath() : 파일의 절대 경로 확인(윈도우 시스템 기준으로 보여준다)
 
 ## 3. 이클립스 기능 ##
 - 단축키
@@ -770,3 +790,5 @@
   - java.lang 밑에 있는 클래스는 import를 하지 않아도 자동으로 import가 됨
 - System.err
   - System.err은 자동으로 멀티 스레드를 만들기에 출력을 할 경우 순서가 바뀌는 경우가 있다.
+- Integer.parseInt(String str, int num)
+  - num에 따라 각 진수별로 변환이 가능하다. num에 16을 입력하면 16진수로 변환
