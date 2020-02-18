@@ -658,6 +658,61 @@
 - 제작 프로그램
   - Java : ieiQue1, studentMgr, pointManager6
 
+**- 16일차(2020-02-18)**
+- Exception(예외)
+  - 프로그래밍 에러의 종류
+    - 컴파일 에러(compile-time error) : 소스상의 문법 에러
+    - 런타임 에러(runtime error) : 입력값이 틀렸거나 배열의 인덱스 범위를 벗어났거나, 계산식의 오류 등으로 인해 발생하는 에러
+    - 논리 에러(logical error) : 문법상 문제가 없고, 런타임 에러도 발생하지 않지만, 개발자의 의도대로 작동하지 않는 경우
+    - 시스템 에러(system error) : 컴퓨터의 오작동으로 인한 에러 -> 소스코드로 해결이 불가능
+  - 예외라는 뜻을 가지고 있으며, 예외는 예기치 못한 상황
+  - 프로그래밍을 하다 보면 수 많은 오류상황을 직면
+  - 자바에서 예외(Exception)란 프록그램을 만든 가발자가 예상한 정상적인 처리에서 벗어나는 경우에 이를 처리하기 위한 방법
+  - 예측 가능한 에러를 처리하는 것
+  - 모든 예외는 Exception 클래스의 하위 클래스
+  - 예외 처리의 목적
+    - 프로그램의 비정상적인 종료를 막고, 정상적인 실행상태를 유지하기 위함
+    - 어떻게 -> 예외 상황이 발생된 경우 어떻게 처리할지에 대한 로직을 구현
+  - Exception 처리 구문
+    - try ~ catch 구문  
+      try {  
+      　　에러가 발생할 가능성이 있는 소스 코드 작성  
+      } catch(Exception e) {  
+      　　try 블록의 소스코드를 실행하다 에러가 발생하면 즉시 중단하고 catch 구문이 실행  
+      } finally {  
+      　　정상 실행이 되던지, 예외가 발생하던지 무조건 실행해야 하는 코드  
+      }  
+      ※ 일반적으로 코드에서 사용한 자원을 반납하는 코드를 finally에 작성
+  - 예외의 종류
+    - Checked Exception : 컴파일 에러에 속하며 예외 처리를 강제화 해야 하며, 처리하지 않는 경우 Eclipse로 컴파일 시 에러가 발생
+    - Unchecked Exception : 개발자가 소스 코드에서 처리하지 않아도 컴파일에 아무 문제가 없음
+  - RuntimeException 클래스
+    - RuntimeException은 Unchecked Exception임
+    - 주로 개발자의 부주의로 생기는 오류
+    - Exception의 예
+      1. ArithmeticException : 숫자를 0으로 나눌 때 생기는 오류
+      2. ArrayIndexOutOfBoundsException : 배열 크기 오류(5개의 크기로 선언된 배열 num이 num[-1]이나 num[5]와 같이 범위를 넘어선 경우)
+      3. NullPointerException : Null인 레퍼런스의 변수나 메소드 참조 시도시 발생
+      4. NegativeArraySizeException : 배열의 크기를 음수 또는 0으로 지정하는 경우 발생
+      5. ClasscastException : cast 연산자 사용시 타입 오류일 때 발생(up-casting, down-casting)
+      6. InputMismatchException : 정수를 입력해야 하는데 문자가 입력된 경우
+  - 예외의 처리
+    1. try~catch문을 사용하여 발생한 곳에서 직접 처리
+    2. throws를 사용하여 예외를 던질 수 있음
+      - 예외가 발생한 곳에서 직접 처리하는 것이 아니라 해당 메소드를 호출한 곳에 예외를 떠넘김
+  - 사용자 정의 예외
+    - 표준 예외 클래스로 많은 예외상황을 표현할 수 있으나 그렇지 않은 경우도 발생 가능하며 그 경구 사용자 정의 예외를 만들어서 사용이 가능
+    - Checked Exception은 Exception 클래스를 상속하여 작성
+    - Unchecked Exception은 RuntimeException 클래스를 상속하여 작성
+  - try with resource
+    - Java SE 7부터 추가된 기능  
+    try (FileInputStream fis = new FileInputStream("test.txt")) {
+    　　코드  
+    } catch (Exception) {  
+    　　Exception 처리     
+    }
+    - file.close와 같이 기존의 try~catch문에서는 자료의 반환이 필요한데 try with resource를 사용하면 자료의 반환이 필요 없이 자동으로 처리를 해준다.
+
 ## 3. 이클립스 기능 ##
 - 단축키
   - ctrl + shift + F : 자동 줄맞춤
@@ -667,6 +722,7 @@
   - (alt + Shift + s) + C : 기본 생성자 등록
   - (alt + Shift + s) + O : 매개변수 생성자 등록
   - (alt + Shift + s) + R : getter, setter 등록
+  - F2 : 에러난 곳에서 커서를 올린 후 F2 => 에러 메시지 선택 가능
   
 ## 4. Java ##
 - 메소드
@@ -677,3 +733,5 @@
   - '=='의 경우 다른 클래스는 문제 없지만 String만은 특이한 경우이기에 ""로 입력을 한 경우 같다고 출력이 된다.
 - java.lang
   - java.lang 밑에 있는 클래스는 import를 하지 않아도 자동으로 import가 됨
+- System.err
+  - System.err은 자동으로 멀티 스레드를 만들기에 출력을 할 경우 순서가 바뀌는 경우가 있다.
