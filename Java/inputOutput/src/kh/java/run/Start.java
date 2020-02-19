@@ -1,5 +1,6 @@
 package kh.java.run;
 
+import kh.java.serial.SerialTest;
 import kh.java.test.ByteStreamTest;
 import kh.java.test.CharStreamTest;
 import kh.java.test.FileTest;
@@ -17,6 +18,8 @@ public class Start {
 //		new CharStreamTest().reader();
 //		new ImageStream().test();
 //		new FileTest().fileTest();
-		new ImageStream2().imageTest();
+//		new ImageStream2().imageTest();
+//		new SerialTest().main();
+		new SerialTest().readObject();
 	}
 }
