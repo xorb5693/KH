@@ -747,8 +747,19 @@
       - \r\n : 윈도우에서 개행을 하기 위해서는 해당 문자열을 입력해야 함(str = sc.readLine() + "\r\n")
     - DataOutputStream
       - 보조 스트림으로 홀로 사용은 불가능하다.
-      - 사용법 : DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filenmae))
+      - 사용법 : DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filename))
       - 데이터를 전송할 때 개행 처리가 필요 없고, write() 메소드가 아닌 writeChars(String str)를 사용하여 byte 배열로 변환이 필요 없다.
+    - ObjectOutputStream
+      - 객체를 출력하기 위한 보조 스트림
+      - 사용법 : ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(String filename))
+      - writeObejct(Object ojt) 메소드를 통해 객체를 파일로 출력할 수 있다.
+      - 17일차에 배우는 직렬화와 함께 사용한다
+    - ObjectInputStream
+      - 외부로 출력한 객체를 읽어오기 위한 보조 스트림
+      - 사용법 : ObjectInputStream ois = new ObjectInputStream(new FileInputStream(String filename))
+      - readObject() 메소드를 통해 객체를 읽어올 수 있으며 리턴하는 타입이 Object 클래스이므로 down-casting이 필요하다.  
+        ex) User user = (User)ois.readObject();
+      - 17일차에 배우는 직렬화와 함께 사용한다
   - 문자 스트림
     - FileWriter
       - 사용법 : FileWriter fw = new FileWriter(String filename)
@@ -771,6 +782,26 @@
     - file.getAbsolutePath() : 파일의 절대 경로 확인(윈도우 시스템 기준으로 보여준다)
 - 제작 프로그램
   - Java : exceptionPjt, inputOutput, inputOutputQue
+
+**- 17일차(2020-02-19)**
+- 직렬화
+  - 객체를 스트림으로 전송하기 위해서 진행해야 하는 작업
+  - 객체는 큰 덩어리이므로 바이트단위로 잘라주어야 함
+  - java.io.Serializable을 implements하여 구현
+  - serialVersionUID
+    - 직렬화시에 사용되는 객체의 고유번호
+    - 명시하지 않아도 Serializable 인터페이스를 implements하면 JVM이 임의의 번호를 붙여 생성하지만 직접 생성하는 것을 권장  
+      ex) private static final long serialVersionUID = 11111111111L;
+  - transient
+    - 객체 직렬화 시 제외할 필드 앞에 붙여 해당 필드의 직렬화를 예외하는 키워드  
+      ex) private transient String pw; -> 해당 변수를 직렬화에서 예외로 처리하게 한다.
+  - 역직렬화
+    - 직렬화의 반대 과정으로 
+  - 외부로 객체를 직렬화할 때 객체 내부에 Serializable을 구현하지 않은 객체가 있다면 에러가 나온다.
+  - 이를 해결하는 방법은 해당 클래스도 Serializable을 구현하거나 transient로 직렬화 제외를 시키면 된다.
+  - ArrayList는 직렬화가 자동으로 구현되어 있기에 여러명의 회원을 직렬화를 해야 하는 경우 ArrayList에 저장을 하고 한 번에 직렬화를 하면 된다.
+- 제작 프로그램
+  - Java : inputOutput 업데이트
 
 ## 3. 이클립스 기능 ##
 - 단축키
