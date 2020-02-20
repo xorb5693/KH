@@ -11,16 +11,20 @@ public class Client {
 
 	public void main() {
 
-		String serverIP = "192.168.10.12";
 		int portNumber = 60000;
 		Scanner sc = new Scanner(System.in);
-
+		
+		System.out.print("서버 아이피 입력 : ");
+		//"192.168.10.12"
+		String serverIP = sc.next();
+		
 		try {
 			Socket socket = new Socket(serverIP, portNumber);
 
 			DataInputStream dis = new DataInputStream(socket.getInputStream());
 			DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
+			sc.nextLine();
 			while (true) {
 				String serverMsg = dis.readUTF();
 				System.out.println("server > " + serverMsg);
