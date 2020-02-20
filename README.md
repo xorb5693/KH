@@ -748,7 +748,12 @@
     - DataOutputStream
       - 보조 스트림으로 홀로 사용은 불가능하다.
       - 사용법 : DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filename))
+      - 사용법 : DataOutputStream dos = new DataOutputStream(OutputStream os)
       - 데이터를 전송할 때 개행 처리가 필요 없고, write() 메소드가 아닌 writeChars(String str)를 사용하여 byte 배열로 변환이 필요 없다.
+      - writeUTF(Sring str) 메소드를 사용하면 byte 배열로 변환이 필요 없이 한글의 깨짐을 방지한 채 데이터를 보낼 수 있다.
+    - DataInputStream
+      - 사용법 : DataInputStream dis = new DataInputStream(InputStream is)
+      - readUTF(String str) 메소드를 사용하여 byte 배열로 변환이 필요 없이 한글의 깨짐을 방지한 채 데이터를 보낼 수 있다.
     - ObjectOutputStream
       - 객체를 출력하기 위한 보조 스트림
       - 사용법 : ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(String filename))
@@ -801,7 +806,49 @@
   - 이를 해결하는 방법은 해당 클래스도 Serializable을 구현하거나 transient로 직렬화 제외를 시키면 된다.
   - ArrayList는 직렬화가 자동으로 구현되어 있기에 여러명의 회원을 직렬화를 해야 하는 경우 ArrayList에 저장을 하고 한 번에 직렬화를 하면 된다.
 - 제작 프로그램
-  - Java : inputOutput 업데이트
+  - Java : inputOutput 업데이트, questionGame
+
+**- 18일차(2020-02-20)**
+- 네트워크
+	- net + work
+	- 네트워크의 목적
+		- 여러개의 통신기기(컴퓨터, 핸드폰)들을 연결하여 데이터를 손쉽게 주고 받기 위함
+		- java.net.패키지의 클래스들로 지원
+	- 서버(Server) : 서비스를 제공하는 컴퓨터
+	- 클라이언트(Client) : 서비스를 제공받는 컴퓨터
+  - IP 주소 : 네트워크 상에서 통신기기를 구별하기 위한 고유 주소  
+    ex) 192.168.10.96 - IP 크기는 42억여개에 불과하기에 NAT 기술을 이용하여 동일한 IP를 여러개로 나눠 사용한다.
+  - Port 번호 : 서비스 구분번호
+    - 잘 알려진 포트 번호(well-known Port Number)의 경우 생략 가능  
+      => 0~1000은 well-known Port Number이므로 사용하지 않는다.
+  - ServerScoket
+    - 서버에서 클라이언트의 요청을 하면 그 요청을 받을 때 까지 기다리는 클래스
+    - 사용법 : ServerSocket server = new ServerScoket(int portNumber)
+    - 메소드
+      - Socket client = server.accept() 메소드를 통해 클라이언트의 연결을 기다리고 연결이 오면 Socket 객체로 반환을 한다.
+    - 서버의 연결 순서  
+			1. 서버의 소켓 객체 생성  
+        - Socket client = server.accept()  
+			2. 클라이언트의 접속 요청을 기다림  
+		  3. 요청이 오면 수락  
+			4. 클라이언트 정보를 저장  
+        - Socket client = server.accept()  
+      5. 클라이언트 정보를 통해서 OutputStream 생성  
+			  - DataOutputStream dos = new DataOutputStream(client.getOutputStream());
+			6. 클라이언트 정보를 통해서 InputStream 생성
+        - DataInputStream dis = new DataInputStream(client.getInputStream());
+      7. 모든 데이터를 주고 받으면 InputStream과 OutputStream, 그리고 클라이언트와 연결된 Scoket을 close()시켜준다.
+  - Socket
+    - 클라이언트에서 서버에 요청을 하거나, 서버에서 클라이언트의 요청을 받았을 때 사용하는 클래스
+    - 사용법 : Socket socket = new Socket(String IPAddress, int portNumber)
+    - 메소드
+      - OutputStream out = client.getOutputStream() 메소드를 통해 데이터를 내보낼 수 있는 OutputStream을 생성 가능하다.
+      - InputStream in = client.getInputStream() 메소드를 통해 데이터를 읽을 수 있는 InputStream을 생성 가능하다.
+  - cmd 창에서 netstat -nao | findstr :PortNumber 명령어를 통해 해당 포트 번호가 사용중인지 확인 가능
+  - 127.0.0.1
+    - 자기 자신의 IP
+- 제작 프로그램
+  - Java : questionGame 업데이트, networkPjtServer, networkPjtClient, baseballGameServer, baseballGameClient
 
 ## 3. 이클립스 기능 ##
 - 단축키
