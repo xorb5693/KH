@@ -277,6 +277,16 @@
 - 17일차(2020-02-19)
   - inputOutput : 16일차 프로그램 기능 추가
     1. 직렬화 기능 테스트
+- 18일차(2020-02-20)
+  - networkPjtServer : 서버 소켓 테스트
+    1. 서버 채팅 기능
+  - networkPjtClient : 클라이언트 테스트
+    2. 클라이언트 채팅 키능
+  - baseballGameServer : 서버 소켓 실습 프로그램
+    1. 베이스볼 게임 서버
+    2. MultiThread를 이용하여 제작
+  - baseballGameClient : 소켓 실습 프로그램
+    1. 베이스볼 게임 클라이언트
 
 **3. 팀 프로젝트**
 - myCoffee : 커피 가게 관리 프로그램
