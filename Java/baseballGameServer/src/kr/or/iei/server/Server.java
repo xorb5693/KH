@@ -18,7 +18,6 @@ public class Server {
 	public void main() {
 
 		int count = 0;
-
 		//3개의 0~9 사이의 숫자를 뽑기 위한 반복문
 		//반복문은 count가 3이 될 때 까지 반복한다.
 		while (count < 3) {

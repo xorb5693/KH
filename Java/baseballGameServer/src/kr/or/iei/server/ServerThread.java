@@ -55,7 +55,6 @@ public class ServerThread extends Thread {
 				//실질적인 ball의 값은 strike를 뺀 값이다.
 				//이유는 ball을 연산하기 위한 contains 메소드는 같은 위치인 경우라도 true를 리턴하기에 strike인 경우에도 ball을 추가하기 때문이다. 
 				ball -= strike;
-
 				System.out.println(strike + " 스트라이크 " + ball + " 볼");
 
 				//클라이언트를 통해 strike와 ball을 전송한다.
