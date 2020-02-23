@@ -834,16 +834,16 @@
     - 메소드
       - Socket client = server.accept() 메소드를 통해 클라이언트의 연결을 기다리고 연결이 오면 Socket 객체로 반환을 한다.
     - 서버의 연결 순서  
-			1. 서버의 소켓 객체 생성  
-        - Socket client = server.accept()  
-			2. 클라이언트의 접속 요청을 기다림  
-		  3. 요청이 오면 수락  
-			4. 클라이언트 정보를 저장  
-        - Socket client = server.accept()  
-      5. 클라이언트 정보를 통해서 OutputStream 생성  
-			  - DataOutputStream dos = new DataOutputStream(client.getOutputStream());
-			6. 클라이언트 정보를 통해서 InputStream 생성
-        - DataInputStream dis = new DataInputStream(client.getInputStream());
+      1. 서버의 소켓 객체 생성
+          - Socket client = server.accept()
+      2. 클라이언트의 접속 요청을 기다림
+		  3. 요청이 오면 수락
+			4. 클라이언트 정보를 저장 
+          - Socket client = server.accept()
+      5. 클라이언트 정보를 통해서 OutputStream 생성
+          - DataOutputStream dos = new DataOutputStream(client.getOutputStream());
+      6. 클라이언트 정보를 통해서 InputStream 생성
+          - DataInputStream dis = new DataInputStream(client.getInputStream());
       7. 모든 데이터를 주고 받으면 InputStream과 OutputStream, 그리고 클라이언트와 연결된 Scoket을 close()시켜준다.
   - Socket
     - 클라이언트에서 서버에 요청을 하거나, 서버에서 클라이언트의 요청을 받았을 때 사용하는 클래스
