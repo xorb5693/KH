@@ -325,7 +325,7 @@
       ex) Control Class
 - 데이터의 CRUD
   - Create
-  - Rade
+  - Read
   - Update
   - Delete
   - 데이터의 생성, 읽기, 갱신, 삭제
