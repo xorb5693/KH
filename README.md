@@ -1042,6 +1042,71 @@
   ```
   SELECT DISTINCT 컬럼명[, 컬럼명, ...] FROM 테이블명 WHERE 조건식;
   ```
+  - 연산자 - 연결 연산자
+    - 연결 연산자인 '||'를 사용하여 여러 컬럼을 하나의 컬럼처럼 
+  - 연산자 - 논리 연산자
+    - 여러 개의 제한 조건 결과를 하나의 논리 결과로 만들어준다.
+    - 종류
+      1. AND : 여러 조건이 동시에 TRUE일 경우 TRUE
+      2. OR : 여러 조건들 중 하나라도 TRUE일 경우 TRUE
+      3. NOT : 조건에 대한 반대로 반환(NULL은 예외)
+  - 연산자 - 비교 연산자
+    - 표현식 사이의 관계를 비교하기 위해 사용하고, 비교 결과는 논리 결과(TRUE, FALSE, NULL)를 리턴한다.
+    - 종류
+      1. = : 같다
+      2. <, > : 크다, 작다
+      3. =<, >= : 크거나 같다, 작거나 같다
+      4. <>, != ^= : 다르다
+      5. BETWEEN AND : 비교하려는 값이 지정한 범위(경계 포함 -> 이상/이하)에 포함되면 TRUE 리턴
+      6. LIKE : 비교하려는 값이 특정 패턴을 만족시키면 TRUE를 리턴하는 연산자 '%'와 '_'를 와일드카드로 사용할 수 있다.
+        - %는 글자 길이에 제한이 없고(다른 글자와 동일한 들어가면 무조건 TRUE), _는 제한이 있다.('_'의 칸 수만큼만 임의의 글자가 들어갈 수 있다.)
+        - 입력받은 _ 혹은 %가 실제 문자인지 와일드카드인지 알아보기 위해 ESCAPE 기능을 사용한다.
+        ```
+        SELECT EMP_NAME, EMAIL FROM EMPLOYEE
+        WHERE EMAIL LIKE'___#_%' ESCAPE '#';
+        ```
+        - ESCAPE 문자는 다른 것이 들어와도 상관 없다.
+      7. NOT LIKE : 해당 문자가 들어가지 않는 경우에만 TRUE를 리턴한다.
+      8. IS NULL/IS NOT NULL : NULL 여부를 비교하는 연산자
+      9. IN, NOT IN : 비교하려는 값 목록에 일치하는 값이 있으면 TRUE를 반환하는 연산자
+      ```
+      SELECT EMP_NAME, DEPT_CODE FROM EMPLOYEE
+      WHERE DEPT_CODE IN ('D6', 'D9', 'D1');
+      ```
+      
+      | 우선순위 | 연산자 |  
+      | :-----: | :-----: |
+      | 1 | 산술 연산자 |
+      | 2 | 연결 연산자 |
+      | 3 | 비교 연산자 |
+      | 4 | IS NULL/IS NOT NULL, LIKE/NOT LIKE, IN/NOT IN |
+      | 5 | BETWEEN AND |
+      | 6 | 논리 연산자 - NOT |
+      | 7 | 논리 연산자 - AND |
+      | 8 | 논리 연산자 - OR |
+      
+  - 정렬
+    - ORDER BY
+    - SELECT한 컬럼에 대해 정렬할 때 사용
+    - SELECT문 가장 마지막에 작성하며, 실행 순서도 가장 마지막
+    - 정렬 방법 : 기본적으로 오름차순이다.
+      - ASC : 오름차순
+        1. NUMBER : 작은수 -> 큰수
+        2. CHARCATER : 사전순
+        3. DATE : 빠른날 -> 늦은날
+        4. NULL이 가장 아래로
+      - DESC : 내림차순
+        1. NUMBER : 큰수 -> 작은수
+        2. CHARACTER : 사전역순
+        3. DATE : 늦은날 -> 빠른날
+        4. NULL이 가장 위로
+      - 숫자로 입력할 경우 해당번째 컬럼을 기준으로 정렬한다.
+      ```
+      SELECT EMP_NAME, EMAIL, DEPT_CODE, SALARY 급여, SALARY * 12 연봉
+      FROM EMPLOYEE ORDER BY 1;
+      ```
+- 제작 프로그램
+  - DB : kh.sql, admin.sql
 
 ## 3. 이클립스 기능
 - 단축키
