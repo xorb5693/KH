@@ -265,10 +265,12 @@
   - 수학의 함수와 비슷하며 호출을 통해 사용
   - 타언어에서 함수와 동일한 기능
   - 메소드 호출 시 전달 값이 있거나 없을 수 있으며, 호출하게 되면 내부에 작성된 연산을 수행하게 되며, 연산 후 결과값은 있거나 없을 수 있다.
-  - 메소드의 형태  
+  - 메소드의 형태
+    ```
     [접근제어 지시자] 반환형 메소드명 (매개변수) {  
     　　실행코드;  
     }  
+    ```
     ex) public void exam() {}
   - 접근제어 지시자  
   
@@ -575,21 +577,25 @@
     - 메소드
       - Integer.parsInt(str) : 문자열을 숫자로 변환해 줘서 리턴함
   - Boxing : Wrapper 클래스에 기본 자료형을 넣는 것  
-    ex)  
-    Integer num = new Integer(10);  
-    Double dd = new Double(3.14);  
+    ```  
+    Integer num = new Integer(10);
+    Double dd = new Double(3.14);
+    ```
   - UnBoxing : Wrapper 클래스에 있는 기본 자료형을 꺼내는 것  
-    ex)  
-    int n = num.intValue();  
-    double d = dd.doubleValue();    
+    ```  
+    int n = num.intValue();
+    double d = dd.doubleValue();
+    ```
   - Auto Boxing : Boxing을 생성자를 이용하지 않고 바로 사용 가능  
-    ex)  
-    Integer num = 10;  
+    ```
+    Integer num = 10;
     Double dd = 3.14;
+    ```
   - Auto UnBoxing : UnBoxing을 value 메소드를 사용하지 않고 바로 가져오는 것  
-    ex)  
-    int n = num;  
+    ```  
+    int n = num;
     double d = dd;
+    ```
   - Wrapper Class를 이용한 문자열 처리
     - Wrapper 클래스를 이용하면 문자열 -> 기본 자료형, 기본 자료형 -> 문자열의 변환이 쉬움  
       1. Wrapper.parseInt(str), parseDouble(str) 등 : 문자열을 각 타입의 기본 자료형으로 변환, char 제외(charAt 메소드 사용)
@@ -632,17 +638,26 @@
     - set(int index, T t) 메소드를 사용해 원하는 인덱스의 내용을 수정
     - clear() 메소드를 사용해 ArrayList 내용 전체 삭제  
     - isEmpty() 메소드를 사용해 현재 리스트가 비어있는지 파악 가능
-    - for (T t : list) {  
+    - for-each문을 이용해 코드를 단축해 for문 내에서 get 메소드를 호출할 필요 없이 알아서 원하는 객체를 순회가 가능하다
+      ```
+      for (T t : list) {  
       　　control문  
-      } : for-each문을 이용해 코드를 단축해 for문 내에서 get 메소드를 호출할 필요 없이 알아서 원하는 객체를 순회가 가능하다
-    - list.forEach(t -> {  
+      }
+      ```
+    - ArrayList가 가지고 있는 forEach() 메소드를 이용해 람다식으로 객체의 순회가 가능하다
+      ```
+      list.forEach(t -> {  
       　　control문  
-      }); : ArrayList가 가지고 있는 forEach() 메소드를 이용해 람다식으로 객체의 순회가 가능하다
-    - Iterator iter = list.iterator();  
+      });
+      ```
+    - Iterator를 이용한 반복문 순회가 가능하다
+      ```
+      Iterator iter = list.iterator();  
       while(iter.hasNext()) {  
       　　control문  
       　　iter.next();  
-      } : Iterator를 이용한 반복문 순회가 가능하다
+      }
+      ```
 - 제작 프로그램  
   - Java : APIQue, wrapperClass, generics, collection
 
@@ -699,15 +714,17 @@
     - 프로그램의 비정상적인 종료를 막고, 정상적인 실행상태를 유지하기 위함
     - 어떻게 -> 예외 상황이 발생된 경우 어떻게 처리할지에 대한 로직을 구현
   - Exception 처리 구문
-    - try ~ catch 구문  
+    - try ~ catch 구문 
+      ```
       try {  
       　　에러가 발생할 가능성이 있는 소스 코드 작성  
       } catch(Exception e) {  
       　　try 블록의 소스코드를 실행하다 에러가 발생하면 즉시 중단하고 catch 구문이 실행  
       } finally {  
       　　정상 실행이 되던지, 예외가 발생하던지 무조건 실행해야 하는 코드  
-      }  
+      }
       ※ 일반적으로 코드에서 사용한 자원을 반납하는 코드를 finally에 작성
+      ```
   - 예외의 종류
     - Checked Exception : 컴파일 에러에 속하며 예외 처리를 강제화 해야 하며, 처리하지 않는 경우 Eclipse로 컴파일 시 에러가 발생
     - Unchecked Exception : 개발자가 소스 코드에서 처리하지 않아도 컴파일에 아무 문제가 없음
@@ -731,11 +748,13 @@
     - Unchecked Exception은 RuntimeException 클래스를 상속하여 작성
   - try with resource
     - Java SE 7부터 추가된 기능  
+    ```
     try (FileInputStream fis = new FileInputStream("test.txt")) {
     　　코드  
     } catch (Exception) {  
     　　Exception 처리     
     }
+    ```
     - file.close와 같이 기존의 try~catch문에서는 자료의 반환이 필요한데 try with resource를 사용하면 자료의 반환이 필요 없이 자동으로 처리를 해준다.
 - 입출력(IO)
   - Input과 Output의 약자로, 컴퓨터 내부 또는 외부 장치와 프로그램 간의 데이터를 주고 받는 것
@@ -854,15 +873,23 @@
       - Socket client = server.accept() 메소드를 통해 클라이언트의 연결을 기다리고 연결이 오면 Socket 객체로 반환을 한다.
     - 서버의 연결 순서  
       1. 서버의 소켓 객체 생성
-          - Socket client = server.accept()
+      ```
+      - Socket client = server.accept()
+      ```
       2. 클라이언트의 접속 요청을 기다림
 		  3. 요청이 오면 수락
 			4. 클라이언트 정보를 저장 
-          - Socket client = server.accept()
+      ```
+      - Socket client = server.accept()
+      ```
       5. 클라이언트 정보를 통해서 OutputStream 생성
-          - DataOutputStream dos = new DataOutputStream(client.getOutputStream());
+      ```
+      - DataOutputStream dos = new DataOutputStream(client.getOutputStream());
+      ```
       6. 클라이언트 정보를 통해서 InputStream 생성
-          - DataInputStream dis = new DataInputStream(client.getInputStream());
+      ```
+      - DataInputStream dis = new DataInputStream(client.getInputStream());
+      ```
       7. 모든 데이터를 주고 받으면 InputStream과 OutputStream, 그리고 클라이언트와 연결된 Scoket을 close()시켜준다.
   - Socket
     - 클라이언트에서 서버에 요청을 하거나, 서버에서 클라이언트의 요청을 받았을 때 사용하는 클래스
@@ -952,6 +979,69 @@
   - CMD창에서 sqlplus, 아이디 : system, 비밀번호 입력
   - Oracle SQL Devloper
     - 사용자 이름 : sys as sysdba
+- Table
+  - 데이터를 담고 있는 객체
+  - 테이블은 기본적으로 행과 열을 이용하여 데이터를 표현
+  - Table 용어
+    1. Realtion : 테이블의 이름을 Realtion이라고 부름.
+    2. Column(Attribute, Domain) : 특정한 단순 자료형과 데이터의 열
+    3. Row : 테이블에서 한 객체의 대한 전체 정보를 표현한 행(가로)
+    4. Field : 어떠한 단일 값 자체를 의미
+  - 데이터 타입
+    - 숫자
+      1. NUMBER([P, S])  
+        - 표현할 수 있는 전체 숫자 자리 수(1 ~ 38)
+        - 소수점 이하 자리 수(-84 ~ 127)  
+        ex) 1234.678 => NUMBER(7, 3) : 1234.678, NUMBER(7) : 1234, NUMBER : 1234.678, NUMBER(7, 1) : 1234.7, NUMBER(4, -2) : 1200
+    - 문자
+      1. CHAR(SIZE) : 고정 길이 문자(최대 2000byte) - 데이터의 공백을 빈 칸으로 채워 넣는다. but, 데이터 처리 속도가 빠르다.
+        - SIZE : 포함될 문자(열) 크기
+        - 지정한 크기보다 작은 문자(열)이 입력되고 남은 공간은 공백으로 채움
+        - 데이터는 ''를 이용하여 표기하고 대/소문자를 구분
+        - 한글의 경우 무료판에서는 1글자당 3바이트  
+        ex) ORACLE => CHAR(3) : 에러, CHAR(6) : ORACLE, CHAR(9) : ORACLE, 공백 3개  
+        ex) 오라클 => CHAR(3) : 에러, CHAR(6) : 에러, CHAR(9) : 오라클
+      2. VARCHAR2 : 가변 길이 문자(최대 4000byte) - 데이터의 공백은 버린다.
+      3. NCHAR : CHAR과 동일하며 유니코드 문자
+      4. NVARCHAR2 : VARCHAR2와 동일하며 유니코드 문자
+      5. Long : 가변길이 문자(최대 2GB)
+    - 날짜
+      1. DATE
+        - 일자(세기/년/월/일) 및 시간(시/분/초) 정보를 관리
+        - 기본적으로 화면에 년/월/일 정보만 표기
+        - 날짜의 연산 및 비교가 가능
+          1. 날짜 + 숫자 : DATE - 더한 숫자만큼 며칠 후
+          2. 날짜 - 숫자 : DATE - 더한 숫자만큼 며칠 전
+          3. 날짜 - 날짜 : NUMBER - 두 날짜의 차이(일 수)
+          4. 날짜 + 날짜 / 24 : DATE - 날짜 + 시간
+    - 데이터
+      1. CLOB : 가변길이 문자(최대 4GByte)
+      2. BLOB : Binary Data
+- DQL(Select)
+  - 데이터를 검색(추출)하기 위해 사용되는 언어
+  - DQL은 DML에 속해 있으며 DML중 SELECT만을 따로 의미
+  - 데이터를 조회한 결과를 ResultSet이라고 함
+  - Result Set은 0개 이상의 행을 포함
+  - Result Set은 특정한 열을 기준으로 정렬이 가능함
+  - 사용법  
+  ```
+  SELECT 컬럼명[, 컬럼명, ...] FROM 테이블명 WHERE 조건식;
+  ```
+  - as를 이용해 컬럼명을 변경할 때 특수문자가 들어가면 " "를 사용한다.
+  - 리터럴
+    - select를 할 때 컬럼명으로 문자열을 넣을 수 있다.
+    ```
+    SELECT EMP_NAME, SALARY, '원' AS 단위 FROM EMPLOYEE
+    ```
+  - 현재 시간 출력
+  ```
+  SELECT SYSDATE FROM DUAL;
+  ```
+    - DUAL 테이블 : 오라클에서 테스트를 위해 가상으로 만들어진 테이블
+  - 중복 제거
+  ```
+  SELECT DISTINCT 컬럼명[, 컬럼명, ...] FROM 테이블명 WHERE 조건식;
+  ```
 
 ## 3. 이클립스 기능
 - 단축키
