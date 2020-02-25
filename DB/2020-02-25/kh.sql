@@ -281,6 +281,13 @@ SELECT EMP_NAME, HIRE_DATE, FLOOR(SYSDATE - HIRE_DATE)||'일' AS "근무일수" FROM 
 SELECT * FROM EMPLOYEE;
 SELECT TO_DATE(SUBSTR(EMP_NO, 1, 2), 'YYYY') FROM EMPLOYEE;
 SELECT MONTHS_BETWEEN(SYSDATE, TO_DATE('19'||SUBSTR(EMP_NO, 1, 2), 'YYYY')) FROM EMPLOYEE;
+
+--나이 계산은 다음과 같은 순서대로 진행한다.
+--1. 주민등록번호에서 가장 앞자리 2개를 SUBSTR 함수를 이용해 빼온다.
+--2. 빼온 2자리의 CHARACTER 타입의 숫자 앞에 리터럴을 이용해 19를 붙인다.
+--3. 합쳐진 CHARACTER 타입의 문자를 DATE 타입으로 변환한다.
+--4. DATE 타입으로 변환한 년도와 컴퓨터 시간 사이에서 몇개월의 차이가 나는지 구한다.
+--5. 구한 값을 12로 나눈 다음 CEIL 함수로 올림을 한다.
 SELECT 
 MAX(CEIL(MONTHS_BETWEEN(SYSDATE, TO_DATE('19'||SUBSTR(EMP_NO, 1, 2), 'YYYY')) / 12)) AS "최대 나이",
 MIN(CEIL(MONTHS_BETWEEN(SYSDATE, TO_DATE('19'||SUBSTR(EMP_NO, 1, 2), 'YYYY')) / 12)) AS "최소 나이"
