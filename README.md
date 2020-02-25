@@ -1110,7 +1110,238 @@
   - DB : kh.sql, admin.sql
   
 ### 2.21 21일차(2020-02-25)
-
+- 함수
+  - 함수의 유형
+    1. 단일 행 함수 : 각 행마다 반복적으로 적용. 입력받은 행의 개수만큼 결과 반환
+    2. 그룹 함수 : 특정한 행들의 집합으로 그룹을 형성. 그룹당 1개의 결과를 반환
+  - 문자 처리 함수
+    - CHARACTER -> NUMBER
+      1. LENGTH : 문자열의 길이를 반환
+      2. LENGTHB : 문자열의 바이트 크기를 반환
+      3. INSTR : 특정 문자의 위치를 반환
+      ```
+      INSTR(STRING, STR, [POSITION], [OCCURRENCE])
+      - STRING 문자열에서 [POSITION]부터 시작해서 [OCCURRENCE]번째에 위치한 문자열의 위치를 찾는 함수
+      - POSITION에 -를 붙이면 방향을 반대로 한다. ex) -1이면 가장 뒤에서부터 앞으로 진행한다.
+      ```
+    - CHARACTER -> CHARACTER
+      1. LPAD/RPAD : 주어진 컬럼 문자열에 임의의 문자열을 왼쪽/오른쪽에 덧붙여 길이 N의 문자열을 반환하는 함수
+      ```
+      LPAD(STRING, NUMBER, STR)
+      RPAD(STRING, NUMBER, STR)
+      - NUMBER 길이의 공간을 확보하고 STRING에서 남은 공간을 STR로 채워 넣는다.
+      - 만약 NUMBER의 크기가 STRING의 길이보다 작으면 NUMBER만큼 출력하고 자른다.
+      ```
+      2. LTRIM/RTRIM : 주어진 문자열의 왼쪽(LTRIM), 오른쪽(RTRIM)부터 시작해서 해당 문자열을 자르고 문자열을 반환한다.
+      ```
+      LTRIM(STRING, STR)
+      RTRIM(STRING, STR)
+      - LTRIM은 왼쪽에서부터, RTRIM은 오른쪽에서부터 시작해 CHAR을 자르을 자른다.
+      - 만약 STR이 여러개의 문자면 해당하는 문자 모두를 제거한다.
+      ```
+      3. TRIM : 주어진 컬럼 문자열의 앞/뒤/양쪽에 있는 지정한 문자를 제거한 나머지를 반환
+      ```
+      TRIM(OPTION CHAR FROM STRING)
+      - STRING에서 CHAR에 해당하는 문자들을 양 옆에서 제거한다.
+      - OPTION에 따라 어디부터 제거할지 선택할 수 있다.
+      - BOTH는 양끝, LEADING는 왼쪽, TRAILING은 오른쪽의 문자를 제거한다.
+      - OPTION이 없으면 기본적으로 BOTH이다.
+      - TRIM은 1개의 문자만 제거가 가능하다.
+      ```
+      4. SUBSTR : 컬럼이나 문자열에서 지정한 위치부터 지정한 개수의 문자열을 잘라내어 리턴
+      ```
+      SUBSTR(STRIN, POSTION, [LENGTH])
+      - STRING을 PSTION부터 LENGTH만큼 잘라 리턴한다.
+      - LENGTH를 생략하면 POSTION부터 끝까지 잘라낸다.
+      - POSTION을 -로 하면 뒤에서부터 POSTION를 계산한다.
+      ```
+      5. LOWER/UPPER/INITCAP : 해당 문장을 대문자, 소문자, 첫글자만 대문자 변환
+      ```
+      LOWER(STRING)
+      UPPER(STRING)
+      INITCAP(STRING)
+      - LOWER는 STRING의 모든 문자를 소문자로 바꾼다.
+      - UPPER는 STRING의 모든 문자를 대문자로 바꾼다.
+      - INITCAP은 STRING의 각 단어의 첫글자를 대문자로 바꾼다.
+      ```
+      6. CONCAT : 컬럼의 문자 혹은 문자열을 두 개 전달받아 하나로 합친 후 리턴
+      ```
+      CONCAT(STRING, STRING)
+      - 입력받은 2개의 문자열을 합쳐 리턴한다.
+      ```
+      7. REPLACE : 전달받은 문자열 중 지정한 문자를 전달받은 문자로 변환하여 리턴
+      ```
+      REPLACE(STRING, STR1, STR2)
+      - STRING의 STR1을 STR2로 변환
+      ```
+  - 숫자 처리 
+    - NUMBER -> NUMBER
+      1. ABS : 절대값을 구하여 리턴
+      ```
+      ABS(NUMBER)
+      ```
+      2. MOD : 입력 받은 수를 나눈 나머지 값을 리턴
+      ```
+      MOD(NUMBER, DIVISION)
+      - 나눠지는 수(NUMBER)와 나누는 수(DIVISION)를 입력한다.
+      ```
+      3. ROUND : 인자로 전달받은 숫자 혹은 컬럼의 소수점 반올림을 한다.
+      ```
+      ROUND(NUMBER, [POSITION])
+      - 소수점 반올림을 할 위치를 입력한다. 입력받은 위치만큼 출력한다.
+      - 입력을 안할경우 정수로 반올림한다.
+      - POSITON이 음수가 되면 소수점 위로 올라간다.
+      ```
+      4. FLOOR : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 버린다.
+      ```
+      FLOOR(NUMBER, [POSITION])
+      - 소수점 버림을 할 위치를 입력한다.
+      - 입력을 안할경우 정수로 버린다.
+      ```
+      5. CEIL : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 올린다.
+      ```
+      CEIL(NUMBER, [POSITION]
+      - 소수점 올림을 할 위치를 입력한다.
+      ```
+  - 날짜 처리 함수
+    - NULL -> DATE
+      1. SYSDATE : 시스템에 저장된 현재 날짜를 리턴
+      ```
+      SYSDATE
+      - 매개 변수가 따로 없다.
+      ```
+    - DATE -> NUMBER
+      1. MONTHS_BETWEEN : 두 날짜를 전달받아 몇개월 차이인지 계산하여 리턴
+      ```
+      MONTHS_BETWEEN(DATE1, DATE2)
+      - 기준이 되는 날짜와 개월 수를 구하려는 날짜를 입력한다.
+      ```
+    - DATE -> DATE
+      1. ADD_MONTH : 특정 날짜에 개월 수를 더하여 리턴하는 함수
+      ```
+      ADD_MONTHS(DATE, NUMBER)
+      - 기준이 되는 날짜에 더하려는 개월 수를 입력하면 해당 개월만큼 더한 날짜가 리턴된다.
+      ```
+      2. NEXT_DAY : 특정 날짜에서 최초로 다가오는 인자로 받은 요일의 날짜 리턴
+      ```
+      NEXT_DAY(DATE, STRING|NUMBER)
+      - 기준이 되는 날짜와 구하려는 요일을 입력한다.
+      - 입력받은 요일의 가장 최초로 오는 날짜를 리턴한다.
+      - NUMBER로 입력할 경우 1 = 일요일, 2 = 월요일, ... 7 = 토요일이다.
+      ```
+      3. LAST_DAY : 해당 달의 마지막 날짜를 리턴
+      ```
+      LAST_DAY(DATE)
+      - 입력받은 날짜에서 해당 달의 가장 마지막 날짜를 리턴한다.
+      ```
+      4. EXTRACT : 년, 월, 일 정보를 추출하여 리턴
+      ```
+      EXTRACT(YEAR FROM DATE)
+      EXTRACT(MONTH FROM DATE)
+      EXTRACT(DAY FROM DATE)
+      - 옵션에 따라 각각 년, 월, 일에 해당하는 값이 리턴된다.
+      ```
+  - 형변환 함수
+    - DATE, NUMBER -> CHARACTE
+      1. TO_CHAR : 날짜형 데이터 또는 숫자형 데이터를 문자형 데이터로 변환하여 리턴
+      ```
+      TO_CHAR(DATE, [FORMAT])
+      TO_CHAR(NUMBER, [FORMAT])
+      - 옵션에 따라 문자열로 변환되는 형식이 달라진다. 
+      ```  
+      - DATE Format  
+      
+      | 형식 | 설명 | 형식 | 설명 |  
+      | :-----: | :-----: | :-----: | :-----: |  
+      | YYYY | 년도표현 4자리 | YY | 년도표현 2자리 |  
+      | RR | 년도표현 2자리 | MONTH | 월 표시 |  
+      | MM | 월을 숫자로 표현 | MON | 월을 알파벳으로 |  
+      | DD | 날짜 표현 | DAY | 요일 표현 |  
+      | DY | 요일을 약어로 | D | 요일을 숫자로 |  
+      | HH, HH12 | 시간(12시간) | HH24 | 시간(24시간) |  
+      | MI | 분 | SS | 초 |  
+      | AM, PM | 오전, 오후 표기 | FM | 앞자리 0을 제거 |  
+        
+      - RR의 경우 50보다 작은 경우 20xx로 변환하고 50보다 큰 경우 19XX로 변환한다.  
+          ex) 20 -> 2020 / 95 -> 1995
+      - NUMBER Format  
+      
+      | 형식 | 예시 | 설명 |  
+      | :-----: | :-----: | :-----: |  
+      | ,(comma) | 9,999 | 콤마 형식으로 변환 |  
+      | .(period) | 99.99 | 소수점 형식으로 변환 |  
+      | 0 | 0999 | 왼쪽에 0을 삽입 |  
+      | $ | $9999 | $ 통화로 표시 |  
+      | L | L9999 | Local 통화로 표시(한국은 ￦) |
+      | XXXX | XXXX | 16진수로 표시 |
+      
+      - 숫자 표시 단위는 충분한 크기를 주어야 하며, 변환될 숫자보다 format이 작을 경우 오류가 발생한다.
+      - 9와 0으로 최대 개수를 표현해야 한다.
+    - CHARACTER -> DATE
+      1. TO_DATE : 숫자형 데이터 또는 문자형 데이터를 날짜형 데이터로 변환하여 리턴
+      ```
+      TO_DATE(CHARCTER, [FORMAT])
+      TO_DATE(NUMBER, [FORMAT])
+      - 옵션은 TO_CHAR의 DATE Format 참조
+      ```
+    - CHARACTER -> NUMBER
+      1. TO_NUMBER : 문자형 데이터를 숫자형 데이터로 변환하여 리턴
+      ```
+      TO_NUMBER(CHARACTER, [FORMAT])
+      - 입력받은 문자형 데이터를 옵션에 맞춰 숫자형 데이터로 변환하여 출력한다.
+      ```
+      - 오라클에서 +는 산술연산이기에 자동 형변환이 이루어진다.
+  - NULL 처리 함수
+    - NULL -> 다른 타입
+      1. NVL : 해당 값이 NULL인 경우 값을 대체한다.
+      ```
+      NVL(COLUMN, DATA)
+      - COLUMN의 Field값 중 NULL인 것을 DATA로 바꾼다.
+      - 옵션은 TO_CHAR의 NUMBER Format 참조
+      ```
+  - 선택함수
+    - 단일값
+      1. DECODE : 여러가지 경우에 선택할 수 있는 기능을 제공(일치하는 값)
+      ```
+      DECODE(조건식, 조건1, 결과1, 조건2, 결과2)
+      ```
+    - 범위값
+      1. CASE : 여러가지 경우에 선택할 수 있는 기능을 제공(범위 값 가능)
+      ```
+      CASE WHEN 조건식1 THEN 결과1
+      WHEN 조건식2 THEN 결과2
+      ELSE 결과3 END
+      - CASE문이 끝날 때 그것을 알리기 위해 END를 가장 끝에 입력한다.
+      ```
+  - 그룹함수
+    - 하나 이상의 행을 그룹으로 묶어 하나의 값을 출력하는 함수
+    - 종류
+      1. SUM : 입력한 행의 합계를 리턴한다.
+      ```
+      SUM(COLUMN)
+      ```
+      2. AVG : 입력한 행의 평균을 리턴한다.
+      ```
+      AVG(COLUMN)
+      ```
+      3. COUNT : 입력한 행의 갯수를 리턴한다.
+      ```
+      COUNT(COLUMN)
+      ```
+      4. MAX, MIN : 최대값, 최소값
+      ```
+      MAX(COLUMN)
+      MIN(COLUMN)
+      - MAX와 MIN의 경우 NUMBER뿐 아니라 DATE도 가능하다.
+      ```
+    - 그룹 함수의 경우 NULL은 연산에 안들어간다.
+    - 그룹 함수의 경우 출력이 1줄인데 만약 서로 다른 ROW 수를 가진 두개의 COLUMN을 출력할 경우 에러가 뜬다.
+    ```
+    EMP_NAME => 25줄일 때
+    SELECT EMP_NAME, COUNT(EMP_NAME) FROM EMPLOYEE
+    - 에러가 발생한다.
+    ```
+  
 ## 3. 이클립스 기능
 - 단축키
   - ctrl + shift + F : 자동 줄맞춤
