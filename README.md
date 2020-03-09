@@ -725,6 +725,7 @@
       } finally {  
       　　정상 실행이 되던지, 예외가 발생하던지 무조건 실행해야 하는 코드  
       }
+      
       ※ 일반적으로 코드에서 사용한 자원을 반납하는 코드를 finally에 작성
       ```
   - 예외의 종류
@@ -788,43 +789,70 @@
     - 바이트 단위로 데이터를 전송
     - 바이트 단위로 구성된 파일(동영상, 이미지, 음악 등)을 전송할 때 사용
     - FileOutputStream
-      - 사용법 : FileOutputStream fos = new FileOutputStream(String filename)
+      - 사용법
+      ```
+      FileOutputStream fos = new FileOutputStream(String filename);
+      ```
       - write(byte[] bytes) 메소드를 사용하여 데이터를 전송하며, 데이터를 전송할 때 byte가 매개변수로 입력되므로 문자열을 getBytes() 메소드를 사용해 byte 배열로 만들어 전송한다.
       - \r\n : 윈도우에서 개행을 하기 위해서는 해당 문자열을 입력해야 함(str = sc.readLine() + "\r\n")
     - DataOutputStream
       - 보조 스트림으로 홀로 사용은 불가능하다.
-      - 사용법 : DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filename))
-      - 사용법 : DataOutputStream dos = new DataOutputStream(OutputStream os)
+      - 사용법
+      ```
+      DataOutputStream dos = new DataOutputStream(new FileOutputStream(String filename));
+      DataOutputStream dos = new DataOutputStream(OutputStream os);
+      ```
       - 데이터를 전송할 때 개행 처리가 필요 없고, write() 메소드가 아닌 writeChars(String str)를 사용하여 byte 배열로 변환이 필요 없다.
       - writeUTF(Sring str) 메소드를 사용하면 byte 배열로 변환이 필요 없이 한글의 깨짐을 방지한 채 데이터를 보낼 수 있다.
     - DataInputStream
-      - 사용법 : DataInputStream dis = new DataInputStream(InputStream is)
+      - 사용법
+      ```
+      DataInputStream dis = new DataInputStream(InputStream is);
+      ```
       - readUTF(String str) 메소드를 사용하여 byte 배열로 변환이 필요 없이 한글의 깨짐을 방지한 채 데이터를 보낼 수 있다.
     - ObjectOutputStream
       - 객체를 출력하기 위한 보조 스트림
-      - 사용법 : ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(String filename))
+      - 사용법
+      ```
+      ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(String filename));
+      ```
       - writeObejct(Object ojt) 메소드를 통해 객체를 파일로 출력할 수 있다.
       - 17일차에 배우는 직렬화와 함께 사용한다
     - ObjectInputStream
       - 외부로 출력한 객체를 읽어오기 위한 보조 스트림
-      - 사용법 : ObjectInputStream ois = new ObjectInputStream(new FileInputStream(String filename))
+      - 사용법
+      ```
+      ObjectInputStream ois = new ObjectInputStream(new FileInputStream(String filename));
+      ```
       - readObject() 메소드를 통해 객체를 읽어올 수 있으며 리턴하는 타입이 Object 클래스이므로 down-casting이 필요하다.  
         ex) User user = (User)ois.readObject();
       - 17일차에 배우는 직렬화와 함께 사용한다
   - 문자 스트림
     - FileWriter
-      - 사용법 : FileWriter fw = new FileWriter(String filename)
+      - 사용법
+      ```
+      FileWriter fw = new FileWriter(String filename);
+      ```
       - FileOutputStream과 동일하게 사용 가능하다. 단, FileWrite는 문자 스트림이므로 byte 배열로의 변환이 필요 없다.
     - BufferedWriter
-      - 사용법 : BufferedWriter bw = new BufferedWriter(new FileWriter(String filename))
+      - 사용법
+      ```
+      BufferedWriter bw = new BufferedWriter(new FileWriter(String filename));
+      ```
       - FileWriter와 마찬가지로 write 메소드를 사용해 출력을 한다.
       - bw.newLine() 메소드를 통해 개행이 가능하다.
     - BufferedReader
-      - 사용법 : BufferedReader br = new BufferedReader(new FileReader(String filename))
+      - 사용법
+      ```
+      BufferedReader br = new BufferedReader(new FileReader(String filename))
+      ```
       - readLine() 메소드를 사용해 파일에서 1줄씩 읽어온다.
       - readLine()을 할 때 더 이상 읽어올 문자열이 없으면 null을 리턴한다.
 - File Class
-  - 사용법 : File file = new File(String filename)
+  - 사용법
+  ```
+  File file = new File(String filename);
+  ```
   - 메소드
     - file.exists() : 해당 파일의 존재 여부 확인
     - file.getName() : 파일의 이름 확인
@@ -842,10 +870,16 @@
   - serialVersionUID
     - 직렬화시에 사용되는 객체의 고유번호
     - 명시하지 않아도 Serializable 인터페이스를 implements하면 JVM이 임의의 번호를 붙여 생성하지만 직접 생성하는 것을 권장  
-      ex) private static final long serialVersionUID = 11111111111L;
+      ex) 
+      ```
+      private static final long serialVersionUID = 11111111111L;
+      ```
   - transient
     - 객체 직렬화 시 제외할 필드 앞에 붙여 해당 필드의 직렬화를 예외하는 키워드  
-      ex) private transient String pw; -> 해당 변수를 직렬화에서 예외로 처리하게 한다.
+      ex)
+      ```
+      private transient String pw; -> 해당 변수를 직렬화에서 예외로 처리하게 한다.
+      ```
   - 역직렬화
     - 직렬화의 반대 과정으로 직렬화 된 데이터를 다시 객체로 합치는 과정
     - 클래스의 이름이 같더라도 클래스 내용이 변경된 경우 실패 
@@ -876,13 +910,13 @@
     - 서버의 연결 순서  
       1. 서버의 소켓 객체 생성
       ```
-      - Socket client = server.accept()
+      - Socket client = server.accept();
       ```
       2. 클라이언트의 접속 요청을 기다림
 		  3. 요청이 오면 수락
 			4. 클라이언트 정보를 저장 
       ```
-      - Socket client = server.accept()
+      - Socket client = server.accept();
       ```
       5. 클라이언트 정보를 통해서 OutputStream 생성
       ```
@@ -1045,7 +1079,7 @@
   SELECT DISTINCT 컬럼명[, 컬럼명, ...] FROM 테이블명 WHERE 조건식;
   ```
   - 연산자 - 연결 연산자
-    - 연결 연산자인 '||'를 사용하여 여러 컬럼을 하나의 컬럼처럼 
+    - 연결 연산자인 '||'를 사용하여 여러 컬럼을 하나의 컬럼처럼 합칠 수 있다.
   - 연산자 - 논리 연산자
     - 여러 개의 제한 조건 결과를 하나의 논리 결과로 만들어준다.
     - 종류
@@ -1122,6 +1156,7 @@
       3. INSTR : 특정 문자의 위치를 반환
       ```
       INSTR(STRING, STR, [POSITION], [OCCURRENCE])
+      
       - STRING 문자열에서 [POSITION]부터 시작해서 [OCCURRENCE]번째에 위치한 문자열의 위치를 찾는 함수
       - POSITION에 -를 붙이면 방향을 반대로 한다. ex) -1이면 가장 뒤에서부터 앞으로 진행한다.
       ```
@@ -1130,6 +1165,7 @@
       ```
       LPAD(STRING, NUMBER, STR)
       RPAD(STRING, NUMBER, STR)
+      
       - NUMBER 길이의 공간을 확보하고 STRING에서 남은 공간을 STR로 채워 넣는다.
       - 만약 NUMBER의 크기가 STRING의 길이보다 작으면 NUMBER만큼 출력하고 자른다.
       ```
@@ -1137,12 +1173,14 @@
       ```
       LTRIM(STRING, STR)
       RTRIM(STRING, STR)
+      
       - LTRIM은 왼쪽에서부터, RTRIM은 오른쪽에서부터 시작해 CHAR을 자르을 자른다.
       - 만약 STR이 여러개의 문자면 해당하는 문자 모두를 제거한다.
       ```
       3. TRIM : 주어진 컬럼 문자열의 앞/뒤/양쪽에 있는 지정한 문자를 제거한 나머지를 반환
       ```
       TRIM(OPTION CHAR FROM STRING)
+      
       - STRING에서 CHAR에 해당하는 문자들을 양 옆에서 제거한다.
       - OPTION에 따라 어디부터 제거할지 선택할 수 있다.
       - BOTH는 양끝, LEADING는 왼쪽, TRAILING은 오른쪽의 문자를 제거한다.
@@ -1152,6 +1190,7 @@
       4. SUBSTR : 컬럼이나 문자열에서 지정한 위치부터 지정한 개수의 문자열을 잘라내어 리턴
       ```
       SUBSTR(STRIN, POSTION, [LENGTH])
+      
       - STRING을 PSTION부터 LENGTH만큼 잘라 리턴한다.
       - LENGTH를 생략하면 POSTION부터 끝까지 잘라낸다.
       - POSTION을 -로 하면 뒤에서부터 POSTION를 계산한다.
@@ -1161,6 +1200,7 @@
       LOWER(STRING)
       UPPER(STRING)
       INITCAP(STRING)
+      
       - LOWER는 STRING의 모든 문자를 소문자로 바꾼다.
       - UPPER는 STRING의 모든 문자를 대문자로 바꾼다.
       - INITCAP은 STRING의 각 단어의 첫글자를 대문자로 바꾼다.
@@ -1168,11 +1208,13 @@
       6. CONCAT : 컬럼의 문자 혹은 문자열을 두 개 전달받아 하나로 합친 후 리턴
       ```
       CONCAT(STRING, STRING)
+      
       - 입력받은 2개의 문자열을 합쳐 리턴한다.
       ```
       7. REPLACE : 전달받은 문자열 중 지정한 문자를 전달받은 문자로 변환하여 리턴
       ```
       REPLACE(STRING, STR1, STR2)
+      
       - STRING의 STR1을 STR2로 변환
       ```
   - 숫자 처리 
@@ -1184,11 +1226,13 @@
       2. MOD : 입력 받은 수를 나눈 나머지 값을 리턴
       ```
       MOD(NUMBER, DIVISION)
+      
       - 나눠지는 수(NUMBER)와 나누는 수(DIVISION)를 입력한다.
       ```
       3. ROUND : 인자로 전달받은 숫자 혹은 컬럼의 소수점 반올림을 한다.
       ```
       ROUND(NUMBER, [POSITION])
+      
       - 소수점 반올림을 할 위치를 입력한다. 입력받은 위치만큼 출력한다.
       - 입력을 안할경우 정수로 반올림한다.
       - POSITON이 음수가 되면 소수점 위로 올라간다.
@@ -1196,12 +1240,14 @@
       4. FLOOR : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 버린다.
       ```
       FLOOR(NUMBER, [POSITION])
+      
       - 소수점 버림을 할 위치를 입력한다.
       - 입력을 안할경우 정수로 버린다.
       ```
       5. CEIL : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 올린다.
       ```
       CEIL(NUMBER, [POSITION]
+      
       - 소수점 올림을 할 위치를 입력한다.
       ```
   - 날짜 처리 함수
@@ -1209,23 +1255,27 @@
       1. SYSDATE : 시스템에 저장된 현재 날짜를 리턴
       ```
       SYSDATE
+      
       - 매개 변수가 따로 없다.
       ```
     - DATE -> NUMBER
       1. MONTHS_BETWEEN : 두 날짜를 전달받아 몇개월 차이인지 계산하여 리턴
       ```
       MONTHS_BETWEEN(DATE1, DATE2)
+      
       - 기준이 되는 날짜와 개월 수를 구하려는 날짜를 입력한다.
       ```
     - DATE -> DATE
       1. ADD_MONTH : 특정 날짜에 개월 수를 더하여 리턴하는 함수
       ```
       ADD_MONTHS(DATE, NUMBER)
+      
       - 기준이 되는 날짜에 더하려는 개월 수를 입력하면 해당 개월만큼 더한 날짜가 리턴된다.
       ```
       2. NEXT_DAY : 특정 날짜에서 최초로 다가오는 인자로 받은 요일의 날짜 리턴
       ```
       NEXT_DAY(DATE, STRING|NUMBER)
+      
       - 기준이 되는 날짜와 구하려는 요일을 입력한다.
       - 입력받은 요일의 가장 최초로 오는 날짜를 리턴한다.
       - NUMBER로 입력할 경우 1 = 일요일, 2 = 월요일, ... 7 = 토요일이다.
@@ -1233,6 +1283,7 @@
       3. LAST_DAY : 해당 달의 마지막 날짜를 리턴
       ```
       LAST_DAY(DATE)
+      
       - 입력받은 날짜에서 해당 달의 가장 마지막 날짜를 리턴한다.
       ```
       4. EXTRACT : 년, 월, 일 정보를 추출하여 리턴
@@ -1240,6 +1291,7 @@
       EXTRACT(YEAR FROM DATE)
       EXTRACT(MONTH FROM DATE)
       EXTRACT(DAY FROM DATE)
+      
       - 옵션에 따라 각각 년, 월, 일에 해당하는 값이 리턴된다.
       ```
   - 형변환 함수
@@ -1248,6 +1300,7 @@
       ```
       TO_CHAR(DATE, [FORMAT])
       TO_CHAR(NUMBER, [FORMAT])
+      
       - 옵션에 따라 문자열로 변환되는 형식이 달라진다. 
       ```  
       - DATE Format  
@@ -1283,12 +1336,14 @@
       ```
       TO_DATE(CHARCTER, [FORMAT])
       TO_DATE(NUMBER, [FORMAT])
+      
       - 옵션은 TO_CHAR의 DATE Format 참조
       ```
     - CHARACTER -> NUMBER
       1. TO_NUMBER : 문자형 데이터를 숫자형 데이터로 변환하여 리턴
       ```
       TO_NUMBER(CHARACTER, [FORMAT])
+      
       - 입력받은 문자형 데이터를 옵션에 맞춰 숫자형 데이터로 변환하여 출력한다.
       ```
       - 오라클에서 +는 산술연산이기에 자동 형변환이 이루어진다.
@@ -1297,6 +1352,7 @@
       1. NVL : 해당 값이 NULL인 경우 값을 대체한다.
       ```
       NVL(COLUMN, DATA)
+      
       - COLUMN의 Field값 중 NULL인 것을 DATA로 바꾼다.
       - 옵션은 TO_CHAR의 NUMBER Format 참조
       ```
@@ -1312,6 +1368,7 @@
       CASE WHEN 조건식1 THEN 결과1
       WHEN 조건식2 THEN 결과2
       ELSE 결과3 END
+      
       - CASE문이 끝날 때 그것을 알리기 위해 END를 가장 끝에 입력한다.
       ```
   - 그룹함수
@@ -1333,6 +1390,7 @@
       ```
       MAX(COLUMN)
       MIN(COLUMN)
+      
       - MAX와 MIN의 경우 NUMBER뿐 아니라 DATE도 가능하다.
       ```
     - 그룹 함수의 경우 NULL은 연산에 안들어간다.
@@ -1340,6 +1398,7 @@
     ```
     EMP_NAME => 25줄일 때
     SELECT EMP_NAME, COUNT(EMP_NAME) FROM EMPLOYEE
+    
     - 에러가 발생한다.
     ```
     
@@ -1386,6 +1445,7 @@
       SELECT 컬럼
       FROM 테이블명1
       JOIN 테이블명2 USING(컬럼명);
+      
       - 동일한 테이블명인 경우 USING을 사용하여 컬럼명 하나만 입력하면 된다.
       ```
   - INNER JOIN
@@ -1544,6 +1604,7 @@
         SELECT EMP_NAME, MANAGER_ID, BONUS FROM EMPLOYEE E
         WHERE EXISTS(SELECT EMP_NAME FROM EMPLOYEE M
         WHERE NVL(M.BONUS, 0) >= 0.3);
+        
         - EXIST는 괄호 안의 수행 결과의 내용은 중요하지 않다.
         - 해당 결과가 존재하면 TRUE, 없으면 FALSE를 리턴한다.
         ```
@@ -1552,11 +1613,13 @@
       ex)
       ```
       - 퇴사한 여직원과 같은 부서, 같은 직급에 해당하는 사원의 이름, 직급 부서, 입사일을 조회
+      
       SELECT EMP_NAME, JOB_CODE, DEPT_CODE, HIRE_DATE
       FROM EMPLOYEE
       WHERE (DEPT_CODE, JOB_CODE) IN
       (SELECT DEPT_CODE, JOB_CODE FROM EMPLOYEE
       WHERE SUBSTR(EMP_NO, 8, 1) = 2 AND ENT_YN = 'Y');
+      
       - 다중열 서브쿼리의 경우 비교하는 컬럼을 괄호로 묶는다.
       - 비교하는 컬럼과 서브쿼리에서 수행한 결과의 컬럼이 동일해야 한다.
       ```
