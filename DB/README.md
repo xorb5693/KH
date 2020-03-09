@@ -51,3 +51,12 @@
     28. AVG
     29. COUNT
     30. MAX, MIN
+
+- 22일차(2020-03-09)
+  - kh.sql : GROUP BY, JOIN 테스트
+    1. GROUP BY, HAVING
+    2. JOIN
+    3. SET OPERATOR
+    4. 단일행 서브쿼리
+    5. 다중행 서브쿼리
+    6. 다중열 서브쿼리
