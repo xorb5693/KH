@@ -281,6 +281,12 @@ SELECT EMP_NAME, HIRE_DATE, FLOOR(SYSDATE - HIRE_DATE)||'일' AS "근무일수" FROM 
 SELECT * FROM EMPLOYEE;
 SELECT TO_DATE(SUBSTR(EMP_NO, 1, 2), 'YYYY') FROM EMPLOYEE;
 SELECT MONTHS_BETWEEN(SYSDATE, TO_DATE('19'||SUBSTR(EMP_NO, 1, 2), 'YYYY')) FROM EMPLOYEE;
+--나이를 구하기 위해 현재 시간에서 YEAR를 추출하고 그 값에서 주민등록 번호 앞자리 2자리와 1900을 더한 값을 빼낸다.
+--최대, 최소는 MAX와 MIN 함수를 사용한다.
+SELECT 
+MAX(EXTRACT(YEAR FROM SYSDATE) - (1900 + SUBSTR(EMP_NO, 1, 2))) AS "최대 나이", 
+MIN(EXTRACT(YEAR FROM SYSDATE) - (1900 + SUBSTR(EMP_NO, 1, 2))) AS "최소 나이" 
+FROM EMPLOYEE;
 
 --나이 계산은 다음과 같은 순서대로 진행한다.
 --1. 주민등록번호에서 가장 앞자리 2개를 SUBSTR 함수를 이용해 빼온다.
@@ -318,6 +324,15 @@ SELECT EMP_NAME, DEPT_CODE,
 FROM EMPLOYEE
 WHERE EMP_ID NOT IN(200, 201, 214);
 
+--나이 계산에서 RR을 넣으면 50을 기준으로 년도가 50 이상이면 19가 앞에, 50 이전이면 20이 앞에 붙게 된다.
+SELECT EMP_NAME, DEPT_CODE,
+SUBSTR(EMP_NO, 1, 2)||'년 '|| 
+SUBSTR(EMP_NO, 3, 2)||'월 '||
+SUBSTR(EMP_NO, 5, 2)||'일' AS "생년월일",
+EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM TO_DATE(SUBSTR(EMP_NO, 1, 2), 'RR')) AS "나이"
+FROM EMPLOYEE
+WHERE EMP_ID NOT IN(200, 201, 214);
+
 --13. 직원들의 입사일로 부터 년도만 가지고, 각 년도별 입사인원수를 구하시오.
 --  아래의 년도에 입사한 인원수를 조회하시오. 마지막으로 전체직원수도 구하시오
 --  => to_char, decode, sum 사용
@@ -333,6 +348,30 @@ SELECT
     NVL(SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2002', 1)), 0) AS "2002년",
     NVL(SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2003', 1)), 0) AS "2003년",
     NVL(SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2004', 1)), 0) AS "2004년",
+    COUNT(*) AS "전체직원수"
+FROM EMPLOYEE;
+
+--SUM을 사용하는 방법. SUM을 할 때는 한개라도 NULL이 들어가면 더해지는 값도 NULL로 처리되기에 DECODE를 할 때 0을 넣는다.
+SELECT 
+    SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '1998', 1, 0)) AS "1998년",
+    SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '1999', 1, 0)) AS "1999년",
+    SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2000', 1, 0)) AS "2000년",
+    SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2001', 1, 0)) AS "2001년",
+    SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2002', 1, 0)) AS "2002년",
+    SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2003', 1, 0)) AS "2003년",
+    SUM(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2004', 1, 0)) AS "2004년",
+    COUNT(*) AS "전체직원수"
+FROM EMPLOYEE;
+
+--COUNT를 사용하는 방법. COUNT는 NULL인 경우만 세지 않으므로 0도 카운트 되기에 DECODE를 할 때 0을 넣지 않는다.
+SELECT 
+    COUNT(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '1998', 1)) AS "1998년",
+    COUNT(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '1999', 1)) AS "1999년",
+    COUNT(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2000', 1)) AS "2000년",
+    COUNT(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2001', 1)) AS "2001년",
+    COUNT(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2002', 1)) AS "2002년",
+    COUNT(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2003', 1)) AS "2003년",
+    COUNT(DECODE(TO_CHAR(HIRE_DATE, 'YYYY'), '2004', 1)) AS "2004년",
     COUNT(*) AS "전체직원수"
 FROM EMPLOYEE;
 
