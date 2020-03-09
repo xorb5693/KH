@@ -1426,6 +1426,123 @@
     [JOIN 테이블3 USING(컬럼명)]
     ...
     ```
+- SET OPERATOR
+  - 두개 이상의 테이블에서 조인을 사용하지 않고 연관된 데이터를 조회하는 방법
+  - 여러 개의 질의 결과를 연결하여 하나로 결합하는 방식
+  - JOIN은 컬럼을 추가하여 추가 데이터를 표현했지만, 집합 연산자는 ROW를 추가하여 추가 데이터 표현
+  - 집합 연산자 성립 조건
+    1. SELECT 질의 컬럼수가 동일해야
+  - UNION
+    - 중복된 영역을 제외하고 하나로 합치는 연산(합집합)
+    - 정렬까지 자동으로 해준다.
+    - 사용법
+    ```
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문1
+    UNION
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문2
+    ```
+  - UNION ALL
+    - UNION과 마찬가지로 합집합이지만, 중복된 데이터 모두 포함
+    - 정렬은 해주지 않는다.
+    - 사용법
+    ```
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문1
+    UNION ALL
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문2
+    ```
+  - INTERSECT
+    - 두 SELECT문에서 중복된 데이터만을 출력한다.(교집합)
+    - 사용법
+    ```
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문1
+    INTERSECT
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문2
+    ```
+  - MINUS
+    - 1번째 SELECT문에서 2번째 SELECT문과 중복된 데이터를 제거하고 출력한다.(차집합)
+    - 사용법
+    ```
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문1
+    MINUS
+    SELECT 컬럼명1, 컬럼명2...
+    FROM 테이블
+    WHERE 조건문2
+    ```
+- SUBQUERY
+  - 하나의 SELECT 문장 안에 포함된 또 하나의 SELECT 문장
+  - 서브쿼리는 메인쿼리 실행 전 한번만 실행
+  - 서브쿼리 조건
+    1. 서브쿼리는 반드시 소괄호로 묶어야 함
+  - 서브쿼리 유형
+    1. 단일행 서브쿼리
+      - 서브쿼리의 SELECT문의 결과가 1행만으로 존재하는 경우  
+      ex)
+      ```
+      SELECT EMP_NAME
+      FROM EMPLOYEE
+      WHERE EMP_ID = (SELECT MANAGER_ID FROM EMPLOYEE WHERE EMP_NAME = '전지연');
+      ```
+    2. 다중행 서브쿼리
+      - 서브쿼리의 SELECT문의 결과가 2행 이상으로 존재하는 경우  
+      ex)
+      ```
+      SELECT * FROM EMPLOYEE
+      WHERE DEPT_CODE IN(SELECT DEPT_CODE FROM EMPLOYEE 
+      WHERE EMP_NAME IN('박나라', '송종기'));
+      ```
+      - 다중행 서브쿼리의 경우 비교 연산자(=, !=, >, < 등)의 사용이 불가능하다
+      - IN/NOT IN, ANY, ALL, EXIST만 사용 가능하다.
+      - ANY 사용법
+      ```
+      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+      FROM EMPLOYEE
+      WHERE SALARY > ANY(2000000, 5000000);
+      [WHERE SALARY > 2000000 OR SALARY > 5000000과 동일하다.]
+      
+      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+      FROM EMPLOYEE
+      WHERE SALARY < ANY(2000000, 5000000);
+      [WHERE SALARY < 2000000 OR SALARY < 5000000과 동일하다.]
+      
+      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+      FROM EMPLOYEE
+      WHERE SALARY = ANY(2000000, 5000000);
+      [WHERE SALARY IN(2000000, 5000000)과 동일하다.]
+      ```
+      - ALL 사용법
+      ```
+      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+      FROM EMPLOYEE
+      WHERE SALARY > ALL(2000000, 5000000);
+      [WHERE SALARY > 2000000 AND SALARY > 5000000과 동일하다.]
+      
+      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+      FROM EMPLOYEE
+      WHERE SALARY < ALL(2000000, 5000000);
+      [WHERE SALARY < 2000000 AND SALARY < 5000000과 동일하다.]
+      ```
+      - EXIST 사용법
+      ```
+      SELECT EMP_NAME, MANAGER_ID, BONUS FROM EMPLOYEE E
+      WHERE EXISTS(SELECT EMP_NAME FROM EMPLOYEE M
+      WHERE NVL(M.BONUS, 0) >= 0.3);
+      - EXIST는 괄호 안의 수행 내용은 중요하지 않고, 해당 결과가 존재하면 TRUE, 없으면 FALSE를 리턴한다.
+      ```
+    3. 다중행 서브쿼리
 
 ## 3. 이클립스 기능
 - 단축키
