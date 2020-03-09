@@ -1346,6 +1346,7 @@
 ### 2.22 22일차(2020-03-09)
 - GROUP BY
   - 그룹함수를 사용하는 경우 일반적인 컬럼과 함께 사용하면 에러가 나오는데 이를 방지하기 위해 사용한다.
+  - 혹은 한 개의 결과값만을 산출하는 그룹함수에서 여러 개의 결과값을 산출하기 위해서는 그룹함수가 적용될 그룹의 기준을 지정하는데 사용한다.
   - 사용법
     ```
     SELECT 컬럼 FROM 테이블명
@@ -1487,9 +1488,12 @@
   - 서브쿼리는 메인쿼리 실행 전 한번만 실행
   - 서브쿼리 조건
     1. 서브쿼리는 반드시 소괄호로 묶어야 함
+    2. 서브쿼리는 연산자의 오른쪽에 위치해야 함
+    3. 서브쿼리 내에서 ORDER BY 문법은 지원되지 않음
+    4. 서브쿼리와 비교할 항목은 서브쿼리의 SELECT한 항목의 개수와 자료형이 일치해야함
   - 서브쿼리 유형
     1. 단일행 서브쿼리
-      - 서브쿼리의 SELECT문의 결과가 1행만으로 존재하는 경우  
+      - 서브쿼리의 SELECT문의 결과가 1행만으로 존재하는 경우(1행 1열)  
       ex)
       ```
       SELECT EMP_NAME
@@ -1497,7 +1501,7 @@
       WHERE EMP_ID = (SELECT MANAGER_ID FROM EMPLOYEE WHERE EMP_NAME = '전지연');
       ```
     2. 다중행 서브쿼리
-      - 서브쿼리의 SELECT문의 결과가 2행 이상으로 존재하는 경우  
+      - 서브쿼리의 SELECT문의 결과가 2행 이상으로 존재하는 경우(N행 1열)  
       ex)
       ```
       SELECT * FROM EMPLOYEE
@@ -1506,43 +1510,71 @@
       ```
       - 다중행 서브쿼리의 경우 비교 연산자(=, !=, >, < 등)의 사용이 불가능하다
       - IN/NOT IN, ANY, ALL, EXIST만 사용 가능하다.
-      - ANY 사용법
+        - ANY 사용법
+        ```
+        SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+        FROM EMPLOYEE
+        WHERE SALARY > ANY(2000000, 5000000);
+        [WHERE SALARY > 2000000 OR SALARY > 5000000과 동일하다.]
+
+        SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+        FROM EMPLOYEE
+        WHERE SALARY < ANY(2000000, 5000000);
+        [WHERE SALARY < 2000000 OR SALARY < 5000000과 동일하다.]
+
+        SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+        FROM EMPLOYEE
+        WHERE SALARY = ANY(2000000, 5000000);
+        [WHERE SALARY IN(2000000, 5000000)과 동일하다.]
+        ```
+        - ALL 사용법
+        ```
+        SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+        FROM EMPLOYEE
+        WHERE SALARY > ALL(2000000, 5000000);
+        [WHERE SALARY > 2000000 AND SALARY > 5000000과 동일하다.]
+
+        SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+        FROM EMPLOYEE
+        WHERE SALARY < ALL(2000000, 5000000);
+        [WHERE SALARY < 2000000 AND SALARY < 5000000과 동일하다.]
+        ```
+        - EXIST 사용법
+        ```
+        SELECT EMP_NAME, MANAGER_ID, BONUS FROM EMPLOYEE E
+        WHERE EXISTS(SELECT EMP_NAME FROM EMPLOYEE M
+        WHERE NVL(M.BONUS, 0) >= 0.3);
+        - EXIST는 괄호 안의 수행 결과의 내용은 중요하지 않다.
+        - 해당 결과가 존재하면 TRUE, 없으면 FALSE를 리턴한다.
+        ```
+    3. 다중열 서브쿼리
+      - 서브쿼리의 조회 결과 컬럼의 개수가 여러개인 경우(1행 N열)  
+      ex)
       ```
-      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
+      - 퇴사한 여직원과 같은 부서, 같은 직급에 해당하는 사원의 이름, 직급 부서, 입사일을 조회
+      SELECT EMP_NAME, JOB_CODE, DEPT_CODE, HIRE_DATE
       FROM EMPLOYEE
-      WHERE SALARY > ANY(2000000, 5000000);
-      [WHERE SALARY > 2000000 OR SALARY > 5000000과 동일하다.]
-      
-      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
-      FROM EMPLOYEE
-      WHERE SALARY < ANY(2000000, 5000000);
-      [WHERE SALARY < 2000000 OR SALARY < 5000000과 동일하다.]
-      
-      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
-      FROM EMPLOYEE
-      WHERE SALARY = ANY(2000000, 5000000);
-      [WHERE SALARY IN(2000000, 5000000)과 동일하다.]
+      WHERE (DEPT_CODE, JOB_CODE) IN
+      (SELECT DEPT_CODE, JOB_CODE FROM EMPLOYEE
+      WHERE SUBSTR(EMP_NO, 8, 1) = 2 AND ENT_YN = 'Y');
+      - 다중열 서브쿼리의 경우 비교하는 컬럼을 괄호로 묶는다.
+      - 비교하는 컬럼과 서브쿼리에서 수행한 결과의 컬럼이 동일해야 한다.
       ```
-      - ALL 사용법
+    4. 대중행 다중열 서브쿼리
+      - 서브쿼리의 조회 결과 컬럼의 개수와 행의 개수가 여러개인 경우(M행 N열)  
+      ex)
       ```
-      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
-      FROM EMPLOYEE
-      WHERE SALARY > ALL(2000000, 5000000);
-      [WHERE SALARY > 2000000 AND SALARY > 5000000과 동일하다.]
-      
-      SELECT EMP_ID, EMP_NAME, DEPT_CODE, SALARY
-      FROM EMPLOYEE
-      WHERE SALARY < ALL(2000000, 5000000);
-      [WHERE SALARY < 2000000 AND SALARY < 5000000과 동일하다.]
       ```
-      - EXIST 사용법
+    5. 상관 서브쿼리(상호연관 서브쿼리)
+      - 서브쿼리가 만든 결과 값을 메인쿼리가 비교 연산할 때, 메인 쿼리 테이블의 값이 변경되면 서브쿼리의 결과값도 바뀌는 경우  
+      ex)
       ```
-      SELECT EMP_NAME, MANAGER_ID, BONUS FROM EMPLOYEE E
-      WHERE EXISTS(SELECT EMP_NAME FROM EMPLOYEE M
-      WHERE NVL(M.BONUS, 0) >= 0.3);
-      - EXIST는 괄호 안의 수행 내용은 중요하지 않고, 해당 결과가 존재하면 TRUE, 없으면 FALSE를 리턴한다.
       ```
-    3. 다중행 서브쿼리
+    6. 스칼라 서브쿼리
+      - 상관쿼리이면서 결과값이 1개인 경우  
+      ex)
+      ```
+      ```
 
 ## 3. 이클립스 기능
 - 단축키
