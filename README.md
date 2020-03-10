@@ -997,7 +997,7 @@
   - DBMS : 데이터베이스에서 데이터를 추출, 조작, 정의, 제어 등을 할 수 있게 해주는 데이터베이스 전용 관리 프로그램
   - DBMS의 기능
     1. 데이터의 추출(Retrieval)
-    2. 데이터 조작(MAnipulation)
+    2. 데이터 조작(Manipulation)
     3. 데이터 정의(Definition)
     4. 데이터 제어(Controle)
   - DBMS 사용 이점
@@ -1019,7 +1019,7 @@
   - 데이터를 담고 있는 객체
   - 테이블은 기본적으로 행과 열을 이용하여 데이터를 표현
   - Table 용어
-    1. Realtion : 테이블의 이름을 Realtion이라고 부름.
+    1. Relation : 테이블의 이름을 Relation이라고 부름.
     2. Column(Attribute, Domain) : 특정한 단순 자료형과 데이터의 열
     3. Row : 테이블에서 한 객체의 대한 전체 정보를 표현한 행(가로)
     4. Field : 어떠한 단일 값 자체를 의미
