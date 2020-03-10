@@ -60,3 +60,23 @@
     4. 단일행 서브쿼리
     5. 다중행 서브쿼리
     6. 다중열 서브쿼리
+
+- 23일차(2020-03-10)
+  - kh.sql : 22일차 연속
+    1. 다중행 다중열 서브쿼리
+    2. 상관쿼리
+    3. 스칼라 서브쿼리
+    4. ROWNUM
+    5. RANK() OVER
+    6. DENSE_RANK() OVER
+    7. ROW_NUMBER() OVER
+  - TEST1.sql : 테이블 생성 테스트
+    1. CREATE TABLE
+    2. 제약조건
+  - admin.sql
+    1. 계정 생성
+  - ddlexam.sql : CREATE TABLE 연습문제
+    1. CREATE TABLE
+    2. 제약조건
+  - kh.sql : 테이블 복사
+    1. AS를 이용한 테이블 복사 생성
