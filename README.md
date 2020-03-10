@@ -1243,12 +1243,22 @@
       
       - 소수점 버림을 할 위치를 입력한다.
       - 입력을 안할경우 정수로 버린다.
+      - POSITION은 양수여야 한다.
       ```
       5. CEIL : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 올린다.
       ```
       CEIL(NUMBER, [POSITION]
       
       - 소수점 올림을 할 위치를 입력한다.
+      ```
+      6. TRUNC : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 버린다.
+      ```
+      TRUNC(NUMBER, [POSITION])
+      
+      - 소수점 버림을 할 위치를 입력한다.
+      - 입력을 안할경우 정수로 버린다.
+      - FLOOR와는 다르게 POSITION에 음수가 올 수 있다.
+      - 음수가 오면 1의 자리부터 차례대로 올라간다.
       ```
   - 날짜 처리 함수
     - NULL -> DATE
@@ -1705,50 +1715,141 @@
       ```
       
 ### 2.23 23일차(2020-03-10)
-- ROWNUM
-  - 각 행에 순서번호를 매겨 출력한다.
-  - 사용법
-  ```
-  SELECT ROWNUM, EMP_NAME FROM EMPLOYEE
-  ```
-  - ORDERBY와 마찬가지로 계산이 완료된 이후에 순서번호가 매겨진다.
-- RANK() OVER
-  - 순위를 매기는데 동일한 값이 존재하면 해당 값을 동순위로 매긴다.
-  - 동순위 뒤에 오는 순위는 해당 순위를 건너 뛴 숫자로 계산된다.  
-    ex) 3등에 위치한 사람이 2명이면 다음 등수는 5등이다.
-  - 사용법
-  ```
-  SELECT 순위, EMP_NAME, SALARY
-  FROM (
-    SELECT EMP_NAME, SALARY,
-    RANK() OVER(ORDER BY SALARY DESC) AS 순위
-    FROM EMPLOYEE
-  );
-  ```
-- DENSE_RANK() OVER
-  - RANK() OVER와 마찬가지로 동일한 값이 존재하면 동순위로 매긴다.
-  - 동순위 뒤에 오는 순위는 해당 순위 바로 다음 순위로 계산된다.  
-    ex) 3등에 위치한 사람이 2명이면 다음 등수는 4등이다.
-  - 사용법
-  ```
-  SELECT 순위, EMP_NAME, SALARY
-  FROM (
-    SELECT EMP_NAME, SALARY,
-    DENSE_RANK() OVER(ORDER BY SALARY DESC) AS 순위
-    FROM EMPLOYEE
-  );
-  ```
-- ROW_NUMBER() OVER
-  - ROWNUM과 마찬가지로 동점자 처리를 안한다.
-  - 사용법
-  ```
-  SELECT 순위, EMP_NAME, SALARY
-  FROM (
-    SELECT EMP_NAME, SALARY,
-    ROW_NUMBER() OVER(ORDER BY SALARY DESC) AS 순위
-    FROM EMPLOYEE
-  );
-  ```
+- 순번 매기기
+  - ROWNUM
+    - 각 행에 순서번호를 매겨 출력한다.
+    - 사용법
+    ```
+    SELECT ROWNUM, EMP_NAME FROM EMPLOYEE
+    ```
+    - ORDERBY와 마찬가지로 계산이 완료된 이후에 순서번호가 매겨진다.
+  - RANK() OVER
+    - 순위를 매기는데 동일한 값이 존재하면 해당 값을 동순위로 매긴다.
+    - 동순위 뒤에 오는 순위는 해당 순위를 건너 뛴 숫자로 계산된다.  
+      ex) 3등에 위치한 사람이 2명이면 다음 등수는 5등이다.
+    - 사용법
+    ```
+    SELECT 순위, EMP_NAME, SALARY
+    FROM (
+      SELECT EMP_NAME, SALARY,
+      RANK() OVER(ORDER BY SALARY DESC) AS 순위
+      FROM EMPLOYEE
+    );
+    ```
+  - DENSE_RANK() OVER
+    - RANK() OVER와 마찬가지로 동일한 값이 존재하면 동순위로 매긴다.
+    - 동순위 뒤에 오는 순위는 해당 순위 바로 다음 순위로 계산된다.  
+      ex) 3등에 위치한 사람이 2명이면 다음 등수는 4등이다.
+    - 사용법
+    ```
+    SELECT 순위, EMP_NAME, SALARY
+    FROM (
+      SELECT EMP_NAME, SALARY,
+      DENSE_RANK() OVER(ORDER BY SALARY DESC) AS 순위
+      FROM EMPLOYEE
+    );
+    ```
+  - ROW_NUMBER() OVER
+    - ROWNUM과 마찬가지로 동점자 처리를 안한다.
+    - 사용법
+    ```
+    SELECT 순위, EMP_NAME, SALARY
+    FROM (
+      SELECT EMP_NAME, SALARY,
+      ROW_NUMBER() OVER(ORDER BY SALARY DESC) AS 순위
+      FROM EMPLOYEE
+    );
+    ```
+- DDL
+  - 데이터 정의 언어
+  - 객체를 만들고, 수정하고, 삭제하는 구문
+  - CREATE(생성), ALTER(수정), DROP(삭제)
+  - 오라클 객체 종류
+    - 
+- CREATE
+  - DDL의 한 종류로 테이블이나 인덱스, 유저 등 다양한 데이터베이스를 객체를 생성하는 구문
+  - 관리자 계정과 사용자 계정
+    - 관리자 계정 : 데이터베이스의 생성과 관리를 담당하는 계정이며, 모든 권한과 책임을 가지는 계정
+    - 사용자 계정 : 데이터베이스에 대하여 질의, 갱신, 보고서 작성 등을 수행할 수 있는 계정으로 업무에 필요한 최소한의 권한만 가지는 것을 원칙으로 한다.
+  - 사용자 만들기
+    - USER를 생성하는 것은 관리자 계정으로만 가능
+    - 사용법
+    ```
+    CREATE USER 사용자 이름 IDENTIFIED BY 비밀번호;
+    ```
+    - 관리자 계정에서 USER를 생성하게 되면 계정은 생성되지만 권한이 없어서 접속이 불가능하므로 권한을 부여해 주어야 함
+    - 권한을 부여하거나 회수하는 것을 통해 DATABASE에 접근을 제어함
+    - 이 때 사용하는 구문이 DCL(DATA
+  - 테이블 만들기
+    - 기본 테이블 생성
+    - 사용법
+    ```
+    CREATE TABLE 테이블명(
+      컬럼명 자료형(크기),
+      컬럼명 자료형(크기)...
+    );
+    
+    CREATE TABLE MEMBER(
+      MEMBER_ID VARCHAR2(20),
+      MEMBER_PW VARCHAR2(20),
+      MEMBER_NAME VARCHAR2(20),
+      MEMBER_AGE NUMBER
+    );
+    ```
+    - 테이블에 코멘트 달기
+      - 사용법
+      ```
+      COMMENT ON COLUMN 테이블명.컬럼명 IS '코멘트';
+      
+      COMMENT ON COLUMN MEMBER.MEMBER_ID IS '회원아이디';
+      ```
+    - 제약조건
+      - 테이블 작성시 각 컬럼에 대한 기록에 대해 제약 조건 설정 가능
+      - 데이터 무결성을 지키기 위해 제한된 조건
+      - 제약 조건의 종류  
+      
+      | 제약조건 | 설명 |  
+      | :-----: | :-----: |  
+      | NOT NULL | 데이터에 NULL을 허용하지 않는다. |  
+      | UNIQUE | 중복된 값을 허용하지 않는다. |  
+      | PRIMARY KEY | NULL을 허용하지 않고, 중복을 허용하지 않는다.<br>컬럼의 고유 식별자로 사용하기 위함. |  
+      | FOREIGN KEY | 참조되는 테이블의 컬럼 값이 존재하면 허용한다. |  
+      | CHECK | 저장 가능한 데이터 값의 범위나 조건을 지정하여 설정한 값만 허용한다. |
+      
+      - 제약조건 입력방법
+      ```
+      CREATE TABLE 테이블명(
+        컬럼명1 자료형(크기) 제약조건,
+        컬럼명2 자료형(크기) 제약조건,
+        ...,
+        제약조건 (컬럼명1, 컬럼명2, ...)
+      );
+      
+      - 제약조건 입력은 컬럼에서 하는 것과 컬럼에서 모두 쓰고 마지막 테이블단에서 쓰는 2가지가 있다.
+      - 그러나 테이블단의 경우 1가지씩 체크하는 것이 아닌 전체가 동일한 제약조건에 위배할 때만 오류가 발생한다.
+      - PRIMARY KEY의 경우 테이블당 1개만 가능하다.
+      ```
+      
+      - FOREIGN KEY
+        - 참조 무결성을 유지하기 위한 제약조건
+        - 참조된 다른 테이블이 제공하는 값만 사용할 수 있도록 제한하는 것
+      - CHECK
+        - 사용법
+        ```
+        CREATE TABLE 테이블명(
+          컬럼명1 자료형(크기) CHECK (컬렴명1 IN (필드1, 필드2...)
+          ...
+        );
+        ```
+    - 테이블 카피
+      - 사용법
+      ```
+      CREATE TABLE 테이블명
+      AS
+      SELECT 컬럼명1, 컬럼명2... FROM 테이블명2 WHERE 조건문
+      
+      - SELECT문 결과 그대로를 복사한다.
+      ```
 
 ## 3. 이클립스 기능
 - 단축키
