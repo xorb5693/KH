@@ -15,7 +15,7 @@
 | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |  
 | [2.1](#21-1일차2020-01-28) | [2.2](#22-2일차2020-01-29) | [2.3](#23-3일차2020-01-30) | [2.4](#24-4일차2020-01-31) | [2.5](#25-5일차2020-02-03) | [2.6](#26-6일차2020-02-04) | [2.7](#27-7일차2020-02-05) | [2.8](#28-8일차2020-02-06) | [2.9](#29-9일차2020-02-07) | [2.10](#210-10일차2020-02-10) |
 | [2.11](#211-11일차2020-02-11) | [2.12](#212-12일차2020-02-12) | [2.13](#213-13일차2020-02-13) | [2.14](#214-14일차2020-02-14) | [2.15](#215-15일차2020-02-17) | [2.16](#216-16일차2020-02-18) | [2.17](#217-17일차2020-02-19) | [2.18](#218-18일차2020-02-20) | [2.19](#219-19일차2020-02-21) | [2.20](#220-20일차2020-02-24) |
-| [2.21](#221-21일차2020-02-25) | [2.22](#222-22일차2020-03-09) | [2.23](#223-23일차2020-03-10) | [2.24](#) | [2.25](#) | [2.26](#) | [2.27](#) | [2.28](#) | [2.29](#) | [2.30](#) |
+| [2.21](#221-21일차2020-02-25) | [2.22](#222-22일차2020-03-09) | [2.23](#223-23일차2020-03-10) | [2.24](#224-24일차2020-03-11) | [2.25](#) | [2.26](#) | [2.27](#) | [2.28](#) | [2.29](#) | [2.30](#) |
 
 </div>
 </details>  
@@ -1888,6 +1888,25 @@
           ...
         );
         ```
+      - 제약조건 확인
+      ```
+      SELECT 
+      UC.CONSTRAINT_NAME, -- 제약조건 이름
+      UC.CONSTRAINT_TYPE, -- 제약조건 타입
+      UC.TABLE_NAME,      -- 테이블 이름
+      UCC.COLUMN_NAME,    -- 컬럼 이름
+      UC.SEARCH_CONDITION -- 제약조건 설명
+      FROM USER_CONSTRAINTS UC
+      JOIN USER_CONS_COLUMNS UCC
+      ON (UC.CONSTRAINT_NAME = UCC.CONSTRAINT_NAME)
+      WHERE UC.TABLE_NAME = 테이블명; -- 테이블명은 반드시 대문자
+      
+      - CONSTRAINT_TYPE
+        1. C : CHECK OR NOT NULL
+        2. P : PRIMARY KEY
+        3. R : FROEIGN KEY
+        4. U : UNIQUE
+      ```
     - 테이블 카피
       - 사용법
       ```
@@ -1898,6 +1917,239 @@
       - SELECT문 결과 그대로를 복사한다.
       ```
 
+### 2.24 24일차(2020-03-11)
+- ALTER
+  - 컬럼 추가
+  ```
+  ALTER TABLE 테이블명
+  ADD (컬럼명1, 자료형(크기) [DEFAULT 초기값])
+  ADD (컬럼명2, 자료형(크기) [DEFAULT 초기값]);
+  
+  ALTER TABLE DEPT_COPY
+  ADD (KNAME VARCHAR2(20));
+  
+  - 컬럼을 추가할 때 DEFAULT를 추가하지 않으면 모두 NULL로 초기화된다.
+  ```
+  - 컬럼 수정
+  ```
+  ALTER TABLE 테이블명
+  MODIFY (컬럼명1, 자료형(크기) [DEFAULT 초기값])
+  MODIFY (컬럼명2, 자료형(크기) [DEFAULT 초기값])
+  ...;
+  
+  ALTER TABLE DEPT_COPY
+  MODIFY DEPT_ID CHAR(3)
+  MODIFY DEPT_TITLE VARCHAR2(40);
+  ```
+  - 제약조건 추가
+  ```
+  ALTER TABLE 테이블명
+  ADD CONSTRAINT 제약조건 이름1 제약조건(컬럼명1)
+  ADD CONSTRAINT 제약조건 이름2 제약조건(컬럼명2)
+  ...
+  MODIFY 컬럼명 제약조건 제약조건 이름 3 NOT NULL;
+  
+  ALTER TABLE DEPT_COPY
+  ADD CONSTRAINT DCOPY_ID_PK PRIMARY KEY(DEPT_ID)
+  ADD CONSTRAINT DCOPY_TITLE_UNQ UNIQUE(DEPT_TITLE)
+  MODIFY HNAME CONSTRAINT DCOPY_HNAME_NN NOT NULL;
+  
+  - NOT NULL의 경우는 다른 제약조건과는 다르게 ADD COSNTRAINT가 아닌 MODIFY로 해야 한다.
+  - NOT NULL 제약조건을 추가할 때 만약 해당 필드에 이미 NULL이 있다면 제약조건이 추가되지 않는다.
+  ```
+  - 컬럼 삭제
+  ```
+  ALTER TABLE 테이블명
+  DROP COLUMN 컬럼;
+  
+  ALTER TABLE DEPT_COPY
+  DROP COLUMN KNAME;
+  
+  - 만약 해당 컬럼이 외래키로 참조가 된 상태면 삭제가 불가능하다.
+  ```
+  - 제약조건 삭제
+  ```
+  ALTER TABLE 테이블명
+  DROP CONSTRAINT 제약조건 이름1
+  DROP CONSTRAINT 제약조건 이름2
+  ...
+  MODIFY 컬럼명 NULL;
+  
+  ALTER TABLE DEPT_COPY
+  DROP CONSTRAINT DCOPY_ID_PK
+  DROP CONSTRAINT DCOPY_TITLE_UNQ
+  MODIFY HNAME NULL;
+  
+  - NOT NULL에 해당하는 제약조건은 삭제 또한 MODIFY로 해야 한다.
+  ```
+  - 컬럼 이름 변경
+  ```
+  ALTER TABLE 테이블명
+  RENAME COLUMN 기존 컬럼명 TO 수정 컬럼명;
+  
+  ALTER TABLE DEPT_COPY
+  RENAME COLUMN HNAME TO KHNAME;
+  ```
+  - 제약조건 이름 변경
+  ```
+  ALTER TABLE 테이블명
+  RENAME CONSTRAINT 기존 제약조건명 TO 수정 제약조건명;
+  
+  ALTER TABLE DEPT_COPY
+  RENAME CONSTRAINT SYS_C007059 TO DCOPY_ID_NN;
+  ```
+  - 테이블 이름 변경
+  ```
+  ALTER TABLE 테이블명
+  RENAME TO 수정할 테이블명;
+  
+  ALTER TABLE DEPT_COPY
+  RENAME TO ALTER_TEST;
+  ```
+- DROP
+  - DDL의 한 종류로 CREATE로 정의 된 객체를 삭제할 때 사용
+  - 사용법
+  ```
+  DROP 객체타입 객체명 [CASCADE CONSTRAINT];
+  
+  DROP USER ddlexam;
+  DROP TABLE ALTER_TEST;
+  
+  - 만약 삭제하려는 테이블을 참조하는 테이블이 존재한다면 삭제 불가능
+  - 해당 테이블을 삭제하기 위해서는 CASCADE CONSTRAINT를 추가하여 강제 삭제를 진행한다.
+  - 계정 삭제의 경우 해당 계정에 테이블이 남아 있다면 삭제 불가능
+  ```
+- DML
+  - 데이터 조작 언어
+  - 테이블에 값을 삽입, 수정, 삭제하는 역할
+  - INSERT(삽입), UPDATE(수정), DELETE(삭제)
+- INSERT
+  - 테이블에 새로운 행을 추가하는 구문
+  - 추가할 때마다 테이블 행 개수가 증가
+  - 사용법
+  ```
+  - 선택적 입력
+  
+  INSERT INTO 테이블명(컬럼명1, 컬렴명2...) VALUES(값1, 값2...);
+  
+  - 값을 넣을 컬럼명을 입력하고 입력한 순서에 맞춰서 값을 입력
+  - 명시한 컬럼에만 값이 들어가고 명시되지 않은 컬럼은 NULL
+  --------------------------------------------------
+  - 전체 입력
+  
+  INSERT INTO 테이블명 VALUES(값1, 값2...);
+  
+  - 테이블 생성시 만든 컬럼 순서대로 모든 값을 입력(NULL도 값으로 입력)
+  - 컬럼 수와 입력한 값의 수가 맞지 않는 경우 에러 발생
+  ```
+  - INSERT시에 VALUES 대신 서브쿼리로 사용이 가능하다.  
+  ex)
+  ```
+  INSERT INTO EMP_01(
+    SELECT EMP_ID, EMP_NAME, DEPT_TITLE
+    FROM EMPLOYEE
+    LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+  );
+  
+  - 사원 번호, 사원 이름, 소속 부서를 서브쿼리로 다중으로 입력한다.
+  ```
+  - INSERT ALL
+    - INSERT시 사용하는 서브쿼리의 테이블이 동일한 경우, 2개 이상의 테이블에 INSERT ALL을 이용하여 한 번에 삽입이 가능하다.
+    - 단, 서브쿼리의 조건절이 같아야 한다.
+    - 사용법
+    ```
+    INSERT ALL
+    INTO 테이블명1 VALUES(컬럼명1, 컬럼명2...)
+    INTO 테이블명2 VALUES(컬럼명3, 컬럼명4...)
+    SELECT 컬럼명1, 컬럼명2, 컬럼명3, 컬럼명4
+    FROM 테이블명3
+    [WHERE 조건문]
+    
+    INSERT ALL
+    WHEN 조건문1 THEN
+    INTO 테이블명1 VALUES(컬럼명1, 컬럼명2...)
+    WHEN 조건문2 THEN
+    INTO 테이블명2 VALUES(컬럼명3, 컬럼명4...)
+    SELECT 컬럼명1, 컬럼명2, 컬럼명3, 컬럼명4
+    FROM 테이블명3
+    [WHERE 조건문]
+    ```
+- UPDATE
+  - 테이블에 기록된 컬럼의 값을 수정하는 구문
+  - 테이블의 전체 행 개수 변화 없음
+  - 사용법
+  ```
+  UPDATE 테이블명
+  SET 수정할 컬럼 = 수정할 값
+  [WHERE 조건문];
+  
+  - 조건문을 작성하지 않으면 모든 데이터를 일괄 변경한다.
+  --------------------------------------------------
+  - 서브쿼리를 이용한 UPDATE
+  UPDATE 테이블명
+  SET 
+  컬럼명1 = 서브쿼리1
+  컬럼명2 = 서브쿼리2
+  [WHERE 조건문];
+  ```
+- MERGE
+  - 구조가 같은 두 개의 테이블을 하나로 합치는 기능
+  - 두 테이블에서 지정하는 조건의 값이 존재하면 UPDATE, 조건의 값이 없으면 INSERT가 된다.
+  - 사용법
+  ```
+  MERGE INTO
+  ```
+- DELETE
+  - 테이블의 행을 삭제하는 구문
+  - 테이블의 전체 행 개수 감소
+  - 사용법
+  ```
+  DELET FROM 테이블명
+  [WHERE 조건문]
+  
+  - 조건문을 생략하는 경우 테이블 전체가 삭제된다.
+  ```
+  - DELETE의 경우 제약조건이 설정되어 있는 경우 삭제가 불가능하다.
+  - 삭제를 하기 위해서는 ON DELETE CASCADE나 ON DELETE SET NULL을 설정하거나 제약조건을 비활성화 후 삭제가 가능하다.
+  - 제약조건 비활성화
+  ```
+  ALTER TABLE 테이블명
+  DISABLE CONSTRAINT 제약조건명 CASCADE;
+  ```
+  - 제약조건 활성화
+  ```
+  ALTER TABLE 테이블명
+  ENABLE CONSTRAINT 제약조건명;
+  ```
+- ROLLBACK
+  - 이전 상태로 복구한다.
+  - 복구 시점은 마지막 COMMIT이 된 시점이다.
+- TRUNCATE
+  - DELETE보다 수행 속도가 빠르다.
+  - ROLLBACK을 통한 복구가 불가능하다.
+  - DDL이다. 
+- TRANSACTION
+  - 한꺼번에 수행되어야 할 최소의 작업단위
+  - 하나의 트랜잭션으로 이루어진 작업들은 반드시 한꺼번에 완료가 되어야 하며, 그렇지 않은 경우 한꺼번에 취소 되어야 함
+  - TRANSACTION - ATM 기기 업무처리
+    1. 카드 삽입
+    2. 메뉴 선택(인출)
+    3. 금액 확인 및 인증
+    4. 은행 계좌에서 금액만큼 인출
+    5. 실제 현금 인출
+    6. 완료
+- TCL
+  - 트랜잭션 제어 언어
+  - 트랜잭션 작업을 적용, 취소할 때 사용하는 SQL
+  - TCL 종류  
+  
+  | 구문 | 설명 |  
+  | :-----: | :-----: |  
+  | COMMIT | 트랜잭션 작업이 정상 완료되면 변경내용을 저장<br>-> 모든 SAVEPOINT 삭제 |  
+  | ROLLBACK | 트랜잭션 작업을 모두 취소하고 최근 COMMIT 시점으로 이동 |  
+  | SAVEPOINT | 현재 트랜잭션 작업 시점의 이름을 지정<br>하나의 트랜잭션 안에서 구역을 나눌 수 있음 |  
+  | ROLLBACK TO | 트랜잭션 작업을 취소하고 SAVEPOINT 시점으로 이동 |  
+  
 ## 3. 이클립스 기능
 - 단축키
   - ctrl + shift + F : 자동 줄맞춤
