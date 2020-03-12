@@ -1239,17 +1239,11 @@
       ```
       4. FLOOR : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 버린다.
       ```
-      FLOOR(NUMBER, [POSITION])
-      
-      - 소수점 버림을 할 위치를 입력한다.
-      - 입력을 안할경우 정수로 버린다.
-      - POSITION은 양수여야 한다.
+      FLOOR(NUMBER)
       ```
       5. CEIL : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 올린다.
       ```
-      CEIL(NUMBER, [POSITION]
-      
-      - 소수점 올림을 할 위치를 입력한다.
+      CEIL(NUMBER]
       ```
       6. TRUNC : 인자로 전달받은 숫자 혹은 컬럼의 소수점 아래를 버린다.
       ```
@@ -2151,7 +2145,6 @@
   | ROLLBACK TO | 트랜잭션 작업을 취소하고 SAVEPOINT 시점으로 이동 |  
   
 ### 2.25 25일차(2020-03-12)
-- OBJECT
 - VEIW
   - SELECT 쿼리의 실행 결과를 화면에 저장한 논리적인 가상 테이블
   - 테이블과 다르게 실질적으로 데이터를 저장하고 있지 않지만, 사용자는 테이블을 사용하는 것과 동일하게 사용 가능
@@ -2291,6 +2284,182 @@
   ```
   GRANT CREATE SYNONYM TO 사용자 계정;
   ```
+- PL/SQL
+  - Procedural Language extension to SQL의 약자
+  - 오라클 자체에 내장되어 있는 절차적 언어
+  - SQL의 단점을 보완하여 SQL 문장 내에서 변수의 정의, 조건처리, 반복처리 등을 지원
+  - 사용법
+  ```
+  - PL/SQL을 이용한 출력문을 출력하기 위한 설정이 필요함
+  SET SERVEROUTPUT ON;
+  
+  - PL/SQL문
+  DECLARE         - 선언부는 선택사항,
+    [선언부]       - 변수나 상수를 선언
+  BEGIN           - 
+    [실행부]       - 
+  EXCEPTION       - 
+    [예외처리부]   -
+  END;
+  /
+  
+  - ORACLE에서는 데이터를 삽입할 때 ':='을 사용한다.
+  
+  MSG := 'TEST';
+  
+  - 출력문 사용하는 함수
+  DBMS_OUTPUT.PUT_LINE(문자열);
+  
+  - 키보드로 입력을 하기 위해서는 '&'를 사용한다.
+  - &뒤에 온 단어가 입력창에 출력된다.
+  
+  MSG := '&입력';
+  
+  - 내부 주석이 제대로 작동을 안함.
+  - SELECT문으로 DB에서 읽어올 수 있음
+  
+  DECLARE
+    변수1 타입;
+    변수2 타입;
+  BEGIN
+    SELECT 컬럼1, 컬럼2
+    INTO 변수1, 변수2
+    FROM 테이블명
+    WHERE 조건문;
+  ...
+  END;
+  /
+  ```
+  - PLSQL 변수의 종류
+    1. 일반(스칼라) 변수 : 기존 SQL 자료형과 유사값을 대입(:=)하고 변경하여 사용이 가능
+    2. 상수 : 일반변수와 유사하나 CONSTANT 키워드가 자료형 앞에 붙고 선언시 값을 할당해주어야 하며 변경불가
+    ```
+    DECLARE
+      변수 CONSTANT 타입 := 값;
+    ...
+    END;
+    /
+    
+    - 상수는 DECLARE에서 초기화를 해야 한다.
+    - 초기화된 이후에는 변경 불가
+    ```
+    3. %TYPE : 이전에 선언 된 다른 변수 또는 테이블의 컬럼 자료형에 맞추어
+    ```
+    DECLARE
+      변수 테이블명.컬럼명%TYPE
+    ...
+    END;
+    /
+    ```
+    4. %ROWTYPE : %TYPE과 유사하게 참조할 테이블의 컬럼데이터 타입을 자동으로 가져오나 1개의 컬럼이 아니라 여러개의 컬럼 값을 자동으로 가져옴
+    ```
+    DECLARE
+      변수 테이블명%ROWTYPE
+    ...
+    END;
+    /
+    
+    - 참조는 변수.컬럼명으로 참조가 가능하다.
+    ```
+    5. RECORD : %ROWTYPE이 참조할 테이블의 컬럼 데이터 타입을 자동으로 가져오는 반면 레코드는 직접적으로 컬럼타입 지정
+    ```
+    DECRALE
+      TYPE 레코드타입명 IS RECORD(
+        변수명1 타입1,
+        변수명2 타입2,
+        ...
+      )
+      레코드변수명 레코드타입명;
+    BEGIN
+      SELECT 컬럼1, 컬럼2...
+      INTO 레코드변수명
+      ...
+      DBMS_OUTPUT.PUTLINE(레코드변수명.변수명1);
+    ...
+    END;
+    /
+    
+    - SELECT하는 컬럼의 개수와 레코드 타입의 변수 개수가 같은 경우 INTO를 레코드변수만으로 가능하다.
+    ```
+- PL/SQL 선택문
+  - PL/SQL의 모든 문장들은 기술한 순서대로 순차적으로 수행
+  - 문장을 선택적으로 수행하려면 선택문을 사용
+  - 종류
+    1. IF ~ THEN ~ END IF문(JAVA의 if문)
+    ```
+    DECLARE
+      ...
+    BEGIN
+    
+      ...
+      
+      IF (조건문) THEN ...
+      END IF;
+      
+      ...
+      
+    END;
+    /
+    ```
+    2. IF ~ THEN ~ ELSE ~ END IF문(JAVA의 if~else문)
+    ```
+    DECLARE
+      ...
+    BEGIN
+    
+      ...
+      
+      IF (조건문) THEN ...
+      ELSE ...
+      END IF;
+      
+      ...
+      
+    END;
+    /
+    ```
+    3. IF ~ THEN ~ ELSIF ~ ELSE ~ END IF문(JAVA의 if~else if문)
+    ```
+    DECLARE
+      ...
+    BEGIN
+    
+      ...
+      
+      IF (조건문1) THEN ...
+      ELSIF (조건문2) THEN ...
+      ELSIF (조건문3) THEN ...
+      ...
+      ELSE ...
+      END IF;
+      
+      ...
+      
+    END;
+    /
+    ```
+    4. CASE
+    - JAVA의 switch문(JAVA의 switch)
+    ```
+    DECLARE
+      ...
+    BEGIN
+    
+      ...
+      
+      CASE 변수
+        WHEN 값1 THEN ...;
+        WHEN 값2 THEN ...;
+        WHEN 값3 THEN ...;
+        ...
+        ELSE ...;
+      END CASE;
+      
+      ...
+      
+    END;
+    /
+    ```
   
 ## 3. 이클립스 기능
 - 단축키
