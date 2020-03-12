@@ -334,3 +334,161 @@ BEGIN
     COMMIT;
 END;
 /
+
+DECLARE
+    E_ID EMPLOYEE.EMP_ID%TYPE;
+    E_NAME EMPLOYEE.EMP_NAME%TYPE;
+    SAL EMPLOYEE.SALARY%TYPE;
+    BONUS EMPLOYEE.BONUS%TYPE;
+BEGIN
+    SELECT EMP_ID, EMP_NAME, SALARY, NVL(BONUS, 0)
+    INTO E_ID, E_NAME, SAL, BONUS
+    FROM EMPLOYEE
+    WHERE EMP_ID = &사번;
+
+    DBMS_OUTPUT.PUT_LINE('사번 : '||E_ID);
+    DBMS_OUTPUT.PUT_LINE('이름 : '||E_NAME);
+    DBMS_OUTPUT.PUT_LINE('급여 : '||SAL);
+    DBMS_OUTPUT.PUT_LINE('보너스율 : '||BONUS * 100||'%');
+    
+    IF (BONUS = 0)
+    THEN 
+        DBMS_OUTPUT.PUT_LINE('보너스를 받지 않는 사원입니다');
+    END IF;
+END;
+/
+
+DECLARE
+    E_ID EMPLOYEE.EMP_ID%TYPE;
+    E_NAME EMPLOYEE.EMP_NAME%TYPE;
+    J_CODE EMPLOYEE.JOB_CODE%TYPE;
+    J_NAME JOB.JOB_NAME%TYPE;
+BEGIN
+    SELECT EMP_ID, EMP_NAME, JOB_CODE, JOB_NAME
+    INTO E_ID, E_NAME, J_CODE, J_NAME
+    FROM EMPLOYEE
+    LEFT JOIN JOB USING(JOB_CODE)
+    WHERE EMP_ID = &사번;
+    
+    DBMS_OUTPUT.PUT_LINE('사번 : ' || E_ID);
+    DBMS_OUTPUT.PUT_LINE('이름 : ' || E_NAME);
+    DBMS_OUTPUT.PUT_LINE('직급코드 : ' || J_CODE);
+    DBMS_OUTPUT.PUT_LINE('직급 : ' || J_NAME);
+    
+    IF (J_CODE IN('J1', 'J2'))
+    THEN
+        DBMS_OUTPUT.PUT_LINE('임원진입니다.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('가족입니다.');
+    END IF;
+END;
+/
+
+--사원번호를 가지고 사원을 조회하여 사원명과 부서명을 출력
+--부서가 없는 사원이면 '부서가 없는 사원입니다.'
+--부서가 있으면 부서명을 출력
+DECLARE
+    E_NAME EMPLOYEE.EMP_NAME%TYPE;
+    D_TITLE DEPARTMENT.DEPT_TITLE%TYPE;
+BEGIN
+    SELECT EMP_NAME, DEPT_TITLE
+    INTO E_NAME, D_TITLE
+    FROM EMPLOYEE
+    LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+    WHERE EMP_ID = &사번;
+    
+    DBMS_OUTPUT.PUT_LINE('이름 : ' || E_NAME);
+    
+    IF (D_TITLE IS NULL)
+    THEN
+        DBMS_OUTPUT.PUT_LINE('부서가 없는 사원입니다');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('부서명 : ' || D_TITLE);
+    END IF;
+END;
+/
+
+--사번을 입력받은 후 급여를 확인하여 등급을 출력
+--0 ~ 99만원 : F
+--100 ~ 199만원 : E
+--200 ~ 299만원 : D
+--300 ~ 399만원 : C
+--400 ~ 499만원 : B
+--500만원 이상 : A
+DECLARE
+    E_NAME EMPLOYEE.EMP_NAME%TYPE;
+    SAL EMPLOYEE.SALARY%TYPE;
+    GRADE VARCHAR2(2);
+BEGIN
+    SELECT EMP_NAME, SALARY
+    INTO E_NAME, SAL
+    FROM EMPLOYEE
+    WHERE EMP_ID = &사번;
+    
+    DBMS_OUTPUT.PUT_LINE('이름 : ' || E_NAME);
+    DBMS_OUTPUT.PUT_LINE('급여 : ' || SAL);
+    SAL := SAL / 10000;
+    
+    IF (SAL >= 500)
+    THEN
+        GRADE := 'A';
+    ELSIF (SAL >= 400)
+    THEN
+        GRADE := 'B';
+    ELSIF (SAL >= 300)
+    THEN
+        GRADE := 'C';
+    ELSIF (SAL >= 200)
+    THEN
+        GRADE := 'D';
+    ELSIF (SAL >= 100)
+    THEN
+        GRADE := 'E';
+    ELSE
+        GRADE := 'F';
+    END IF;
+    
+    DBMS_OUTPUT.PUT_LINE('등급 : '||GRADE);
+END;
+/
+
+DECLARE
+    INPUTNUM NUMBER;
+BEGIN
+    INPUTNUM := &숫자;
+    
+    CASE INPUTNUM
+        WHEN 1 THEN DBMS_OUTPUT.PUT_LINE('1을 입력하셨습니다.');
+        WHEN 2 THEN DBMS_OUTPUT.PUT_LINE('2를 입력하셨습니다.');
+        WHEN 3 THEN DBMS_OUTPUT.PUT_LINE('3을 입력하셨습니다.');
+        ELSE DBMS_OUTPUT.PUT_LINE('1, 2, 3이 아닙니다.');
+    END CASE;
+END;
+/
+
+DECLARE
+    E_NAME EMPLOYEE.EMP_NAME%TYPE;
+    SAL EMPLOYEE.SALARY%TYPE;
+    GRADE VARCHAR2(2);
+BEGIN
+    SELECT EMP_NAME, SALARY
+    INTO E_NAME, SAL
+    FROM EMPLOYEE
+    WHERE EMP_ID = &사번;
+    
+    DBMS_OUTPUT.PUT_LINE('이름 : ' || E_NAME);
+    DBMS_OUTPUT.PUT_LINE('급여 : ' || SAL);
+    SAL := SAL / 1000000;
+    
+    CASE FLOOR(SAL)
+        WHEN 0 THEN GRADE := 'F';
+        WHEN 1 THEN GRADE := 'E';
+        WHEN 2 THEN GRADE := 'D';
+        WHEN 3 THEN GRADE := 'C';
+        WHEN 4 THEN GRADE := 'B';
+        ELSE GRADE := 'A';
+    END CASE;
+    
+    DBMS_OUTPUT.PUT_LINE('등급 : '||GRADE);
+END;
+/
