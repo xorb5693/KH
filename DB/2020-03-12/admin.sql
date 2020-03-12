@@ -1,0 +1,2 @@
+
+GRANT CREATE VIEW TO kh;
