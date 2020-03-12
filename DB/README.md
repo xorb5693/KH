@@ -99,3 +99,27 @@
     2. COMMIT
     3. SAVEPOINT
     4. ROLLBACK TO
+- 25일차(2020-03-12)
+  - kh.sql : VIEW, SEQUENC 테스트
+    1. VIEW 테스트
+    2. SEQUENCE 테스트
+    3. 비공개 동의어
+    4. PL/SQL 테스트
+    5. PL/SQL 타입 테스트
+    6. PL/SQL 타입 실습
+    7. PL/SQL IF문 테스트
+  - admin.sql
+    1. 뷰 생성 권한 획득
+    2. 뷰 SELECT 권한 획득
+    3. SYNONYM 생성 권한 획득
+    4. 공개 동의어
+    5. OBJECT 실습
+  - TEST1.sql
+    1. 다른 계정에서 뷰 SELECT
+    2. 공개 동의어
+  - khtest.sql : OBJECT 실습
+    1. MEMBER 테이블 생성
+    2. BOARD 테이블 생성
+    3. SEQUENCE 객체 생성
+    4. VIEW 생성
+    5. SYNONYM 생성
