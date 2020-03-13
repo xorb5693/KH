@@ -123,3 +123,9 @@
     3. SEQUENCE 객체 생성
     4. VIEW 생성
     5. SYNONYM 생성
+- 26일차(2020-03-13)
+  - kh.sql
+    1. 반복문 테스트
+    2. 반복문 실습
+    3. TRIGGER 테스트
+    4. TRIGGER 실습
