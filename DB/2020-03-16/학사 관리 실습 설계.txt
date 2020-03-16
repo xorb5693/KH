@@ -1,0 +1,46 @@
+우리는 학교 시스템을 개발중에 있다. 우리는 많은 과목이 있다.  과목코드, 과목명, 과목을 이수하였을 경우 학생들에게 주어지는 학점을 관리한다.  
+매 학기별로 과목별 개설강좌를 오픈한다. 
+하나의 개설강좌는 과목과 교수가 배치되며, 하나의 강좌에는 한 명의 교수만 배정할 수 있다.  
+개설강좌는 ID, 학기당 총 강의시간, 강의 요일(주 1회), 강의 교시, 강의시간을 관리한다. 
+3교시부터 4시간을 강의한다면,  강의교시는 3, 강의시간은 4를 관리하는 방식이다. 
+또한 강좌가 개설하였을 경우 교수는 수강생들의 평가기준을 확정해야 한다.  
+평가는 출석점수, 중간고사, 기말고사, 과제점수로 구성되는데,  각 점수별로 평가 가중치를 관리한다.  
+예를들면 출석점수는 30%, 중간고사20%, 기말고사20%, 과제점수30%를 관리하는 방식이며, 가중치는 강의 교수별로 다르게 지정한다. 
+우리는 교수를 관리하며, 교수는 Id, 이름, 전화번호, 주소를 관리한다. 또한 학생을 관리하며, 
+학생은 ID, 이름, 전화번호, 주소를 관리한다. 
+
+학생은 학기 시작 전 본인이 수강하고자 하는 수업에 대해 수강신청을 한다. 
+학기가 종료되면 교수는 학생들의 평가를 제출해야 한다.  
+평가 방법은 평가기준에 따른다.
+
+과목(SUBJECT)
+	- 과목코드 : SUBJECT_NO/NUMBER/PK
+	- 과목명 : SUBJECT_TITLE/VARCHAR2(100)/NN
+	- 학점 : CREDIT/NUMBERR/NN
+강좌(CLASS)
+	- 강좌ID : CLASS_NO/NUMBER/PK
+	- 과목코드 : SUBJECT_NO/NUMBER FK PK
+	- 교수ID : USER_ID/VARCHAR2(20)/FK PK
+	- 총 강의시간 : CLASS_ALL_TILE/NUMBER/NN
+	- 강의 요일 : CLASS_DAY/VARCHAR2(3)/NN CHECK('월', '화', '수', '목', '금', '토', '일')
+	- 강의 교시 : CLASS_PERIOD/NUMBER/NN
+	- 강의 시간 : CLASS_TITLE/NUMBER/NN
+회원(USER)
+	- ID : USER_ID/VARCHAR2(20)/PK
+	- 이름 : USER_NAME/VARCHAR2(30)/NN
+	- 전화번호 : PHONE/CHAR(13)/DEFAULT '010-0000-0000'
+	- 주소 : USER_ADDR : VARCHAR2(500)
+	- 학생/교수 여부 : STU_PRO/CHAR(3)/NN CHECK('학', '교')
+수강신청(ORDER_CLASS)
+	- 강좌ID : CLASS_NO/NUMBER/FK PK
+	- 학생ID : USER_ID/VARCHAR2(20)/FK PK
+	- 출석점수 : ATTEND_SCORE/NUMBER
+	- 중간고사 : MIDTERM_SCORE/NUMBER
+	- 기말고사 : FINAL_SCORE/NUMBER
+	- 과제점수 : TASK_SCORE/NUMBER
+평가기준(EVAL_STAND)
+	- 강좌ID : CLASS_NO/NUMBER/FK PK
+	- 출석점수 : ATTEND_STAND/NUMBER
+	- 중간고사 : MIDTERM_STAND/NUMBER
+	- 기말고사 : FINAL_STAND/NUMBER
+	- 과제점수 : TASK_STAND/NUMBER
