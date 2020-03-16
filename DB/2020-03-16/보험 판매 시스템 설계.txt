@@ -1,0 +1,25 @@
+우리회사는 초일류 보험회사이며, 보험판매 시스템을 만들고자 한다. 
+판매 상품은 자동차보험, 운전자보험 등 다양한 상품을 판매한다.  
+
+상품은 상품코드, 상품명을 관리한다. 또한 우리회사는 많은 고객을 관리하고 있다. 
+고객은 고객번호, 고객명, 연락처를 관리한다.  
+고객은 다양한 상품을 가입할 수 있으며, 계약일자, 보험시작일자, 보험종료일자, 매월 납입보험료, 총납입회차를 관리한다.  
+보험계약 시 계약자와 피보험자는 동일하다. 
+보험계약시 계약 번호는 자동으로 채번된다.
+
+1. 상품 테이블(PRODUCT)
+	- 상품코드 : PRO_NO/NUMBER/PK
+	- 상품명 : PRO_NAME/VARCHAR2(20)/NN
+2. 고객(CLIENT)
+	- 고객번호 : CLI_NO/NUMBER/PK
+	- 고객명 : CLI_NAME/VARCHAR2(30)/NN
+	- 연락처 : PHONE/CHAR13/DEFAULT '010-0000-0000'
+3. 상품가입(PRO_JOIN)
+	- 계약번호 : JOIN_NO/NUMBER/PK
+	- 고객번호 : CLI_NO/NUMBER/FK PK
+	- 상품코드 : PRO_NO/NUMBER/FK PK
+	- 계약일자 : CONTRACT_DATE/DATE/NN
+	- 보험시작일자 : START_DATE/DATE/NN
+	- 보험종료일자 : END_DATE/DATE/NN
+	- 매월 납입보험료 : PREMIUM/NUMBER/NN
+	- 총 납입회차 : TURNING/NUMBER/NN
