@@ -1,0 +1,34 @@
+DB설계에 대한 의뢰가 하나 들어왔다.
+학원시스템에 관련하여 개발하고자 한다.
+해당 학원에는 많은 과목이 존재하고 과목코드, 과목명이 있다.
+과목에 따라 여러 강좌를 개강하기 위해서는 과목과 강사 정보가 필요하며
+강좌마다 강좌번호가 있으며, 하나의 강좌당 한명의 강사가 배치된다.
+강좌 정보는 요일,교시,강의시간(총 강의시간)을 기록할 수 있어야 한다.
+해당 학원은 강사를 관리하며, 강사는 강사별 ID,이름,전화번호, 주소를 관리 한다.
+또한 학생들도 관리하며 학생은 학생별 ID,이름,전화번호,주소를 관리 한다.
+학생들은 강좌를 듣기 위해 수강신청을 할 수 있다.
+수강신청시 필요한 정보는 강좌번호와 학생 ID가 필요하다.
+
+1. 과목 테이블(SUBJECT)
+	- 과목코드 : SUBJECT_NO/NUMBER/PK
+	- 과목명 : SUBJECT_TITLE/VARCHAR2(100)/NN
+2. 강좌 테이블(CLASS)
+	- 강좌번호 : CLASS_NO/NUMBER/PK
+	- 강사ID : TEACHAR_ID/VARCHAR2(20)/FK NN
+	- 과목코드 : SUBJECT_NO/NUMBER/FK NN
+	- 요일 : CLASS_DAY/VARCHAR2(3)/NN CHECK('월', '화', '수', '목', '금', '토', '일')
+	- 교시 : CLASS_PERIOD/NUMBER/NN
+	- 강의시간 : CLASS_TILE/NUMBER/NN
+3. 강사 테이블(TEACHAR)
+	- 강사ID : TEA_ID/VARCHAR2(20)/PK
+	- 이름 : TEA_NAME/VARCHAR2(30)/NN
+	- 전화번호 : TEA_PHONE/CHAR(13)/DEFAULT '010-0000-0000'
+	- 주소 : TEA_ADDR/VARCHAR2(500)
+4. 학생 테이블(STUDENT)
+	- 학생ID : STU_ID/VARCHAR2(20)/PK
+	- 이름 : STU_NAME/VARCAHR2(30)/NN
+	- 전화번호 : STU_PHONE/CHAR(13)/DEFAULT '010-0000-0000'
+	- 주소 : STU_ADDR/VARCHAR2(500)
+5. 수강 신청 테이블(ORDER_CLASS)
+	- 강좌번호 : CLASS_NO/NUMBER/PK FK NN
+	- 학생ID : STU_ID/VARCHAR2(20)/PK FK NN
