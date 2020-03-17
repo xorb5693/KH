@@ -1774,7 +1774,7 @@
     ```
     - 관리자 계정에서 USER를 생성하게 되면 계정은 생성되지만 권한이 없어서 접속이 불가능하므로 권한을 부여해 주어야 함
     - 권한을 부여하거나 회수하는 것을 통해 DATABASE에 접근을 제어함
-    - 이 때 사용하는 구문이 DCL(Data Control Language)fh GRANT(권한부여), REVOKE(권한해제)가 존재
+    - 이 때 사용하는 구문이 DCL(Data Control Language) GRANT(권한부여), REVOKE(권한해제)가 존재
     - 일반적으로 ROLE을 통해서 권한을 부여하고 해제함
     - 오라클 ROLE
       1. CONNECT : 사용자가 데이터베이스 접속 가능하도록 하기 위한 CREATE SESSION 권한이 있는 ROLE
