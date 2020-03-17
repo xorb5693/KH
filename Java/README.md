@@ -281,12 +281,22 @@
   - networkPjtServer : 서버 소켓 테스트
     1. 서버 채팅 기능
   - networkPjtClient : 클라이언트 테스트
-    2. 클라이언트 채팅 키능
+    2. 클라이언트 채팅 기능
   - baseballGameServer : 서버 소켓 실습 프로그램
     1. 베이스볼 게임 서버
     2. MultiThread를 이용하여 제작
   - baseballGameClient : 소켓 실습 프로그램
     1. 베이스볼 게임 클라이언트
+- 28일차(2020-03-17)
+  - jdbcProject : JDBC 테스트 프로그램
+    1. JDBC 테스트
+  - jdbc1 : JDBC 실습 프로그램
+    1. 회원 전체 정보 조회
+    2. 회원 아이디로 조회
+    3. 회원 이름으로 조회
+    4. 회원 가입
+    5. 회원 정보 변경
+    6. 회원 삭제
 
 **3. 팀 프로젝트**
 - myCoffee : 커피 가게 관리 프로그램
