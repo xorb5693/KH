@@ -9,41 +9,37 @@ import java.util.ArrayList;
 
 public class DBConnect {
 	
-public ArrayList<Member> allMemberSearch() {
-		
+	private final static String ipAddress = "192.168.10.24";
+
+	public ArrayList<Member> allMemberSearch() {
+
 		ArrayList<Member> list = new ArrayList<Member>();
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rset = null;
-		
-//		드라이버 등록
+
+		// 드라이버 등록
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-//			Connection 객체 생성
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "1234");
-			
-//			Statemnt 객체 생성
+
+			// Connection 객체 생성
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + ipAddress +":1521:xe", "jdbc", "1234");
+
+			// Statemnt 객체 생성
 			stmt = conn.createStatement();
-			
-//			쿼리문 요청 후 결과 받기
+
+			// 쿼리문 요청 후 결과 받기
 			String query = "select * from member order by member_id";
 			rset = stmt.executeQuery(query);
-		
-//			결과처리
-			
+
+			// 결과처리
+
 			while (rset.next()) {
-				Member mem = new Member(
-						rset.getString("member_id"),
-						rset.getString("member_pw"),
-						rset.getString("member_name"),
-						((rset.getString("gender").charAt(0) == 'M') ? "남자" : "여자"),
-						rset.getInt("age"),
-						rset.getString("phone"),
-						rset.getString("hobby"),
-						rset.getDate("enroll_date")
-				);
-				
+				Member mem = new Member(rset.getString("member_id"), rset.getString("member_pw"),
+						rset.getString("member_name"), ((rset.getString("gender").charAt(0) == 'M') ? "남자" : "여자"),
+						rset.getInt("age"), rset.getString("phone"), rset.getString("hobby"),
+						rset.getDate("enroll_date"));
+
 				list.add(mem);
 			}
 		} catch (ClassNotFoundException e) {
@@ -52,7 +48,7 @@ public ArrayList<Member> allMemberSearch() {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-//			자원 반환
+			// 자원 반환
 			try {
 				rset.close();
 				stmt.close();
@@ -62,7 +58,7 @@ public ArrayList<Member> allMemberSearch() {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return list;
 	}
 
@@ -70,41 +66,42 @@ public ArrayList<Member> allMemberSearch() {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rset = null;
-//		HashMap<String, Object> member = new HashMap<String, Object>();
+		// HashMap<String, Object> member = new HashMap<String, Object>();
 		Member mem = null;
-		
+
 		String query = "select * from member where member_id = '" + memberId + "'";
-		
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "1234");
-			
+
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + ipAddress + ":1521:xe", "jdbc", "1234");
+
 			stmt = conn.createStatement();
-			
+
 			rset = stmt.executeQuery(query);
-			
-			if(rset.next()) {
-//				member.put("id", rset.getString("member_id"));
-//				member.put("pw", rset.getString("member_pw"));
-//				member.put("name", rset.getString("member_name"));
-//				member.put("gender", (rset.getString("gender").charAt(0) == 'M' ? "남자" : "여자"));
-//				member.put("age", rset.getInt("age"));
-//				member.put("phone", rset.getString("phone"));
-//				member.put("hobby", rset.getString("hobby"));
-//				Date enrollDate = rset.getDate("enroll_date");
-//				member.put("enrollDate", enrollDate);
-				
-//				mem = new Member(
-//						rset.getString("member_id"),
-//						rset.getString("member_pw"),
-//						rset.getString("member_name"),
-//						(rset.getString("gender").charAt(0) == 'M' ? "남자" : "여자"), 
-//						rset.getInt("age"),
-//						rset.getString("phone"),
-//						rset.getString("hobby"),
-//						rset.getDate("enroll_date")
-//				);
+
+			if (rset.next()) {
+				// member.put("id", rset.getString("member_id"));
+				// member.put("pw", rset.getString("member_pw"));
+				// member.put("name", rset.getString("member_name"));
+				// member.put("gender", (rset.getString("gender").charAt(0) == 'M' ? "남자" :
+				// "여자"));
+				// member.put("age", rset.getInt("age"));
+				// member.put("phone", rset.getString("phone"));
+				// member.put("hobby", rset.getString("hobby"));
+				// Date enrollDate = rset.getDate("enroll_date");
+				// member.put("enrollDate", enrollDate);
+
+				// mem = new Member(
+				// rset.getString("member_id"),
+				// rset.getString("member_pw"),
+				// rset.getString("member_name"),
+				// (rset.getString("gender").charAt(0) == 'M' ? "남자" : "여자"),
+				// rset.getInt("age"),
+				// rset.getString("phone"),
+				// rset.getString("hobby"),
+				// rset.getDate("enroll_date")
+				// );
 
 				mem = new Member();
 				mem.setMemberId(rset.getString("member_id"));
@@ -116,7 +113,7 @@ public ArrayList<Member> allMemberSearch() {
 				mem.setHobby(rset.getString("hobby"));
 				mem.setEnrollDate(rset.getDate("enroll_date"));
 			}
-			
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -130,46 +127,40 @@ public ArrayList<Member> allMemberSearch() {
 				e.printStackTrace();
 			}
 		}
-		
-//		return member;
+
+		// return member;
 		return mem;
 	}
-	
+
 	public ArrayList<Member> nameSearch(String memberName) {
-		
+
 		ArrayList<Member> list = new ArrayList<Member>();
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rset = null;
-		
-//		드라이버 등록
+
+		// 드라이버 등록
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-//			Connection 객체 생성
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "1234");
-			
-//			Statemnt 객체 생성
+
+			// Connection 객체 생성
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + ipAddress + ":1521:xe", "jdbc", "1234");
+
+			// Statemnt 객체 생성
 			stmt = conn.createStatement();
-			
-//			쿼리문 요청 후 결과 받기
+
+			// 쿼리문 요청 후 결과 받기
 			String query = "select * from member where member_name = '" + memberName + "' order by member_id";
 			rset = stmt.executeQuery(query);
-		
-//			결과처리
-			
+
+			// 결과처리
+
 			while (rset.next()) {
-				Member mem = new Member(
-						rset.getString("member_id"),
-						rset.getString("member_pw"),
-						rset.getString("member_name"),
-						((rset.getString("gender").charAt(0) == 'M') ? "남자" : "여자"),
-						rset.getInt("age"),
-						rset.getString("phone"),
-						rset.getString("hobby"),
-						rset.getDate("enroll_date")
-				);
-				
+				Member mem = new Member(rset.getString("member_id"), rset.getString("member_pw"),
+						rset.getString("member_name"), ((rset.getString("gender").charAt(0) == 'M') ? "남자" : "여자"),
+						rset.getInt("age"), rset.getString("phone"), rset.getString("hobby"),
+						rset.getDate("enroll_date"));
+
 				list.add(mem);
 			}
 		} catch (ClassNotFoundException e) {
@@ -178,7 +169,7 @@ public ArrayList<Member> allMemberSearch() {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-//			자원 반환
+			// 자원 반환
 			try {
 				rset.close();
 				stmt.close();
@@ -188,40 +179,34 @@ public ArrayList<Member> allMemberSearch() {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return list;
 	}
 
 	public int insertMember(Member member) {
-		
+
 		Connection conn = null;
 		Statement stmt = null;
 		int result = 0;
-		
-		String query = "insert into member values("
-				+ "'" + member.getMemberId() + "', "
-				+ "'" + member.getMemberPw()+ "', "
-				+ "'" + member.getMemberName() + "', "
-				+ "'" + member.getGender() + "', "
-				+ member.getAge() + ", "
-				+ "'" + member.getPhone() + "', "
-				+ "'" + member.getHobby() + "', "
-				+ "SYSDATE)";
-		
-//		System.out.println(query);
-		
-//		드라이버 등록
+
+		String query = "insert into member values(" + "'" + member.getMemberId() + "', " + "'" + member.getMemberPw()
+				+ "', " + "'" + member.getMemberName() + "', " + "'" + member.getGender() + "', " + member.getAge()
+				+ ", " + "'" + member.getPhone() + "', " + "'" + member.getHobby() + "', " + "SYSDATE)";
+
+		// System.out.println(query);
+
+		// 드라이버 등록
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-//			Connection 객체 생성
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "1234");
-			
-//			Statemnt 객체 생성
+
+			// Connection 객체 생성
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + ipAddress + ":1521:xe", "jdbc", "1234");
+
+			// Statemnt 객체 생성
 			stmt = conn.createStatement();
-//			쿼리문 요청 후 결과 받기
+			// 쿼리문 요청 후 결과 받기
 			result = stmt.executeUpdate(query);
-//			결과처리
+			// 결과처리
 			if (result > 0) {
 				conn.commit();
 			} else {
@@ -232,7 +217,7 @@ public ArrayList<Member> allMemberSearch() {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-//			자원 반환
+			// 자원 반환
 			try {
 				stmt.close();
 				conn.close();
@@ -240,7 +225,7 @@ public ArrayList<Member> allMemberSearch() {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -250,30 +235,28 @@ public ArrayList<Member> allMemberSearch() {
 		Connection conn = null;
 		Statement stmt = null;
 		int result = 0;
-		
-		String query = "update member set "
-				+ "member_pw = '" + member.getMemberPw() + "', "
-				+ "phone = '" + member.getPhone() + "', "
-				+ "hobby = '" + member.getHobby() + "' "
-				+ "where member_id = '" + member.getMemberId() + "'";
-		
-//		System.out.println(query);
-		
+
+		String query = "update member set " + "member_pw = '" + member.getMemberPw() + "', " + "phone = '"
+				+ member.getPhone() + "', " + "hobby = '" + member.getHobby() + "' " + "where member_id = '"
+				+ member.getMemberId() + "'";
+
+		// System.out.println(query);
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "1234");
-			
+
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + ipAddress + ":1521:xe", "jdbc", "1234");
+
 			stmt = conn.createStatement();
-			
+
 			result = stmt.executeUpdate(query);
-			
+
 			if (result > 0) {
 				conn.commit();
 			} else {
 				conn.rollback();
 			}
-			
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -286,34 +269,34 @@ public ArrayList<Member> allMemberSearch() {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
 
 	public int deleteMember(String memberId) {
-		
+
 		Connection conn = null;
 		Statement stmt = null;
 		int result = 0;
-		
+
 		String query = "delete from member where member_id = '" + memberId + "'";
-		
+
 		try {
-			
+
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc", "1234");
-			
+
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + ipAddress + ":1521:xe", "jdbc", "1234");
+
 			stmt = conn.createStatement();
-			
+
 			result = stmt.executeUpdate(query);
-			
+
 			if (result > 0) {
 				conn.commit();
 			} else {
 				conn.rollback();
 			}
-			
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -326,8 +309,8 @@ public ArrayList<Member> allMemberSearch() {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
-	
+
 }
