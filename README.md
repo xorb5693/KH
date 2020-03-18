@@ -2766,6 +2766,14 @@
   - 값을 넣을 자리에 직접 값을 넣는 것이 아닌 ?를 넣는다.
   - ?를 컬럼 자리에 넣지 못한다.
   ```
+- MVC 패턴
+  - Model
+    - 데이터 형태(Member.java) : VO(Value Object)
+    - DAO(Data Access Object)
+  - View
+    - 사용자 화면
+  - Controller
+    - 데이터 처리
 
 ## 3. 이클립스 기능
 - 단축키
