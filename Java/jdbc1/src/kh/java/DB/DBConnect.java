@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class DBConnect {
 	
-	private final static String ipAddress = "192.168.10.24";
+	private final static String ipAddress = "127.0.0.1";
 
 	public ArrayList<Member> allMemberSearch() {
 
