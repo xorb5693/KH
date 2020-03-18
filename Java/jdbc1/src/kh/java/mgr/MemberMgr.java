@@ -121,33 +121,41 @@ public class MemberMgr {
 		System.out.print("아이디 입력 : ");
 		String memberId = sc.next();
 
-		System.out.print("비밀번호 입력 : ");
-		String memberPw = sc.next();
-
-		System.out.print("이름 입력 : ");
-		String memberName = sc.next();
-
-		System.out.print("성별 입력(M/F) : ");
-		String gender = sc.next();
-
-		System.out.print("나이 입력 : ");
-		int age = sc.nextInt();
-
-		System.out.print("전화번호 입력(010-0000-0000) : ");
-		String phone = sc.next();
-
-		System.out.print("취미 입력 : ");
-		String hobby = sc.next();
-
-		Member member = new Member(memberId, memberPw, memberName, gender, age, phone, hobby, null);
-
 		DBConnect db = new DBConnect();
-		int result = db.insertMember(member);
+		Member mem = db.idSearch(memberId);
 
-		if (result > 0) {
-			System.out.println("회원 가입 완료.");
+		if (mem == null) {
+
+			System.out.print("비밀번호 입력 : ");
+			String memberPw = sc.next();
+
+			System.out.print("이름 입력 : ");
+			String memberName = sc.next();
+
+			System.out.print("성별 입력(M/F) : ");
+			String gender = sc.next();
+
+			System.out.print("나이 입력 : ");
+			int age = sc.nextInt();
+
+			System.out.print("전화번호 입력(010-0000-0000) : ");
+			String phone = sc.next();
+
+			System.out.print("취미 입력 : ");
+			String hobby = sc.next();
+
+			Member member = new Member(memberId, memberPw, memberName, gender, age, phone, hobby, null);
+
+			int result = db.insertMember(member);
+
+			if (result > 0) {
+				System.out.println("회원 가입 완료.");
+			} else {
+				System.out.println("회원 가입 실패. 관리자에게 문의하세요.");
+			}
 		} else {
-			System.out.println("회원 가입 실패. 관리자에게 문의하세요.");
+			
+			System.out.println("이미 존재하는 아이디입니다.");
 		}
 	}
 
@@ -177,7 +185,7 @@ public class MemberMgr {
 
 			Member member = new Member(memberId, memberPw, null, null, 0, phone, hobby, null);
 			int result = db.updateMember(member);
-			
+
 			if (result > 0) {
 				System.out.println("회원 정보가 수정되었습니다.");
 			} else {
@@ -187,24 +195,24 @@ public class MemberMgr {
 	}
 
 	private void deleteMember() {
-		
+
 		System.out.println("\n==== 회원 정보 삭제 ====");
 		System.out.print("삭제할 아이디를 입력하세요 : ");
 		String memberId = sc.next();
-		
+
 		DBConnect db = new DBConnect();
 		Member mem = db.idSearch(memberId);
-		
+
 		if (mem == null) {
 
 			System.out.println("존재하지 않는 아이디입니다.");
 		} else {
-			
+
 			System.out.print("정말로 삭제하시겠습니까?[y/n] : ");
 			char ch = sc.next().charAt(0);
-			
+
 			if (ch == 'y') {
-				
+
 				int result = db.deleteMember(memberId);
 				if (result > 0) {
 					System.out.println("회원 정보를 삭제했습니다.");
@@ -216,7 +224,7 @@ public class MemberMgr {
 			}
 		}
 	}
-	
+
 	public void delay() {
 
 		try {
