@@ -2587,7 +2587,7 @@
 ### 2.27 27일차(2020-03-16)
 - 데이터 딕셔너리
   - 자원을 효율적으로 관리하기 위한 다양한 정보를 저장하는 시스템 테이블
-  - 사용자가 테이블을 생성하거나 사용자 변경 드으이 작업을 할 때 마다 데이터베이스 서버에 의해 자동으로 갱신되는 테이블
+  - 사용자가 테이블을 생성하거나 사용자 변경 등의 작업을 할 때 마다 데이터베이스 서버에 의해 자동으로 갱신되는 테이블
   - 서버가 자동으로 동작하기에 직접적으로 해당 데이터를 변경하는 것은 매우 위험하다.
   - 그렇기에 직접적인 변경이 아닌 VIEW를 이용하여 관리를 한다.
   - 종류
@@ -2742,6 +2742,30 @@
     => 캐시를 하기에 검사를 안하고 바로 검색하기에 빠르게 검색이 가능하다.
   - 보안성이 뛰어나다
     - member_id로 무조건 값이 들어와야 하기에 ' or '1' = '1'은 잘못된 정보라 판단하고 막는다.
+  - 사용법
+  ```
+  String query = "update member set member_pw = ?, phone = ?, hobby = ? where member_id = ?";
+  
+  //1. 드라이버 등록
+  //2. Connection 객체 생성
+  //3. PreparedStatement 객체 생성
+  pstmt = conn.prepareStatement(query);
+  
+  //위치홀더에 값을 대입하여 쿼리문 완성
+  pstmt.setString(1, m.getMemberPw());
+  pstmt.setString(2, m.getPhone());
+  pstmt.setString(3, m.getHobby());
+  pstmt.setStrign(4, m.getMemberId());
+  
+  //4. 쿼리문 실행 후 결과를 받는다.
+  result = pstmt.executeUpdate();
+  
+  //5. 결과 처리
+  //6. 자원 반환
+  
+  - 값을 넣을 자리에 직접 값을 넣는 것이 아닌 ?를 넣는다.
+  - ?를 컬럼 자리에 넣지 못한다.
+  ```
 
 ## 3. 이클립스 기능
 - 단축키
@@ -2792,7 +2816,7 @@
 ## 7. DB 연결 단계
 1. 드라이버 등록
 2. Connection 객체 생성
-3. Statemnt 객체 생성
-4. 쿼리문 요청 후 결과 받기
+3. Statemnt 객체 생성 -> PreparedStatement 객체 생성 후 위치홀더에 값을 대입
+4. 쿼리문 요청 후 결과 받기 -> 쿼리문 실행 및 
 5. 결과처리
 6. 자원 반환
