@@ -200,7 +200,7 @@ public class MemberMgr {
 			System.out.println("존재하지 않는 아이디입니다.");
 		} else {
 			
-			System.out.print("정말로 삭제하시겠씁니까?[y/n] : ");
+			System.out.print("정말로 삭제하시겠습니까?[y/n] : ");
 			char ch = sc.next().charAt(0);
 			
 			if (ch == 'y') {
