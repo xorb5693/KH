@@ -11,14 +11,12 @@ import kh.java.member.model.vo.Member;
 
 public class MemberDao {
 
-	private static final String ipAddress = "127.0.0.1";
 
-	public ArrayList<Member> printAllMember() {
+	public ArrayList<Member> printAllMember(Connection conn) {
 
 		ArrayList<Member> members = new ArrayList<Member>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
 
 		String query = "select * from member order by member_id";
 
@@ -48,16 +46,14 @@ public class MemberDao {
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(conn);
 		}
 
 		return members;
 	}
 
-	public Member searchId(String memberId) {
+	public Member searchId(String memberId, Connection conn) {
 
 		Member member = null;
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
@@ -88,16 +84,14 @@ public class MemberDao {
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(conn);
 		}
 
 		return member;
 	}
 
-	public ArrayList<Member> searchName(String memberName) {
+	public ArrayList<Member> searchName(String memberName, Connection conn) {
 
 		ArrayList<Member> members = new ArrayList<Member>();
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
@@ -131,16 +125,14 @@ public class MemberDao {
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(conn);
 		}
 
 		return members;
 	}
 
-	public int insertMember(Member m) {
+	public int insertMember(Member m, Connection conn) {
 
 		int result = 0;
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		PreparedStatement pstmt = null;
 
 		String query = "insert into member values(?, ?, ?, ?, ?, ?, ?, sysdate)";
@@ -157,28 +149,20 @@ public class MemberDao {
 
 			result = pstmt.executeUpdate();
 
-			if (result > 0) {
-				JDBCTemplate.commit(conn);
-			} else {
-				JDBCTemplate.rollback(conn);
-			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(conn);
 		}
 
 		return result;
 	}
 
-	public int modifyMember(Member m) {
+	public int modifyMember(Member m, Connection conn) {
 
 		int result = 0;
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		PreparedStatement pstmt = null;
-
+		
 		String query = "update member set member_pw = ?, phone = ?, hobby = ? where member_id = ?";
 
 		try {
@@ -190,17 +174,10 @@ public class MemberDao {
 
 			result = pstmt.executeUpdate();
 
-			if (result > 0) {
-				JDBCTemplate.commit(conn);
-			} else {
-				JDBCTemplate.rollback(conn);
-			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(conn);
 		}
 
 		return result;

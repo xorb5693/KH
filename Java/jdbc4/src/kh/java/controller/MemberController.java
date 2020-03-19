@@ -47,7 +47,10 @@ public class MemberController {
 	public void printAllMember() {
 
 		MemberDao dao = new MemberDao();
-		ArrayList<Member> members = dao.printAllMember();
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		ArrayList<Member> members = dao.printAllMember(conn);
+		
+		JDBCTemplate.close(conn);
 		view.printAllMember(members);
 	}
 
@@ -57,8 +60,10 @@ public class MemberController {
 		String memberId = view.searchId("검색");
 
 		MemberDao dao = new MemberDao();
-		Member member = dao.searchId(memberId);
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Member member = dao.searchId(memberId, conn);
 
+		JDBCTemplate.close(conn);
 		view.searchIdPrint(member);
 	}
 
@@ -68,8 +73,10 @@ public class MemberController {
 		String memberName = view.searchName();
 
 		MemberDao dao = new MemberDao();
-		ArrayList<Member> members = dao.searchName(memberName);
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		ArrayList<Member> members = dao.searchName(memberName, conn);
 
+		JDBCTemplate.close(conn);
 		view.searchNamePrint(members);
 	}
 
@@ -77,22 +84,26 @@ public class MemberController {
 
 		view.printMsg("\n===== 회원 가입 =====");
 		MemberDao dao = new MemberDao();
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		String memberId = view.searchId("가입");
-		Member mem = dao.searchId(memberId);
+		Member mem = dao.searchId(memberId, conn);
 
 		if (mem != null) {
 			view.printMsg("중복된 회원이 존재합니다.");
 		} else {
 			Member m = view.insertMember(memberId);
-			int result = dao.insertMember(m);
+			int result = dao.insertMember(m, conn);
 
 			if (result > 0) {
 				view.printMsg("회원 가입에 성공하셨습니다.");
+				JDBCTemplate.commit(conn);
 			} else {
 				view.printMsg("회원 가입에 실패하였습니다.");
+				JDBCTemplate.rollback(conn);
 			}
 		}
-
+		
+		JDBCTemplate.close(conn);
 	}
 
 	public void modifyMember() {
@@ -100,22 +111,27 @@ public class MemberController {
 		view.printMsg("\n===== 정보 수정 =====");
 		String memberId = view.searchId("수정");
 		MemberDao dao = new MemberDao();
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
 
-		Member mem = dao.searchId(memberId);
+		Member mem = dao.searchId(memberId, conn);
 
 		if (mem == null) {
 			System.out.println("해당 회원이 존재하지 않습니다.");
 		} else {
 
 			Member m = view.modifyMember(memberId);
-			int result = dao.modifyMember(m);
+			int result = dao.modifyMember(m, conn);
 
 			if (result > 0) {
 				view.printMsg("회원 정보가 수정되었습니다.");
+				JDBCTemplate.commit(conn);
 			} else {
 				view.printMsg("회원 정보 수정에 실패하였습니다.");
+				JDBCTemplate.rollback(conn);
 			}
 		}
+		
+		JDBCTemplate.close(conn);
 	}
 
 	public void deleteMember() {
@@ -123,41 +139,36 @@ public class MemberController {
 		view.printMsg("\n===== 회원 삭제 =====");
 		String memberId = view.searchId("삭제");
 		MemberDao dao = new MemberDao();
-		Member m = dao.searchId(memberId);
-		//트랜잭션 작업을 위해서 Connection을 생성
+		// 트랜잭션 작업을 위해서 Connection을 생성
 		Connection conn = JDBCTemplate.getConnection(ipAddress);
-		
+		Member m = dao.searchId(memberId, conn);
+
 		if (m == null) {
 			view.printMsg("해당 회원이 존재하지 않습니다.");
 		} else {
 			char ch = view.deleteMember(memberId);
-			
+
 			if (ch == 'y') {
-				//MEMBER 테이블에서 해당하는 ROW를 삭제
+				// MEMBER 테이블에서 해당하는 ROW를 삭제
 				int result = dao.deleteMember(memberId, conn);
 
-				if (result > 0) {
+				// DEL_MEMBER 테이블에 추가
+				int result2 = dao.insertDelMember(memberId, conn);
+
+				if (result > 0 && result2 > 0) {
 					view.printMsg("회원을 삭제하였습니다.");
+					JDBCTemplate.commit(conn);
 					
-					//DEL_MEMBER 테이블에 추가
-					int result2 = dao.insertDelMember(memberId, conn);
-					
-					if (result2 > 0) {
-						view.printMsg("삭제 정보를 저장하였습니다.");
-						JDBCTemplate.commit(conn);
-					} else {
-						JDBCTemplate.rollback(conn);
-					}
 				} else {
 					view.printMsg("회원 삭제에 실패하였습니다.");
 					JDBCTemplate.rollback(conn);
 				}
-				
+
 			} else {
 				System.out.println("회원 삭제를 취소하셨습니다.");
 			}
 		}
-		
+
 		JDBCTemplate.close(conn);
 	}
 
