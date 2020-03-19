@@ -8,7 +8,7 @@ import kh.java.member.view.MemberView;
 
 public class MemberController {
 
-	MemberView view = new MemberView(this);
+	MemberView view = new MemberView();
 
 	public void main() {
 		while (true) {
@@ -19,10 +19,10 @@ public class MemberController {
 				printAllMember();
 				break;
 			case 2:
-				view.searchId();
+				searchId();
 				break;
 			case 3:
-				view.searchName();
+				searchName();
 				break;
 			case 4:
 				insertMember();
@@ -48,62 +48,95 @@ public class MemberController {
 		view.printAllMember(members);
 	}
 
-	public Member searchId(String memberId) {
+	public void searchId() {
+
+		view.printMsg("\n===== 회원 아이디 검색 =====");
+		String memberId = view.searchId("검색");
 
 		MemberDao dao = new MemberDao();
-		Member m = dao.searchId(memberId);
+		Member member = dao.searchId(memberId);
 
-		return m;
+		view.searchIdPrint(member);
 	}
 
-	public ArrayList<Member> searchName(String memberName) {
+	public void searchName() {
+
+		view.printMsg("\n===== 회원 이름 검색 =====");
+		String memberName = view.searchName();
 
 		MemberDao dao = new MemberDao();
 		ArrayList<Member> members = dao.searchName(memberName);
 
-		return members;
+		view.searchNamePrint(members);
 	}
 
 	public void insertMember() {
 
-		Member m = view.insertMember();
+		view.printMsg("\n===== 회원 가입 =====");
 		MemberDao dao = new MemberDao();
+		String memberId = view.searchId("가입");
+		Member mem = dao.searchId(memberId);
 
-		int result = dao.insertMember(m);
-
-		if (result > 0) {
-			view.printMsg("회원 가입에 성공하셨습니다.");
+		if (mem != null) {
+			view.printMsg("중복된 회원이 존재합니다.");
 		} else {
-			view.printMsg("회원 가입에 실패하였습니다.");
+			Member m = view.insertMember(memberId);
+			int result = dao.insertMember(m);
+
+			if (result > 0) {
+				view.printMsg("회원 가입에 성공하셨습니다.");
+			} else {
+				view.printMsg("회원 가입에 실패하였습니다.");
+			}
 		}
+
 	}
 
 	public void modifyMember() {
 
-		Member m = view.modifyMember();
+		view.printMsg("\n===== 정보 수정 =====");
+		String memberId = view.searchId("수정");
 		MemberDao dao = new MemberDao();
-		int result = dao.modifyMember(m);
 
-		if (result > 0) {
-			view.printMsg("회원 정보가 수정되었습니다.");
+		Member mem = dao.searchId(memberId);
+
+		if (mem == null) {
+			System.out.println("해당 회원이 존재하지 않습니다.");
 		} else {
-			view.printMsg("회원 정보 수정에 실패하였습니다.");
+
+			Member m = view.modifyMember(memberId);
+			int result = dao.modifyMember(m);
+
+			if (result > 0) {
+				view.printMsg("회원 정보가 수정되었습니다.");
+			} else {
+				view.printMsg("회원 정보 수정에 실패하였습니다.");
+			}
 		}
 	}
 
 	public void deleteMember() {
 
-		String memberId = view.deleteMember();
+		view.printMsg("\n===== 회원 삭제 =====");
+		String memberId = view.searchId("삭제");
+		MemberDao dao = new MemberDao();
+		Member m = dao.searchId(memberId);
+		
+		if (m == null) {
+			view.printMsg("해당 회원이 존재하지 않습니다.");
+		} else {
+			char ch = view.deleteMember(memberId);
+			
+			if (ch == 'y') {
+				int result = dao.deleteMember(memberId);
 
-		if (memberId != null) {
-
-			MemberDao dao = new MemberDao();
-			int result = dao.deleteMember(memberId);
-
-			if (result > 0) {
-				view.printMsg("회원을 삭제하였습니다.");
+				if (result > 0) {
+					view.printMsg("회원을 삭제하였습니다.");
+				} else {
+					view.printMsg("회원 삭제에 실패하였습니다.");
+				}
 			} else {
-				view.printMsg("회원 삭제에 실패하였습니다.");
+				System.out.println("회원 삭제를 취소하셨습니다.");
 			}
 		}
 	}
