@@ -235,4 +235,34 @@ public class MemberDao {
 
 		return result;
 	}
+
+	public int insertDelMember(String memberId) {
+		
+		int result = 0;
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		PreparedStatement pstmt = null;
+		
+		String query = "insert into del_member values(del_seq.nextval, ?, sysdate)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			
+			result = pstmt.executeUpdate();
+			
+			if (result > 0) {
+				JDBCTemplate.commit(conn);
+			} else {
+				JDBCTemplate.rollback(conn);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(conn);
+		}
+		
+		return result;
+	}
 }

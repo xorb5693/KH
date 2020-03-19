@@ -128,13 +128,22 @@ public class MemberController {
 			char ch = view.deleteMember(memberId);
 			
 			if (ch == 'y') {
+				//MEMBER 테이블에서 해당하는 ROW를 삭제
 				int result = dao.deleteMember(memberId);
 
 				if (result > 0) {
 					view.printMsg("회원을 삭제하였습니다.");
+					
+					//DEL_MEMBER 테이블에 추가
+					int result2 = dao.insertDelMember(memberId);
+					
+					if (result2 > 0) {
+						view.printMsg("삭제 정보를 저장하였습니다.");
+					}
 				} else {
 					view.printMsg("회원 삭제에 실패하였습니다.");
 				}
+				
 			} else {
 				System.out.println("회원 삭제를 취소하셨습니다.");
 			}
