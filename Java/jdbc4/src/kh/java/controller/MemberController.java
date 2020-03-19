@@ -1,7 +1,9 @@
 package kh.java.controller;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
+import common.JDBCTemplate;
 import kh.java.member.model.dao.MemberDao;
 import kh.java.member.model.vo.Member;
 import kh.java.member.view.MemberView;
@@ -9,6 +11,7 @@ import kh.java.member.view.MemberView;
 public class MemberController {
 
 	MemberView view = new MemberView();
+	private static final String ipAddress = "127.0.0.1";
 
 	public void main() {
 		while (true) {
@@ -121,6 +124,8 @@ public class MemberController {
 		String memberId = view.searchId("삭제");
 		MemberDao dao = new MemberDao();
 		Member m = dao.searchId(memberId);
+		//트랜잭션 작업을 위해서 Connection을 생성
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		
 		if (m == null) {
 			view.printMsg("해당 회원이 존재하지 않습니다.");
@@ -129,25 +134,31 @@ public class MemberController {
 			
 			if (ch == 'y') {
 				//MEMBER 테이블에서 해당하는 ROW를 삭제
-				int result = dao.deleteMember(memberId);
+				int result = dao.deleteMember(memberId, conn);
 
 				if (result > 0) {
 					view.printMsg("회원을 삭제하였습니다.");
 					
 					//DEL_MEMBER 테이블에 추가
-					int result2 = dao.insertDelMember(memberId);
+					int result2 = dao.insertDelMember(memberId, conn);
 					
 					if (result2 > 0) {
 						view.printMsg("삭제 정보를 저장하였습니다.");
+						JDBCTemplate.commit(conn);
+					} else {
+						JDBCTemplate.rollback(conn);
 					}
 				} else {
 					view.printMsg("회원 삭제에 실패하였습니다.");
+					JDBCTemplate.rollback(conn);
 				}
 				
 			} else {
 				System.out.println("회원 삭제를 취소하셨습니다.");
 			}
 		}
+		
+		JDBCTemplate.close(conn);
 	}
 
 	public void delay() {

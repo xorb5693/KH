@@ -206,10 +206,9 @@ public class MemberDao {
 		return result;
 	}
 
-	public int deleteMember(String memberId) {
+	public int deleteMember(String memberId, Connection conn) {
 
 		String query = "delete from member where member_id = ?";
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		PreparedStatement pstmt = null;
 		int result = 0;
 
@@ -220,26 +219,18 @@ public class MemberDao {
 
 			result = pstmt.executeUpdate();
 
-			if (result > 0) {
-				JDBCTemplate.commit(conn);
-			} else {
-				JDBCTemplate.rollback(conn);
-			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(conn);
 		}
 
 		return result;
 	}
 
-	public int insertDelMember(String memberId) {
+	public int insertDelMember(String memberId, Connection conn) {
 		
 		int result = 0;
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
 		PreparedStatement pstmt = null;
 		
 		String query = "insert into del_member values(del_seq.nextval, ?, sysdate)";
@@ -250,17 +241,10 @@ public class MemberDao {
 			
 			result = pstmt.executeUpdate();
 			
-			if (result > 0) {
-				JDBCTemplate.commit(conn);
-			} else {
-				JDBCTemplate.rollback(conn);
-			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(pstmt);
-			JDBCTemplate.close(conn);
 		}
 		
 		return result;
