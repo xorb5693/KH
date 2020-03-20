@@ -233,7 +233,7 @@ public class ExamController {
 		} else {
 			Board board2 = view.insertBoard();
 			board.setBoardTitle(board2.getBoardTitle());
-			board.setBoardContent(board.getBoardContent());
+			board.setBoardContent(board2.getBoardContent());
 			
 			int result = dao.modifyBoard(conn, board);
 			

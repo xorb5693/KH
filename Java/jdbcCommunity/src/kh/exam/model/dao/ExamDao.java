@@ -18,20 +18,6 @@ public class ExamDao {
 
 		return m;
 	}
-
-	public Board getBoard(ResultSet rset) throws SQLException {
-		
-		Board board = new Board(
-				rset.getInt(1),
-				rset.getString(2),
-				rset.getString(3),
-				rset.getString(4),
-				rset.getInt(5),
-				rset.getDate(6)
-		);
-		
-		return board;
-	}
 	
 	public Member idSearch(Connection conn, String memberId) {
 
@@ -150,14 +136,22 @@ public class ExamDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select board_no, board_title, board_content, NVL(board_writer, '탈퇴회원'), read_count, write_date from exam_board order by board_no desc";
+		String query = "select board_no, board_title, NVL(member_name, '탈퇴회원'), read_count, write_date from exam_board "
+				+ "left join exam_member on (member_id = board_writer) order by board_no desc";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				Board board = getBoard(rset);
+				Board board =  new Board(
+						rset.getInt(1),
+						rset.getString(2),
+						null,
+						rset.getString(3),
+						rset.getInt(4),
+						rset.getDate(5)
+				);
 				
 				boards.add(board);
 			}
@@ -177,7 +171,8 @@ public class ExamDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
-		String query = "select * from exam_board where board_no = ?";
+		String query = "select board_no, board_title, board_content, NVL(member_name, '탈퇴회원'), read_count, write_date from exam_board "
+				+ "left join exam_member on (member_id = board_writer) where board_no = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -186,7 +181,14 @@ public class ExamDao {
 			rset = pstmt.executeQuery();
 			
 			if (rset.next()) {
-				board = getBoard(rset);
+				board = new Board(
+						rset.getInt(1),
+						rset.getString(2),
+						rset.getString(3),
+						rset.getString(4),
+						rset.getInt(5),
+						rset.getDate(6)
+				);
 			}
 			
 		} catch (SQLException e) {
@@ -225,7 +227,7 @@ public class ExamDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from exam_board where board_no = ? and board_writer = ?";
+		String query = "select board_no from exam_board where board_no = ? and board_writer = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -235,7 +237,8 @@ public class ExamDao {
 			rset = pstmt.executeQuery();
 			
 			if (rset.next()) {
-				board = getBoard(rset);
+				board = new Board();
+				board.setBoardNo(rset.getInt(1));
 			}
 			
 		} catch (SQLException e) {

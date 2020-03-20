@@ -13,7 +13,6 @@ public class Board {
 
 	public Board() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Board(int boardNo, String boardTitle, String boardContent, String boardWriter, int readCount,
