@@ -2641,7 +2641,7 @@
     4. PreferenceStatement
         - Statement 클래스를 상속하여 만들어진 클래스로 기본적인 수행역항른 동일
         - SQL 문장이 미리 컴파일 되고, 실행시간동안 인수값을 위한 공간을 확보할 수 있다는 점에서 Statement와 다름
-        - 각각의 인수에 대해 우치홀더를 사용하여 SQL문장을 정의할 수 있음
+        - 각각의 인수에 대해 위치홀더를 사용하여 SQL문장을 정의할 수 있음
         - Connection 클래스의 preparedStatement() 메소드를 호출하여 객체 생성
     5. ResultSet
         - SELECT문을 사용한 질의 성공시 반환되는 객체
@@ -2649,7 +2649,7 @@
   - 사용법
     1. 드라이버 등록
     ```
-		Class.forName("oracle.jdbc.driver.OracleDriver");
+    Class.forName("oracle.jdbc.driver.OracleDriver");
     
     - 예외처리가 필요하다.
     - ClassNotFoundException
