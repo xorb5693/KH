@@ -2639,7 +2639,7 @@
         - Connection 클래스의 createStatement() 메소드를 호출하여 객체 생성
         - Statement 객체로 SQL문을 String 객체에 담아 인자로 전달하여 질의를 수행
     4. PreferenceStatement
-        - Statement 클래스를 상속하여 만들어진 클래스로 기본적인 수행역항른 동일
+        - Statement 클래스를 상속하여 만들어진 클래스로 기본적인 수행역 동일
         - SQL 문장이 미리 컴파일 되고, 실행시간동안 인수값을 위한 공간을 확보할 수 있다는 점에서 Statement와 다름
         - 각각의 인수에 대해 위치홀더를 사용하여 SQL문장을 정의할 수 있음
         - Connection 클래스의 preparedStatement() 메소드를 호출하여 객체 생성
