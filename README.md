@@ -3202,6 +3202,15 @@
     
   - map, area 태그
     - 이미지를 구역별로 나누어 링크를 걸어주는 태그
+    - img 트개에 usemap 속성을 지정해야 사용 가능
+    - 사용법
+    ```
+    <img src='경로' usemap='#tt'>
+    <map name='tt'>
+      <area shape='모양' cords='00,00(시작),00,00(끝)' href='링크경로' target='위치'>
+      <area shape='모양' cords='00,00(시작),00,00(끝)' href='링크경로' target='위치'>
+    </map>
+    ```
   - audio 태그
     - 웹 브라우저에서 플러그인의 도움 없이 음악을 재생할 수 있게 만들어주는 태그
   - video
@@ -3255,7 +3264,7 @@
     </tr>
     <tr>
       <th align="center">autocomplete</th>
-      <td>이전 입력내용 출력하는 기능(생략하면 자동으로 on</td>
+      <td>이전 입력내용 출력하는 기능(생략하면 자동으로 on)</td>
     </tr>
   </table>
   
