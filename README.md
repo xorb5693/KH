@@ -3275,6 +3275,16 @@
   </form>
   ```
 - fieldset, legend 태그
+  - 폼 요소를 그룹으로 묶는 태그, 묶은 폼 요소에 명칭을 붙이는 태그
+  ```
+  <form action='처리할프로그램(페이지)' method='전송방식'>
+    <fieldset>
+      <legend>명칭</legend>
+      <input type……>
+      …
+    </fieldset>
+  </form>
+  ```
 - input 태그
   - 사용자로부터 데이터를 입력받기 위한 태그
   - form 태그를 통해서 데이터 전송 시 해당 form 태그 내부에 있는 input 태그에 작성된 내용만 전송
