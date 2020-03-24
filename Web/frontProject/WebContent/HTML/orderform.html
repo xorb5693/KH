@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New Document</title>
+</head>
+<body>
+    <form action="order.html" method="get">
+        <label>고객명 : <input type="text" name="name"></label>
+        <br><br>
+        <label>전화번호 : <input type="tel" name="tel"></label>
+        <br><br>
+        <label>E-mail : <input type="email" name="email"></label>
+        <br><br>
+        <fieldset>
+            <legend>피자 사이즈</legend>
+            <br>
+            <input type="radio" name="size" value="small">Small<br><br>
+            <input type="radio" name="size" value="medium">Medium<br><br>
+            <input type="radio" name="size" value="large">Large<br><br>
+        </fieldset>
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <br>
+            <input type="checkbox" name="topping" value="bacon">베이컨<br><br>
+            <input type="checkbox" name="topping" value="cheese">치즈<br><br>
+            <input type="checkbox" name="topping" value="onion">양파<br><br>
+            <input type="checkbox" name="topping" value="mushroom">버섯<br><br>
+        </fieldset>
+        <br>
+        <label>희망배송시간 : <input type="time" name="time"></label>
+        <br><br>
+        <label>배송시요청사항 : <textarea name="wish"></textarea></label>
+        <br><br>
+        <input type="submit" value="주문하기">
+    </form>
+</body>
+</html>
