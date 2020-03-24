@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form 태그 테스트</title>
+</head>
+
+<body>
+    <form action="login.html" method="get">
+        <fieldset>
+            <legend>로그인</legend>
+            ID : <input type="text" name="id" placeholder="아이디를 입력하세요"><br>
+            PW : <input type="password" name="password"><br>
+            <input type="submit" value="로그인">
+            <input type="reset" value="초기화">
+            <input type="hidden" value="test" name="check">
+        </fieldset>
+    </form>
+    <br>
+    <hr><br>
+    <script>
+        function btnClick() {
+            alert("ㅇㅇㅇㅇ");
+        }
+    </script>
+    <h1>input type</h1>
+    <form action="test.html" method="post">
+        <p><label for="textInput">text : </label><input id="textInput" type="text" name="input1" maxlength="5" size="5" required></p>
+        <p><label>password : <input type="password" name="input2" required></label></p>
+        <p>hidden : <input type="hidden" name="input3"></p>
+        <p>button : <input type="button" value="눌러봐" onclick="btnClick()"></p>
+        <p>checkbox :
+            <input type="checkbox" name="hobby" value="야구" checked>야구직관
+            <input type="checkbox" name="hobby" value="축구">축구직관
+            <input type="checkbox" name="hobby" value="배구">배구직관
+            <input type="checkbox" name="hobby" value="농구">농구직관
+        </p>
+        <p>radio :
+            <label><input type="radio" name="gender" value="M">남자</label>
+            <label><input type="radio" name="gender" value="F">여자</label>
+        </p>
+        <p>file :
+            <input type="file" name="file" multiple accept=".gif, .jpg">
+        </p>
+        <p>
+            submit : <input type="submit" value="제출">
+            reset : <input type="reset" value="초기화">
+        </p>
+    </form>
+    <br>
+    <hr><br>
+    <h1>HTML5의 input type</h1>
+    <p>색상입력 : <input type="color" name="color" value="#000fff"></p>
+    <h1>날짜입력 형식</h1>
+    <label>date : <input type="date" name="date1"></label><br>
+    <label>month : <input type="month" name="dat2"></label><br>
+    <label>week : <input type="week" name="date3"></label><br>
+    <label>time : <input type="time" name="date4"></label><br>
+    <label>datetime-local : <input type="datetime-local" name="date5"></label>
+
+    <h1>숫자 입력 양식</h1>
+    <label>number : <input type="number" name="num1" max="100" min="50" step="2" value="76"></label>
+    <label>range : <input type="range" name="num2" max="100" min="50" step="2"></label>
+
+    <h1>기타 입력 양식</h1>
+    <form action="test.html" method="get">
+        <label>email : <input type="email" name="email"></label><br>
+        <label>url : <input type="url" name="url"></label><br>
+        <input type="submit" value="제출">
+    </form>
+
+    <input type="search"><br>
+    <input type="tel"><br>
+    <br>
+    <hr><br>
+    <h1>여러가지 값을 표현하는 태그</h1>
+    <select name="job" size="4" multiple>
+        <option value="docter">의사</option>
+        <option value="fire">불꽃</option>
+        <option value="soldier">군인</option>
+        <option value="nothing" selected>없음</option>
+    </select>
+    <br>
+    <fieldset>
+        <legend>차량 종류 선택</legend>
+        <select>
+            <optgroup label="외제차">
+                <option value="BMW3">BMW3</option>
+                <option value="BMW5">BMW5</option>
+            </optgroup>
+            <optgroup label="국산차">
+                <option value="k3">k3</option>
+                <option value="k5">k5</option>
+            </optgroup>
+        </select>
+    </fieldset>
+    
+    <input type="text" name="list" list='dl'>
+    <datalist id="dl">
+        <option value="MicroSoft"></option>
+        <option value="Google"></option>
+        <option value="Mozilla"></option>
+    </datalist>
+    <br>
+    <textarea rows="20" cols="20"></textarea>
+    
+    <br><br><br><br><br><br><br><br><br><br>
+</body></html>
