@@ -3238,26 +3238,175 @@
       <th>설명</th>
     </tr>
     <tr>
-      <th>method</th>
+      <th align="center">method</th>
       <td>get : URL 창에 데이터를 보내는 방식. 보내는 데이터 크기에 제한이 있음(256~4096byte) 보내는 데이터가 눈으로 보임.<br>post : http 헤더에 데이터를 넣어 보내는 방식. 보내는 데이터의 크기에 제한이 없음. 보내는 데이터를 볼 수 없음.</td>
     </tr>
     <tr>
-      <th>name</th>
+      <th align="center">name</th>
       <td>form 태그의 고유 이름 지정</td>
     </tr>
     <tr>
-      <th>action</th>
+      <th align="center">action</th>
       <td>데이터를 처리할 프로그램(페이지) 지정</td>
     </tr>
     <tr>
-      <th>target</th>
+      <th align="center">target</th>
       <td>action 속성을 어떻게 열것인지 결정</td>
     </tr>
     <tr>
-      <th>type</th>
-      <td></td>
+      <th align="center">autocomplete</th>
+      <td>이전 입력내용 출력하는 기능(생략하면 자동으로 on</td>
     </tr>
-  </table> 
+  </table>
+  
+  - 사용법
+  ```
+  <form action = "보내지는 페이지" method = "메소드 타입" name = "form 이름" target = "창선택 옵션">
+    ...
+  </form>
+  ```
+- fieldset, legend 태그
+- input 태그
+  - 사용자로부터 데이터를 입력받기 위한 태그
+  - form 태그를 통해서 데이터 전송 시 해당 form 태그 내부에 있는 input 태그에 작성된 내용만 전송
+  <table>
+    <tr>
+      <th>속성</th>
+      <th>설명</th>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td>입력창의 타입을 결정하는 속성(text, checkbox, radio 등)</td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td>input 요소의 기본값 입력(사용자 입력 값이 value가 됨)</td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td>input을 구별 할 수 있는 명칭(데이터를 받는 곳에서 name속성의 값으로 구분)</td>
+    </tr>
+    <tr>
+      <th>min/max/step</th>
+      <td>허용하는 범위 최소값/최대값/값의 증감값</td>
+    </tr>
+    <tr>
+      <th>autocomplete</th>
+      <td>자동완성기능</td>
+    </tr>
+    <tr>
+      <th>height/width</th>
+      <td>입력창의 높이와 넓이</td>
+    </tr>
+    <tr>
+      <th>readonly</th>
+      <td>읽기전용필드</td>
+    </tr>
+    <tr>
+      <th>accept</th>
+      <td>파일타입에 대해 사용자에게 알려주는 기능</td>
+    </tr>
+    <tr>
+      <th>multiple</th>
+      <td>여러 개의 값을 입력 가능</td>
+    </tr>
+    <tr>
+      <th>placeholder</th>
+      <td>사용자 입력전 입력창 표시글(사용자 입력 시 사라짐</td>
+    </tr>
+    <tr>
+      <th>autofocus</th>
+      <td>입력창 커서 표시</td>
+    </tr>
+    <tr>
+      <th>required</th>
+      <td>필수입력 필드 지정</td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td>화면에서 표현하는 글자 수</td>
+    </tr>
+    <tr>
+      <th>maxlength</th>
+      <td>사용자가 입력할 수 있는 글자 수의 제한</td>
+    </tr>
+    <tr>
+      <th>minlength</th>
+      <td>최소입력 글자 지정</td>
+    </tr>
+    <tr>
+      <th>list</th>
+      <td><datalist>의 옵션값을 <input>안에 나열</td>
+    </tr>
+  </table>
+  
+  - type 속성의 기본값
+  <table>
+    <tr align = "center">
+      <th>속성</th>
+      <th>설명</th>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td>한 줄 짜리 텍스트 입력창이 생김</td>
+    </tr>
+    <tr>
+      <th>password</th>
+      <td>비밀번호 입력창, 입력 시 •••로 표시됨</td>
+    </tr>
+    <tr>
+      <th>hidden</th>
+      <td>사용자에게 보이지는 않지만 값을 넣을 수 있는 창, 데이터를 숨겨서 전송할 때 사용</td>
+    </tr>
+    <tr>
+      <th>button</th>
+      <td>버튼 생성, 자체기능은 없고, script를 통해 함수 연결 가능</td>
+    </tr>
+    <tr>
+      <th>checkbox</th>
+      <td>체크박스생성(다중 항목 선택)</td>
+    </tr>
+    <tr>
+      <th>radio</th>
+      <td>라디오버튼생성(단일 항목 선택)</td>
+    </tr>
+    <tr>
+      <th>file</th>
+      <td>파일입력 양식</td>
+    </tr>
+    <tr>
+      <th>submit</th>
+      <td>입력한 데이터를 <form>태그의 action의 페이지로 전송</td>
+    </tr>
+    <tr>
+      <th>reset</th>
+      <td>입력한 내용을 지우는 기능</td>
+    </tr>
+    <tr>
+      <th>image</th>
+      <td>이미지 형태 생성</td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td>input의 구분자/명칭</td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td>사용자 화면에 보여줄 문자 수</td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td>input요소에 들어가 값(설정하지 않으면 빈값)</td>
+    </tr>
+    <tr>
+      <th>maxlength</th>
+      <td>최대 입력 갯수</td>
+    </tr>
+    <tr>
+      <th>minlength</th>
+      <td>최소 입력 갯수</td>
+    </tr>
+  </table>
   
 ## 3. 이클립스 기능
 - 단축키
