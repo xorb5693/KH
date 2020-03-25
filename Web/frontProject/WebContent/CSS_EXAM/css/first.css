@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+p {
+    background: red;
+    color: aqua;
+    width: 10%;
+    text-align: center;
+}
+
+h1 {
+    background: aqua;
+    color: red;
+    width: 20%;
+    text-align: center;
+}

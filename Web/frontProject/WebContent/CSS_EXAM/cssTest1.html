@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <style> 
+/*
+        내부 stylesheet
+        p {
+            background: red;
+            color: aqua;
+            width: 10%;
+            text-align: center;
+        }
+
+        h1 {
+            background: aqua;
+            color: red;
+            width: 20%;
+            text-align: center;
+        }
+*/
+        /*전체 선택자*/
+        * {
+            color: red;
+        }
+        
+        /*구조 선택자*/
+        p, h1 {
+            color:blueviolet;
+        }
+        /*아이디 선택자*/
+        #h2 {
+            background: aqua;
+        }
+        #p1, #p4 {
+            background: lightgreen;
+        }
+        /*클래스 선택자*/
+        .c1{
+            background: yellow;
+        }
+        .c2{
+            color: red;
+        }
+        
+    </style>
+<!--  외부 stylesheet  -->
+<!--    <link href="css/first.css" rel="stylesheet" type="text/css">-->
+
+</head>
+
+<body>
+<!--    <h1 style="color:aqua; background:black;">테스트문구</h1>-->
+    <h1 class="c2">테스트문구</h1>
+    <h2 id="h2">테스트문구</h2>
+    <h3>테스트문구</h3>
+    <p id="p1" class="c2">테스트문구</p>
+    <p class="c1">테스트문구</p>
+    <p>테스트문구</p>
+    <h1>테스트1</h1>
+    <p id="p4">테스트문구</p>
+</body>
+
+</html>
