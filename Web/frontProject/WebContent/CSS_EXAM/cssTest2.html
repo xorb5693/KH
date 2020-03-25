@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        /*형제 관계 태그 중 첫번째 태그 선택*/
+        #test1 p:first-child {
+            background: red;
+            color: white;
+        }
+
+        /*형제 관계 태그 중 마지막 태그 선택*/
+        #test1 p:last-child {
+            background: blue;
+            color: white;
+        }
+
+        /*형제 관계 태그 중 앞에서부터 수열번째 태그 선택*/
+        #test1 p:nth-child(2n) {
+            background: yellowgreen;
+            color: white;
+        }
+
+        /*형제 관계 태그 중 뒤에서부터 수열번째 태그 선택*/
+        #test1 p:nth-last-child(4) {
+            background: skyblue;
+            color: white;
+        }
+
+        /*형제 관계 태그 중 관련된 첫번째 태그 선택*/
+        #test2 p:first-of-type {
+            background: red;
+            color: white;
+        }
+
+        /*형제 관계 태그 중 관련된 마지막 태그 선택*/
+        #test2 p:last-of-type {
+            background: blue;
+            color: white;
+        }
+
+        /*형제 관계 태그 중 앞에서부터 관련된 수열번째 태그 선택*/
+        #test2 p:nth-of-type(2n) {
+            background: yellowgreen;
+            color: white;
+        }
+
+        /*형제 관계 태그 중 뒤에서부터 관련된 수열번째 태그 선택*/
+        #test2 p:nth-last-of-type(3) {
+            background: skyblue;
+            color: white;
+        }
+
+        /*첫번째 글자 선택*/
+        #test3 p:first-letter {
+            font-size: 2em;
+        }
+        /*첫번째 줄 선택*/
+        #test3 p:first-line {
+            background: cyan;
+        }
+        /*문장의 마지막 공간 선택*/
+        #test3 p::after {
+            content: "!@#$%^&*";
+        }
+        #test3 p::selection {
+            color: white;
+            background: red;
+        }
+        /*부정 선택자*/
+        #test4 p:not(:nth-child(2n-1)) {
+            background: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>일반구조 선택자</h2>
+    <p>특정한 위치에 있는 태그 선택(위치구분)</p>
+    <div id="test1">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+        <!--현재 pre가 마지막 속성이기에 적용이 안된다.-->
+    </div>
+    <hr>
+    <h2>형태구조 선택자</h2>
+    <p>특정한 위치에 있는 태그 선택(태그별로 구분)</p>
+    <div id="test2">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <hr>
+    <h2>문자 선택자</h2>
+    <div id="test3">
+        <p>
+            동해물과 백두산이 마르고 닳도록
+            하느님이 보우하사 우리나라 만세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.<br>
+
+            남산 위에 저 소나무, 철갑을 두른 듯
+            바람서리 불변함은 우리 기상일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.<br>
+
+            가을 하늘 공활한데 높고 구름 없이
+            밝은 달은 우리 가슴 일편단심일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.<br>
+
+            이 기상과 이 맘으로 충성을 다하여
+            괴로우나 즐거우나 나라 사랑하세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.<br>
+        </p>
+    </div>
+    <h2>부정 선택자</h2>
+    <p>지금 선택자의 반대</p>
+    <div id="test4">
+        <p>test1</p>
+        <p>test2</p>
+        <p>test3</p>
+        <p>test4</p>
+        <p>test5</p>
+    </div>
+</body>
+
+</html>
