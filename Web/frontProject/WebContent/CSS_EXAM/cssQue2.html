@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>선택자</title>
+    <style>
+        div[name="div1"] {
+            color: red;
+            background: yellow;
+        }
+        div>p {
+            background: red;
+        }
+        div>ul {
+            background: yellow;
+        }
+        ul>li {
+            background: cyan;
+        }
+        div ul {
+            color: red;
+        }
+        #d1>div{
+            background: red;
+        }
+        #d1>div ~ div{
+            color: white;
+            background: orangered;
+        }
+        #d2, #d3{
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            background: orangered;
+            color: white;
+        }
+        #d2:active{
+            color: black;
+            background: aqua;
+        }
+        #d3:hover{
+            color: purple;
+            background: azure;
+        }
+        input:checked{
+            width: 30px;
+            height: 30px;
+        }
+        input:focus{
+            background: yellow;
+        }
+        option:enabled{
+            background: greenyellow;
+        }
+        option:disabled{
+            color:white;
+            background: red;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h2>기본 속성 선택자</h2>
+    <p>기본 선택자 뒤에[]를 사용하여 속성과 속성값을 사용한다.</p>
+    <p><small>&nbsp;&nbsp;선택자[속성=속성값] {설정내용}의 형식으로 사용된다.</small></p>
+    <div name="div1">div 1</div>
+    <div name="div1">div 2</div>
+    <div name="div1">div 3</div>
+    <div name="div1">div 4</div>
+    <hr>
+    <h2>후손선택자와 자손선택자</h2>
+    <p>자손선택자 : 바로 아래의 요소, 후손선택자 : 하위 요소 전부</p>
+    <p><small>&nbsp;&nbsp;자손 선택자 : 선택자>자손선택자 {설정내용}의 형식으로 사용, 후손선택자 : 선택자 후손선택자 {설정내용}으로 사용</small></p>
+    <div>
+        <p><strong>자손입니다</strong></p>
+        <p><strong>나도 자손입니다</strong></p>
+        <ul>리스트
+            <li>나는 ul의 자손이면서 동시에 div의 후손입니다.</li>
+            <li>나도 ul의 자손이면서 동시에 div의 후손입니다.</li>
+        </ul>
+    </div>
+    <hr>
+    <h2>동위선택자</h2>
+    <p>동위 관계에서 뒤에 위치한 태그를 선택할 때 사용한다.</p>
+    <p><small>바로 뒤의 요소 선택시 : 선택자a + 선택자b {설정내용}으로 사용하며, 뒤에 있는 모두를 선택할 때는 선택자a ~ 선택자b {설정내용}으로 사용된다.</small></p>
+    <div id="d1">
+        <div>div test1</div>
+        <div>div test2</div>
+        <div>div test3</div>
+        <div>div test4</div>
+        <div>div test5</div>
+    </div>
+    <hr>
+    <h2>반응선택자</h2>
+    <p>사용자의 움직임에 따라 달라지는 선택자</p>
+    <p><small>&nbsp;사용자가 클릭한 태그 : 선택자:active{설정내용}, 사용자의 마우스가 올라가 있는 태그 : 선택자:hover{설정내용}으로 사용된다.</small></p>
+    <div id="d2">active 테스트</div>
+    <br>
+    <div id="d3">hover 테스트</div>
+    <hr>
+    <h2>상태선택자</h2>
+    <p>입력양식의 상태에 따라 선택되는 선택자</p>
+    <P><small>&nbsp;체크 상태의 input태그 선택 : input태그:checked{설정내용}</small></P>
+    <label><input type="checkbox" name="fruit" value="사과">사과</label>
+    <label><input type="checkbox" name="fruit" value="바나나">바나나</label>
+    <label><input type="checkbox" name="fruit" value="사과">사과</label>
+    <p><small>&nbsp;초첨지 맞추어진 input태그 선택</small></p>
+    <label>아이디 : <input type="text" name="id" placeholder="아이디를 입력하세요"></label>
+    <br>
+    <label>패스워드 : <input type="password" name="password" placeholder="비밀번호를 입력하세요"></label>
+    <p><small>&nbsp;사용가능한 input태그 선택 : input태그:enabled{설정내용}, 사용 불가능한 input태그 선택 : input태그:disalble{설정내용}</small></p>
+    <h3>당신의 연령대는?</h3>
+    <select>
+        <option value="10대" disabled>10대</option>
+        <option value="10대">20대</option>
+        <option value="10대">30대</option>
+        <option value="10대">40대</option>
+        <option value="10대">50대</option>
+        <option value="10대" disabled>60대</option>
+    </select>
+</body></html>
