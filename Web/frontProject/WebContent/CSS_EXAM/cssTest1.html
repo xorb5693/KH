@@ -24,10 +24,10 @@
 */
         /*전체 선택자*/
         * {
-            color: red;
+/*            color: red;*/
         }
         
-        /*구조 선택자*/
+        /*태그 선택자*/
         p, h1 {
             color:blueviolet;
         }
@@ -44,6 +44,50 @@
         }
         .c2{
             color: red;
+        }
+        /*name 속성을 이용한 선택자*/
+        p[name=p5] {
+            color:aquamarine;
+        }
+        /*자손 선택자*/
+        div>h1{
+            background: blue;
+        }
+        /*후손 선택자*/
+        div a{
+            background: aqua;
+        }
+        /*형제 선택자*/
+        #d1>h1 + p {
+            background: azure;
+        }
+        #d1>h1 ~ p {
+            color: skyblue;
+        }
+        /*반응형 선택자*/
+        #d2, #d3{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #d2:hover{
+            background: azure;
+            color: black;
+        }
+        #d3:active{
+            background: purple;
+            color: azure;
+        }
+        /*상태 선택자*/
+        input:focus{
+            background: lightyellow;
+        }
+        input:checked{
+            height: 30px;
+            width: 30px;
+        }
+        input:enabled{
+            background: cyan;
         }
         
     </style>
@@ -62,6 +106,44 @@
     <p>테스트문구</p>
     <h1>테스트1</h1>
     <p id="p4">테스트문구</p>
+    <p name="p5">테스트</p>
+    <hr>
+    <h1>이건 남</h1>
+    <a>이건 남2</a>
+    <div>
+        <!--div의 자손은 h1, h2, ul, 후손은 h1, h2, ul, li, a-->
+        <h1>hi</h1>
+        <div>
+            <h1>hi2</h1>
+        </div>
+        <h2>hello</h2>
+        <ul>
+            <li>테스트1</li>
+            <li><a>테스트2</a></li>
+        </ul>
+    </div>
+    <hr>
+    <div id="d1">
+        <h1>제목</h1>
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+    </div>
+    
+    <div id="d2">d2</div>
+    <div id="d3">d3</div>
+    
+    <form action="/test.html" method="get">
+        <fieldset>
+            <legend>회원가입</legend>
+            <label>ID : <input type="text" name="id"></label><br>
+            <label>PW : <input type="password" name="pw" disabled></label><br>
+            <label>NAME : <input type="text" name="name"></label><br>
+            성별 : <label><input type="radio" name="gender" value="남">남자</label><label><input type="radio" name="gender" value="여">여자</label><br>
+            <input type="submit" value="가입하기">
+        </fieldset>
+    </form>
+    
 </body>
 
 </html>
