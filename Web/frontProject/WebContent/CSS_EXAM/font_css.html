@@ -1,42 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
     <style>
-        #p1{
+        #p1 {
             font-family: "궁서체";
             font-size: 2em;
             font-weight: bold;
             font-style: italic;
         }
-        #p2{
+
+        #p2 {
             font-family: "고딕", "궁서체", "굴림체";
             font-size: 2em;
             font-weight: bolder;
             font-style: oblique;
         }
-        #p3{
+
+        #p3 {
             font-family: "Segoe Print", "궁서체";
             font-size: 40pt;
             font-weight: 900;
         }
-        #p4{
+
+        #p4 {
             font-family: "Sas"
         }
-        #p5{
+
+        #p5 {
             font-family: 'Nanum Pen Script', cursive, 'Sunflower', sans-serif;
             font-size: 40px;
         }
-        p.small{
+
+        p.small {
             font-variant: small-caps;
         }
-        #p6{
-            font : italic bold 20px/50px "궁서체";
+
+        #p6 {
+            font: italic bold 20px/50px "궁서체";
+        }
+
+        .p1 {
+            color: red;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        .p2 {
+            color: #ff0000;
+            text-decoration: overline;
+            text-transform: lowercase;
+        }
+
+        .p3 {
+            color: rgb(255, 0, 0);
+            text-decoration: line-through;
+            text-transform: capitalize;
+        }
+
+        .p4 {
+            color: rgba(255, 0, 0, 1);
+        }
+
+        .p4:hover {
+            cursor: pointer;
+        }
+
+        .a1 {
+            text-decoration: none;
+            color: red;
+        }
+
+        .sha {
+            font-size: 40px;
+        }
+
+        .p5 {
+            color: rgba(255, 0, 0, 1);
+            text-shadow: 1px 1px 1px rgba(255, 0, 0, 0.8);
+        }
+
+        .p6 {
+            color: blue;
+            text-shadow: 1px 1px 20px #6f0;
+        }
+
+        .p7 {
+            color: black;
+            text-shadow: 10px 10px 10px #5d5d5d, 15px 15px 10px #d94184, 5px 5px 10px #2154f1, 20px 20px 10px #80465f;
         }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Sunflower:300&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <p id="p1">글꼴 Test</p>
     <p id="p2">글꼴 Test</p>
@@ -46,6 +103,14 @@
     <p class="small">Hello</p>
     <p>Hello</p>
     <p id="p6">FontTest</p>
-    
-</body>
-</html>
+    <hr>
+    <p class="p1">Test</p>
+    <p class="p2">Test</p>
+    <p class="p3">Test word</p>
+    <p class="p4">테스트</p>
+    <a href="#" class="a1">테스트</a><br>
+    <p class="sha p5">Example Test</p>
+    <p class="sha p6">Example Test</p>
+    <p class="sha p7">Example Test</p>
+
+</body></html>
