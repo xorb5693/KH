@@ -3745,15 +3745,15 @@
     </tr>
     <tr>
       <th>16진수</th>
-      <td></td>
+      <td>rgb값을 기준으로 16진수로 작성<br>#ff0000(빨간색), #000000(흰색), #0000ff(파란색)...</td>
     </tr>
     <tr>
       <th>rgb</th>
-      <td></td>
+      <td>rgb값을 0~255의 숫자로 표현<br>rgb(255, 0, 0), rgb(0, 0, 0), rgb(0, 0, 255)...</td>
     </tr>
     <tr>
       <th>rgba</th>
-      <td></td>
+      <td>rgb 방식과 동일하며 맨 마지막에 투명도를 0~1로 표현<br>rgba(255, 0, 0, 0.5)<br>0~1로 갈수록 투명->불투명</td>
     </tr>
   </table>  
 - 텍스트 스타일
@@ -3783,9 +3783,29 @@
     }
     ```
     <table>
-      <tr>
+      <tr align="center">
         <th>속성 값</th>
         <th>내용</th>
+      </tr>
+      <tr>
+        <th align="center">normal</th>
+        <td>기본형태</td>
+      </tr>
+      <tr>
+        <th align="center">bold</th>
+        <td>굵게 표시</td>
+      </tr>
+      <tr>
+        <th align="center">bolder</th>
+        <td>더 굵게 표시</td>
+      </tr>
+      <tr>
+        <th align="center">lighter</th>
+        <td>더 가늘게 표시</td>
+      </tr>
+      <tr>
+        <th align="center">100~900</th>
+        <td>400:normal / 700:bold / 세밀한 조절 가능</td>
       </tr>
     </table>  
   - font-variant
@@ -3800,10 +3820,12 @@
     ```
     선택자 {
       font-style : normal 또는 italic 또는 oblique;
-    ```
+    }
+    
     - italic : 처음부터 기울어진 글자가 존재
     - oblique : 기본 글자를 기울여서 표시
     - italic을 주로 사용
+    ```
   - font
     - 글꼴 속성을 모아서 표현할 수 있는 스타일 속성
     ```
@@ -3825,8 +3847,24 @@
     선택자 {
       text-decoration : 속성;
     }
+    
+    - none : 줄 삭제
+    - underline : 밑줄 표시
+    - overline : 윗줄 표시
+    - line-through : 취소선 표시
     ```
-  - text
+  - text-trnasform
+    - 영문자를 표시할 때 대소문자를 바꿀 수 있는 속성
+    ```
+    선택자 {
+      text-transfrom: 속성값;
+    }
+    
+    - none : 변환 없이 표시
+    - capitalize : 시작하는 첫번째 글자를 대문자로 변환
+    - uppercase : 모든 글자를 대문자로 변환
+    - lowercase : 모든 글자를 소문자로 변환
+    ```
   - text-shadow
     - 텍스트에 그림자 효과를 주는 속성
     ```
@@ -3851,14 +3889,179 @@
         <td>개행하지 않음</td>
         <td>자동 줄 바꿈</td>
       </tr>
+      <tr align="center">
+        <th>nowrap</th>
+        <td>하나로 처리</td>
+        <td>개행하지 않음</td>
+        <td>한줄로 표시</td>
+      </tr>
+      <tr align="center">
+        <th>pre</th>
+        <td>여러 개로 처리</td>
+        <td>개행 처리 함</td>
+        <td>한줄로 바꿈</td>
+      </tr>
+      <tr align="center">
+        <th>pre-line</th>
+        <td>하나로 처리</td>
+        <td>개행 처리 함</td>
+        <td>자동 줄 바꿈</td>
+      </tr>
+      <tr align="center">
+        <th>pre-wrap</th>
+        <td>여러 개로 처리</td>
+        <td>개행 처리 함</td>
+        <td>자동 줄 바꿈</td>
+      </tr>
     </table>  
-  - letter-spacing / line-spacing
+  - letter-spacing / word-spacing
     - letter-spacing : 낱개 글자의 간격을 조정하는 속성
     - word-spacing : 단어와 단어 사이 간격을 조정하는 속성
     ```
     선택자 {
       letter-spacing : 숫자(단위);
       word-spacing : 숫자(단위);
+    }
+    ```
+- 문단 스타일
+  - direction
+    - 글자 쓰기의 방향 지속 속성
+    ```
+    선택자 {
+      direction : ltr 또는 rtl;
+    }
+    
+    - ltr : 왼쪽에서 오른쪽으로 텍스트 표시
+    - rtl : 오른쪽에서 왼족으로 텍스트 표시
+    ```
+  - text-align
+    - 문자 위치를 조정(정렬)하는 속성
+    - 참고 : https://www.w3schools.com/cssref/playit.asp?filename=playcss_text-align&preval=histify
+    <table>
+      <tr align="center">
+        <th>속성 값</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <th align="center">left</th>
+        <td>왼쪽에 맞추어 정렬</td>
+      </tr>
+      <tr>
+        <th align="center">right</th>
+        <td>오른쪽에 맞추어 정렬</td>
+      </tr>
+      <tr>
+        <th align="center">center</th>
+        <td>가운데 맞추어 정렬</td>
+      </tr>
+      <tr>
+        <th align="center">justify</th>
+        <td>양쪽에 맞추어 정렬</td>
+      </tr>
+    </table>  
+  - text-indent
+    - 문장을 들여쓰기 하는 속성
+    ```
+    선택자 {
+      text-indent : 숫자(단위);
+    }
+    ```
+  - text-height
+    - 문장끼리의 줄 간격을 조정하는 속성
+    ```
+    선택자 {
+      line-height: 숫자(단위);
+    }
+    
+    - 글자의 상하 가운데 정렬을 할 때 사용(요소의 높이만큼 line-height를 주면 상하 가운데 정렬
+    ```
+  - text-overflow
+    - 영역을 벗어나는 텍스트 표시 속성
+    ```
+    선택자 {
+      text-overflow : clip 또는 eclipsis;
+    }
+    
+    - clip : 넘어가는 부분은 잘림
+    - eclipsis : 넘어가는 부분은 ...으로 표시
+    ```
+- 목록/링크 스타일
+  - list-style-type
+    - 목록의 기호의 스타일을 지정하는 속성  
+    <table>
+      <tr align="center">
+        <th colspan="2">속성 값</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <th rowspan="4" align="center">ul</th>
+        <th align="center">disc</th>
+        <td>흑색 원형</td>
+      </tr>
+      <tr>
+        <th align="center">circle</th>
+        <td>흰색 원형</td>
+      </tr>
+      <tr>
+        <th align="center">square</th>
+        <td>흑색 사각형</td>
+      </tr>
+      <tr>
+        <th align="center">none</th>
+        <td>기호 표시 안함</td>
+      </tr>
+      <tr>
+        <th rowspan="5" align="center">ol</th>
+        <th align="center">decimal</th>
+        <td>1로 시작하는 십진수</td>
+      </tr>
+      <tr>
+        <th align="center">decimal-leading-zero</th>
+        <td>앞에 0이 붙은 십진수</td>
+      </tr>
+      <tr>
+        <th align="center">lower-roman/upper-roman</th>
+        <td>로마자 소문자 / 로마자 대문자</td>
+      </tr>
+      <tr>
+        <th align="center">lower-alpha/lower-latin</th>
+        <td>알파벳 소문자</td>
+      </tr>
+      <tr>
+        <th align="center">upper-alpha/upper-latin</th>
+        <td>알파벳 대문자</td>
+      </tr>
+    </table>  
+  - list-style-image
+    - 기호 대신 이미지 삽입
+    ```
+    선택자 {
+      list-style-image: url(이미지 경로);
+    }
+    ```
+  - list-style-position
+    - 목록 기호 들여쓰기
+    ```
+    선택자 {
+      list-style-position: inside 또는 outside;
+    }
+    
+    - inside : 블릿이나 숫자를 안쪽으로 들여 씀
+    - outside : 블릿이나 숫자를 밖으로 내어 씀(default)
+    ```
+  - list-style
+    - 목록 스타일을 한번에 지정하는 속성
+    ```
+    선택자 {
+      list-style: type값 position값 image값;
+    }
+    ```
+- 배경 스타일
+  - background-color
+    - 배경색을 지정하는 속성
+    ```
+    선택자 {
+      background-color: 색상표현;
     }
     ```
   
@@ -3929,3 +4132,8 @@
   - Google Fonts : https://fonts.google.com/
 - 색상 선택 사이트
   - WebFX Color Picker : https://www.webfx.com/web-design/color-picker/
+- front-end 코드 사이트
+  - W3Schools : https://www.w3schools.com/
+  - W3Schools-CSS : https://www.w3schools.com/css/default.asp
+  - W3Schools-HTML : https://www.w3schools.com/html/default.asp
+  - W3Schools-JavaScript : https://www.w3schools.com/js/default.asp
