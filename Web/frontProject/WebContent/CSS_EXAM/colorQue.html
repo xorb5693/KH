@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        .di {
+            background-color: white;
+        }
+        .d1 {
+            width: 500px;
+        }
+        span>div {
+            width: 300px;
+            border: 2px solid black;
+            padding: 20px;
+        }
+        .d2 {
+            background-clip: border-box;
+        }
+        .d3 {
+            background-clip: padding-box;
+        }
+        .d4 {
+            background-clip: content-box;
+        }
+        p {
+            font-size: 80%;
+        }
+        .d5 {
+            border: 1px solid black;
+            width: 700px;
+            height: 800px;
+            background-image: url(../imgs/bgsample.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 100px -150px;
+            background-attachment: fixed;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>배경색과 배경 이미지</h1>
+    <p>&nbsp;&nbsp; body { backgound-color : 색상명 | rgb rgba | hsl | hsla | 16진수; }로 배경색을 지정할 수 있다.</p>
+    <a href="https://www.webfx.com/web-design/color-picker/">색상명 참조 사이트로 이동</a>
+    <br>
+    <a href="https://www.webdesignrankings.com/resources/lolcolors/">색상 조합 사이트로 이동</a>
+    <hr>
+    <h3>div배경 테스트</h3>
+    <p>div영역을 설정하는 경우 배경색을 지정하기 위해서는 div에 배경색을 별도로 지정해야 한다.</p>
+    <div class="di d1">동해물과 백두산이 마르고 닳도록
+            하느님이 보우하사 우리나라 만세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            남산 위에 저 소나무, 철갑을 두른 듯
+            바람서리 불변함은 우리 기상일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            가을 하늘 공활한데 높고 구름 없이
+            밝은 달은 우리 가슴 일편단심일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            이 기상과 이 맘으로 충성을 다하여
+            괴로우나 즐거우나 나라 사랑하세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.</div>
+    <h3>배경 적용 범위 조정</h3>
+    <p>div 영역의 배경 적용 범위를 지정할 때 background-clip 속성을 사용한다.</p>
+    <span>
+        <div class="di d2">동해물과 백두산이 마르고 닳도록
+            하느님이 보우하사 우리나라 만세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            남산 위에 저 소나무, 철갑을 두른 듯
+            바람서리 불변함은 우리 기상일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            가을 하늘 공활한데 높고 구름 없이
+            밝은 달은 우리 가슴 일편단심일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            이 기상과 이 맘으로 충성을 다하여
+            괴로우나 즐거우나 나라 사랑하세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.</div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="di d3">동해물과 백두산이 마르고 닳도록
+            하느님이 보우하사 우리나라 만세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            남산 위에 저 소나무, 철갑을 두른 듯
+            바람서리 불변함은 우리 기상일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            가을 하늘 공활한데 높고 구름 없이
+            밝은 달은 우리 가슴 일편단심일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            이 기상과 이 맘으로 충성을 다하여
+            괴로우나 즐거우나 나라 사랑하세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.</div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="di d4">동해물과 백두산이 마르고 닳도록
+            하느님이 보우하사 우리나라 만세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            남산 위에 저 소나무, 철갑을 두른 듯
+            바람서리 불변함은 우리 기상일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            가을 하늘 공활한데 높고 구름 없이
+            밝은 달은 우리 가슴 일편단심일세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.
+
+            이 기상과 이 맘으로 충성을 다하여
+            괴로우나 즐거우나 나라 사랑하세.
+            무궁화 삼천리 화려강산
+            대한 사람, 대한으로 길이 보전하세.</div>
+    </span>
+    <hr>
+    <h3>배경 이미지 테스트</h3>
+    <p> background-image 속성을 이용하여 배경 사진을 넣을 수 있다. 사진 크기에 따라 자동으로 반복하여 이미지가 나타난다.</p>
+    <p>배경 이미지의 반복 방법을 지정하기 위해 background-repeat 속성을 이용할 수 있다.</p>
+    <p>배경 이미지가 요소보다 크거나 작은 경우 배경 이미지의 크기를 background-size 속성으로 변경할 수 있다.</p>
+    
+    <div class="d5"></div>
+</body>
+</html>
