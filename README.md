@@ -3704,7 +3704,163 @@
     ```
 
 ### 2.35 35일차(2020-03-26)
-
+- CSS 단위 구성
+  <table>
+    <tr>
+      <th>구분</th>
+      <th>단위</th>
+      <th>내용</th>
+    </tr>
+    <tr>
+      <th rowspan="3">상대 크기</th>
+      <th>em</th>
+      <td>부모 요소의 크기가 기준<br>배수를 의미<br>1배 = 1em = 100%(부모요소 크기 기준)</td>
+    </tr>
+    <tr>
+      <th>rem</th>
+      <td>최상이 부모 요소의 크기가 기준으로 배수</td>
+    </tr>
+    <tr>
+      <th>%</th>
+      <td>기본 설정된 크기에서 상대적으로 크기 설정<br>초기 설정 100%</td>
+    </tr>
+    <tr>
+      <th rowspan="2">절대 크기</th>
+      <th>px</th>
+      <td rowspan="2">기본 지정된 크기</td>
+    </tr>
+    <tr>
+      <th>pt</th>
+    </tr>
+  </table>  
+- CSS 색상 표현
+  <table>
+    <tr>
+      <th>표현방법</th>
+      <th>내용</th>
+    </tr>
+    <tr>
+      <th>영문색 이름</th>
+      <td>영문으로 색 이름 작성<br>red, blue, white...</td>
+    </tr>
+    <tr>
+      <th>16진수</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>rgb</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>rgba</th>
+      <td></td>
+    </tr>
+  </table>  
+- 텍스트 스타일
+  - front-family
+    - 폰트의 글꼴을 설정해주는 속성
+    - 글꼴 이름1이 없으면 글꼴2, 글꼴 3으로 선택되어 설정
+    - 글꼴이 모두 없으면 브라우저 기본 글꼴로 적용
+    ```
+    선택자 {
+      font-family : 글꼴1[, 글꼴2, 글꼴3];
+    }
+    ```
+  - font-size
+    - 글자의 크기를 조절하는 속성
+    - 단위 : em, px, pt, ex  
+      ※ex : 현재 소문자 x의 크기의 배수(잘 사용하지 않음)
+    ```
+    선택자 {
+      font-size : 숫자단위;
+    }
+    ```
+  - font-weight
+    - 글자의 굵기를 설정  
+    ```
+    선택자 {
+      font-weight : 속성 값;
+    }
+    ```
+    <table>
+      <tr>
+        <th>속성 값</th>
+        <th>내용</th>
+      </tr>
+    </table>  
+  - font-variant
+    - 영어를 작은 대문자로 표시해주는 속성
+    ```
+    선택자 {
+      font-variant : normal 또는 small-caps;
+    }
+    ```
+  - font-style
+    - 글자를 이텔릭체로 표시하는 속성
+    ```
+    선택자 {
+      font-style : normal 또는 italic 또는 oblique;
+    ```
+    - italic : 처음부터 기울어진 글자가 존재
+    - oblique : 기본 글자를 기울여서 표시
+    - italic을 주로 사용
+  - font
+    - 글꼴 속성을 모아서 표현할 수 있는 스타일 속성
+    ```
+    선택자 {
+      font : font-style font-variant font-weight font-size/line-height font-family;
+    }
+    ```
+  - color
+    - 글자색을 정하는 속서
+    - 색 지정방법(영문명, rgb, rgba, 16진수 모두 가능)
+    ```
+    선택자 {
+      color : 색상;
+    }
+    ```
+  - text-decoration
+    - 글자에 밑줄을 긋거나, 취소선을 긋거나, 윗선을 긋거나 밑줄을 표시하지 안않 속성
+    ```
+    선택자 {
+      text-decoration : 속성;
+    }
+    ```
+  - text
+  - text-shadow
+    - 텍스트에 그림자 효과를 주는 속성
+    ```
+    선택자 {
+      text-shadow: non 또는 (가로 세로 번짐 색상);
+    }
+    
+    - 인자를 여러개 사용하여 콤마로 구분하여 여러 개의 그림자 효과 활용 가능
+    ```
+  - white-space
+    - 공백을 처리해 주는 속성  
+    <table>
+      <tr align="center">
+        <th>속성 값</th>
+        <th>공백 여러개</th>
+        <th>개행 처리</th>
+        <th>영역 이탈</th>
+      </tr>
+      <tr align="center">
+        <th>normal</th>
+        <td>하나로 처리</td>
+        <td>개행하지 않음</td>
+        <td>자동 줄 바꿈</td>
+      </tr>
+    </table>  
+  - letter-spacing / line-spacing
+    - letter-spacing : 낱개 글자의 간격을 조정하는 속성
+    - word-spacing : 단어와 단어 사이 간격을 조정하는 속성
+    ```
+    선택자 {
+      letter-spacing : 숫자(단위);
+      word-spacing : 숫자(단위);
+    }
+    ```
   
 ## 3. 이클립스 기능
 - 단축키
@@ -3748,7 +3904,6 @@
   3. 게시물 내용 : BOARD_CONTENT/VARCHAR2(3000)/NN
   4. 게시물 작성자 : BOARD_WRITER/NUMBER/FORIGN KEY
   5. 작성일 : WIRTE_DATE/DATE/DEFAULT SYSDATE
-
   
 ## 7. DB 연결 단계
 1. 드라이버 등록
@@ -3764,3 +3919,13 @@
   - ERDCloud : https://www.erdcloud.com/
 - 이미지 맵 제작 사이트
   - Online Image Map Editor : http://maschek.hu/imagemap/imgmap/
+- 선택자 테스트 사이트
+  - CSS Diner : http://flukeout.github.io/
+- 픽셀 크기 계산 사이트
+  - PXtoEM.com : http://pxtoem.com/
+- 색상 조합 사이트
+  - LOL Colors : https://www.webdesignrankings.com/resources/lolcolors/
+- 구글 제공 폰트 사이트
+  - Google Fonts : https://fonts.google.com/
+- 색상 선택 사이트
+  - WebFX Color Picker : https://www.webfx.com/web-design/color-picker/

@@ -23,3 +23,7 @@
   - cssTest1.html : CSS 테스트 프로그램
   - cssQue.html : CSS 실습 프로그램 1
   - cssQue2.html : CSS 실습 프로그램 2
+- 35일차(2020-03-26)
+  - font_css.html : 텍스트 CSS 테스트 프로그램
+  - fontQue.html : 텍스트 CSS 실습 프로그램
+  - fontQue2.html : 텍스트 CSS 실습 프로그램 2
