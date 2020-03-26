@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        .gra{
+            width: 300px;
+            height: 300px;
+/*            border: 1px solid black;*/
+        }
+        .gra1{
+            width: 500px;
+            height: 300px;            
+        }
+        .d1{
+            background: linear-gradient(to bottom, black, brown);
+        }
+        .d2{
+            background: linear-gradient(to top, black, brown);
+        }
+        .d3{
+            background: linear-gradient(315deg, black, brown);
+        }
+        .d4{
+            background: linear-gradient(315deg, black, brown 50%, black);
+        }
+        .d5{
+            background: linear-gradient(135deg, red, orange 15%, yellow 30%, green 45%, blue 60%, navy 75%, purple 90%);
+        }
+        .d11{
+            background: radial-gradient(white, red);
+        }
+        .d12{
+            background: radial-gradient(circle, white, red, orange, yellow, green, blue, navy, purple, black);
+        }
+        .d13{
+            background: -webkit-radial-gradient(30% 40%, circle, white, red, orange, yellow, green, blue, navy, purple, black);
+        }
+        .d14{
+            background: -webkit-radial-gradient(30% 40%, circle closest-corner, white, red, orange, yellow, green, blue, navy, purple, black);
+        }
+        .d15{
+            background: -webkit-radial-gradient(30% 40%, circle closest-side, white, red, orange, yellow, green, blue, navy, purple, black);
+        }
+        .d16{
+            background: -webkit-radial-gradient(30% 40%, circle farthest-corner, white, red, orange, yellow, green, blue, navy, purple, black);
+        }
+        .d17{
+            background: -webkit-radial-gradient(30% 40%, circle farthest-side, white, red, orange, yellow, green, blue, navy, purple, black);
+        }
+        .d18{
+            background: -webkit-repeating-radial-gradient(white, white 10%, blue 10%, blue 20%, red 20%, red 30%);
+            line-height: 250px;
+            text-align: center;
+            font-size: 100pt;
+            color: yellow;
+        }
+        .d19{
+            background: repeating-linear-gradient(to bottom, red, red 5%, orange 5%, orange 10%, yellow 10%, yellow 15%, green 15%, green 20%, blue 20%, blue 25%, navy 25%, navy 30%, purple 30%, purple 35%);
+        }
+    </style>
+</head>
+<body>
+    <div class="gra d1"></div>
+    <div class="gra d2"></div>
+    <div class="gra d3"></div>
+    <div class="gra d4"></div>
+    <div class="gra d5"></div>
+    <hr>
+    <div class="gra1 d11"></div>
+    <div class="gra1 d12"></div>
+    <div class="gra1 d13"></div>
+    <div class="gra1 d14"></div>
+    <div class="gra1 d15"></div>
+    <div class="gra1 d16"></div>
+    <div class="gra1 d17"></div>
+    <div class="gra1 d18">★</div>
+    <div class="gra d19"></div>
+
+</body>
+</html>
