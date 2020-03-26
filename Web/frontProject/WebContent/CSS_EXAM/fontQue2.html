@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>글꼴 관련 스타일 2</title>
+    <style>
+        .ul1>.li1 {
+            color: blue;
+        }
+
+        .ul1>.li2 {
+            color: #0000ff;
+        }
+
+        .ul1>.li3 {
+            color: rgb(0, 0, 255);
+        }
+
+        .ul1>.li4 {
+            color: rgba(0, 0, 255, 0.5);
+        }
+
+        a.a {
+            text-decoration: none;
+        }
+
+        .ul2>.li2 {
+            text-decoration: underline;
+        }
+
+        .ul2>.li3 {
+            text-decoration: line-through;
+        }
+
+        .ul2>.li4 {
+            text-decoration: overline;
+        }
+
+        .ul3>.li2 {
+            text-transform: capitalize;
+        }
+
+        .ul3>.li3 {
+            text-transform: uppercase;
+        }
+
+        .ul3>.li4 {
+            text-transform: lowercase;
+        }
+
+        .font {
+            font-size: 100px;
+            font-weight: bold;
+        }
+
+        .sp1 {
+            color: rgba(255, 0, 0, 0.7);
+            text-shadow: 5px 5px orange;
+        }
+
+        .sp2 {
+            text-shadow: 0px 0px 4px #ccc, 0px -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>텍스트 스타일</h1>
+    <hr>
+    <h3>color 속성 : 텍스트의 색상을 지정할 수 있다.</h3>
+    <p><small>&nbsp;&nbsp;선택자 { color : 색상명 영문 이름 | 16진수 숫자 | rgb값 | rgba값 }의 형식으로 사용된다.</small></p>
+    <p>색상값 참조 사이트 : <a href="https://www.webfx.com/web-design/color-picker/">사이트로 이동</a></p>
+    <ul class="ul1">
+        <li class="li1">색상명으로 지정</li>
+        <li class="li2">16진수 값으로 지정</li>
+        <li class="li3">rgb로 지정</li>
+        <li class="li4">rgba로 지정</li>
+    </ul>
+    <hr>
+
+    <h3>text-decoration 속성 : 텍스트에 줄을 긋거나 줄을 없앨 때 사용한다.</h3>
+    <p><small>&nbsp;&nbsp;선택자 { text-decoration : none | underline | overline | line-through; }의 형식으로 표현한다.</small></p>
+    <ul class="ul2">
+        <li><a class="a" href="#">하이퍼링크 밑줄 없애기</a></li>
+        <li class="li2">텍스트영역 아래 줄 긋기</li>
+        <li class="li3">텍스트영역 중간에 줄긋기</li>
+        <br>
+        <li class="li4">텍스트영역 위에 줄긋기</li>
+    </ul>
+    <hr>
+
+    <p3>text-transform 속성 : 영문 텍스트의 대소문자 변환시 사용한다.</p3>
+    <p><small>&nbsp;&nbsp;선택자 { text-transform : none | capiralize | uppercase | lowercase; }의 형식으로 표현한다.</small></p>
+    <ul class="ul3">
+        <li>none</li>
+        <li class="li2">capitalize : 영문자의 첫 글자만 대문자로</li>
+        <li class="li3">uppercase : 모든 영문자를 대문자로</li>
+        <li class="li4">LOWERCASE : 모든 영문자를 소문자로</li>
+    </ul>
+    <hr>
+
+    <p3>text-shadow 속성 : 텍스트에 그림자 효과를 줄 때 사용한다.</p3>
+    <p><small>&nbsp;&nbsp;선택자 { text-shadow : none | 가로거리 세로거리 번짐정도 색상; }의 형식으로 표현한다.</small></p>
+    <pre align="center"><span class="font sp1">HTML5</span>                    <span class="font sp2">HTML5</span></pre>
+    <p>첫번째 값 : 5px 5px orange</p>
+    <p>두번째 값 : 0px 0px 4px #ccc, 0px -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20</p>
+    <hr>
+</body></html>
