@@ -25,5 +25,48 @@
   - cssQue2.html : CSS 실습 프로그램 2
 - 35일차(2020-03-26)
   - font_css.html : 텍스트 CSS 테스트 프로그램
+    1. font-family
+    2. font-size
+    3. font-weight
+    4. font-variant
+    5. font-style
+    6. font
+    7. color
+    8. text-decoration
+    9. text-transform
+    10. text-shadow
+    11. white-space
+    12. letter-spacing
+    13. word-spacing
   - fontQue.html : 텍스트 CSS 실습 프로그램
+    1. font-family
+    2. font-size
+    3. font-weight
+    4. font-variant
+    5. font-style
+    6. font
   - fontQue2.html : 텍스트 CSS 실습 프로그램 2
+    1. color
+    2. text-decoration
+    3. text-transform
+    4. text-shadow
+  - font_css2.html : 텍스트 CSS 테스트 프로그램 2
+    1. text-indent
+    2. line-height
+    3. text-overflow
+    4. list-style-type
+    5. list-style-image
+    6. list-style-position
+  - color_css.html : 배경 CSS 테스트 프로그램
+    1. background-color
+    2. padding
+    3. background-clip
+    4. background-image
+    5. background-repeat
+    6. background-size
+    7. background-origin
+    8. background-attachment
+  - colorQue.html : 배경 CSS 실습 프로그램
+  - color_css2.html
+    1. linear-gradient
+    2. radial-gradient
