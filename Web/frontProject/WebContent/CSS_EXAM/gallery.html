@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>사진 갤러리</title>
+    <style>
+        .main {
+            width: 500px;
+            height: 500px;
+            border: 5px solid black;
+            margin: 0 auto;
+        }
+        
+        .line {
+            width: 100%;
+            height: 50%;
+            box-sizing: border-box;
+        }
+
+        .file {
+            position: relative;
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .origin {
+            position: absolute;
+            z-index: 1000;
+            top: 50px;
+            left: 60px;
+            visibility: hidden;
+        }
+        
+        .file:hover .origin {
+            visibility: visible;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>사진 갤러리 만들기</h1>
+    <hr>
+    <div class="main">
+        <div class="line">
+            <div class="file">
+                <img class="img" src="../imgs/dog3.jpg">
+                <div>
+                    <img class="origin" src="../imgs/dog3.jpg">
+                </div>
+            </div>
+            <div class="file">
+                <img class="img" src="../imgs/dog4.jpg">
+                <div>
+                    <img class="origin" src="../imgs/dog4.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="line">
+            <div class="file">
+                <img class="img" src="../imgs/dog5.jpg">
+                <div>
+                    <img class="origin" src="../imgs/dog5.jpg">
+                </div>
+            </div>
+            <div class="file">
+                <img class="img" src="../imgs/dog6.jpg">
+                <div>
+                    <img class="origin" src="../imgs/dog6.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
