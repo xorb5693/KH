@@ -70,3 +70,10 @@
   - color_css2.html
     1. linear-gradient
     2. radial-gradient
+- 36일차(2020-03-27)
+  - layout.html : 기본 스타일, 테두리 스타일 테스트 프로그램
+    1. display
+    2. border-style
+    3. border-width
+    4. border-color
+  - layoutQue.html : 기본  스타일, 테두리 스타일 실습 프로그램
