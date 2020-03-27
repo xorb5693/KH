@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        td{
+            width: 150px;
+            height: 150px;
+            border: 5px dashed black;
+        }
+        
+        .di{
+            width: 150px;
+            height: 150px;
+            border: 5px dashed black;
+            display: inline-block;
+        }
+                
+        .blue{
+            border-color: blue;
+            border-top-style: solid;
+            border-left-style: solid;
+            border-top-left-radius: 50px;
+        }
+        
+        .green{
+            border-color: green;
+            border-top-style: solid;
+            border-right-style: solid;
+            border-top-right-radius: 50px;
+        }
+        
+        .yellow{
+            border-color: yellow;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-bottom-left-radius: 50px;
+            
+        }
+        
+        .red{
+            border-color: red;
+            border-bottom-style: solid;
+            border-right-style: solid;
+            border-bottom-right-radius: 50px;
+        }
+       
+        .violet{
+            border: 5px dotted violet;
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <p>다음과 같이 테이블을 꾸며 보세요</p>
+    
+    <table>
+        <tr>
+            <td class="blue"></td>
+            <td></td>
+            <td class="green"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="violet"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="yellow"></td>
+            <td></td>
+            <td class="red"></td>
+        </tr>
+    </table>
+    
+    <p>div로 만들기</p>
+    <div>
+        <div class="di blue"></div>
+        <div class="di"></div>
+        <div class="di green"></div>
+    </div>
+    <div>
+        <div class="di"></div>
+        <div class="di violet"></div>
+        <div class="di"></div>
+    </div>
+    <div>
+        <div class="di yellow"></div>
+        <div class="di"></div>
+        <div class="di red"></div>
+    </div>
+</body>
+</html>
