@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        .pola {
+            width: 700px;
+            height: 600px;
+            border: 1px solid gray;
+            margin: 0 auto;
+            margin-top: 150px;
+            transform: rotate(20deg);
+            box-shadow: 2px 2px 5px gray;
+        }
+
+        .img {
+            width: 650px;
+            height: 400px;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: dog;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes dog {
+            0% {
+                background-image: url(../imgs/dog3.jpg);
+            }
+
+            50% {
+                background-image: url(../imgs/dog4.jpg);
+            }
+            
+            100% {
+                background-image: url(../imgs/dog3.jpg);
+            }
+        }
+
+        .text {
+            height: 200px;
+            line-height: 150px;
+            font-size: 25pt;
+            text-align: center;
+            color: darkgreen;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="pola">
+        <div class="img"></div>
+        <div class="text">댕댕댕 왕왕</div>
+    </div>
+</body>
+
+</html>
