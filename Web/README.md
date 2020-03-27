@@ -76,4 +76,21 @@
     2. border-style
     3. border-width
     4. border-color
-  - layoutQue.html : 기본  스타일, 테두리 스타일 실습 프로그램
+  - layoutQue.html : 기본 스타일, 테두리 스타일 실습 프로그램
+  - layout2.html : 기본 스타일, 테두리 스타일 테스트 프로그램 2
+    1. position
+    2. visibility
+    3. z-index
+    4. float
+    5. clear
+    6. overflow
+  - transform.html : 애니메이션 효과 테스트 프로그램
+    1. transform
+    2. transition-duration
+    3. transition-property
+    4. transition-delay
+    5. animation
+  - polaroid.html : HTML 실습 프로그램
+    1. 폴라로이드
+  - gallery.html : HTML 실습 프로그램 2
+    2. 
