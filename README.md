@@ -19,7 +19,7 @@
 | [2.1](#21-1일차2020-01-28) | [2.2](#22-2일차2020-01-29) | [2.3](#23-3일차2020-01-30) | [2.4](#24-4일차2020-01-31) | [2.5](#25-5일차2020-02-03) | [2.6](#26-6일차2020-02-04) | [2.7](#27-7일차2020-02-05) | [2.8](#28-8일차2020-02-06) | [2.9](#29-9일차2020-02-07) | [2.10](#210-10일차2020-02-10) |
 | [2.11](#211-11일차2020-02-11) | [2.12](#212-12일차2020-02-12) | [2.13](#213-13일차2020-02-13) | [2.14](#214-14일차2020-02-14) | [2.15](#215-15일차2020-02-17) | [2.16](#216-16일차2020-02-18) | [2.17](#217-17일차2020-02-19) | [2.18](#218-18일차2020-02-20) | [2.19](#219-19일차2020-02-21) | [2.20](#220-20일차2020-02-24) |
 | [2.21](#221-21일차2020-02-25) | [2.22](#222-22일차2020-03-09) | [2.23](#223-23일차2020-03-10) | [2.24](#224-24일차2020-03-11) | [2.25](#225-25일차2020-03-12) | [2.26](#226-26일차2020-03-13) | [2.27](#227-27일차2020-03-16) | [2.28](#228-28일차2020-03-17) | [2.29](#229-29일차2020-03-18) | [2.30](#230-30일차2020-03-19) |
-| [2.31](#231-31일차2020-03-20) | [2.32](#232-32일차2020-03-23) | [2.33](#233-33일차2020-03-24) | [2.34](#234-34일차2020-03-25) | [2.35](#235-35일차2020-03-26) | [2.36](#) | [2.37](#) | [2.38](#) | [2.39](#) | [2.40](#) |
+| [2.31](#231-31일차2020-03-20) | [2.32](#232-32일차2020-03-23) | [2.33](#233-33일차2020-03-24) | [2.34](#234-34일차2020-03-25) | [2.35](#235-35일차2020-03-26) | [2.36](#236-36일차2020-03-27) | [2.37](#) | [2.38](#) | [2.39](#) | [2.40](#) |
 
 </div>
 </details>  
@@ -2991,7 +2991,7 @@
       <dd>정의 내용</dd>
     </
     ```
-- 테이블 그
+- 테이블 그리기
   - 웹 문서에서 자료를 정리할 때 자주 사용
   - 행과 열로 이루어져 있고, 행과 열이 만나는 지점을 셀이라고 함
   ```
@@ -4064,6 +4064,236 @@
       background-color: 색상표현;
     }
     ```
+  - background-clip
+    - 배경 범위 조절
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">border-box</th>
+        <td>박스 모델의 가장 외곽이 테두리까지 적용</th>
+      </tr>
+      <tr>
+        <th align="center">padding-box</th>
+        <td>테두리를 제외한 패딩범위까지 적용</th>
+      </tr>
+      <tr>
+        <th align="center">content-box</th>
+        <td>내용 부분만 적용</th>
+      </tr>
+    </table>
+  - background-img
+    - 요소에 배경을 이미지로 지정
+    ```
+    선택자 {
+      background-img : url(경로);
+    }
+    ```
+  - background-repeat
+    - 배경 이미지 반복 출력
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">repeat</th>
+        <td>브라우저에 가득 찰 때까지 가로/세로 반복</th>
+      </tr>
+      <tr>
+        <th align="center">repeat-x</th>
+        <td>넓이만큼 반복(가로)</th>
+      </tr>
+      <tr>
+        <th align="center">repeat-y</th>
+        <td>높이만큼 반복(세로)</th>
+      </tr>
+      <tr>
+        <th align="center">no-repeat</th>
+        <td>이미지 한번만 출력</th>
+      </tr>
+    </table>
+  - background-size
+    - 배경 이미지의 크기를 조절하는 속성
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">auto</th>
+        <td>원래 배경이미지 크기만큼 표시</th>
+      </tr>
+      <tr>
+        <th align="center">contain</th>
+        <td>요소 안으로 이미지가 들어올 수 있게 확대/축소</th>
+      </tr>
+      <tr>
+        <th align="center">cover</th>
+        <td>요소의 범위를 이미지가 덮을 수 있도록 확대/축소</th>
+      </tr>
+      <tr>
+        <th align="center">크기값(px)/백분율</th>
+        <td>수치화된 값으로 표현</th>
+      </tr>
+    </table>
+  - background-position
+    - 배경 이미지의 위치를 조정하는 속성
+    ```
+    선택자 {
+      background-position : 수평위치 수직위치;
+      background-position : left center;
+      background-position : 50% 50%;
+    ```
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">수평위치</th>
+        <td>left / center / right</th>
+      </tr>
+      <tr>
+        <th align="center">수직위치</th>
+        <td>top / center / bottom</th>
+      </tr>
+      <tr>
+        <th align="center">크기값(px) / 백분율</th>
+        <td>수치화된 값으로 표현(가로,세로) -> 왼쪽 모서리 좌표</th>
+      </tr>
+    </table>
+  - background-origin
+    - 배경 이미지 배치할 때 기준을 지정하는 속성
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">border-box</th>
+        <td>테두리가 기준</th>
+      </tr>
+      <tr>
+        <th align="center">padding-box</th>
+        <td>테두리를 뺀 패딩이 기준</th>
+      </tr>
+      <tr>
+        <th align="center">content-box</th>
+        <td>내용부분이 기준</th>
+      </tr>
+    </table>
+  - background-attachment
+    - 웹페이지가 위아래로 움직여도 배경이미지는 움직이지 않게 고정하는 속성
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">scroll</th>
+        <td>배경이미지가 움직이게 설정(default)</th>
+      </tr>
+      <tr>
+        <th align="center">fixed</th>
+        <td>배경이미지가 움직이지 않게 설정</th>
+      </tr>
+    </table>
+  - background
+    - 배경이미지 한번에 설정하는 속성
+    ```
+    선택자 {
+      background : image값 repeat값 attachment값 position값 clip값 origin값 size값;
+    }
+    ```
+  - linear-gradient
+    - 직선 방향으로 그라데이션 색상
+    ```
+    선택자 {
+      background: linear-gradient(방향, 색상1, 색상2[, 색상3, 색상4...]);
+    }
+    
+    - 방향은 to를 써서 bottom, top, left, right로 지정할 수 있다.
+    - 숫자deg를 하면 각도로 지정이 된다.
+    ```
+  - radial-gradient
+    - 타원 방향으로 그라데이션 색상
+    - 중심을 기준으로 그려진다.
+    ```
+    선택자 [
+      bacground: radial-gradient(색상1, 색상2[, 색상3, 색상4...]);
+    }
+    ```
+    
+### 2.36 36일차(2020-03-27)
+- 기본 스타일
+  - height / wegiht
+    - 콘텐츠(내용)이 차지하고 있는 공간을
+  - display
+    - 화면 배치 방법 변경 속성
+    - 블록요소와 인라인 요소를 변경 가능(블록->인라인, 인라인->블록)
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">none</th>
+        <td>화면에서 표현되지 않고 공간도 차지하지 않음</th>
+      </tr>
+      <tr>
+        <th align="center">inline</th>
+        <td>인라인 요소로 변경</th>
+      </tr>
+      <tr>
+        <th align="center">block</th>
+        <td>블록 요소로 변경</th>
+      </tr>
+      <tr>
+        <th align="center">inline-block</th>
+        <td>블록 요소와 같이 너비, 높이 지정 등</th>
+      </tr>
+    </table>
+- 테두리 스타일
+  - border-style
+    - 테두리 스타일 지정(테두리에 사용할 선의 종류)
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">none</th>
+        <td>테두리가 나타나지 않음(기본 값)</th>
+      </tr>
+      <tr>
+        <th align="center">hidden</th>
+        <td>테두리가 나타나지 않음</th>
+      </tr>
+      <tr>
+        <th align="center">dashed</th>
+        <td></th>
+      </tr>
+      <tr>
+        <th align="center">inline-block</th>
+        <td></th>
+      </tr>
+    </table>
+  - border-width
+    - 테두리의 두께를 지정하는 속성
+    ```
+    선택자 {
+      border-width : 숫자(단위);
+    }
+    ```
+  - border-radius
+- 여백 스타일
+  - margin
+    - margin 크기를 0 auto로 하면 자동으로 가운데 정렬이 된다.
+- 포지셔닝
+  - 
   
 ## 3. 이클립스 기능
 - 단축키
