@@ -4083,7 +4083,7 @@
         <th align="center">content-box</th>
         <td>내용 부분만 적용</th>
       </tr>
-    </table>
+    </table>  
   - background-img
     - 요소에 배경을 이미지로 지정
     ```
@@ -4114,7 +4114,7 @@
         <th align="center">no-repeat</th>
         <td>이미지 한번만 출력</th>
       </tr>
-    </table>
+    </table>  
   - background-size
     - 배경 이미지의 크기를 조절하는 속성
     <table>
@@ -4138,7 +4138,7 @@
         <th align="center">크기값(px)/백분율</th>
         <td>수치화된 값으로 표현</th>
       </tr>
-    </table>
+    </table>  
   - background-position
     - 배경 이미지의 위치를 조정하는 속성
     ```
@@ -4164,7 +4164,7 @@
         <th align="center">크기값(px) / 백분율</th>
         <td>수치화된 값으로 표현(가로,세로) -> 왼쪽 모서리 좌표</th>
       </tr>
-    </table>
+    </table>  
   - background-origin
     - 배경 이미지 배치할 때 기준을 지정하는 속성
     <table>
@@ -4184,7 +4184,7 @@
         <th align="center">content-box</th>
         <td>내용부분이 기준</th>
       </tr>
-    </table>
+    </table>  
   - background-attachment
     - 웹페이지가 위아래로 움직여도 배경이미지는 움직이지 않게 고정하는 속성
     <table>
@@ -4200,7 +4200,7 @@
         <th align="center">fixed</th>
         <td>배경이미지가 움직이지 않게 설정</th>
       </tr>
-    </table>
+    </table>  
   - background
     - 배경이미지 한번에 설정하는 속성
     ```
@@ -4255,7 +4255,7 @@
         <th align="center">inline-block</th>
         <td>블록 요소와 같이 너비, 높이 지정 등</th>
       </tr>
-    </table>
+    </table>  
 - 테두리 스타일
   - border-style
     - 테두리 스타일 지정(테두리에 사용할 선의 종류)
@@ -4280,7 +4280,7 @@
         <th align="center">inline-block</th>
         <td></th>
       </tr>
-    </table>
+    </table>  
   - border-width
     - 테두리의 두께를 지정하는 속성
     ```
@@ -4293,7 +4293,73 @@
   - margin
     - margin 크기를 0 auto로 하면 자동으로 가운데 정렬이 된다.
 - 포지셔닝
-  - 
+  - position
+    - 페이지의 요소들을 자유롭게 배치해주는 속성
+    - top, left, right, bottm으로 위치 지정
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">static</th>
+        <td>요소를 문서의 흐름에 맞춰 배치(default)</th>
+      </tr>
+      <tr>
+        <th align="center">relative</th>
+        <td>이전 요소와 자연스럽게 연결해 배치, 위치 지정 가능</th>
+      </tr>
+      <tr>
+        <th align="center">absolute</th>
+        <td>원하는 위치를 지정해 배치<br>-> 부모/조상 요소의 position 속성이 반드시 relative<br>-> 가까운 relative 속성인 부모나 조상 요소가 기준점</th>
+      </tr>
+      <tr>
+        <th align="center">fixed</th>
+        <td>지정한 위치에 고정 배치</th>
+      </tr>
+    </table>  
+  - visibility
+    - 페이지에 특정 속성을 보이거나 보이지 않게 하는 속성
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">visible</th>
+        <td>요소가 화면에 보임(default)</th>
+      </tr>
+      <tr>
+        <th align="center">hidden</th>
+        <td>요소가 화면에서 안보임</th>
+      </tr>
+    </table>  
+  - float
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">left</th>
+        <td>요소가 화면에 보임(default)</th>
+      </tr>
+      <tr>
+        <th align="center">right</th>
+        <td>요소가 화면에서 안보임</th>
+      </tr>
+    </table>  
+  - clear
+    - float 속성을 해제하는 속성
+- 애니메이션
+  - 애니메이션은 속성을 점차적으로 변화시켜 움직이는 효과를 내는 기법
+  - transform 속성
+    - 페이지에서 요소들을 변경시키려면 transform 속성과 변형 함수를 이용
+    ```
+    선택자 {
+      transform:변형함수;
+    }
+    ```
   
 ## 3. 이클립스 기능
 - 단축키
