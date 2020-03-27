@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -18,7 +19,7 @@
             background-color: violet;
             display: block;
         }
-        
+
         .div2 {
             width: 100px;
             height: 50px;
@@ -27,23 +28,23 @@
             border: 1px solid black;
             display: inline-block;
         }
-        
-        a{
+
+        a {
             line-height: 50px;
             text-decoration: none;
             color: purple;
             display: block;
         }
-        
-        #naver:hover > a{
+
+        #naver:hover>a {
             display: block;
         }
-        
-        #navera{
+
+        #navera {
             display: none;
         }
-        
-        .div3{
+
+        .div3 {
             width: 50px;
             height: 50px;
             background-color: azure;
@@ -53,44 +54,79 @@
             border-top-style: groove;
             border-width: 5px;
             border-color: aqua;
-            
+
             border-left: 5px dashed black;
         }
-        
-        .rad{
+
+        .rad {
             width: 150px;
             height: 100px;
-            border : 3px solid black;
+            border: 3px solid black;
         }
-        
-        .r1{
+
+        .r1 {
             border-radius: 40px;
         }
-        
-        .r2{
+
+        .r2 {
             border-bottom-left-radius: 50px;
         }
-        .r3{
+
+        .r3 {
             border-bottom-right-radius: 50px;
         }
-        .r4{
+
+        .r4 {
             border-top-left-radius: 50px;
         }
-        .r5{
+
+        .r5 {
             border-top-right-radius: 50px;
         }
-        .r6{
+
+        .r6 {
             border-radius: 20px 50px;
         }
-        .sh1{
+
+        .sh1 {
             box-shadow: 10px 10px 10px 10px gray;
         }
-        
-        table{
+
+        table {
             border-radius: 50px;
             border: 1px solid black;
         }
+
+        .d11 {
+            width: 100px;
+            height: 100px;
+            background: black;
+            margin: 0 auto;
+            color: white;
+            font-weight: 900;
+            padding-top: 10px;
+            text-align: center;
+            line-height: 90px;
+        }
+
+        ul {
+            padding: 0px;
+        }
         
+        .d22 {
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+            box-sizing: content-box;
+        }
+        
+        .d23 {
+            box-sizing: border-box;
+            float: left;
+            border: 1px dashed skyblue;
+            height: 300px;
+            width: 250px;
+        }
     </style>
 </head>
 
@@ -110,7 +146,7 @@
     <div class="div2">
         <a href="https:www.daum.net">다음</a>
     </div>
-    
+
     <hr>
     <h1>테두리 스타일</h1>
     <div class="div3"></div>
@@ -121,7 +157,7 @@
     <div class="rad r5"></div>
     <div class="rad r6"></div>
     <div class="rad sh1"></div>
-    
+
     <table width="700px" height="700px">
         <tr align="center">
             <td>1</td>
@@ -164,4 +200,23 @@
             <td>1</td>
         </tr>
     </table>
+
+    <hr>
+    <h1>여백 스타일</h1>
+    <div class="d11">hi</div>
+    <div class="d11">hi</div>
+    <div class="d11">hi</div>
+
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+    </ul>
+    <hr>
+    
+    <div class="d22">
+        <div class="d23"></div>
+        <div class="d23"></div>
+    </div>
+
 </body></html>
