@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        #div1 {
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            display: inline;
+            border: 1px solid black;
+        }
+
+        .s1 {
+            height: 100px;
+            width: 100px;
+            background-color: violet;
+            display: block;
+        }
+        
+        .div2 {
+            width: 100px;
+            height: 50px;
+            background-color: aquamarine;
+            text-align: center;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        
+        a{
+            line-height: 50px;
+            text-decoration: none;
+            color: purple;
+            display: block;
+        }
+        
+        #naver:hover > a{
+            display: block;
+        }
+        
+        #navera{
+            display: none;
+        }
+        
+        .div3{
+            width: 50px;
+            height: 50px;
+            background-color: azure;
+            border-left-style: dashed;
+            border-right-style: dotted;
+            border-bottom-style: double;
+            border-top-style: groove;
+            border-width: 5px;
+            border-color: aqua;
+            
+            border-left: 5px dashed black;
+        }
+        
+        .rad{
+            width: 150px;
+            height: 100px;
+            border : 3px solid black;
+        }
+        
+        .r1{
+            border-radius: 40px;
+        }
+        
+        .r2{
+            border-bottom-left-radius: 50px;
+        }
+        .r3{
+            border-bottom-right-radius: 50px;
+        }
+        .r4{
+            border-top-left-radius: 50px;
+        }
+        .r5{
+            border-top-right-radius: 50px;
+        }
+        .r6{
+            border-radius: 20px 50px;
+        }
+        .sh1{
+            box-shadow: 10px 10px 10px 10px gray;
+        }
+        
+        table{
+            border-radius: 50px;
+            border: 1px solid black;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>기본 스타일</h1>
+    <div id="div1">div</div>
+    <div id="div1">div</div>
+    <!--  span은 inline 속성이기에 입력이 되지 않으면 공간을 차지하지 않음
+          또한 inline 속성은 height와 width가 적용되지 않음. -->
+    <span class="s1">ㅁㄴㄹ</span>
+    <div class="div2" id="naver">
+        <a id="navera" href="https:www.naver.com">네이버</a>
+    </div>
+    <div class="div2">
+        <a href="https:www.google.com">구글</a>
+    </div>
+    <div class="div2">
+        <a href="https:www.daum.net">다음</a>
+    </div>
+    
+    <hr>
+    <h1>테두리 스타일</h1>
+    <div class="div3"></div>
+    <div class="rad r1"></div>
+    <div class="rad r2"></div>
+    <div class="rad r3"></div>
+    <div class="rad r4"></div>
+    <div class="rad r5"></div>
+    <div class="rad r6"></div>
+    <div class="rad sh1"></div>
+    
+    <table width="700px" height="700px">
+        <tr align="center">
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
+</body></html>
