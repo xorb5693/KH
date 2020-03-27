@@ -4253,7 +4253,7 @@
       </tr>
       <tr>
         <th align="center">inline-block</th>
-        <td>블록 요소와 같이 너비, 높이 지정 등</th>
+        <td>블록 요소와 같이 너비, 높이 지정 등은 가능하나, 배치는 인라인 요소처럼 나란히 배치되는 속성</th>
       </tr>
     </table>  
 - 테두리 스타일
@@ -4274,25 +4274,108 @@
       </tr>
       <tr>
         <th align="center">dashed</th>
-        <td></th>
+        <td>짧은 선으로 표시</th>
       </tr>
       <tr>
-        <th align="center">inline-block</th>
-        <td></th>
+        <th align="center">dotted</th>
+        <td>점선으로 표시</th>
+      </tr>
+      <tr>
+        <th align="center">double</th>
+        <td>이중선으로 표시</th>
+      </tr>
+      <tr>
+        <th align="center">groove</th>
+        <td>테두리가 안으로 파진것 처럼 보임</th>
+      </tr>
+      <tr>
+        <th align="center">inset</th>
+        <td>테두리를 포함한 컨텐츠 영역이 안으로 들어간 것처럼 보임</th>
+      </tr>
+      <tr>
+        <th align="center">outset</th>
+        <td>테두리를 포함한 컨텐츠 영역이 밖으로 튀어나온 것 처럼 보임</th>
+      </tr>
+      <tr>
+        <th align="center">ridge</th>
+        <td>테두리가 밖으로 튀어나온것처럼 보임</th>
+      </tr>
+      <tr>
+        <th align="center">solid</th>
+        <td>실선으로 지정</th>
       </tr>
     </table>  
   - border-width
     - 테두리의 두께를 지정하는 속성
     ```
     선택자 {
-      border-width : 숫자(단위);
+      border[위치]-width : 숫자 또는 속성값;
     }
     ```
   - border-radius
+    - 테두리의 색상을 정하는 속성
+    ```
+    선택자 {
+      border-[위치]-color : 색상값;
+    }
+    
+    - 각 테두리별 설정을 하려면 위치(top, right, bottom, left)에 값을 넣는다.
+    - 전체를 한번에 하려는 경우에는 위치를 생략
+    ```
+  - border
+    - 테두리 두께, 스타일, 색상을 한번에 지정할 수 있는 속성
+    ```
+    선택자 {
+      border-[위치] : 두께 스타일 색상값;
+    }
+    ```
+  - border-radius
+    - 박스의 모서리를 둥글게 하는 속성
+    - 위치 : top-left, top-right, bottom left, bottom right
+    - 각 테두리의 변에서부터 설정한 값만큼의 반지름을 가지는 원이 모서리에 그려지고 그 외곽부분이 그 원을 따라 둥글게 변하게 됨
+    ```
+    선택자 {
+      border-[위치]-radisu : 숫자;
+    }
+    ```
+  - box-shadow
+    - box 영역에 그림자 효과를 주는 속성
+    ```
+    선택자 {
+      box-shadow : 수평거리 수직거리 흐림정도 번짐정도 색상 [inset];
+    }
+    
+    - insert은 안쪽으로 그림자를 그리는 옵션
+    ```
 - 여백 스타일
+  - 박스 모델 구조  
+  ![20200327175130](./Image/20200327175130.PNG)  
+  - padding
+    - 테두리와 컨텐츠 영역 사이의 거리를 조절하는 속성
+    ```
+    선택자 {
+      padding-[위치] : 숫자;
+    }
+    ```
   - margin
     - margin 크기를 0 auto로 하면 자동으로 가운데 정렬이 된다.
 - 포지셔닝
+  - box-sizing
+    - 모든 요소들은 content, padding, margin 영역으로 나눠져 있는데 이 요소들의 크기를 어떠한 영역까지 포함할 것인지 결정하는 속성
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">content-box</th>
+        <td>default값으로 컨텐츠까지 영역으로 설정</th>
+      </tr>
+      <tr>
+        <th align="center">border-box</th>
+        <td>border까지 영역으로 설정</th>
+      </tr>
+    </table>  
   - position
     - 페이지의 요소들을 자유롭게 배치해주는 속성
     - top, left, right, bottm으로 위치 지정
@@ -4331,10 +4414,16 @@
       </tr>
       <tr>
         <th align="center">hidden</th>
-        <td>요소가 화면에서 안보임</th>
+        <td>요소가 화면에서 안보임<단, 보이지만 않을 뿐 공간은 차지</th>
       </tr>
     </table>  
+  - z-index
+    - 페이지 안에 요소들을 순서대로 위로 쌓는 속성
+    - 속성값이 크면 가장 위에 있는 요소, 작으면 밑에 있는 속성
+    - 항상 가장 위에 요소가 위치해야 한다면 값을 999, 1000 등의 큰 값으로 설정  
+    ![20200327180024](./Image/20200327180024.PNG)  
   - float
+    - 페이지의 요소의 위치를 왼쪽이나 오른쪽으로 지정하는 속성
     <table>
       <tr>
         <th align="center">속성 값</th>
@@ -4342,15 +4431,65 @@
       </tr>
       <tr>
         <th align="center">left</th>
-        <td>요소가 화면에 보임(default)</th>
+        <td>요소를 왼쪽으로 배치</th>
       </tr>
       <tr>
         <th align="center">right</th>
-        <td>요소가 화면에서 안보임</th>
+        <td>요소를 오른쪽으로 배치</th>
+      </tr>
+      <tr>
+        <th align="center">none</th>
+        <td>배치 값을 설정하지 않음</th>
       </tr>
     </table>  
   - clear
-    - float 속성을 해제하는 속성
+    - 페이지에 float 설정이 되어 있으면 그 속성이 그대로 다음 요소에 영향을 미치는데 이를 초기화하는 속성   
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">left</th>
+        <td>왼쪽 배치 취소</th>
+      </tr>
+      <tr>
+        <th align="center">right</th>
+        <td>오른쪽 배치 취소</th>
+      </tr>
+      <tr>
+        <th align="center">none</th>
+        <td>설정하지 않음(앞에 내용 그대로 적용)</th>
+      </tr>
+      <tr>
+        <th align="center">both</th>
+        <td>두 개 다 취소</th>
+      </tr>
+    </table>  
+  - overflow
+    - 표현하는 컨텐츠가 넘쳤을 때 표현하는 기법
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">scroll</th>
+        <td>가로, 세로 스크롤이 무조건 생김</th>
+      </tr>
+      <tr>
+        <th align="center">auto</th>
+        <td>스크롤이 내용에 따라 생김</th>
+      </tr>
+      <tr>
+        <th align="center">hidden</th>
+        <td>넘치는 것은 보여주지 않음</th>
+      </tr>
+      <tr>
+        <th align="center">visible</th>
+        <td>넘치더라도 그냥 보여줌(default)</th>
+      </tr>
+    </table>  
 - 애니메이션
   - 애니메이션은 속성을 점차적으로 변화시켜 움직이는 효과를 내는 기법
   - transform 속성
@@ -4358,6 +4497,159 @@
     ```
     선택자 {
       transform:변형함수;
+    }
+    ```
+    - transform 변형함수  
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">translate(x,y)</th>
+        <td>지정한 크기만큼 x축, y축으로 이동</th>
+      </tr>
+      <tr>
+        <th align="center">translate(x)</th>
+        <td>지정한 크기만큼 x축으로 이동</th>
+      </tr>
+      <tr>
+        <th align="center">translate(y)</th>
+        <td>지정한 크기만큼 y축으로 이동</th>
+      </tr>
+      <tr>
+        <th align="center">scale(x,y)</th>
+        <td>지정한 크기만큼 x,y축으로 확대</th>
+      </tr>
+      <tr>
+        <th align="center">scale(x)</th>
+        <td>지정한 크기만큼 x축으로 확대</th>
+      </tr>
+      <tr>
+        <th align="center">scale(y)</th>
+        <td>지정한 크기만큼 y축으로 확대</th>
+      </tr>
+      <tr>
+        <th align="center">rotate(각도)</th>
+        <td>지정한 각도만큼 회전</th>
+      </tr>
+    </table>  
+  - 트랜지션
+    - 웹 요소의 스타일이 바뀌는 것
+    - 애니메이션과 같은 효과를 나타낼 수 있음  
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">transition-property</th>
+        <td>적용 할 속성 선택</th>
+      </tr>
+      <tr>
+        <th align="center">transition-duration</th>
+        <td>진행시간 선택</th>
+      </tr>
+      <tr>
+        <th align="center">transition-timing-function</th>
+        <td>순차적인 속도 선택</th>
+      </tr>
+      <tr>
+        <th align="center">transition-delay</th>
+        <td>트랜지션 시간지연 선택</th>
+      </tr>
+      <tr>
+        <th align="center">transition</th>
+        <td>속성값을 한번에 설정</th>
+      </tr>
+    </table>  
+  - 애니메이션
+    - 시작 스타일과 끝스타일을 부드럽게 이어주는 기능을 하는 것은 같지만 애니메이션은 중간에 원하는 위치에서 keyframe을 이용하여 중간스타일 지정 가능  
+    <table>
+      <tr>
+        <th align="center">속성 값</th>
+        <th align="center">내용</th>
+      </tr>
+      <tr>
+        <th align="center">animation-delay</th>
+        <td>지연시간 선택</th>
+      </tr>
+      <tr>
+        <th align="center">animation-direction</th>
+        <td>종료 후 처음부터 시작 또는 반대로 시작 선택</th>
+      </tr>
+      <tr>
+        <th align="center">animation-duration</th>
+        <td>실행시간을 선택</th>
+      </tr>
+      <tr>
+        <th align="center">animation-fill-mode</th>
+        <td>종료되었거나 실행되지 않을 때 스타일 선택</th>
+      </tr>
+      <tr>
+        <th align="center">animation-iteration-count</th>
+        <td>반복횟수 선택</th>
+      </tr>
+      <tr>
+        <th align="center">animation-name</th>
+        <td>중간상태의 이름 지정</th>
+      </tr>
+      <tr>
+        <th align="center">animation-play-state</th>
+        <td>멈추었다가 다시 시작</th>
+      </tr>
+      <tr>
+        <th align="center">animation-timing-function</th>
+        <td>순차적인 진행시간 선택</th>
+      </tr>
+      <tr>
+        <th align="center">animation</th>
+        <td>속성을 한번에 모두 지정</th>
+      </tr>
+    </table>  
+  - @keyframes
+    - 애니메이션 시작지점과 끝지점의 스타일을 정하고 key frames의 이름을 지정
+    - 시작 지점과 끝 지점 두개만 설정할 경우 from to로 설정
+    - 중간에 작업이 있으면 %로 구분하여 설정
+    ```
+    @keyframes 이름 {
+      선택자 { 스타일; }
+    }
+    
+    @keyframes ani1 {
+      from {
+        background-color: green;
+        border: 1px solid black;
+      }
+      to {
+        background-color: yellow;
+        border-radius: 50%;
+        transform: rotate(720deg);
+        border: 3px solid red;
+      }
+    }
+    
+    @keyframes ani2 {
+      0% {
+        background-color: green;
+        border: 3px soid black;
+      }
+      
+      30% {
+        transform: translate(100px, 100px);
+      }
+            
+      50% {
+        background-color: hotpink;
+        transform: scale(1.2);
+        border: 3px solid yellow;
+      }
+
+      100% {
+        background-color: blue;
+        transform: rotate(45deg);
+        border: 3px solid red;
+      }
     }
     ```
   
