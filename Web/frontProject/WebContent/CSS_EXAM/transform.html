@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        img {
+            width: 250px;
+            height: 200px;
+        }
+
+        .trans1:hover {
+            transform: translateX(100px);
+        }
+
+        .trans2:hover {
+            transform: translateY(100px);
+        }
+
+        .trans3:hover {
+            transform: translate(100px, 100px);
+        }
+
+        .trans4:hover {
+            transform: scaleX(2);
+        }
+
+        .trans5:hover {
+            transform: scaleY(2);
+        }
+
+        .trans6:hover {
+            transform: scale(1.5, 1.5);
+            transition-duration: 1s;
+        }
+        
+        .wrap {
+            width: 250px;
+            height: 200px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+        
+        .trans7:hover {
+            transform: rotate(720deg);
+            transition-duration: 5s;
+        }
+        
+        .div {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            border: 1px solid black;
+        }
+        
+        .trans11 {
+            transition-duration: 2s;
+        }
+        
+        .trans11:hover {
+            background-color: yellow;
+        }
+        
+        .trans12 {
+            transition-property: background-color, transform, width, height;
+            transition-duration: 5s, 3s, 1s, 1s;
+        }
+        
+        .trans12:hover {
+            background-color: aqua;
+            transform: rotate(720deg);
+            width: 300px;
+            height: 300px;
+        }
+        
+        .trans13 {
+            transition-duration: 3s;
+            transition-delay: 2s;
+        }
+        
+        .trans13:hover {
+            background-color: aqua;
+            transform: rotate(720deg);
+        }
+        
+        .img1 {
+            margin: 100px;
+            width: 300px;
+            height: 300px;
+            animation-name: ani1;
+            animation-duration: 2s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes ani1 {
+            from {
+                background-color: green;
+                border: 1px solid black;
+            }
+            to {
+                background-color: yellow;
+                border-radius: 50%;
+                transform: rotate(720deg);
+                border: 3px solid red;
+            }
+        }
+        
+        .dd {
+            margin: 100px;
+            width: 300px;
+            height: 300px;
+            animation-name: ani2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes ani2 {
+            0% {
+                background-color: green;
+                border: 3px soid black;
+            }
+            
+            30% {
+                transform: translate(100px, 100px);
+            }
+            
+            50% {
+                background-color: hotpink;
+                transform: scale(1.2);
+                border: 3px solid yellow;
+            }
+            100% {
+                background-color: blue;
+                transform: rotate(45deg);
+                border: 3px solid red;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Transform</h1>
+    <h3>지정한 크기만큼 좌우 이동</h3>
+    <img src="../anime/flower1.PNG" class="trans1">
+    <hr>
+    <h3>지정한 크기만큼 위아래 이동</h3>
+    <img src="../anime/flower2.PNG" class="trans2">
+    <hr>
+    <h3>지정한 크기만큼 좌우, 위아래 이동</h3>
+    <img src="../anime/flower3.PNG" class="trans3">
+    <hr>
+    <h3>지정한 크기만큼 좌우 확대</h3>
+    <img src="../anime/flower1.PNG" class="trans4">
+    <hr>
+    <h3>지정한 크기만큼 위아래 확대</h3>
+    <img src="../anime/flower2.PNG" class="trans5">
+    <hr>
+    <h3>지정한 크기만큼 좌우, 위아래 확대</h3>
+    <div class="wrap">
+        <img src="../anime/flower3.PNG" class="trans6">
+    </div>
+    <hr>
+    <h3>지정한 각도만큼 회전</h3>
+    <img src="../anime/flower1.PNG" class="trans7">
+    <br><hr><br>
+    <h1>트랜잭션</h1>
+    <h3>시간에 따른 속성 변화</h3>
+    <div class="div trans11"></div>
+    <hr>
+    <h3>여러 속성의 시간차 변화</h3>
+    <div class="div trans12"></div>
+    <hr>
+    <h3>시간지연하기</h3>
+    <div class="div trans13"></div>
+    <br><hr><br>
+    <h1>애니메이션 적용</h1>
+    <h3>기본 애니메이션 적용</h3>
+    <img class="img1" src="../anime/dora.png">
+    <h3>중간단계적용</h3>
+    <div class="dd"></div>
+</body></html>
