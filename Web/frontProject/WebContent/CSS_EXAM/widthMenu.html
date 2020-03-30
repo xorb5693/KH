@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>가로탭 메뉴 만들기</title>
+</head>
+
+    <style>
+        
+        .navi {
+            height: 100px;
+        }
+        
+        .navi>ul {
+            position: relative;
+            background-color: #FFE761;
+            width: 800px;
+            height: 50px;
+            padding: 0px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .sub {
+            left: 0;
+            visibility: hidden;
+            position: absolute;
+            background-color: #092e20;
+            width: 800px;
+            height: 50px;
+            padding: 0px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .navi>ul>li>a {
+            color: #092e20;
+            text-decoration: none;
+            display: block;
+            line-height: 50px;
+            width: 150px;
+            height: 50px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        .sub>li>a {
+            color: #FFE761;
+            text-decoration: none;
+            display: block;
+            line-height: 50px;
+            width: 150px;
+            height: 50px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+/*            border: 1px solid white;*/
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        .sub>li>a:hover {
+            background-color: #FFE761;
+            color: #234f3e;
+        }
+        
+        .navi>ul>li>a:hover {
+            background-color: #234f32;
+            color: #FFE761;
+            font-weight: bold;
+        }
+        
+        .navi>ul>li:hover>.sub {
+            visibility: visible;
+        }
+        
+        li {
+            float: left;
+            width: 150px;
+            list-style-type: none;
+        }
+    </style>
+<body>
+</body>
+    <h1>가로탭 메뉴 만들기</h1>
+    <hr><br><br>
+
+<div class="navi">
+    <ul>
+        <li>
+            <a href="#">프로그램 언어</a>
+            <ul class="sub">
+                <li><a href="#">JAVA</a></li>
+                <li><a href="#">C</a></li>
+                <li><a href="#">C++</a></li>
+                <li><a href="#">Python</a></li>
+            </ul>
+        </li>
+        <li><a href="#">데이터베이스</a></li>
+        <li>
+            <a href="#">FrontEnd</a>
+            <ul class="sub">
+                <li><a href="#">HTML5</a></li>
+                <li><a href="#">CSS3</a></li>
+                <li><a href="#">javascript</a></li>
+                <li><a href="#">jQuery</a></li>
+            </ul>
+        </li>
+        <li><a href="#">게시판</a></li>
+    </ul>
+</div>
+
+</html>
