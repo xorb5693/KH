@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>드롭다운 메뉴 만들기</title>
+</head>
+
+    <style>
+        .navi {
+            width: 800px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        
+        ul {
+            list-style-type: none;
+            width: 800px;
+            height: 50px;
+            padding: 0px;
+        }
+        
+        .navi>ul {
+            background-color: #FFE761;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .navi>ul>li {
+            float: left;
+            width: 150px;
+        }
+        
+        .navi>ul>li>a {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            color: #234f32;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .navi>ul>li>a:hover {
+            color: #FFE761;
+            background-color: #326342;
+            font-weight: bold;
+        }
+        
+        .navi>ul>li:hover>.sub {
+            transition-duration: 2s;
+            height: 300px;
+        }
+                
+        .sub {
+            height: 0px;
+            overflow: hidden;
+        }
+        
+        .sub>li>a {
+            width: 150px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            background-color: #092e20;
+            text-decoration: none;
+            color: #FFE761;
+        }
+        
+        .sub>li:last-child>a {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .sub>li>a:hover {
+            background-color: #FFE761;
+            color: #326342;
+            font-weight: bold;
+        }
+        
+    </style>
+<body>
+    <h1>드롭다운 메뉴 만들기</h1>
+    <hr><br><br>
+    <div class="navi">
+        <ul>
+            <li>
+                <a href="#">프로그램 언어</a>
+                 <ul class="sub">
+                    <li><a href="#">JAVA</a></li>
+                    <li><a href="#">C</a></li>
+                    <li><a href="#">C++</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul> 
+            </li>
+            <li><a href="#">데이터베이스</a></li>
+            <li>
+                <a href="#">FrontEnd</a>
+                <ul class="sub">
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">게시판</a></li>            
+        </ul>
+    </div>
+</body>
+</html>
