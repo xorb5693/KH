@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>기본메뉴 만들기</title>
+</head>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0px;
+        width: 840px;
+    }
+
+    li {
+        float: left;
+        background-color: #2e2f2f;
+        width: 140px;
+        height: 50px;
+        box-shadow: 1px 1px 2px #2e2f2f;
+        box-sizing: border-box;
+    }
+
+    li:hover {
+        background-color: #F5AD28;
+    }
+
+    a:hover {
+        color: #1e1e1e;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: #EB8921;
+        margin: 0 auto;
+        width: 140px;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        font-weight: bold;
+    }
+
+    .lif {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-right: 2px solid #EB8921;
+    }
+
+    .lic {
+        border-right: 2px solid #EB8921;
+    }
+
+    .lil {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
+    .navi>ul>li:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-right: 2px solid #EB8921;
+    }
+    
+    .navi>ul>li:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+</style>
+
+<body>
+
+    <h1>기본메뉴 만들기</h1>
+    <hr>
+    <br><br><br>
+    <ul>
+        <li class="lif"><a href="#">JAVA</a></li>
+        <li class="lic"><a href="#">ORACLE</a></li>
+        <li class="lic"><a href="#">HTML5</a></li>
+        <li class="lic"><a href="#">CSS3</a></li>
+        <li class="lic"><a href="#">javascript</a></li>
+        <li class="lil"><a href="#">jQuery</a></li>
+    </ul>
+    
+    <br><br><br><br>
+
+    <div class="navi">
+        <ul>
+            <li><a href="#">JAVA</a></li>
+            <li class="lic"><a href="#">ORACLE</a></li>
+            <li class="lic"><a href="#">HTML5</a></li>
+            <li class="lic"><a href="#">CSS3</a></li>
+            <li class="lic"><a href="#">javascript</a></li>
+            <li><a href="#">jQuery</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
