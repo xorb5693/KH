@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+        body {
+            width: 99%;
+            height: 100%;
+            background: linear-gradient(to bottom, #566270, #FFFFF3);
+            background-repeat: no-repeat;
+        }
+        div {
+            box-sizing: content-box;
+        }
+
+        .wrapper {
+            width: 1280px;
+            margin: 0 auto;
+        }
+
+        .header {;
+            background-color: #566270;
+/*            overflow: hidden;*/
+            height: 120px;
+        }
+
+        .header>div {
+            float: left;
+        }
+
+        .logo {
+            width: 15%;
+            height: 120px;
+            background-color: #566270;
+        }
+        
+        .logoimg {
+            width: 100%;
+            height: 100%;
+            background-image: url(../imgs/dog4.jpg);
+            background-size: cover;
+            background-position: 0px -10px;
+            background-repeat: no-repeat;
+        }
+
+        .headcenter {
+            width: 70%;
+            height: 120px;
+        }
+        
+        .title {
+            width: 100%;
+            height: 70px;
+            background-color: #566270;
+        }
+        
+        .title>p {
+            margin: 0 auto;
+            text-align: center;
+            line-height: 70px;
+            font-size: 30pt;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #E0E3DA;
+        }
+
+        .navi {
+            overflow: visible;
+            height: auto;
+            width: 100%;
+        }
+        
+        .navi>ul {
+            position: relative;
+            background-color: #566270;
+            width: 100%;
+            height: 50px;
+            padding: 0px;
+            margin: 0 auto;
+            margin-right: 0px;
+            padding-left: 5px;
+            box-sizing: border-box;
+        }
+        
+        .navi>ul>li {
+            width: 25%;
+        }
+        
+        .navi>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+        
+        .navi>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .sub {
+            left: 0;
+            visibility: hidden;
+/*            display: none;*/
+            position: absolute;
+            background-color: #011627;
+            width: 100%;
+            height: 50px;
+            padding: 0px;
+            padding-left: 5px;
+            margin: 0 auto;
+            z-index: 2000;
+            box-sizing: border-box;
+        }
+        
+        .sub>li {
+            width: 25%;
+        }
+
+        .navi>ul>li>a {
+            color: #E0E3DA;
+            text-decoration: none;
+            display: block;
+            line-height: 50px;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            box-sizing: border-box;
+            border: 1px solid #E0E3DA;
+        }
+
+        .sub>li>a {
+            color: #E0E3DA;
+            text-decoration: none;
+            display: block;
+            line-height: 50px;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            box-sizing: border-box;
+            border: 1px solid #E0E3DA;
+        }
+
+        .sub>li>a:hover {
+            background-color: #E0E3DA;
+            color: #566270;
+            font-weight: bold;
+        }
+
+        .navi>ul>li:hover {
+            background-color: #E0E3DA;
+        }
+        
+        .navi>ul>li:first-child:hover {
+            border-top-left-radius: 10px;
+        }
+        
+        .navi>ul>li:last-child:hover {
+            border-top-right-radius: 10px;
+        }
+
+        .navi>ul>li:hover>a {
+            color: #566270;
+            font-weight: bold;
+        }
+
+        .navi>ul>li:hover>.sub {
+            visibility: visible;
+            display: block;
+        }
+
+        .navi>ul>li, .sub>li {
+            float: left;
+            list-style-type: none;
+        }
+
+        .etc {
+            width: 15%;
+            height: 120px;
+            background-color: #566270;
+            text-align: center;
+            line-height: 60px;
+        }
+        
+        .login, .signin {
+            background-color: #566270;
+            color: #E0E3DA;
+            border: 1px solid #E0E3DA;
+            width: 150px;
+            height: 40px;
+            box-shadow: 1px 1px 0px #E0E3Da;
+            border-radius: 3px;
+        }
+
+        .content {
+            overflow: hidden;
+            background-color: #566270;
+            margin: 0 auto;
+        }
+
+        .content>div {
+            float: left;
+        }
+
+        .conImg {
+            width: 100%;
+        }
+
+        .layer2 {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .footer {
+            height: 100px;
+            background-color: #566270;
+            margin: 0 auto;
+        }
+        
+        .footer>p {
+            margin: 0 auto;
+            text-align: center;
+            font-size: 10pt;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #E0E3DA;
+            line-height: 100px;
+        }
+
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                <a href="./main.html">
+                    <div class="logoimg"></div>
+                </a>
+            </div>
+            <div class="headcenter">
+                <div class="title">
+                    <p>Welcome To Park's World</p>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li>
+                            <a href="#">프로그램 언어</a>
+                            <ul class="sub">
+                                <li><a href="#">JAVA</a></li>
+                                <li><a href="#">C</a></li>
+                                <li><a href="#">C++</a></li>
+                                <li><a href="#">Python</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">데이터베이스</a></li>
+                        <li>
+                            <a href="#">FrontEnd</a>
+                            <ul class="sub">
+                                <li><a href="#">HTML5</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">javascript</a></li>
+                                <li><a href="#">jQuery</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">게시판</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="etc">
+                <a href="./login.html"><input type="button" class="login" value="로그인"></a>
+                <a href="./signin.html"><input type="button" class="signin" value="회원가입">
+            </div></a>
+        </div>
+        <div class="content">
+            <!--            <div class="layer1"></div>-->
+            <div class="layer2">
+                <img src="../imgs/HtmlCss.jpg" class="conImg">
+            </div>
+            <!--            <div class="layer3"></div>-->
+        </div>
+        <div class="footer">
+            <p>COPYRIGHT @ Park's Cooperation</p>
+        </div>
+    </div>
+</body>
+
+</html>
