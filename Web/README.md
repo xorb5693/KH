@@ -105,3 +105,6 @@
     1. 세로 메뉴(아코디언) 만들기
   - login.html : HTML 실습 프로그램 5
     1. 로그인 화면 
+- 38일차(2020-03-31)
+  - dividePage.html : 화면 분할 테스트 프로그램
+  - divideQue.html : 화면 분할 실습 
