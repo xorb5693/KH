@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <style>
+
+        .layer1 {
+            width: 20%;
+            height: auto;
+            background-color: #ffffff;
+        }
+
+        .board {
+            padding: 0px;
+            margin: 0 auto;
+        }
+
+        .board>li {
+            width: 100%;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .board>li>a {
+            display: block;
+            text-decoration: none;
+            color: #566270;
+        }
+
+        .board>li:hover>a {
+            background-color: #566270;
+            color: #E0E3DA;
+        }
+
+        .layer1>a {
+            text-decoration: none;
+        }
+
+        .advert {
+            text-align: center;
+            color: #566270;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .advert>img {
+            width: 100%;
+        }
+
+        .layer2 {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            background-color: #efefef;
+            border: 1px solid #566270;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .noticearea {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #566270;
+        }
+        
+        .noticearea>div {
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .write {
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #090707;
+            border: none;
+            color: #ffffff;
+            margin-left: 2px;
+        }
+        
+        .noticearea>div:first-child {
+            text-align: right;
+        }
+
+        .notice {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .notice th,
+        .notice td {
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-left: 1px solid #ffffff;
+            border-top: 1px solid #ffffff;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .notice td>a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .notice td>a:hover {
+            text-decoration: underline;
+        }
+
+        .noticeth {
+            background-color: #566270;
+            color: #efefef;
+        }
+
+        .notice th:first-child,
+        .notice td:first-child {
+            border-left: none;
+        }
+
+        .notice tr:last-child>td {
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .noticepage {
+            width: 100%;
+            text-align: center;
+        }
+
+        .noticepage>a,
+        .noticepage>span {
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 5px;
+            margin-left: 1px;
+            color: #566270;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #fefefefe;
+        }
+
+        .noticepage>span {
+            background-color: #566270;
+            color: #efefef;
+        }
+
+        .noticesearch {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .type {
+            width: 100px;
+            height: 30px;
+        }
+
+        input[type=text] {
+            padding: 0px;
+            width: 200px;
+            height: 25px;
+        }
+
+        input[type=submit] {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #090707;
+            border: none;
+            color: #ffffff;
+            margin-left: 2px;
+        }
+
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="css/mainshape.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                <a href="./main.html">
+                    <div class="logoimg"></div>
+                </a>
+            </div>
+            <div class="headcenter">
+                <div class="title">
+                    <p>Welcome To Park's World</p>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li>
+                            <a href="#">프로그램 언어</a>
+                            <ul class="sub">
+                                <li><a href="#">JAVA</a></li>
+                                <li><a href="#">C</a></li>
+                                <li><a href="#">C++</a></li>
+                                <li><a href="#">Python</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">데이터베이스</a></li>
+                        <li>
+                            <a href="#">FrontEnd</a>
+                            <ul class="sub">
+                                <li><a href="#">HTML5</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">javascript</a></li>
+                                <li><a href="#">jQuery</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./notice.html">게시판</a>
+                            <ul class="sub">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자유게시판</a></li>
+                                <li><a href="#">사진게시판</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="etc">
+                <a href="./login.html"><input type="button" class="login" value="로그인"></a>
+                <a href="./signin.html"><input type="button" class="signin" value="회원가입"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="layer1">
+                <div>
+                    <ul class="board">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자유게시판</a></li>
+                        <li><a href="#">사진게시판</a></li>
+                    </ul>
+                </div>
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="advert">
+                        <img src="../imgs/a904839d73a39e93b56fd34c06fac0ff.gif">
+                        음오아예(Um Oh Ah Yeh)
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="advert">
+                        <img src="../likeNaverImgs/2204903D581890FD1C.gif">
+                        Décalcomanie
+                    </div>
+                </a>
+            </div>
+            <div class="layer2">
+                <div class="noticearea">
+                    <div>
+                        <a>
+                            <input type="button" value="글쓰기" class="write">
+                        </a>
+                        <table class="notice">
+                            <tr>
+                                <th class="noticeth" style="width:10%">번호</th>
+                                <th class="noticeth" style="width:60%">제목</th>
+                                <th class="noticeth" style="width:15%">글쓴이</th>
+                                <th class="noticeth" style="width:8%">날짜</th>
+                                <th class="noticeth" style="width:7%">조회수</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><a href="#">hello</a></td>
+                                <td>관리자</td>
+                                <td>03-31</td>
+                                <td>24</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="noticepage">
+                        <span>1</span>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">1</a>
+                        <a href="#">></a>
+                        <a href="#">>></a>
+                    </div>
+                </div>
+                <div class="noticesearch">
+                    <form action="#" method="get">
+                        <select name="searchtype" class="type">
+                            <option value="제목">제목</option>
+                            <option value="제목">글쓴이</option>
+                            <option value="제목">댓글</option>
+                        </select>
+                        <input type="text" name="search">
+                        <input type="submit" value="검색">
+                    </form>
+                </div>
+            </div>
+            <!--            <div class="layer3"></div>-->
+        </div>
+        <div class="footer">
+            <p>COPYRIGHT @ Park's Cooperation</p>
+        </div>
+    </div>
+</body>
+
+</html>
