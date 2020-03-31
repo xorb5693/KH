@@ -110,3 +110,5 @@
   - divideQue.html : 화면 분할 실습 프로그램
   - main.html : 메인 화면 실습 프로그램
   - signin.html : 회원가입 화면 실습 프로그램
+  - notice.html : 게시판 화면 실습 프로그램
+  - mainshape.css : 실습 프로그램 메인 틀 추출
