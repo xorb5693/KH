@@ -1,0 +1,26 @@
+@charset "UTF-8;
+    
+.t-1 {
+        color: violet;
+}
+
+.t-2 {
+    color: pink;
+}
+
+.t-3 {
+    color: navy;
+}
+
+.bg-1 {
+    background-color: violet;
+}
+
+.bg-2 {
+    background-color: pink;
+}
+
+.bg-3 {
+    background-color: navy;
+}
+    
