@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세보기</title>
+    <style>
+        .layer1 {
+            width: 20%;
+            height: auto;
+            background-color: #ffffff;
+        }
+
+        .board {
+            padding: 0px;
+            margin: 0 auto;
+        }
+
+        .board>li {
+            width: 100%;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .board>li>a {
+            display: block;
+            text-decoration: none;
+            color: #566270;
+        }
+
+        .board>li:hover>a {
+            background-color: #566270;
+            color: #E0E3DA;
+        }
+
+        .layer1>a {
+            text-decoration: none;
+        }
+
+        .advert {
+            text-align: center;
+            color: #566270;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .advert>img {
+            width: 100%;
+        }
+
+        .layer2 {
+            width: 80%;
+            background: linear-gradient(to top, #FFFFF3, #566270 50%, #FFFFF3);
+        }
+
+        .layer2>* {
+            display: block;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: #ffffff;
+            border-top: 1px solid #566270;
+            width: 80%;
+        }
+        
+        .layer2>span {
+            text-align: left;
+            font-size: 12pt;
+        }
+        
+        .layer2>*:first-child {
+            margin-top: 10px;
+        }
+
+        .layer2>*:last-child {
+            border-bottom: 1px solid #566270;
+            margin-bottom: 10px;
+        }
+        
+        .boardheader>div>span {
+            font-size: 15pt;
+        }
+        
+        .boardheader>div:first-child {
+            display: inline-block;
+            width: 49%;
+            text-align: left;
+        }
+        
+        .boardheader>div:last-child {
+            display: inline-block;
+            width: 49%;
+            text-align: right;
+        }
+        
+        .boardtbtn {
+            width: 50px;
+            height: 30px;
+            background-color: #090707;
+            border: none;
+            color: #ffffff;
+        }
+
+        .boardinfo span {
+            width: 200px;
+            font-size: 10pt;
+            margin-left: 10px;
+        }
+
+        .boardinfo>div:first-child {
+            display: inline-block;
+            box-sizing: padding-box;
+            width: 49%;
+            text-align: left;
+        }
+
+        .boardinfo>div:last-child {
+            padding-right: 10px;
+            display: inline-block;
+            box-sizing: padding-box;
+            width: 49%;
+            text-align: right;
+        }
+
+        .boardinfo>div>span:nth-of-type(2n) {
+            margin-right: 10px;
+        }
+
+        .boardcontent {
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .comments>ul {
+            padding: 0px;
+        }
+
+        .comments>ul>li {
+            list-style-type: none;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 10pt;
+        }
+
+        .comment>div>div:first-child {
+            display: inline-block;
+            width: 49%;
+            text-align: left;
+        }
+
+        .comment>div>div:last-child {
+            display: inline-block;
+            width: 49%;
+            text-align: right;
+        }
+
+        .comment>div:nth-of-type(2) {
+            text-align: left;
+            font-size: 12pt;
+        }
+
+        .comment>div:last-child {
+            text-align: left;
+        }
+
+        .layer2 a {
+            text-decoration: none;
+            color: #000000;
+            margin-right: 5px;
+        }
+
+        textarea {
+            width: 99%;
+            margin-top: 10px;
+            height: 50px;
+            resize: none;
+        }
+
+        form {
+            margin-bottom: 10px;
+        }
+
+        input[type=submit] {
+            width: 100px;
+            height: 30px;
+            background-color: #090707;
+            border: none;
+            color: #ffffff;
+        }
+
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="css/mainshape.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                <a href="./main.html">
+                    <div class="logoimg"></div>
+                </a>
+            </div>
+            <div class="headcenter">
+                <div class="title">
+                    <p>Welcome To Park's World</p>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li>
+                            <a href="#">프로그램 언어</a>
+                            <ul class="sub">
+                                <li><a href="#">JAVA</a></li>
+                                <li><a href="#">C</a></li>
+                                <li><a href="#">C++</a></li>
+                                <li><a href="#">Python</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">데이터베이스</a></li>
+                        <li>
+                            <a href="#">FrontEnd</a>
+                            <ul class="sub">
+                                <li><a href="#">HTML5</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">javascript</a></li>
+                                <li><a href="#">jQuery</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./notice.html">게시판</a>
+                            <ul class="sub">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자유게시판</a></li>
+                                <li><a href="#">사진게시판</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="etc">
+                <a href="./login.html"><input type="button" class="login" value="로그인"></a>
+                <a href="./signup.html"><input type="button" class="signup" value="회원가입"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="layer1">
+                <div>
+                    <ul class="board">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자유게시판</a></li>
+                        <li><a href="#">사진게시판</a></li>
+                    </ul>
+                </div>
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="advert">
+                        <img src="../imgs/a904839d73a39e93b56fd34c06fac0ff.gif">
+                        음오아예(Um Oh Ah Yeh)
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="advert">
+                        <img src="../likeNaverImgs/2204903D581890FD1C.gif">
+                        Décalcomanie
+                    </div>
+                </a>
+            </div>
+            <div class="layer2">
+                <div class="boardheader">
+                    <div>
+                        <span class="boardtitle">게시글 제목</span>
+                    </div>
+                    <div>
+                        <a href="#"><input type="button" value="삭제" class="boardtbtn"></a>
+                        <a href="#"><input type="button" value="수정" class="boardtbtn"></a>
+                        <a href="#"><input type="button" value="이전" class="boardtbtn"></a>
+                        <a href="#"><input type="button" value="다음" class="boardtbtn"></a>
+                    </div>
+                </div>
+                <div class="boardinfo">
+                    <div>
+                        <span>게시글 번호 : </span>
+                        <span>5</span>
+                        <span>작성자 : </span>
+                        <span>관리자</span>
+                    </div>
+                    <div>
+                        <span>작성일 : </span>
+                        <span>03-31</span>
+                        <span>조회수 : </span>
+                        <span>20</span>
+                    </div>
+                </div>
+                <span class="boardcontent">게시글 내용
+                    awfwa
+                    awf awfaw fawfazxf
+                    qawfawfawf
+                    safsf
+                </span>
+                <div style="text-align: left;">
+                    <span>첨부 파일 : </span>
+                    <a href="#">
+                        <span>파일명</span>
+                    </a>
+                </div>
+                <span>댓글 수 : 25</span>
+                <div class="comments">
+                    <ul>
+                        <li>
+                            <div class="comment">
+                                <div>
+                                    <div>
+                                        <span>유저1</span>
+                                    </div>
+                                    <div>
+                                        <span>댓글 작성일 : </span>
+                                        <span>2020-04-01 11:55</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>Hello</span>
+                                </div>
+                                <div>
+                                    <a href="#">답글</a>
+                                    <a href="#">삭제</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="comment">
+                                <div>
+                                    <div>
+                                        <span>유저2</span>
+                                    </div>
+                                    <div>
+                                        <span>댓글 작성일 : </span>
+                                        <span>2020-04-01 11:56</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>World</span>
+                                </div>
+                                <div>
+                                    <a href="#">답글</a>
+                                    <a href="#">삭제</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="comment">
+                                <div>
+                                    <div>
+                                        <span>유저3</span>
+                                    </div>
+                                    <div>
+                                        <span>댓글 작성일 : </span>
+                                        <span>2020-04-01 11:58</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>Hi</span>
+                                </div>
+                                <div>
+                                    <a href="#">답글</a>
+                                    <a href="#">삭제</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="comment">
+                                <div>
+                                    <div>
+                                        <span>유저4</span>
+                                    </div>
+                                    <div>
+                                        <span>댓글 작성일 : </span>
+                                        <span>2020-04-01 11:59</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>Look</span>
+                                </div>
+                                <div>
+                                    <a href="#">답글</a>
+                                    <a href="#">삭제</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="comment">
+                                <div>
+                                    <div>
+                                        <span>유저5</span>
+                                    </div>
+                                    <div>
+                                        <span>댓글 작성일 : </span>
+                                        <span>2020-04-01 11:55</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>Sign</span>
+                                </div>
+                                <div>
+                                    <a href="#">답글</a>
+                                    <a href="#">삭제</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="text-align: left;">
+                        <span>댓글 쓰기</span>
+                    </div>
+                    <form action="#" method="get">
+                        <textarea name="comment" placeholder="댓글을 입력해 주세요."></textarea>
+                        <div style="text-align: right;">
+                            <a href="#">
+                                <input type="submit" value="댓글 작성">
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>COPYRIGHT @ Park's Cooperation</p>
+        </div>
+    </div>
+</body>
+
+</html>
