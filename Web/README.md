@@ -112,3 +112,8 @@
   - signin.html : 회원가입 화면 실습 프로그램
   - notice.html : 게시판 화면 실습 프로그램
   - mainshape.css : 실습 프로그램 메인 틀 추출
+- 39일차(2020-04-01)
+  - writeboard.html : 게시글 쓰기 실습 프로그램
+  - readboard.html : 게시글 상세 보기 실습 프로그램
+  - color.css : 색상 CSS 테스트 프로그램
+  - test.html : 색상 CSS 테스트 HTML 
