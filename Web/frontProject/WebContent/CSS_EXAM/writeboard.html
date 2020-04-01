@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <style>
+
+        .layer1 {
+            width: 20%;
+            height: auto;
+            background-color: #ffffff;
+        }
+
+        .board {
+            padding: 0px;
+            margin: 0 auto;
+        }
+
+        .board>li {
+            width: 100%;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .board>li>a {
+            display: block;
+            text-decoration: none;
+            color: #566270;
+        }
+
+        .board>li:hover>a {
+            background-color: #566270;
+            color: #E0E3DA;
+        }
+
+        .layer1>a {
+            text-decoration: none;
+        }
+
+        .advert {
+            text-align: center;
+            color: #566270;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .advert>img {
+            width: 100%;
+        }
+        
+        .layer2 {
+            width: 80%;
+            background: linear-gradient(to top, #FFFFF3,  #566270 50%, #FFFFF3);
+        }
+        
+        .layer2>form>div {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0 auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 90%;
+            border-top: 1px solid #566270;
+        }
+        
+        .layer2>form>div>span {
+            display: inline-block;
+            width: 9%;
+            text-align: left;
+            margin-left: 5%;
+        }
+        
+        .layer2>form>div>input[type="text"] {
+            width: 75%;
+            margin-left: 1%;
+        }
+        
+        .layer2>form>div>input[type="file"] {
+            margin-left: 1%;
+        }
+        
+        .layer2>form>div>textarea {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 85%;
+            height: 500px;
+            margin-left: 5%;
+            resize: none;
+        }
+        
+        .layer2>form>div:first-child {
+            margin-top: 20px;
+        }
+        
+        .layer2>form>div:last-child {
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #566270;
+        }
+        
+        .boardbtn {
+            width: 100px;
+            height: 50px;
+            background-color: #090707;
+            border: none;
+            color: #ffffff;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="css/mainshape.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                <a href="./main.html">
+                    <div class="logoimg"></div>
+                </a>
+            </div>
+            <div class="headcenter">
+                <div class="title">
+                    <p>Welcome To Park's World</p>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li>
+                            <a href="#">프로그램 언어</a>
+                            <ul class="sub">
+                                <li><a href="#">JAVA</a></li>
+                                <li><a href="#">C</a></li>
+                                <li><a href="#">C++</a></li>
+                                <li><a href="#">Python</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">데이터베이스</a></li>
+                        <li>
+                            <a href="#">FrontEnd</a>
+                            <ul class="sub">
+                                <li><a href="#">HTML5</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">javascript</a></li>
+                                <li><a href="#">jQuery</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./notice.html">게시판</a>
+                            <ul class="sub">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자유게시판</a></li>
+                                <li><a href="#">사진게시판</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="etc">
+                <a href="./login.html"><input type="button" class="login" value="로그인"></a>
+                <a href="./signup.html"><input type="button" class="signup" value="회원가입"></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="layer1">
+                <div>
+                    <ul class="board">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자유게시판</a></li>
+                        <li><a href="#">사진게시판</a></li>
+                    </ul>
+                </div>
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="advert">
+                        <img src="../imgs/a904839d73a39e93b56fd34c06fac0ff.gif">
+                        음오아예(Um Oh Ah Yeh)
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="advert">
+                        <img src="../likeNaverImgs/2204903D581890FD1C.gif">
+                        Décalcomanie
+                    </div>
+                </a>
+            </div>
+            <div class="layer2">
+                <form action="#" method="get">
+                    <div>
+                        <span>제목 : </span>
+                        <input type="text" name="title" placeholder="제목을 입력하세요.">
+                    </div>
+                    <div>
+                        <span>내용 : </span>
+                        <textarea name="content" placeholder="내용을 입력하세요."></textarea>
+                    </div>
+                    <div>
+                        <span>작성자 : </span>
+                        <input type="text" name="writer" placeholder="작성자를 입력하세요.">
+                    </div>
+                    <div>
+                        <span>첨부파일 : </span>
+                        <input type="file" name="file">
+                    </div>
+                    <div>
+                        <input type="submit" class="boardbtn" value="확인">
+                        <a href="./notice.html"><input type="button" class="boardbtn" value="취소"></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <p>COPYRIGHT @ Park's Cooperation</p>
+        </div>
+    </div>
+</body>
+
+</html>
