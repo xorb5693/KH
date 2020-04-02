@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cooking World!: 양식 - 수제 햄버거</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content>div:first-of-type {
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .content>q {
+            white-space: pre-line;
+        }
+
+        .material {
+            width: 90%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .material>div {
+            float: left;
+            width: 49%;
+            padding-left: 10%;
+            text-align: left;
+            white-space: pre-line;
+            box-sizing: border-box;
+        }
+
+        .content>table {
+            width: 100%;
+        }
+
+        .content>table>tbody>tr {
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td:first-child {
+            width: 65%;
+            padding-left: 5%;
+            box-sizing: border-box;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .content>table>tbody>tr>td:last-child {
+            width: 40%;
+            padding-left: 5%;
+            padding-right: 5%;
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td>img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .content>table>tbody>tr:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.1);
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header tcol" id="header">
+            <div class="header1">
+                <div class="logo">
+                    <a href="./index.html">
+                        <div class="logoimg"></div>
+                    </a>
+                </div>
+
+                <div class="title tcol-g">
+                    <span>Cooking World!</span>
+                </div>
+
+                <div class="search">
+                    <form action="./search.html" method="get">
+                        <input type="text" name="search">
+                        <input type="submit" value="검색" class="hcol tcol-s">
+                    </form>
+                </div>
+
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./koreanfood.html" class="tcol-s hcol lcol">한식</a></li>
+                    <li><a href="./westornfood.html" class="tcol-s bcol lcol">양식</a></li>
+                    <li><a href="./chinafood.html" class="tcol-s hcol lcol">중식</a></li>
+                    <li><a href="./japanfood.html" class="tcol-s hcol lcol">일식</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
+                </a>
+            </div>
+            <div class="content">
+                <h1>수제 햄버거</h1>
+                <hr>
+                <div style="background-image: url(./imgs/yang2.jpg);">
+                </div>
+                <br>
+                <br>
+                <q class="tcol-bl">패티 두툼하게 만들어서 내가 좋아하는 재료만 쏙쏙 넣은 수제 햄버거 입니다.</q>
+                <br>
+                <br>
+                <hr>
+                <h3>조리시간 : 60분 이내</h3>
+                <hr>
+                <h2>재료</h2>
+                <div class="material">
+                    <div>
+                        <span>- 재료
+                            돼지고기 갈은 것
+                            소고기 갈은 것
+                            양파
+                            피클
+                            파프리카
+                            치즈
+                            햄버거빵
+                            양상추
+                            마요네즈
+                            토마토
+                            빵가루 </span>
+                    </div>
+                    <div>
+                        <span>- 양념
+                            설탕
+                            간장
+                            올리고당 </span>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <h2>조리 순서</h2>
+                <table class="lcol-b">
+                    <tr class="lcol-b">
+                        <td>1. 양상추와 토마토는 준비해서 물기를 안벽하게 빼 주세요.
+                            양파와 파프리카는 다져서 준비,
+                            양파, 파프리카, 당근, 등등등! 취향껏 맞는 재료를 사용!</td>
+                        <td>
+                            <img src="./imgs/yang2-1.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>2. 돼지고기와 소고기는 1:1 로 준비 해서 맛술, 매실, 소금, 후추를 약간씩 넣고 밑간 해 주기.</td>
+                        <td>
+                            <img src="./imgs/yang2-2.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>3. 야채 볶아 수분 날리기!
+                            양파와 파프리카는 쎈불에 휙~ 볶아 수분을 날려주기.</td>
+                        <td>
+                            <img src="./imgs/yang2-3.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>4. 밑간 된 고기에 볶음 야채, 빵가루 두세숟가락 (질기 정도에 맞춰) 넣어 반죽하기!</td>
+                        <td>
+                            <img src="./imgs/yang2-4.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>5. 볼에 재료를 모두 넣어서 고루고루 섞이도록 치대주기!
+                            이때 빵가루를 이용해서 질기를 맞춰주면 되요! </td>
+                        <td>
+                            <img src="./imgs/yang2-5.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>6. 다 섞여 잘 쳐진 패티는 동그랗게 모양 만들기</td>
+                        <td>
+                            <img src="./imgs/yang2-6.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>7. 하나씩 개별 포장 해서 놓으면 나중에도 또 쓸 수 있겠죠?</td>
+                        <td>
+                            <img src="./imgs/yang2-7.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>8. 패티는 기름 두른 팬에 앞뒤 골고루 구워주고,</td>
+                        <td>
+                            <img src="./imgs/yang2-8.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>9. 빵도 앞 뒤 구워주기.
+                            렌지에 살짝 돌리셔도 되요!</td>
+                        <td>
+                            <img src="./imgs/yang2-9.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>10. 다음은 소스 만들기!
+                            간장6, 설탕4, 올리고당2, 물3 밥 숟가락으로 넣고 달달달달~~~~~~ 졸여주세요.
+                            취향껏 짠맛, 단맛 가감 하기~~~ㅎㅎ 푹~~~ 졸이다 보면 걸죽하게 변해있을꺼예요.
+                            그럼 불을끄고, 잠시 식혀두면 올리고당이랑 설탕이 들어가서 묽었던 소스가 걸죽하게 변해요,</td>
+                        <td>
+                            <img src="./imgs/yang2-10.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>11. - 구운 빵에는 마요네즈를 발라주기.
+                            - 양상추도 올리고,
+                            - 토마토도 올리고,
+                            - 패티도 올리고 소스 발라주기.
+                            - 치즈 올리고,
+                            - 피클 올리고,
+                            - 소스 바른 빵을 위에 덥으면 끝!</td>
+                        <td>
+                            <img src="./imgs/yang2-11.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>12. 쨔잔! 수제 햄버거 완성!
+                            수제 햄버거의 매력은 역시 두둑한 패티죠?
+                            한입에 안들어 갈 듯한 그 패티 ㅋㅋㅋ</td>
+                        <td>
+                            <img src="./imgs/yang2-12.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer hcol" id="footer">
+            <span class="tcol-s">@Cooking Coperation</span>
+        </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
+    </div>
+</body>
+
+</html>

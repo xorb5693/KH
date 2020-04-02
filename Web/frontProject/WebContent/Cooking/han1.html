@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cooking World!: 한식 - 차돌박이 된장찌개</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content>div:first-of-type {
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .content>q {
+            white-space: pre-line;
+        }
+
+        .material {
+            width: 90%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .material>div {
+            float: left;
+            width: 49%;
+            padding-left: 10%;
+            text-align: left;
+            white-space: pre-line;
+            box-sizing: border-box;
+        }
+
+        .content>table {
+            width: 100%;
+        }
+
+        .content>table>tbody>tr {
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td:first-child {
+            width: 65%;
+            padding-left: 5%;
+            box-sizing: border-box;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .content>table>tbody>tr>td:last-child {
+            width: 40%;
+            padding-left: 5%;
+            padding-right: 5%;
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td>img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .content>table>tbody>tr:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.1);
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header tcol" id="header">
+            <div class="header1">
+                <div class="logo">
+                    <a href="./index.html">
+                        <div class="logoimg"></div>
+                    </a>
+                </div>
+
+                <div class="title tcol-g">
+                    <span>Cooking World!</span>
+                </div>
+
+                <div class="search">
+                    <form action="./search.html" method="get">
+                        <input type="text" name="search">
+                        <input type="submit" value="검색" class="hcol tcol-s">
+                    </form>
+                </div>
+
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./koreanfood.html" class="tcol-s bcol lcol">한식</a></li>
+                    <li><a href="./westornfood.html" class="tcol-s hcol lcol">양식</a></li>
+                    <li><a href="./chinafood.html" class="tcol-s hcol lcol">중식</a></li>
+                    <li><a href="./japanfood.html" class="tcol-s hcol lcol">일식</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
+                </a>
+            </div>
+            <div class="content">
+                <h1>차돌박이 된장찌개</h1>
+                <hr>
+                <div style="background-image: url(./imgs/han1.jpg);">
+                </div>
+                <br>
+                <br>
+                <q class="tcol-bl">이번엔 좀 색다른 된장찌개를 끓여봤어요.
+
+                    얼마전 해먹었던 차돌박이가 조금 남아있길래 차돌박이로 된장찌개를 끓였어요.
+
+                    식당에서 나오는 느낌의 차돌박이된장찌개 한번 드셔보실래요?</q>
+                <br>
+                <br>
+                <hr>
+                <h3>조리시간 : 30분 이내</h3>
+                <hr>
+                <h2>재료</h2>
+                <div class="material">
+                    <div>
+                        <span>차돌박이(약한줌) 150g
+                            양파 1/8개
+                            호박 1/4개
+                            두부 1/4모
+                            청양고추 2개</span>
+                    </div>
+                    <div>
+                        <span>버섯 약간
+                            대파 1/2뿌리
+                            소금 약간
+                            후추 약간
+                            다시육수 적당량</span>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <h2>조리 순서</h2>
+                <table class="lcol-b">
+                    <tr class="lcol-b">
+                        <td>1. 차돌박이를 먹기좋은 크기로 썰어서 후라이팬이 달궈지면 구워요.
+                            이때 소금후추로 살짝 간을 해주세요.(된장맛이 더 잘 스며들고 좋아요.)</td>
+                        <td>
+                            <img src="./imgs/han1-1.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>2. 대파는 큼직하게 송송 썰으세요. </td>
+                        <td>
+                            <img src="./imgs/han1-2.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>3. 너무 센불에서 굽지마시고 중불로 굽다가 기름이 나오면 한군데로 모아서 기름을 모아서 그 기름으로 대파를 볶아요.(파기름내는거에요.) </td>
+                        <td>
+                            <img src="./imgs/han1-3.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>4. 양파는 큼직하게 썰어서 파향이 나면 같이 볶아줘요.</td>
+                        <td>
+                            <img src="./imgs/han1-4.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>5. 호박은 한입크기로 썰어서 같이 볶아주세요. </td>
+                        <td>
+                            <img src="./imgs/han1-5.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>6. 이래야 간이 잘 스며들어요~
+                            이제 다시육수(멸치는 빼고 다시마로만 육수를 내주세요-그래야 차돌향이 더 강하게나와요.)
+                            육수조금과 된장3숟가락과 고춧가루를 넣고 잘 개서 된장을 후라이팬에 적당량 덜어서 같이 볶아주세요.</td>
+                        <td>
+                            <img src="./imgs/han1-6.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>7. 얼추 볶아지면 냄비에 옮겨담고 육수를 자박하게 넣고 나머지 된장을 넣으세요.</td>
+                        <td>
+                            <img src="./imgs/han1-7.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>8. 한소큼 끓이다가 두부와 청양고추를 넣고 3분간 더 끓이면 완성이에요.</td>
+                        <td>
+                            <img src="./imgs/han1-8.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>9. 고소한 차돌과 된장이 잘 어우러진답니다.</td>
+                        <td>
+                            <img src="./imgs/han1-9.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer hcol" id="footer">
+            <span class="tcol-s">@Cooking Coperation</span>
+        </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
+    </div>
+</body></html>

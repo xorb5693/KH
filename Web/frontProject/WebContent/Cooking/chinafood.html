@@ -4,212 +4,257 @@
 <head>
     <meta charset="UTF-8">
     <title>Cooking World!: 중식</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .content>div {
+            margin-top: 10px;
+        }
+
+        .content>div:first-child {
+            text-align: right;
+            margin-top: 10px;
+            margin-right: 1px;
+        }
+
+        .content>div:last-child {
+            margin-bottom: 10px;
+        }
+
+        .content>div>a>input {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            border: none;
+            font-size: 14pt;
+        }
+
+        .content>div>ul {
+            padding: 0;
+        }
+
+        .content>div>ul>li {
+            list-style-type: none;
+        }
+
+        .content>div>ul>li>a {
+            text-decoration: none;
+            margin: 10px;
+            margin-left: 50px;
+            margin-right: 50px;
+            display: block;
+        }
+
+        .content>div>ul>li>a>div {
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .content>div>ul>li>a>div>div:first-child {
+            float: left;
+            width: 79%;
+            height: 200px;
+        }
+
+        .content>div>ul>li>a>div>div:last-child {
+            float: left;
+            width: 19%;
+            height: 200px;
+            text-align: center;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .content>div>ul>li>a>div>div>span:first-child {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 25px;
+        }
+
+        .content>div>ul>li>a>div>div>span {
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            width: 90%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .content>div>ul>li:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.2);
+        }
+
+        .noticepage {
+            width: 100%;
+            text-align: center;
+        }
+
+        .noticepage>a,
+        .noticepage>span {
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 5px;
+            margin-left: 1px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #333030;
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
 </head>
-<style>
-    .wrapper,
-    .wrapper>div {
-        width: 1280px;
-        margin: 0 auto;
-        font-family: 'Nanum Myeongjo', serif;
-    }
-
-    .header1 {
-        overflow: hidden;
-    }
-
-    .header1>div {
-        float: left;
-    }
-
-    .logo {
-        width: 20%;
-    }
-
-    .logoimg {
-        width: 100%;
-        height: 200px;
-        background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .title {
-        width: 60%;
-        height: 200px;
-        font-size: 50pt;
-        line-height: 200px;
-        text-align: center;
-        text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
-        font-family: 'Nanum Pen Script', cursive;
-    }
-
-    .search {
-        width: 20%;
-        height: 200px;
-        line-height: 200px;
-        text-align: center;
-    }
-
-    .search>form>input {
-        height: 30px;
-        font-size: 12pt;
-    }
-
-    .search>form>input[type="submit"] {
-        border: none;
-        width: 50px;
-        font-weight: bold;
-    }
-
-    .menu>ul {
-        padding: 0;
-    }
-
-    .menu>ul>li {
-        float: left;
-        box-sizing: border-box;
-        width: 25%;
-        list-style-type: none;
-    }
-
-    .menu>ul>li>a {
-        width: 100%;
-        height: 50px;
-        line-height: 50px;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        box-sizing: border-box;
-    }
-
-    .menu>ul>li:first-child>a {
-        border-top-left-radius: 10px;
-    }
-
-    .menu>ul>li:last-child>a {
-        border-top-right-radius: 10px;
-    }
-
-    .menu>ul>li:hover>a {
-        background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
-    }
-
-    .content {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    .content>div {
-        margin-top: 10px;
-    }
-
-    .content>div:first-child {
-        text-align: right;
-        margin-top: 10px;
-        margin-right: 1px;
-    }
-
-    .content>div:last-child {
-        margin-bottom: 10px;
-    }
-
-    .content>div>a>input {
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        border: none;
-        font-size: 14pt;
-    }
-
-    .content>div>ul {
-        padding: 0;
-    }
-
-    .content>div>ul>li {
-        list-style-type: none;
-    }
-
-    .content>div>ul>li>a {
-        text-decoration: none;
-        margin: 10px;
-        margin-left: 50px;
-        margin-right: 50px;
-        display: block;
-    }
-
-    .content>div>ul>li>a>div {
-        overflow: hidden;
-        font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .content>div>ul>li>a>div>div:first-child {
-        float: left;
-        width: 79%;
-        height: 200px;
-    }
-
-    .content>div>ul>li>a>div>div:last-child {
-        float: left;
-        width: 19%;
-        height: 200px;
-        text-align: center;
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-
-    .content>div>ul>li>a>div>div>span:first-child {
-        display: block;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-
-    .content>div>ul>li>a>div>div>span {
-        display: block;
-        height: 50px;
-        line-height: 50px;
-        width: 90%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .noticepage {
-        width: 100%;
-        text-align: center;
-    }
-
-    .noticepage>a,
-    .noticepage>span {
-        display: inline-block;
-        text-decoration: none;
-        margin-top: 5px;
-        margin-left: 1px;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #333030;
-    }
-
-    .footer {
-        width: 100%;
-        height: 90px;
-        line-height: 90px;
-        text-align: center;
-        font-weight: bold;
-    }
-</style>
-<link href="css/color.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 
 <body>
     <div class="wrapper">
-        <div class="header tcol">
+        <div class="header tcol" id="header">
             <div class="header1">
                 <div class="logo">
                     <a href="./index.html">
@@ -222,7 +267,7 @@
                 </div>
 
                 <div class="search">
-                    <form>
+                    <form action="./search.html" method="get">
                         <input type="text" name="search">
                         <input type="submit" value="검색" class="hcol tcol-s">
                     </form>
@@ -239,120 +284,143 @@
             </div>
         </div>
 
-        <div class="content">
-            <div>
-                <a href="./write.html">
-                    <input type="button" value="글쓰기" class="hcol tcol-s">
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
                 </a>
             </div>
-            <div>
-                <ul>
-                    <li class="lcol-b">
-                        <a href="#" class="tcol-b">
-                            <div>
+            <div class="content">
+                <div>
+                    <a href="./write.html">
+                        <input type="button" value="글쓰기" class="hcol tcol-s">
+                    </a>
+                </div>
+                <div>
+                    <ul>
+                        <li class="lcol-b">
+                            <a href="./chaina1.html" class="tcol-b">
                                 <div>
-                                    <span>짜장면</span>
-                                    <span>집밥백선생의 짜장면 레시피를 보고 만들었습니다.</span>
-                                    <span class="tcol-r">조리시간 : 30분 이내</span>
+                                    <div>
+                                        <span>짜장면</span>
+                                        <span>집밥백선생의 짜장면 레시피를 보고 만들었습니다.</span>
+                                        <span class="tcol-r">조리시간 : 30분 이내</span>
+                                    </div>
+                                    <div style="background-image: url(imgs/cha1.jpg)">
+                                    </div>
                                 </div>
-                                <div style="background-image: url(imgs/cha1.jpg)">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="lcol-b">
-                        <a href="#" class="tcol-b">
-                            <div>
+                            </a>
+                        </li>
+                        <li class="lcol-b">
+                            <a href="./chaina2.html" class="tcol-b">
                                 <div>
-                                    <span>꿔바로우탕수육</span>
-                                    <span>한번 튀김을 시작하게 되면 계속해서 튀김을 하게 된다. 기름이 아까우니까.
+                                    <div>
+                                        <span>꿔바로우탕수육</span>
+                                        <span>한번 튀김을 시작하게 되면 계속해서 튀김을 하게 된다. 기름이 아까우니까.
 
-                                        실컷 튀김을 한 다음엔 폐유로 버려야하기 때문이지요.
+                                            실컷 튀김을 한 다음엔 폐유로 버려야하기 때문이지요.
 
-                                        계속해서 그냥 두면 산화가 되어서 건강에도 좋지 않아지고요.
+                                            계속해서 그냥 두면 산화가 되어서 건강에도 좋지 않아지고요.
 
-                                        그래서 손쉽게 간단하게 그냥 바로바로 튀길 수 있는
+                                            그래서 손쉽게 간단하게 그냥 바로바로 튀길 수 있는
 
-                                        팔선생인가...암튼 꿔바로우탕수육을 구입해서는 튀김기에 튀겨서
+                                            팔선생인가...암튼 꿔바로우탕수육을 구입해서는 튀김기에 튀겨서
 
-                                        함께 동봉되어져 있었던 오리엔탈 소스를 뿌려서 먹었는데
+                                            함께 동봉되어져 있었던 오리엔탈 소스를 뿌려서 먹었는데
 
-                                        ㅎㅎㅎㅎ 이건 꿔바로우 소스가 아닌디요.
+                                            ㅎㅎㅎㅎ 이건 꿔바로우 소스가 아닌디요.
 
-                                        이 소스는 유린기 소스이다!!! ㅋㅋㅋㅋ 소스는 잘돗 되어진 듯 하다.
+                                            이 소스는 유린기 소스이다!!! ㅋㅋㅋㅋ 소스는 잘돗 되어진 듯 하다.
 
-                                        소스가 맛이 없다라는 의미가 아니고 꿔바로우의 소스가 아니라는 뜻이지요.
+                                            소스가 맛이 없다라는 의미가 아니고 꿔바로우의 소스가 아니라는 뜻이지요.
 
-                                        꿔바로우소스는 완전 찐득찐득하면서 눈이 튀어나올 정도의 산미가 느껴져야 제대로된 꿔바로우 소스이지요.
+                                            꿔바로우소스는 완전 찐득찐득하면서 눈이 튀어나올 정도의 산미가 느껴져야 제대로된 꿔바로우 소스이지요.
 
-                                        그리고 튀김은 하얀색으로 쫀득쫀득한 느낌의 전분가루를 이용해서 튀겨낸 것이죠.
+                                            그리고 튀김은 하얀색으로 쫀득쫀득한 느낌의 전분가루를 이용해서 튀겨낸 것이죠.
 
-                                        뭐 그냥 편하게 튀기기만 하면 되는 것이니 이것으로라도 만족해야겠죠 ㅎㅎ
+                                            뭐 그냥 편하게 튀기기만 하면 되는 것이니 이것으로라도 만족해야겠죠 ㅎㅎ
 
-                                        담부터는 유린기라고 불러 주시는 것이 좋을 듯 싶은디요 ㅋㅋ</span>
-                                    <span class="tcol-r">조리시간 : 15분 이내</span>
+                                            담부터는 유린기라고 불러 주시는 것이 좋을 듯 싶은디요 ㅋㅋ</span>
+                                        <span class="tcol-r">조리시간 : 15분 이내</span>
+                                    </div>
+                                    <div style="background-image: url(imgs/cha2.jpg)">
+                                    </div>
                                 </div>
-                                <div style="background-image: url(imgs/cha2.jpg)">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="lcol-b">
-                        <a href="#" class="tcol-b">
-                            <div>
+                            </a>
+                        </li>
+                        <li class="lcol-b">
+                            <a href="./chaina3.html" class="tcol-b">
                                 <div>
-                                    <span>해물짬뽕탕</span>
-                                    <span>비가내리거나 눈이오는 날은
+                                    <div>
+                                        <span>해물짬뽕탕</span>
+                                        <span>비가내리거나 눈이오는 날은
 
-                                        특별히 더욱 생각나는
+                                            특별히 더욱 생각나는
 
-                                        몇 가지 음식이 있는 것 같아요.
+                                            몇 가지 음식이 있는 것 같아요.
 
-                                        비가내릴 때는 부침개 생각이,
+                                            비가내릴 때는 부침개 생각이,
 
-                                        또 눈이 새하얗게 쌓여가는 날에는
+                                            또 눈이 새하얗게 쌓여가는 날에는
 
-                                        따뜻한 국물요리가 생각나더라구요.
+                                            따뜻한 국물요리가 생각나더라구요.
 
-                                        오늘은 국물요리 하면
+                                            오늘은 국물요리 하면
 
-                                        많이들 생각하고 떠올리시는
+                                            많이들 생각하고 떠올리시는
 
-                                        얼큰한 해물짬뽕탕을 만들어볼게요.
+                                            얼큰한 해물짬뽕탕을 만들어볼게요.
 
-                                        전문점 맛에 견주어도 손색없는
+                                            전문점 맛에 견주어도 손색없는
 
-                                        깊은맛을 살려 완성 해 보겠습니다.
+                                            깊은맛을 살려 완성 해 보겠습니다.
 
-                                        여기에 취향에 따라 면을 추가하시면
+                                            여기에 취향에 따라 면을 추가하시면
 
-                                        더욱 든든하게 즐기실 수 있겠죠?</span>
-                                    <span class="tcol-r">조리시간 : 30분 이내</span>
+                                            더욱 든든하게 즐기실 수 있겠죠?</span>
+                                        <span class="tcol-r">조리시간 : 30분 이내</span>
+                                    </div>
+                                    <div style="background-image: url(imgs/cha3.jpg)">
+                                    </div>
                                 </div>
-                                <div style="background-image: url(imgs/cha3.jpg)">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="noticepage">
-                <span class="hcol tcol-s">1</span>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">></a>
-                <a href="#" class="tcol-b">>></a>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="noticepage">
+                    <span class="hcol tcol-s">1</span>
+                    <a href="#" class="tcol-b">2</a>
+                    <a href="#" class="tcol-b">3</a>
+                    <a href="#" class="tcol-b">4</a>
+                    <a href="#" class="tcol-b">5</a>
+                    <a href="#" class="tcol-b">6</a>
+                    <a href="#" class="tcol-b">7</a>
+                    <a href="#" class="tcol-b">8</a>
+                    <a href="#" class="tcol-b">9</a>
+                    <a href="#" class="tcol-b">10</a>
+                    <a href="#" class="tcol-b">></a>
+                    <a href="#" class="tcol-b">>></a>
+                </div>
             </div>
         </div>
-        <div class="footer hcol">
+        <div class="footer hcol" id="footer">
             <span class="tcol-s">@Cooking Coperation</span>
         </div>
     </div>
-</body></html>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
+    </div>
+</body>
+
+</html>

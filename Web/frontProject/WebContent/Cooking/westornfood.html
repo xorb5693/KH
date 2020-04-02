@@ -4,215 +4,259 @@
 <head>
     <meta charset="UTF-8">
     <title>Cooking World!: 양식</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .content>div {
+            margin-top: 10px;
+        }
+
+        .content>div:first-child {
+            text-align: right;
+            margin-top: 10px;
+            margin-right: 1px;
+        }
+
+        .content>div:last-child {
+            margin-bottom: 10px;
+        }
+
+        .content>div>a>input {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            border: none;
+            font-size: 14pt;
+        }
+
+        .content>div>ul {
+            padding: 0;
+        }
+
+        .content>div>ul>li {
+            list-style-type: none;
+        }
+
+        .content>div>ul>li>a {
+            text-decoration: none;
+            margin: 10px;
+            margin-left: 50px;
+            margin-right: 50px;
+            display: block;
+        }
+
+        .content>div>ul>li>a>div {
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .content>div>ul>li>a>div>div:first-child {
+            float: left;
+            width: 79%;
+            height: 200px;
+        }
+
+        .content>div>ul>li>a>div>div:last-child {
+            float: left;
+            width: 19%;
+            height: 200px;
+            text-align: center;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .content>div>ul>li>a>div>div>span:first-child {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 25px;
+        }
+
+        .content>div>ul>li>a>div>div>span {
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            width: 90%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .content>div>ul>li:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.2);
+        }
+
+        .noticepage {
+            width: 100%;
+            text-align: center;
+        }
+
+        .noticepage>a,
+        .noticepage>span {
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 5px;
+            margin-left: 1px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #333030;
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
 </head>
-<style>
-    .wrapper,
-    .wrapper>div {
-        width: 1280px;
-        margin: 0 auto;
-        font-family: 'Nanum Myeongjo', serif;
-    }
-
-    .header {}
-
-    .header1 {
-        overflow: hidden;
-    }
-
-    .header1>div {
-        float: left;
-    }
-
-    .logo {
-        width: 20%;
-    }
-
-    .logoimg {
-        width: 100%;
-        height: 200px;
-        background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .title {
-        width: 60%;
-        height: 200px;
-        font-size: 50pt;
-        line-height: 200px;
-        text-align: center;
-        text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
-        font-family: 'Nanum Pen Script', cursive;
-    }
-
-    .search {
-        width: 20%;
-        height: 200px;
-        line-height: 200px;
-        text-align: center;
-    }
-
-    .search>form>input {
-        height: 30px;
-        font-size: 12pt;
-    }
-
-    .search>form>input[type="submit"] {
-        border: none;
-        width: 50px;
-        font-weight: bold;
-    }
-
-    .menu>ul {
-        padding: 0;
-    }
-
-    .menu>ul>li {
-        float: left;
-        box-sizing: border-box;
-        width: 25%;
-        list-style-type: none;
-    }
-
-    .menu>ul>li>a {
-        width: 100%;
-        height: 50px;
-        line-height: 50px;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        box-sizing: border-box;
-    }
-
-    .menu>ul>li:first-child>a {
-        border-top-left-radius: 10px;
-    }
-
-    .menu>ul>li:last-child>a {
-        border-top-right-radius: 10px;
-    }
-
-    .menu>ul>li:hover>a {
-        background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
-    }
-
-    .content {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    .content>div {
-        margin-top: 10px;
-    }
-
-    .content>div:first-child {
-        text-align: right;
-        margin-top: 10px;
-        margin-right: 1px;
-    }
-
-    .content>div:last-child {
-        margin-bottom: 10px;
-    }
-
-    .content>div>a>input {
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        border: none;
-        font-size: 14pt;
-    }
-
-    .content>div>ul {
-        padding: 0;
-    }
-
-    .content>div>ul>li {
-        list-style-type: none;
-    }
-
-    .content>div>ul>li>a {
-        text-decoration: none;
-        margin: 10px;
-        margin-left: 50px;
-        margin-right: 50px;
-        display: block;
-    }
-
-    .content>div>ul>li>a>div {
-        overflow: hidden;
-        font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .content>div>ul>li>a>div>div:first-child {
-        float: left;
-        width: 79%;
-        height: 200px;
-    }
-
-    .content>div>ul>li>a>div>div:last-child {
-        float: left;
-        width: 19%;
-        height: 200px;
-        text-align: center;
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-
-    .content>div>ul>li>a>div>div>span:first-child {
-        display: block;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-
-    .content>div>ul>li>a>div>div>span {
-        display: block;
-        height: 50px;
-        line-height: 50px;
-        width: 90%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .noticepage {
-        width: 100%;
-        text-align: center;
-    }
-
-    .noticepage>a,
-    .noticepage>span {
-        display: inline-block;
-        text-decoration: none;
-        margin-top: 5px;
-        margin-left: 1px;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #333030;
-    }
-
-    .footer {
-        width: 100%;
-        height: 90px;
-        line-height: 90px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-</style>
-<link href="css/color.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 
 <body>
     <div class="wrapper">
-        <div class="header tcol">
+        <div class="header tcol" id="header">
             <div class="header1">
                 <div class="logo">
                     <a href="./index.html">
@@ -225,7 +269,7 @@
                 </div>
 
                 <div class="search">
-                    <form>
+                    <form action="./search.html" method="get">
                         <input type="text" name="search">
                         <input type="submit" value="검색" class="hcol tcol-s">
                     </form>
@@ -242,76 +286,97 @@
             </div>
         </div>
 
-        <div class="content">
-            <div>
-                <a href="./write.html">
-                    <input type="button" value="글쓰기" class="hcol tcol-s">
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
                 </a>
             </div>
-            <div>
-                <ul>
-                    <li class="lcol-b">
-                        <a href="#" class="tcol-b">
-                            <div>
+            <div class="content">
+                <div>
+                    <a href="./write.html">
+                        <input type="button" value="글쓰기" class="hcol tcol-s">
+                    </a>
+                </div>
+                <div>
+                    <ul>
+                        <li class="lcol-b">
+                            <a href="./wstorn1.html" class="tcol-b">
                                 <div>
-                                    <span>알리오올리오 베이컨 파스타</span>
-                                    <span>알리오올리오는 이태리 파스타중 제일 간단한 재료로 쉽게 만들고
-                                    담백하게 먹을 수 있는 파스타인데요.
-                                    마늘과 올리브오일로 맛을낸 담백한 맛의 알리오올리오에 고소하게 베이컨을 넣어
-                                    알리오올리오 베이컨 파스타를 만들어보세요.</span>
-                                    <span class="tcol-r">조리시간 : 15분 이내</span>
+                                    <div>
+                                        <span>알리오올리오 베이컨 파스타</span>
+                                        <span>알리오올리오는 이태리 파스타중 제일 간단한 재료로 쉽게 만들고
+                                            담백하게 먹을 수 있는 파스타인데요.
+                                            마늘과 올리브오일로 맛을낸 담백한 맛의 알리오올리오에 고소하게 베이컨을 넣어
+                                            알리오올리오 베이컨 파스타를 만들어보세요.</span>
+                                        <span class="tcol-r">조리시간 : 15분 이내</span>
+                                    </div>
+                                    <div style="background-image: url(imgs/yang1.jpg)">
+                                    </div>
                                 </div>
-                                <div style="background-image: url(imgs/yang1.jpg)">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="lcol-b">
-                        <a href="#" class="tcol-b">
-                            <div>
+                            </a>
+                        </li>
+                        <li class="lcol-b">
+                            <a href="./wstorn2.html" class="tcol-b">
                                 <div>
-                                    <span>수제 햄버거</span>
-                                    <span>패티 두툼하게 만들어서 내가 좋아하는 재료만 쏙쏙 넣은 수제 햄버거 입니다.</span>
-                                    <span class="tcol-r">조리시간 : 60분 이내</span>
+                                    <div>
+                                        <span>수제 햄버거</span>
+                                        <span>패티 두툼하게 만들어서 내가 좋아하는 재료만 쏙쏙 넣은 수제 햄버거 입니다.</span>
+                                        <span class="tcol-r">조리시간 : 60분 이내</span>
+                                    </div>
+                                    <div style="background-image: url(imgs/yang2.jpg)">
+                                    </div>
                                 </div>
-                                <div style="background-image: url(imgs/yang2.jpg)">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="lcol-b">
-                        <a href="#" class="tcol-b">
-                            <div>
+                            </a>
+                        </li>
+                        <li class="lcol-b">
+                            <a href="./wstorn3.html" class="tcol-b">
                                 <div>
-                                    <span>가지 라자냐</span>
-                                    <span>가지를 싫어하는 사람도 반할만한 전자렌지 가지 라자냐 초간단 레시피를 소개하겠습니다^^</span>
-                                    <span class="tcol-r">조리시간 : 10분 이내</span>
+                                    <div>
+                                        <span>가지 라자냐</span>
+                                        <span>가지를 싫어하는 사람도 반할만한 전자렌지 가지 라자냐 초간단 레시피를 소개하겠습니다^^</span>
+                                        <span class="tcol-r">조리시간 : 10분 이내</span>
+                                    </div>
+                                    <div style="background-image: url(imgs/yang3.jpg)">
+                                    </div>
                                 </div>
-                                <div style="background-image: url(imgs/yang3.jpg)">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="noticepage">
-                <span class="hcol tcol-s">1</span>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">1</a>
-                <a href="#" class="tcol-b">></a>
-                <a href="#" class="tcol-b">>></a>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="noticepage">
+                    <span class="hcol tcol-s">1</span>
+                    <a href="#" class="tcol-b">2</a>
+                    <a href="#" class="tcol-b">3</a>
+                    <a href="#" class="tcol-b">4</a>
+                    <a href="#" class="tcol-b">5</a>
+                    <a href="#" class="tcol-b">6</a>
+                    <a href="#" class="tcol-b">7</a>
+                    <a href="#" class="tcol-b">8</a>
+                    <a href="#" class="tcol-b">9</a>
+                    <a href="#" class="tcol-b">10</a>
+                    <a href="#" class="tcol-b">></a>
+                    <a href="#" class="tcol-b">>></a>
+                </div>
             </div>
         </div>
-        <div class="footer hcol">
+        <div class="footer hcol" id="footer">
             <span class="tcol-s">@Cooking Coperation</span>
         </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
     </div>
 </body>
 

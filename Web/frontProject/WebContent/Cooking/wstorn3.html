@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cooking World!: 양식 - 가지 라자냐</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content>div:first-of-type {
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .content>q {
+            white-space: pre-line;
+        }
+
+        .material {
+            width: 90%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .material>div {
+            float: left;
+            width: 49%;
+            padding-left: 10%;
+            text-align: left;
+            white-space: pre-line;
+            box-sizing: border-box;
+        }
+
+        .content>table {
+            width: 100%;
+        }
+
+        .content>table>tbody>tr {
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td:first-child {
+            width: 65%;
+            padding-left: 5%;
+            box-sizing: border-box;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .content>table>tbody>tr>td:last-child {
+            width: 40%;
+            padding-left: 5%;
+            padding-right: 5%;
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td>img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .content>table>tbody>tr:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.1);
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header tcol" id="header">
+            <div class="header1">
+                <div class="logo">
+                    <a href="./index.html">
+                        <div class="logoimg"></div>
+                    </a>
+                </div>
+
+                <div class="title tcol-g">
+                    <span>Cooking World!</span>
+                </div>
+
+                <div class="search">
+                    <form action="./search.html" method="get">
+                        <input type="text" name="search">
+                        <input type="submit" value="검색" class="hcol tcol-s">
+                    </form>
+                </div>
+
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./koreanfood.html" class="tcol-s hcol lcol">한식</a></li>
+                    <li><a href="./westornfood.html" class="tcol-s bcol lcol">양식</a></li>
+                    <li><a href="./chinafood.html" class="tcol-s hcol lcol">중식</a></li>
+                    <li><a href="./japanfood.html" class="tcol-s hcol lcol">일식</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
+                </a>
+            </div>
+            <div class="content">
+                <h1>가지 라자냐</h1>
+                <hr>
+                <div style="background-image: url(./imgs/yang3.jpg);">
+                </div>
+                <br>
+                <br>
+                <q class="tcol-bl">가지를 싫어하는 사람도 반할만한 전자렌지 가지 라자냐 초간단 레시피를 소개하겠습니다^^</q>
+                <br>
+                <br>
+                <hr>
+                <h3>조리시간 : 10분 이내</h3>
+                <hr>
+                <h2>재료</h2>
+                <div class="material">
+                    <div>
+                        <span>가지 1개
+                            토마토 스파게티소스</span>
+                    </div>
+                    <div>
+                        <span>모짜렐라 치즈
+                            적당량 파슬리가루</span>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <h2>조리 순서</h2>
+                <table class="lcol-b">
+                    <tr class="lcol-b">
+                        <td>1. 먼저 깨끗이 씻은 가지는 감자칼로 얇게 슬라이스 해줍니다.두께가 얇아야 빨리 익을 뿐 더러 소스 간이 잘 베이더라구요. 얇게 슬라이스 한 가지는 먹기좋게 한입 크기로 잘라 줍니다.</td>
+                        <td>
+                            <img src="./imgs/yang3-1.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>2. 전자렌지 가능한 용기에 가지를 얇게 깔아 줍니다. 가지를 구워서 사용하기도 하지만 가지 두께가 얇게 때문에 굽지 않아도 괜찮더라구요</td>
+                        <td>
+                            <img src="./imgs/yang3-2.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>3. 가지위에 토마토 스파게티 소스를 발라주시고 그위에 모짜렐라 치즈를 골고루 뿌려줍니다. 이 과정을 2-3번 똑같이 반복하면서 쌓아줍니다.</td>
+                        <td>
+                            <img src="./imgs/yang3-3.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>4. 마지막 윗면 피자치즈는 본인 기호대로 풍성하게 뿌려주세요. 이 상태로 랩을 씌워 5-6분 돌려주시되 한번에 다 돌리지 마시고 2분씩 끊어 돌려주시면 됩니다.</td>
+                        <td>
+                            <img src="./imgs/yang3-4.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>5. 전자렌지 가지 라자냐가 완성되었어요. 냄새가 너무 맛있게 나는데요.</td>
+                        <td>
+                            <img src="./imgs/yang3-5.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>6. 한입 먹어보니 어머낫! 쫄깃쫄깃한 가지에 고소한 치즈가 만나 넘 맛있네요!진짜 평소에 가지를 싫어하셨더라도 이건 반할각이랍니다ㅎ무엇보다 전자렌지로 간단하게 만들수 있어 좋아요</td>
+                        <td>
+                            <img src="./imgs/yang3-6.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer hcol" id="footer">
+            <span class="tcol-s">@Cooking Coperation</span>
+        </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
+    </div>
+</body>
+
+</html>

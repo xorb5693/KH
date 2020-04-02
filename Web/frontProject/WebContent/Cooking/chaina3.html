@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cooking World!: 중식 - 해물짬뽕탕</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content>div:first-of-type {
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .content>q {
+            white-space: pre-line;
+        }
+
+        .material {
+            width: 90%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .material>div {
+            float: left;
+            width: 49%;
+            padding-left: 10%;
+            text-align: left;
+            white-space: pre-line;
+            box-sizing: border-box;
+        }
+
+        .content>table {
+            width: 100%;
+        }
+
+        .content>table>tbody>tr {
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td:first-child {
+            width: 65%;
+            padding-left: 5%;
+            box-sizing: border-box;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .content>table>tbody>tr>td:last-child {
+            width: 40%;
+            padding-left: 5%;
+            padding-right: 5%;
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td>img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .content>table>tbody>tr:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.1);
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header tcol" id="header">
+            <div class="header1">
+                <div class="logo">
+                    <a href="./index.html">
+                        <div class="logoimg"></div>
+                    </a>
+                </div>
+
+                <div class="title tcol-g">
+                    <span>Cooking World!</span>
+                </div>
+
+                <div class="search">
+                    <form action="./search.html" method="get">
+                        <input type="text" name="search">
+                        <input type="submit" value="검색" class="hcol tcol-s">
+                    </form>
+                </div>
+
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./koreanfood.html" class="tcol-s hcol lcol">한식</a></li>
+                    <li><a href="./westornfood.html" class="tcol-s hcol lcol">양식</a></li>
+                    <li><a href="./chinafood.html" class="tcol-s bcol lcol">중식</a></li>
+                    <li><a href="./japanfood.html" class="tcol-s hcol lcol">일식</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
+                </a>
+            </div>
+            <div class="content">
+                <h1>해물짬뽕탕</h1>
+                <hr>
+                <div style="background-image: url(./imgs/cha3.jpg);">
+                </div>
+                <br>
+                <br>
+                <q class="tcol-bl">비가내리거나 눈이오는 날은
+
+                    특별히 더욱 생각나는
+
+                    몇 가지 음식이 있는 것 같아요.
+
+                    비가내릴 때는 부침개 생각이,
+
+                    또 눈이 새하얗게 쌓여가는 날에는
+
+                    따뜻한 국물요리가 생각나더라구요.
+
+                    오늘은 국물요리 하면
+
+                    많이들 생각하고 떠올리시는
+
+                    얼큰한 해물짬뽕탕을 만들어볼게요.
+
+                    전문점 맛에 견주어도 손색없는
+
+                    깊은맛을 살려 완성 해 보겠습니다.
+
+                    여기에 취향에 따라 면을 추가하시면
+
+                    더욱 든든하게 즐기실 수 있겠죠?</q>
+                <br>
+                <br>
+                <hr>
+                <h3>조리시간 : 30분 이내</h3>
+                <hr>
+                <h2>재료</h2>
+                <div class="material">
+                    <div>
+                        <span>- 재료
+                            양파 1/2개
+                            청경채 100g
+                            손질오징어100g
+                            새우 100g
+                            바지락살 50g
+                            물 600mL
+                            식용유 2T</span>
+                    </div>
+                    <div>
+                        <span>- 짬뽕양념장 만들기
+                            고춧가루 3T
+                            간장 1T
+                            굴소스 1T
+                            다진마늘 1T
+                            맛술 1T
+                            후추 1/3t
+                            물 4T</span>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <h2>조리 순서</h2>
+                <table class="lcol-b">
+                    <tr class="lcol-b">
+                        <td>1. 먼저 양파는 0.5cm 두께로 잘라주시고,
+                            청경채는 깨끗하게 씻어 물기 제거 후
+                            크기에 따라 세로 방향으로 2~4등분 할게요.
+                            청경재를 넣으주시면 달큰한 맛도 더해지고
+                            짬뽕탕의 식감도 더욱 다양해진답니다.
+                            고춧가루3T,간장1T,굴소스1T,
+                            다진마늘1T,맛술1T,후추1/3t,물4T
+                            그리고 위 재료를 넣고
+                            한데 섞어 양념다대기를 만들어주세요.</td>
+                        <td>
+                            <img src="./imgs/cha3-1.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>2. 오늘 맛의 핵심,
+                            짬뽕국물만들기 시작해볼까요?
+                            강불에서 4분 예열한 팬에
+                            식용유를 넉넉히 2T정도 넣고
+                            양파 끝이 살짝 타도록 볶아주세요.
+                            슬쩍 탄 양파맛이 불향을 더해줘요.</td>
+                        <td>
+                            <img src="./imgs/cha3-2.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>3. 준비한 다대기를 넣고
+                            바짝 타지않게 잘 저어가며 볶아주세요.
+                            충분하게, 3분정도 볶을게요.</td>
+                        <td>
+                            <img src="./imgs/cha3-3.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>4. 강불을 계속 유지 해 주시고,
+                            오징어,새우,바지락살을 넣고
+                            바짝 한 번 더 볶아주세요.</td>
+                        <td>
+                            <img src="./imgs/cha3-4.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>5. 이제 물600mL를 붓고,
+                            준비한 청경채를 넣어
+                            4분동안 우르르 끓여주시면 완성!</td>
+                        <td>
+                            <img src="./imgs/cha3-5.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer hcol" id="footer">
+            <span class="tcol-s">@Cooking Coperation</span>
+        </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
+    </div>
+</body>
+
+</html>

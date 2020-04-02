@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .hcol {
-    background: linear-gradient(to bottom, #F8F8FF, #75D701 30%, #75D701);
+    background: linear-gradient(to bottom, #F8F8FF, #75D701 40%, #75D701);
 }
 
 .fcol {
@@ -9,7 +9,7 @@
 }
 
 .bcol {
-    background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+    background: linear-gradient(to bottom, #F8F8FF, #333030 40%, #333030);
 }
 
 .lcol {
@@ -24,6 +24,10 @@
 
 .tcol-b {
     color: #333030;
+}
+
+.tcol-bl {
+    color: rgba(51, 48, 48, 0.6);
 }
 
 .tcol-s {

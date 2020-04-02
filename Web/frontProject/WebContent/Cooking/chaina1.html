@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cooking World!: 중식 - 짜장면</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content>div:first-of-type {
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .content>q {
+            white-space: pre-line;
+        }
+
+        .material {
+            width: 90%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .material>div {
+            float: left;
+            width: 49%;
+            padding-left: 10%;
+            text-align: left;
+            white-space: pre-line;
+            box-sizing: border-box;
+        }
+
+        .content>table {
+            width: 100%;
+        }
+
+        .content>table>tbody>tr {
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td:first-child {
+            width: 65%;
+            padding-left: 5%;
+            box-sizing: border-box;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .content>table>tbody>tr>td:last-child {
+            width: 40%;
+            padding-left: 5%;
+            padding-right: 5%;
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td>img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .content>table>tbody>tr:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.1);
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header tcol" id="header">
+            <div class="header1">
+                <div class="logo">
+                    <a href="./index.html">
+                        <div class="logoimg"></div>
+                    </a>
+                </div>
+
+                <div class="title tcol-g">
+                    <span>Cooking World!</span>
+                </div>
+
+                <div class="search">
+                    <form action="./search.html" method="get">
+                        <input type="text" name="search">
+                        <input type="submit" value="검색" class="hcol tcol-s">
+                    </form>
+                </div>
+
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./koreanfood.html" class="tcol-s hcol lcol">한식</a></li>
+                    <li><a href="./westornfood.html" class="tcol-s hcol lcol">양식</a></li>
+                    <li><a href="./chinafood.html" class="tcol-s bcol lcol">중식</a></li>
+                    <li><a href="./japanfood.html" class="tcol-s hcol lcol">일식</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
+                </a>
+            </div>
+            <div class="content">
+                <h1>짜장면</h1>
+                <hr>
+                <div style="background-image: url(./imgs/cha1.jpg);">
+                </div>
+                <br>
+                <br>
+                <q class="tcol-bl">집밥백선생의 짜장면 레시피를 보고 만들었습니다.</q>
+                <br>
+                <br>
+                <hr>
+                <h3>조리시간 : 30분 이내</h3>
+                <hr>
+                <h2>재료</h2>
+                <div class="material">
+                    <div>
+                        <span>- 재료
+                            양파 1개
+                            양배추 1/5개
+                            돼지고기 200g
+                            오이 1/3개
+                            파 2줄기
+                            파스타면 2인분</span>
+                    </div>
+                    <div>
+                        <span>- 양념
+                            춘장 1/3컵
+                            설탕 1T
+                            물전분 3T</span>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <h2>조리 순서</h2>
+                <table class="lcol-b">
+                    <tr class="lcol-b">
+                        <td>1. 후라이팬에 식용유 2컵을 붓고 춘장 1봉지를 넣고 기름에 춘장을 튀겨줍니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-1.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>2. 짜장면 야채를 준비합니다.
+                            오이는 돌려깎이해서 채썰고(고명용)
+                            양배추와 양파는 큼직큼직 썰어주고
+                            파는 잘게 잘게 썰어서 준비합니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-2.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>3. 불을 켜지 않은 후라이팬에 식용유를 붓고 파를 넣고 볶아서 파기름을 내줍니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-3.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>4. 파기름이 얼추 나면 잘게 썰어 놓은 돼지고기를 넣고 볶아줍니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-4.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>5. 고기가 익으면 오이를 제외한 양배추와 양파를 넣고 볶아줍니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-5.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>6. 튀긴 춘장을 1/3컵 정도 넣고
+                            설탕 1T를 넣고 볶아줍니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-6.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>7. 춘장이 야채와 고루 섞이게 볶아줍니다.
+                            이때 먹으면 흔히보던 간짜장이 됩니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-7.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>8. 물을 재료가 자박자박 할때까지 넣어줍니다.
+                            끓여 주다가 물 : 전분 = 3 : 1로 타준 전분물로 짜장의 농도를 걸쭉하게 만들어 줍니다.</td>
+                        <td>
+                            <img src="./imgs/cha1-8.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>9. 중화면을 대체하기 위한 파스타 면을 소금 1T를 넣고 2인분 정도 13분 삶아 줍니다.
+                            면이 익으면 그릇에 면을 셋팅하고 위에 짜장을 부어주고 오이 고명을 올려주면
+                            완성!</td>
+                        <td>
+                            <img src="./imgs/cha1-9.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer hcol" id="footer">
+            <span class="tcol-s">@Cooking Coperation</span>
+        </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
+    </div>
+</body>
+
+</html>

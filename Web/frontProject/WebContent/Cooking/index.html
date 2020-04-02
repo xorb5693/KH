@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Cooking World!</title>
-</head>
 <style>
     .wrapper,
     .wrapper>div {
@@ -159,10 +158,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
 
-
+</head>
 <body>
     <div class="wrapper">
-        <div class="header tcol">
+        <div class="header tcol" id="header">
             <div class="header1">
                 <div class="logo">
                     <a href="./index.html">
@@ -175,7 +174,7 @@
                 </div>
 
                 <div class="search">
-                    <form>
+                    <form action="./search.html" method="get">
                         <input type="text" name="search">
                         <input type="submit" value="검색" class="hcol tcol-s">
                     </form>
@@ -194,7 +193,7 @@
 
         <div class="content">
         </div>
-        <div class="footer hcol">
+        <div class="footer hcol" id="wrapper">
             <span class="tcol-s">@Cooking Coperation</span>
         </div>
     </div>

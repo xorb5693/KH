@@ -4,178 +4,280 @@
 <head>
     <meta charset="UTF-8">
     <title>Cooking World! : 글쓰기</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .content>form {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .content>form>div {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0 auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 90%;
+            border-top: 1px solid #566270;
+        }
+
+        .content>form>div>span {
+            display: inline-block;
+            width: 9%;
+            text-align: left;
+            margin-left: 5%;
+        }
+        
+        .content>form>div>div {
+            margin-left: 10%;
+        }
+        
+        .content>form>div>div>table {
+            width: 90%;
+        }
+        
+        .content>form>div>div>table>tbody>tr>td {
+            width: 50%;
+            text-align: center;
+        }
+        
+        .content>form>div>div>table>tbody>tr>td>input {
+            width: 80%;
+        }
+        
+        .content>form>div>div>table>tbody>tr>td>input[type="button"] {
+            width: 91%;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        .content>form>div>div>table>tbody>tr>td>input[type="button"]:hover {
+            width: 91%;
+            background-color: #75D701;
+            color: #F8F8FF;
+        }
+        
+        .content>form>div>div>input[type="button"] {
+            width: 90%;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        .content>form>div>div>input[type="button"]:hover {
+            width: 91%;
+            background-color: #75D701;
+            color: #F8F8FF;
+        }
+
+        .content>form>div input[type="text"] {
+            width: 75%;
+            margin-left: 1%;
+        }
+
+        .content>form>div input[type="file"] {
+            margin-left: 1%;
+        }
+
+        .content>form>div input[type="number"] {
+            margin-left: 1%;
+            width: 20%;
+        }
+
+        .content>form>div>textarea {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 85%;
+            height: 500px;
+            margin-left: 5%;
+            resize: none;
+        }
+
+        .content>form>div:first-child {
+            margin-top: 20px;
+        }
+
+        .content>form>div:last-child {
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #566270;
+        }
+        
+        .cooking>table>tbody>tr>td:first-child {
+            width: 80%;
+        }
+        
+        .cooking>div>table>tbody>tr>td:last-child {
+            width: 20%;
+        }
+        
+        .cooking textarea {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 85%;
+            height: 100px;
+            margin-left: 5%;
+            resize: none;
+        }
+
+        .boardbtn {
+            width: 100px;
+            height: 50px;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
 </head>
-<style>
-    .wrapper,
-    .wrapper>div {
-        width: 1280px;
-        margin: 0 auto;
-        font-family: 'Nanum Myeongjo', serif;
-    }
-
-    .header {}
-
-    .header1 {
-        overflow: hidden;
-    }
-
-    .header1>div {
-        float: left;
-    }
-
-    .logo {
-        width: 20%;
-    }
-
-    .logoimg {
-        width: 100%;
-        height: 200px;
-        background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .title {
-        width: 60%;
-        height: 200px;
-        font-size: 50pt;
-        line-height: 200px;
-        text-align: center;
-        text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
-        font-family: 'Nanum Pen Script', cursive;
-    }
-
-    .search {
-        width: 20%;
-        height: 200px;
-        line-height: 200px;
-        text-align: center;
-    }
-
-    .search>form>input {
-        height: 30px;
-        font-size: 12pt;
-    }
-
-    .search>form>input[type="submit"] {
-        border: none;
-        width: 50px;
-        font-weight: bold;
-    }
-
-    .menu>ul {
-        padding: 0;
-    }
-
-    .menu>ul>li {
-        float: left;
-        box-sizing: border-box;
-        width: 25%;
-        list-style-type: none;
-    }
-
-    .menu>ul>li>a {
-        width: 100%;
-        height: 50px;
-        line-height: 50px;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        box-sizing: border-box;
-    }
-
-    .menu>ul>li:first-child>a {
-        border-top-left-radius: 10px;
-    }
-
-    .menu>ul>li:last-child>a {
-        border-top-right-radius: 10px;
-    }
-
-    .menu>ul>li:hover>a {
-        background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
-    }
-
-    .content {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    .content>form {
-        font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .content>form>div {
-        font-family: 'Noto Sans KR', sans-serif;
-        margin: 0 auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: 90%;
-        border-top: 1px solid #566270;
-    }
-
-    .content>form>div>span {
-        display: inline-block;
-        width: 9%;
-        text-align: left;
-        margin-left: 5%;
-    }
-
-    .content>form>div>input[type="text"] {
-        width: 75%;
-        margin-left: 1%;
-    }
-
-    .content>form>div>input[type="file"] {
-        margin-left: 1%;
-    }
-
-    .content>form>div>textarea {
-        margin: 0 auto;
-        margin-top: 20px;
-        width: 85%;
-        height: 500px;
-        margin-left: 5%;
-        resize: none;
-    }
-
-    .content>form>div:first-child {
-        margin-top: 20px;
-    }
-
-    .content>form>div:last-child {
-        margin-bottom: 20px;
-        text-align: center;
-        border-bottom: 1px solid #566270;
-    }
-
-    .boardbtn {
-        width: 100px;
-        height: 50px;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-
-    .footer {
-        width: 100%;
-        height: 90px;
-        line-height: 90px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-</style>
-<link href="css/color.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 
 <body>
     <div class="wrapper">
-        <div class="header tcol">
+        <div class="header tcol" id="header">
             <div class="header1">
                 <div class="logo">
                     <a href="./index.html">
@@ -188,7 +290,7 @@
                 </div>
 
                 <div class="search">
-                    <form>
+                    <form action="./search.html" method="get">
                         <input type="text" name="search">
                         <input type="submit" value="검색" class="hcol tcol-s">
                     </form>
@@ -204,42 +306,146 @@
                 </ul>
             </div>
         </div>
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
+                </a>
+            </div>
 
-        <div class="content">
-            <form action="#" method="get">
-                <div>
-                    <span>제목 : </span>
-                    <input type="text" name="title" placeholder="제목을 입력하세요.">
-                </div>
-                <div>
-                    <span>사진 : </span>
-                    <input type="file" name="file" multiple accept=".png, .jpg">
-                </div>
-                <div>
-                    <span>내용 : </span>
-                    <textarea name="content" placeholder="내용을 입력하세요."></textarea>
-                </div>
-                <div>
-                    <span>재료 : </span>
-                    <textarea name="material" placeholder="들어가는 재료를 입력하세요."></textarea>
-                </div>
-                <div>
-                    <span>조리순서 : </span>
-                    <textarea name="recipe" placeholder="조리순서를 입력하세요."></textarea>
-                </div>
-                <div>
-                    <span>작성자 : </span>
-                    <input type="text" name="writer" placeholder="작성자를 입력하세요.">
-                </div>
-                <div>
-                    <input type="submit" class="boardbtn hcol tcol-s" value="확인">
-                    <a href="./index.html"><input type="button" class="boardbtn hcol tcol-s" value="취소"></a>
-                </div>
-            </form>
+            <div class="content">
+                <form action="#" method="get">
+                    <div>
+                        <span>제목 : </span>
+                        <input type="text" name="title" placeholder="제목을 입력하세요.">
+                    </div>
+                    <div>
+                        <span>사진 : </span>
+                        <input type="file" name="file" multiple accept=".png, .jpg">
+                    </div>
+                    <div>
+                        <span>내용 : </span>
+                        <textarea name="content" placeholder="내용을 입력하세요."></textarea>
+                    </div>
+                    <div>
+                        <span>재료</span>
+                        <div>
+                            <span>재료 카테고리 : </span>
+                            <input type="text" name="category1" placeholder="재료 카테고리를 입력하세요.">
+                        </div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>재료명</td>
+                                    <td>수량</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" name="ma1" placeholder="재료명을 입력하세요.">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="man1" placeholder="수량을 입력하세요.">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" name="ma2" placeholder="재료명을 입력하세요.">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="man2" placeholder="수량을 입력하세요.">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" name="ma3" placeholder="재료명을 입력하세요.">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="man3" placeholder="수량을 입력하세요.">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="button" value="재료 추가" class="lcol">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <input type="button" value="카테고리 추가" class="lcol">
+                        </div>
+                    </div>
+                    <div class="cooking">
+                        <span>조리순서 </span>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>조리법</td>
+                                    <td>이미지</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <textarea name="cook1" placeholder="조리법을 입력하세요."></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="cooki1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <textarea name="cook1" placeholder="조리법을 입력하세요."></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="cooki1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <textarea name="cook1" placeholder="조리법을 입력하세요."></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="cooki1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="button" value="조리법 추가" class="lcol">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <span>작성자 : </span>
+                        <input type="text" name="writer" placeholder="작성자를 입력하세요.">
+                    </div>
+                    <div>
+                        <span>조리시간 : </span>
+                        <input type="number" name="time" placeholder="조리시간을 입력하세요.(분)">
+                    </div>
+                    <div>
+                        <input type="submit" class="boardbtn hcol tcol-s lcol" value="확인">
+                        <a href="./index.html"><input type="button" class="boardbtn hcol tcol-s lcol" value="취소"></a>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="footer hcol">
+        <div class="footer hcol" id="footer">
             <span class="tcol-s">@Cooking Coperation</span>
         </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s lcol">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s lcol">
+        </a>
     </div>
 </body>
 

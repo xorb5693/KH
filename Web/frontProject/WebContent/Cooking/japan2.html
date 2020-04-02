@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cooking World!: 일식 - 냉모밀</title>
+    <style>
+        .wrapper,
+        .wrapper>div {
+            width: 1280px;
+            margin: 0 auto;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .header {}
+
+        .header1 {
+            overflow: hidden;
+        }
+
+        .header1>div {
+            float: left;
+        }
+
+        .logo {
+            width: 20%;
+        }
+
+        .logoimg {
+            width: 100%;
+            height: 200px;
+            background-image: url(imgs/cooking%20and%20kitchen%20icon_4032554.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .title {
+            width: 60%;
+            height: 200px;
+            font-size: 50pt;
+            line-height: 200px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #F8F8FF, -1px -1px 1px #F8F8FF;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        .search {
+            width: 20%;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .search>form>input {
+            height: 30px;
+            font-size: 12pt;
+        }
+
+        .search>form>input[type="submit"] {
+            border: none;
+            width: 50px;
+            font-weight: bold;
+        }
+
+        .menu>ul {
+            padding: 0;
+        }
+
+        .menu>ul>li {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            list-style-type: none;
+        }
+
+        .menu>ul>li>a {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .menu>ul>li:first-child>a {
+            border-top-left-radius: 10px;
+        }
+
+        .menu>ul>li:last-child>a {
+            border-top-right-radius: 10px;
+        }
+
+        .menu>ul>li:hover>a {
+            background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+        }
+
+        .center {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .center>div {
+            float: left;
+            display: inline-block;
+        }
+
+        .adver {
+            width: 20%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .content {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content>div:first-of-type {
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .content>q {
+            white-space: pre-line;
+        }
+
+        .material {
+            width: 90%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .material>div {
+            float: left;
+            width: 49%;
+            padding-left: 10%;
+            text-align: left;
+            white-space: pre-line;
+            box-sizing: border-box;
+        }
+
+        .content>table {
+            width: 100%;
+        }
+
+        .content>table>tbody>tr {
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td:first-child {
+            width: 65%;
+            padding-left: 5%;
+            box-sizing: border-box;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .content>table>tbody>tr>td:last-child {
+            width: 40%;
+            padding-left: 5%;
+            padding-right: 5%;
+            box-sizing: border-box;
+        }
+
+        .content>table>tbody>tr>td>img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .content>table>tbody>tr:hover {
+            transition-duration: 1s;
+            background-color: rgba(117, 215, 1, 0.1);
+        }
+
+        .footer {
+            width: 100%;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .jump {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .jump>a {
+            display: block;
+        }
+
+        .jump>a>input {
+            width: 80px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-size: 20pt;
+            border-radius: 8px;
+            border: none;
+        }
+
+    </style>
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+    <link href="css/adver.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header tcol" id="header">
+            <div class="header1">
+                <div class="logo">
+                    <a href="./index.html">
+                        <div class="logoimg"></div>
+                    </a>
+                </div>
+
+                <div class="title tcol-g">
+                    <span>Cooking World!</span>
+                </div>
+
+                <div class="search">
+                    <form action="./search.html" method="get">
+                        <input type="text" name="search">
+                        <input type="submit" value="검색" class="hcol tcol-s">
+                    </form>
+                </div>
+
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./koreanfood.html" class="tcol-s hcol lcol">한식</a></li>
+                    <li><a href="./westornfood.html" class="tcol-s hcol lcol">양식</a></li>
+                    <li><a href="./chinafood.html" class="tcol-s hcol lcol">중식</a></li>
+                    <li><a href="./japanfood.html" class="tcol-s bcol lcol">일식</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="adver">
+                <a href="https://www.youtube.com/watch?v=pFuJAIMQjHk">
+                    <div class="adver1"></div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=y2OFPvYxZuY">
+                    <div class="adver2"></div>
+                </a>
+                <a href="https://kotlinlang.org/">
+                    <div class="adver3"></div>
+                </a>
+            </div>
+            <div class="content">
+                <h1>냉모밀</h1>
+                <hr>
+                <div style="background-image: url(./imgs/ja2.jpg);">
+                </div>
+                <br>
+                <br>
+                <q class="tcol-bl">여름 메뉴로 콩국수, 냉면, 오이냉국은 하루걸러 한 번씩 먹는 거 같아요 그래도 시원하고 맛있어서 질리지 않는 메뉴네요 오늘은 시원한 냉모밀 만들기에요, 백선생 국수장국 만드는 법으로 초간단 냉메밀국수 만들었는데 간단하면서 맛도 좋더라고요</q>
+                <br>
+                <br>
+                <hr>
+                <h3>조리시간 : 60분 이내</h3>
+                <hr>
+                <h2>재료</h2>
+                <div class="material">
+                    <div>
+                        <span>대파 1대 
+                            양파 1개 
+                            디포리 10개 
+                            멸치 1주먹 
+                            간장 2컵 
+                            설탕 1컵 
+                            물 5컵 
+                            맛술 1/2컵</span>
+                    </div>
+                    <div>
+                        <span>생강 1작은술 
+                            다시마 5장 
+                            가쓰오부시 1주먹 
+                            메밀국수 80g 
+                            무 1/6토막 
+                            쪽파 조금 
+                            고추냉이 조금 
+                            물 조금</span>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <h2>조리 순서</h2>
+                <table class="lcol-b">
+                    <tr class="lcol-b">
+                        <td>1. 백선생 국수장국 : 양파와 대파는 석쇠 위에 올려 고루 구워요.</td>
+                        <td>
+                            <img src="./imgs/ja2-1.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>2. 냄비에 구운 양파, 구운 대파, 디포리와 멸치 1 주먹 물 5 컵을 넣어 줍니다.</td>
+                        <td>
+                            <img src="./imgs/ja2-2.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>3. 간장 2 컵, 설탕 1 컵, 맛술 1/2 컵도 넣어 봅니다.</td>
+                        <td>
+                            <img src="./imgs/ja2-3.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>4. 센 불에서 끓여 끓어오르면 약불로 줄여 40 분간 졸여 줍니다.</td>
+                        <td>
+                            <img src="./imgs/ja2-4.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>5. 40 분 끓여 준 후 다시마를 넣고 10 분간 끓여주고 가쓰오부시 1 주먹을 넣고 고루 저어준 후 불을 끄면 냉모밀, 냉메밀국수 만들어 먹을 수 있는 백선생 국수장국 완성이에요.</td>
+                        <td>
+                            <img src="./imgs/ja2-5.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>6. 냉모밀, 냉메밀국수 : 이제 냉모밀, 냉메밀국수를 만들어 볼게요 무는 잘게 썰어 물과 함께 믹서기에 넣고 갈아 거즈에 올려 물기를 짜줍니다.	</td>
+                        <td>
+                            <img src="./imgs/ja2-6.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>7. 메밀국수는 끓는 물에 6 ~ 7 분간 삶아 찬물에 서너 번 헹궈 물기를 빼줍니다.</td>
+                        <td>
+                            <img src="./imgs/ja2-7.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>8. 국수장국 1 : 물 2 비율로 국수장국을 만들고 쪽파나 대파를 잘게 썰고 고추냉이, 무를 준비해줍니다 메밀국수는 얼음 위에 올려 차게 해줍니다.	</td>
+                        <td>
+                            <img src="./imgs/ja2-8.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>9. 무와 고추냉이, 파를 잘게 썰었어요 김가루도 넣어 먹으면 맛있던데..~.</td>
+                        <td>
+                            <img src="./imgs/ja2-9.jpg">
+                        </td>
+                    </tr>
+                    <tr class="lcol-b">
+                        <td>10. 차가운 국수장국에 물을 섞어 무즙, 쪽파, 고추냉이를 취향에 맞게 넣고 고루 섞어 줍니다.	</td>
+                        <td>
+                            <img src="./imgs/ja2-10.jpg">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer hcol" id="footer">
+            <span class="tcol-s">@Cooking Coperation</span>
+        </div>
+    </div>
+    <div class="jump">
+        <a href="#header">
+            <input type="button" value="↑" class="hcol tcol-s">
+        </a>
+        <a href="#footer">
+            <input type="button" value="↓" class="hcol tcol-s">
+        </a>
+    </div>
+</body>
+
+</html>
