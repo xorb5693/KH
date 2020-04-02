@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.hcol {
+    background: linear-gradient(to bottom, #F8F8FF, #75D701 30%, #75D701);
+}
+
+.fcol {
+    background-color: #3B4E32;
+}
+
+.bcol {
+    background: linear-gradient(to bottom, #F8F8FF, #333030 30%, #333030);
+}
+
+.lcol {
+    border: 1px solid #F8F8FF;
+    box-shadow: 1px 1px 1px #F8F8FF;
+}
+
+.lcol-b {
+    border: 1px solid #333030;
+    box-shadow: 1px 1px 1px #333030;
+}
+
+.tcol-b {
+    color: #333030;
+}
+
+.tcol-s {
+    color: #F8F8FF;
+    font-weight: bolder;
+}
+
+.tcol-g {
+    color: #75D701;
+}
+
+.tcol-r {
+    color: #E71D36;
+}
