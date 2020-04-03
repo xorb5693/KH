@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+        globalVal = "전역변수";
+        
+        function func1() {
+            var localVal = "지역변수";
+            alert(localVal);
+        }
+        
+        function func2() {
+            alert(globalVal);
+        }
+        
+        function func3() {
+            alert(globalVal);
+        }
+        
+        function func4() {
+            var p1 = document.getElementById("p1");
+            var str = p1.innerHTML;
+            
+            console.log(str.length);
+            console.log(str.indexOf("지"));
+            console.log(str.lastIndexOf("지"));
+            console.log(str.substring(3, 7));
+            
+            var arr = str.split(",");
+            console.log(arr);
+        }
+        
+        function typeTest() {
+            var val1 = 1;
+            var val2 = "1";
+            var val3 = 10<5;
+            var val4 = document.getElementById("p1");
+            console.log(typeof(val1));
+            console.log(typeof(val2));
+            console.log(typeof(val3));
+            console.log(typeof(val4));
+        }
+        
+        function casting() {
+            var val1 = 1;
+            var val2 = "1";
+            console.log(val1 + val2);
+            console.log(val1 + Number(val2));
+        }
+        
+        function oper() {
+            var val1 = 1;
+            var val2 = "1";
+            
+            if (val1 !== "1") {
+                alert("test");
+            }
+        }
+        
+        function ifTest() {
+            var num = document.getElementById("if");
+            
+//            num.value % 2 == 0 ? alert("짝수") : alert("홀수");
+            
+            num.value%2 == 0 || alert("홀수");
+            num.value%2 == 0 && alert("짝수");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="func1();">지역변수</button>
+    <button onclick="func2();">전역변수</button>
+    <button onclick="func3();">지역변수 타함수 호출</button>
+    <p id="p1">나성범,양의지,박민지</p>
+    <button onclick="func4();">클릭</button>
+    <hr>
+    <button onclick="typeTest();">typeof 테스트</button>
+    <hr>
+    <button onclick="casting();">형변환 테스트</button>
+    <hr>
+    <button onclick="oper();">연산자 테스트</button>
+    <hr>
+    <input type="text" placeholder="숫자 입력" id="if">
+    <button onclick="ifTest();">짧은 조건문 테스트</button>
+</body>
+</html>
