@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+    div {
+        border: 1px solid red;
+        height: 150px;
+    }
+
+</style>
+<script>
+    function stringLength() {
+        var text = document.getElementById("text1");
+        var result = document.getElementById("result1");
+        
+        result.innerHTML = text.value.length;
+    }
+    
+    function stringSplit() {
+        var text = document.getElementById("la1");
+        var result = document.getElementById("result2");
+        var str = text.innerHTML.split(",");
+        result.innerHTML = "";
+        
+        for (var i = 0; i < str.length; i++) {
+            result.innerHTML = result.innerHTML + (i + 1) + ". " + str[i] + "<br>"
+        }
+    }
+    
+    function memoPrint() {
+        var memo = document.getElementById("memo");
+        var result = document.getElementById("result3");
+        
+        result.innerHTML = memo.value;
+        memo.value = "";
+    }
+    
+    function memoUpper() {
+        var result = document.getElementById("result3");
+        
+        result.innerHTML = result.innerHTML.toUpperCase();
+    }
+    
+    function memoLower() {
+        var result = document.getElementById("result3");
+        
+        result.innerHTML = result.innerHTML.toLowerCase();
+    }
+</script>
+
+<body>
+
+    <h1> 기본 문법 문제</h1>
+
+    문제1. 다음 보기에 있는 텍스트 필드에 작성한 문자열의 길이를 알아올 수 있도록 구현하시오
+
+    <fieldset>
+        <legend>보기</legend>
+
+        <input type="text" placeholder="글자를 작성해보세요" size=100 id="text1">
+    </fieldset><br>
+    <div id="result1"> </div>
+    <button onclick="stringLength();"> 확인하기</button>
+    <br><br>
+    <hr>
+    <hr>
+    <br><br>
+    문제2. 다음 보기에 있는 문자열을 ,(콤마) 를 기준으로 잘라내어 하나하나 출력하시오
+    (동작 결과는 정답을 확인하셔도 됩니다.)
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">콜라,사이다,햄버거,피자,한약</label>
+    </fieldset><br>
+    <div id="result2"> </div>
+    <button onclick="stringSplit();"> 확인하기</button>
+
+
+    <br><br>
+    <hr>
+    <hr>
+    <br><br>
+
+    문제3. <br>
+    글자를 입력후 입력 버튼을 클릭하면 <br>
+    메시지공간에 출력하고 대문자버튼,소문자버튼을 <br>
+    클릭하면 해당 입력값을 대/소문자로 바꾸어 주어라<br>
+    (입력 버튼을 클릭하면 입력창 값을 가져오고 입력창에 내용은 비워라!)
+
+    <fieldset>
+        <legend>입력창</legend>
+        <input type="text" id="memo" size="50" />
+    </fieldset><br>
+    <div id="result3"> </div>
+    <button onclick="memoPrint();">입력</button>
+    <button onclick="memoUpper();">대문자로 변경</button>
+    <button onclick="memoLower();">소문자로 변경</button>
+
+
+
+</body>
+
+</html>
