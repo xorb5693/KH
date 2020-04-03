@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        var num = 1;
+
+        function test() {
+            alert("Hello World!");
+            alert("Hello World!!!!!!!");
+            alert("Hello World!!!!!!!!!!!!!");
+        }
+
+        function func1() {
+            document.write("<h1>추가</h1>");
+        }
+
+        function func2() {
+            console.log("눌렸습니다");
+        }
+
+        function func3() {
+            var dg = confirm("Hello World!");
+
+            if (dg) {
+                num++;
+            }
+
+            alert(num);
+        }
+
+        function func4() {
+            var msg = prompt("할 말 입력");
+            alert(msg);
+        }
+        
+        function idTest() {
+            var p1 = document.getElementById("p1");
+            num++;
+            p1.outerHTML = "<p id=\"p"+ num + "\">hello?<p>" + p1.outerHTML;
+        }
+        
+        function classTest() {
+            var pp = document.getElementsByClassName("pp");
+            alert(pp[0].innerHTML);
+            alert(pp[1].innerHTML);
+            alert(pp[2].innerHTML);
+        }
+        
+        function inputTest() {
+            var in1 = document.getElementById("in1");
+            alert(in1.value);
+            in1.value = "성공";
+        }
+        
+        function checkTest() {
+            var checkp = document.getElementsByClassName("checkp");
+            var in1 = document.getElementById("in1");
+            
+            checkp[0].innerHTML = in1.value;
+        }
+    </script>
+    <script src="./js/first.js"></script>
+</head>
+
+<body>
+    <button onclick="javascript:alert('hello')">인라인 버튼</button><br>
+    <button onclick="test();">인터널 버튼</button><br>
+    <button onclick="test1();">익스터널 버튼</button><br>
+
+    <a href="#">링크</a>
+    <br>
+    <hr><br>
+
+    <button onclick="func1();">첫번째 버튼</button>
+    <button onclick="func2();">두번째 버튼</button>
+    <button onclick="func3();">세번째 버튼</button>
+    <button onclick="func4();">네번째 버튼</button>
+    <br>
+    <hr><br>
+    
+    <p id="p1">id는 p1입니다.</p>
+    <button onclick="idTest();">클릭</button>
+    
+    <p class="pp">pp클래스1</p>
+    <p class="pp">pp클래스2</p>
+    <p class="pp">pp클래스3</p>
+    <button onclick="classTest();">클릭</button>
+    <br>
+    
+    <input id="in1" type="text" onkeyup="checkTest();">
+    <p class="checkp"></p>
+    <button onclick="inputTest();">클릭</button>
+
+</body></html>
