@@ -21,42 +21,31 @@
 
     <hr>
     <script>
+        var num1 = document.getElementById("num1");
+        var num2 = document.getElementById("num2");
+        var calc = document.getElementById("calc");
+
         function add() {
-            var num1 = document.getElementById("num1");
-            var num2 = document.getElementById("num2");
-            var calc = document.getElementById("calc");
-            
+
             calc.innerHTML = Number(num1.value) + Number(num2.value);
         }
 
         function sub() {
-            var num1 = document.getElementById("num1");
-            var num2 = document.getElementById("num2");
-            var calc = document.getElementById("calc");
 
             calc.innerHTML = num1.value - num2.value;
         }
 
         function mul() {
-            var num1 = document.getElementById("num1");
-            var num2 = document.getElementById("num2");
-            var calc = document.getElementById("calc");
 
             calc.innerHTML = num1.value * num2.value;
         }
 
         function div1() {
-            var num1 = document.getElementById("num1");
-            var num2 = document.getElementById("num2");
-            var calc = document.getElementById("calc");
 
             calc.innerHTML = num1.value / num2.value;
         }
 
         function div2() {
-            var num1 = document.getElementById("num1");
-            var num2 = document.getElementById("num2");
-            var calc = document.getElementById("calc");
 
             calc.innerHTML = num1.value % num2.value;
         }
