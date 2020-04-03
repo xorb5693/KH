@@ -124,3 +124,17 @@
     3. 음식 레시피 상세 보기
     4. 검색
     5. 글쓰기
+- 41일차(2020-04-03)
+  - js_1.html : javascript 테스트 프로그램
+  - first.js : javscript 익스터널 테스트용 js파일
+  - 시작 실습.html : javascript 실습 프로그램 1
+  - 시작 실습2.html : javascript 실습 프로그램 2
+  - jsQue : javascript 실습 프로그램 3
+    1. 체크된 값 읽어오기
+    2. 전체체크
+    3. 전체체크 해제
+  - js_2.html : javascript 테스트 프로그램 2, 각종 함수 테스트
+  - 2. 기본 문법 문제.html : javascript 실습 프로그램 3
+    1. 기본 문범
+  - 3. 간이 계산기 만들기 - 문제.html : javascript 실습 프로그램 4
+    1. 계산기
