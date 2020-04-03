@@ -182,7 +182,7 @@
         }
 
         .content>form>div input[type="text"] {
-            width: 75%;
+            width: 74%;
             margin-left: 1%;
         }
 
@@ -273,6 +273,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    
+    <script>
+        var num1 = 1;
+        var num2 = 1;
+        var num3 = 1;
+        function plusma() {
+            var btn = document.getElementById("mabutton");
+            num1++;
+            var html = "<tr><td><input type=\"text\" name=\"ma" + num1 + "\" placeholder=\"재료명을 입력하세요.\"></td><td><input type=\"text\" name=\"man" + num1 + "\" placeholder=\"수량을 입력하세요.\"></td></tr>";
+            btn.outerHTML = html + btn.outerHTML;
+        }
+        
+        function plusma2() {
+            var btn = document.getElementById("mabutton2");
+            num2++;
+            var html = "<tr><td><input type=\"text\" name=\"ma2" + num2 + "\" placeholder=\"재료명을 입력하세요.\"></td><td><input type=\"text\" name=\"man2" + num2 + "\" placeholder=\"수량을 입력하세요.\"></td></tr>";
+            btn.outerHTML = html + btn.outerHTML;
+        }
+        
+        function plusca() {
+            var btn = document.getElementById("categorybtn");
+            var html = "<div><span>재료 카테고리2 : </span><input type=\"text\" name=\"category2\" placeholder=\"재료 카테고리를 입력하세요.\"></div><div><table><tr><td>재료명</td><td>수량</td></tr><tr><td><input type=\"text\" name=\"ma21\" placeholder=\"재료명을 입력하세요.\"></td><td><input type=\"text\" name=\"man21\" placeholder=\"수량을 입력하세요.\"></td></tr><tr id=\"mabutton2\"><td colspan=\"2\"><input type=\"button\" value=\"재료 추가\" class=\"lcol\" onclick=\"plusma2();\"></td></tr></table><div>"
+            btn.outerHTML = html;
+        }
+        
+        function pluscook() {
+            var btn = document.getElementById("cookbtn");
+            num3++;
+            var html = "<td><textarea name=\"cook" + num3 + "\" placeholder=\"조리법을 입력하세요.\"></textarea></td><td><input type=\"file\" name=\"cooki" + num3 + "\"></td>"
+            btn.outerHTML = html + btn.outerHTML;
+        }
+        
+    </script>
 
 </head>
 
@@ -337,7 +370,7 @@
                     <div>
                         <span>재료</span>
                         <div>
-                            <span>재료 카테고리 : </span>
+                            <span>재료 카테고리1 : </span>
                             <input type="text" name="category1" placeholder="재료 카테고리를 입력하세요.">
                         </div>
                         <div>
@@ -354,31 +387,15 @@
                                         <input type="text" name="man1" placeholder="수량을 입력하세요.">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" name="ma2" placeholder="재료명을 입력하세요.">
-                                    </td>
-                                    <td>
-                                        <input type="text" name="man2" placeholder="수량을 입력하세요.">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" name="ma3" placeholder="재료명을 입력하세요.">
-                                    </td>
-                                    <td>
-                                        <input type="text" name="man3" placeholder="수량을 입력하세요.">
-                                    </td>
-                                </tr>
-                                <tr>
+                                <tr id="mabutton">
                                     <td colspan="2">
-                                        <input type="button" value="재료 추가" class="lcol">
+                                        <input type="button" value="재료 추가" class="lcol" onclick="plusma();">
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                        <div>
-                            <input type="button" value="카테고리 추가" class="lcol">
+                        <div id="categorybtn">
+                            <input type="button" value="카테고리 추가" class="lcol" onclick="plusca();">
                         </div>
                     </div>
                     <div class="cooking">
@@ -397,25 +414,9 @@
                                         <input type="file" name="cooki1">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <textarea name="cook1" placeholder="조리법을 입력하세요."></textarea>
-                                    </td>
-                                    <td>
-                                        <input type="file" name="cooki1">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <textarea name="cook1" placeholder="조리법을 입력하세요."></textarea>
-                                    </td>
-                                    <td>
-                                        <input type="file" name="cooki1">
-                                    </td>
-                                </tr>
-                                <tr>
+                                <tr id="cookbtn">
                                     <td colspan="2">
-                                        <input type="button" value="조리법 추가" class="lcol">
+                                        <input type="button" value="조리법 추가" class="lcol" onclick="pluscook();">
                                     </td>
                                 </tr>
                             </table>
