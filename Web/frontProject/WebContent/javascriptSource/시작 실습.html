@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+
+    <style>
+        div {
+            border: 1px solid red;
+            height: 100px;
+            width: 300px;
+        }
+
+    </style>
+    <script>
+        function myfunc1() {
+            var dvi1 = document.getElementById("div1");
+            div1.innerHTML = "성공";
+        }
+        function myfunc2() {
+            var test = document.getElementById("test");
+            test.value ="성공";
+        }
+        function myfunc3() {
+            var span = document.getElementById("span");
+            console.log(span.innerHTML);
+            console.log(" ");
+        }
+
+    </script>
+    문제1. div 안에 있는 내용을 "성공" 으로 바꾸어 보세요 <br>
+    (JavaScript로만 바꾸는걸 잊지마세요!)
+    <div id="div1">
+        저를 바꾸어보세요^^
+    </div>
+    <button onclick="myfunc1();">도전</button>
+    <br><br>    
+
+    문제2. "바꿀수 있을까? 라는 문구를 "성공" 으로 바꾸어 보세요 <br>
+    <div id="div2">
+        <input type="text" id="test" value="바꿀수 있을까?" />
+    </div>
+    <button onclick="myfunc2();">도전</button>
+    <br><br>
+    문제3. 해당 값을 읽어서 개발자도구 : 콘솔에 출력해보세요
+    <div id="div3">
+        <p id="p1">
+            <span id="span">저를 읽어서 콘솔에 출력해보세요</span>
+        </p>
+    </div>
+    <button onclick="myfunc3();">도전</button>    
+    
+
+
+
+</body>
+
+</html>

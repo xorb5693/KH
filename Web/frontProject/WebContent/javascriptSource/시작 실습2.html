@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    
+    <script>
+        function changeInner() {
+            var la1 = document.getElementById("la1");
+            la1.innerHTML = "ID : ";
+        }
+        
+        function changeType() {
+            var pwd = document.getElementById("pwd");
+            pwd.type = "password";
+        }
+        
+        function changePlaceholder() {
+            var name = document.getElementById("name");
+            name.placeholder = "이름을 입력하세요";
+        }
+        
+        function changeSize() {
+            var addr = document.getElementById("addr");
+            addr.size = "50";
+        }
+        
+        function printAlert() {
+            var input = document.getElementsByTagName("input");
+            alert("ID : " + input[0].value + "\nPW : " + input[1].value + "\n이름 : "+ input[2].value + "\n주소 : " + input[3].value);
+        }
+    </script>
+</head>
+
+<body>
+
+다음 보기에 있는 내용들을 각 문제에 맞게 바꾸어 보아라.
+<fieldset style="border:1px solid red">
+    <legend>보기</legend>
+    <label id="la1">이름 :  </label> <input type="text" id="id" placeholder="아이디를 입력하세요"/><br>
+    <label id="la2">pass :  </label> <input type="text" id="pwd" placeholder="비밀번호를 입력하세요"/><br> 
+    <label id="la3">name :  </label> <input type="text" id="name" placeholder="비밀번호를 입력하세요"/><br>
+    <label id="la4">addr :  </label> <input type="text" id="addr" placeholder="주소를 입력하세요"/><br>
+</fieldset>
+<br><br><br>
+
+
+
+문제1<br>
+보기에 있는 "이름 : " -> "ID : " 으로 변경 되도록 하여라.<br>
+<button onclick="changeInner();">도전</button>
+<br><br><br>
+
+
+문제2<br>
+현재는 패스워드 입력시 비밀번호가 노출되는 형태이다.<br>
+비밀번호 입력시 비밀번호가 노출되지 않도록 만들어라.<br>
+<button onclick="changeType();">도전</button>
+<br><br><br>
+
+문제3<br>
+name의 기본 노출값이 이상하다.! 기본 노출값이 "비밀번호를 입력하세요"가 아닌<br>
+"이름을 입력하세요"로 변경하시오<br>
+<button onclick="changePlaceholder();">도전</button>
+<br><br><br>
+
+
+문제4<br>
+addr의 주소 입력창이 너무 짧다! 최대 50글자를 입력할 수 있도록<br>
+입력바를 길게 만들어라.<br>
+<button onclick="changeSize();">도전</button>
+<br><br><br>
+
+문제5<br>
+보기에 있는 필드에 내용을 작성하고 <br>
+작성된 내용을 모두 가져와서 alert창에 출력하시오<br>
+단, getElementById를 사용하지 말고 처리하시오 <br>
+ex)<br>
+ID : XXX <br>
+PW : XXXXXX <br>
+이름 : XXX <br>
+주소 : XXXXXXXX <br>
+<button onclick="printAlert();">도전</button>
+</body>
+</html>
