@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        #print {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            overflow: auto;
+            white-space: pre-line;
+        }
+    </style>
+    <script>
+        function print() {
+            var inputs = document.getElementsByName("hobby");
+            var span = document.getElementById("print");
+            span.innerHTML = "";
+            
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].checked) {
+                    span.innerHTML = span.innerHTML + inputs[i].value + "\n";
+                }
+            }
+        }
+        
+        function allchk() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].checked = true;
+            }
+        }
+        
+        function resetchk() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].checked = false;
+            }
+        }
+        
+        function checkall() {
+            var inputs = document.getElementsByName("hobby");
+            var all = document.getElementById("all");
+            
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].checked = all.checked;
+            }
+        }
+        
+        function isallcheck() {
+            var inputs = document.getElementsByName("hobby");
+            var all = document.getElementById("all");
+            var i = 0;
+            
+            for (; i < inputs.length; i++) {
+                if (!inputs[i].checked) {
+                    break;
+                }
+            }
+            
+            if (i == inputs.length) {
+                all.checked = true;
+            } else {
+                all.checked = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>체크된 값 읽어오기</h2>
+    <fieldset>
+        <legend>취미</legend>
+        <table>
+            <tr>
+                <td><label><input type="checkbox" value="게임" name="hobby" onclick="isallcheck();">게임</label></td>
+                <td><label><input type="checkbox" value="음악감상" name="hobby" onclick="isallcheck();">음악감상</label></td>
+                <td><label><input type="checkbox" value="영화보기" name="hobby" onclick="isallcheck();">영화보기</label></td>
+            </tr>
+            <tr>
+                <td><label><input type="checkbox" value="독서" name="hobby" onclick="isallcheck();">독서</label></td>
+                <td><label><input type="checkbox" value="여행" name="hobby" onclick="isallcheck();">여행</label></td>
+                <td><label><input type="checkbox" value="운동" name="hobby" onclick="isallcheck();">운동</label></td>
+            </tr>
+        </table>
+    </fieldset>
+    <div id="print">
+    </div>
+    <button onclick="print();">체크된 값 읽어오기</button>
+    <button onclick="allchk();">전체체크</button>
+    <button onclick="resetchk();">전체체크 해제</button>
+    <label><input type="checkbox" onclick="checkall()" id="all">전체체크</label>
+
+</body>
+</html>
