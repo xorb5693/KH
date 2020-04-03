@@ -61,6 +61,12 @@
             
             checkp[0].innerHTML = in1.value;
         }
+        
+        function chkbox() {
+            var chk = document.getElementById("chk");
+            alert(chk.checked);
+            chk.checked = false;
+        }
     </script>
     <script src="./js/first.js"></script>
 </head>
@@ -93,5 +99,9 @@
     <input id="in1" type="text" onkeyup="checkTest();">
     <p class="checkp"></p>
     <button onclick="inputTest();">클릭</button>
+    <hr>
+    
+    <input type="checkbox" id="chk" value="체크">
+    <button onclick="chkbox();">클릭</button>
 
 </body></html>
