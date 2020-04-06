@@ -1,0 +1,61 @@
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        
+        <script>
+            
+            var count = 5;
+            var arr = new Array();
+            
+            function changeColor(color) {
+                var box = document.getElementById(color);
+                arr.push(box.outerHTML);
+                box.outerHTML = "";
+                count--;
+                
+                if (count == 0) {
+                    var print = document.getElementById('div5');
+                    print.innerHTML = arr.join("");
+                    arr.splice(0, 5);
+                    count = 5;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+
+
+        <h1> 배열 실습 문제 3</h1>
+        <br><br>
+        문제5. 다음 보기의 그림을 클릭하면 그림이 사라지고 그림을 모두 클릭하면 클릭한 순서대로 그림이 나올수 있도록 만들어라.<br>
+        (힌트 : outerHTML)<br>
+
+        <fieldset>
+            <style>
+                .divss {
+                    float: left;
+                    width:100px;
+                    height:100px;
+                    border: 1px solid black;
+
+                }
+
+            </style>
+            <legend>보기</legend>
+            <div id="div5">
+                <div style="background-color:red;" class="divss" onclick="changeColor('red');" id="red"></div>
+                <div style="background-color:blue;" class="divss" onclick="changeColor('blue');" id="blue"></div>
+                <div style="background-color:green;" class="divss" onclick="changeColor('green');" id="green"></div>
+                <div style="background-color:pink;" class="divss" onclick="changeColor('pink');" id="pink"></div>
+                <div style="background-color:yellow;" class="divss" onclick="changeColor('yellow');" id="yellow"></div>
+            </div>
+
+        </fieldset><br>
+
+    </body>
+
+    </html>

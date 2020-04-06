@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+
+        <script>
+            function print2Test() {
+                var arr = document.getElementById("stringla4").innerHTML.split(' ');
+                var del = document.getElementById("remove").value;
+                var add = document.getElementById("add").value;
+                var print = document.getElementById("print4");
+
+                var index = arr.indexOf(del);
+                if (index != -1) {
+                    arr.splice(index, 1);
+                }
+                arr.push(add);
+                print.innerHTML = arr.join(" ");
+            }
+
+        </script>
+    </head>
+
+    <body>
+
+
+        <h1> 배열 실습 문제 2</h1>
+
+        <br><br> 문제4. 다음 보기의 문자열을 바탕으로<br> 삭제할 음식과 추가할 음식을 입력받아서 <br> 지우고,추가하는 코드를 작성하여라. (단, 1개씩 입력)<br>
+        <br> 예시) 삭제 : 당근 / 추가 : 타코야끼 <br> 결과-> 피자 치킨 햄버거 떡볶이 타코야끼 <br>
+        <fieldset>
+            <legend>보기</legend>
+            <label id="stringla4">피자 치킨 당근 햄버거 떡볶이</label><br>
+        </fieldset><br>
+        <input type="text" id="remove" size="25" placeholder="삭제할 음식이름을 입력하세요">
+        <input type="text" id="add" size="25" placeholder="추가할 음식이름을 입력하세요">
+        <p style="border:1px solid red;" id="print4">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+        <button onclick="print2Test();"> 처리 및 출력 </button>
+
+
+
+
+    </body>
+
+    </html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <script>
+        function arrayTest() {
+            var la1 = document.getElementById("la1").innerHTML.split(',');
+            var la2 = document.getElementById("la2").innerHTML.split(',');
+            var la3 = document.getElementById("la3").innerHTML.split(',');
+            var la4 = document.getElementById("la4").innerHTML.split(',');
+            var arr = la1.concat(la2, la3, la4);
+
+            var find = arr.indexOf(document.getElementById("text1").value);
+
+            if (find == -1) {
+                alert("존재하지 않습니다.");
+            } else {
+                alert(find);
+            }
+        }
+        
+        function reverseTest() {
+            var str1 = document.getElementById("stringla1").innerHTML.split(' ').reverse();
+            var str2 = document.getElementById("stringla2").innerHTML.split(' ').reverse();
+            
+            var print = document.getElementById("print");
+            print.innerHTML = str1.concat(str2).join("");
+        }
+        
+        var arrpush = new Array();
+        
+        function input() {
+            var str = document.getElementById("strInput");
+            arrpush.push(str.value);
+            str.value = "";
+        }
+
+        function printTest() {
+            var print = document.getElementById("print2");
+            print.innerHTML = arrpush;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1> 배열 실습 문제 </h1>
+
+    문제1. 다음 보기에 있는 데이터들은 배열로 받고 하나의 배열로 합치도록 하여라.<br>
+    이때 입력 필드에 배열에 있는 데이터를 전송하면 배열의 alert를 통하여<br>
+    배열의 위치를 알려주고, 없으면 "존재하지 않습니다" 를 알려주어라.<br>
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">사과,바나나,당근</label><br>
+        <label id="la2">김밥,치즈,떡볶이,햄버거</label><br>
+        <label id="la3">환타,사이다,콜라</label><br>
+        <label id="la4">고양이,강아지</label><br>
+    </fieldset><br>
+    <input type="text" placeholder="찾을 문자열을 입력하세요" size=100 id="text1">
+    <div id="result1"> </div>
+    <button onclick="arrayTest();"> 전송 및 처리 </button>
+
+
+    <br><br>
+    <hr>
+    <hr>
+    <br><br>
+    문제2. 다음 보기에 있는 문자열을 가지고 정답과 같이 만들어라. (별도의 문자열을 쓰면 안됨)<br>
+    그리고 출력 부분에 출력하도록 하여라.
+    정답 : "khlove"
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">h k</label><br>
+        <label id="stringla2">e v o l</label><br>
+    </fieldset><br>
+    <p style="border:1px solid red;" id="print">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+    <div id="result1"> </div>
+    <button onclick="reverseTest();"> 처리 </button>
+
+
+    <br><br>
+    <hr>
+    <hr>
+    <br><br>
+    문제3. 다음 문자열을 입력 받은 후 출력 버튼 클릭시 모든 입력한 문자열이 출력되도록 만들어라.
+
+    <fieldset>
+        <legend>입력</legend>
+        <input type="text" id="strInput"> <button onclick="input()">입력</button>
+    </fieldset><br>
+    <p style="border:1px solid red;" id="print2">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+    <div id="result1"> </div>
+    <button onclick="printTest();"> 출력 </button>
+
+</body>
+
+</html>
