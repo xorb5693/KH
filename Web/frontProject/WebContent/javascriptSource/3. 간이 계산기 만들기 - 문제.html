@@ -11,43 +11,32 @@
 
     첫번째 값 : <input id="num1"><br>
     두번째 값 : <input id="num2"><br>
-    <button onclick="add();">+</button>
-    <button onclick="sub();">-</button>
-    <button onclick="mul();">*</button>
-    <button onclick="div1();">/</button>
-    <button onclick="div2();">%</button>
+    <button onclick="calculator('+');">+</button>
+    <button onclick="calculator('-');">-</button>
+    <button onclick="calculator('*');">*</button>
+    <button onclick="calculator('/');">/</button>
+    <button onclick="calculator('%');">%</button>
     <br><br>
     계산결과 : <span id="calc"></span>
 
     <hr>
     <script>
-        var num1 = document.getElementById("num1");
-        var num2 = document.getElementById("num2");
-        var calc = document.getElementById("calc");
-
-        function add() {
-
-            calc.innerHTML = Number(num1.value) + Number(num2.value);
-        }
-
-        function sub() {
-
-            calc.innerHTML = num1.value - num2.value;
-        }
-
-        function mul() {
-
-            calc.innerHTML = num1.value * num2.value;
-        }
-
-        function div1() {
-
-            calc.innerHTML = num1.value / num2.value;
-        }
-
-        function div2() {
-
-            calc.innerHTML = num1.value % num2.value;
+        function calculator(oper) {
+            var num1 = document.getElementById("num1");
+            var num2 = document.getElementById("num2");
+            var calc = document.getElementById("calc");
+            
+            if(oper == '+') {
+                calc.innerHTML = Number(num1.value) + Number(num2.value);
+            } else if (oper == '-') {
+                calc.innerHTML = Number(num1.value) - Number(num2.value);
+            } else if (oper == '*') {
+                calc.innerHTML = Number(num1.value) * Number(num2.value);
+            } else if (oper == '/') {
+                calc.innerHTML = Number(num1.value) / Number(num2.value);
+            } else if (oper == '%') {
+                calc.innerHTML = Number(num1.value) % Number(num2.value);
+            }
         }
 
     </script>
