@@ -4,22 +4,37 @@
     <head>
         <meta charset="UTF-8">
         <title>Insert title here</title>
-        
+
         <script>
-            
             var arr = new Array();
-            
+
             function changeColor(color) {
                 var box = document.getElementById(color);
                 arr.push(box.outerHTML);
                 box.outerHTML = "";
-                
+
                 if (arr.length == 5) {
                     var print = document.getElementById('div5');
                     print.innerHTML = arr.join("");
                     arr.splice(0, 5);
                 }
+
+//                box.style.display = "none";
+//                arr.push(box);
+//
+//                if (arr.length == 5) {
+//                    var print = document.getElementById('div5');
+//                    print.innerHTML = "";
+//                    
+//                    for (var i = 0; i < arr.length; i++) {
+//                        arr[i].style.display = "block";
+//                        print.innerHTML = print.innerHTML + arr[i].outerHTML;
+//                    }
+//                    
+//                    arr = new Array();
+//                }
             }
+
         </script>
     </head>
 
@@ -35,8 +50,8 @@
             <style>
                 .divss {
                     float: left;
-                    width:100px;
-                    height:100px;
+                    width: 100px;
+                    height: 100px;
                     border: 1px solid black;
 
                 }
