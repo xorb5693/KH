@@ -7,20 +7,17 @@
         
         <script>
             
-            var count = 5;
             var arr = new Array();
             
             function changeColor(color) {
                 var box = document.getElementById(color);
                 arr.push(box.outerHTML);
                 box.outerHTML = "";
-                count--;
                 
-                if (count == 0) {
+                if (arr.length == 5) {
                     var print = document.getElementById('div5');
                     print.innerHTML = arr.join("");
                     arr.splice(0, 5);
-                    count = 5;
                 }
             }
         </script>
