@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+        function test1() {
+            var arr1 = [1, 2, 3, 4, 5];
+            console.log(arr1);
+            
+            var arr2 = [1, "문자", arr1, true];
+            console.log(arr2);
+            
+            var arr3 = new Array();
+            console.log(arr3);
+            
+            arr3.push(1);
+            arr3.push(true);
+            arr3.push(arr2);
+            console.log(arr3);
+            
+            var arr4 = new Array(3);
+            console.log(arr4);
+            
+            arr4.push("test");
+            arr4[0] = 1;
+            arr4[1] = "test1";
+            console.log(arr4);
+        }
+        
+        function test2() {
+            var fruits = ['사과', '딸기', '자두', '포도'];
+            var text = document.getElementById('in1').value;
+            alert(fruits.indexOf(text));
+        }
+        
+        function test3() {
+            var arr1 = [1, 2, 3, 4];
+            var arr2 = ['가', '나', '다', '라'];
+            var arr3 = ['a', 'b', 'c', 'd'];
+            var result = arr1.concat(arr2, arr3);
+            console.log(result);
+        }
+        
+        function test4() {
+            var arr1 = [1, 2, 3, 4];
+            var arr2 = ['가', '나', '다', '라'];
+            var arr3 = ['a', 'b', 'c', 'd'];
+            var result = arr1.concat(arr2, arr3);
+            
+            var joinResult = result.join(" ");
+            console.log(joinResult);
+        }
+        
+        function test5() {
+            var arr1 = [1, 2, 3, 4, 5];
+            var arr2 = [1, 2, 3, 4, 5];
+            arr2.reverse();
+            console.log(arr1);
+            console.log(arr2);
+        }
+        
+        function test6() {
+            var arr = [1, 4, 2, 7, 9, 10, 5, 8];
+            arr.sort();
+            console.log(arr);
+            
+            arr.sort(sortASC);
+            console.log(arr);
+            
+            arr.sort(sortDESC);
+            console.log(arr);
+        }
+        
+        function sortASC(a, b) {
+            return a-b;
+        }
+        
+        function sortDESC(a, b) {
+            return b-a;
+        }
+        
+        function test7() {
+            var arr = [1, 2, 3];
+            console.log(arr);
+            
+            arr.push(4);
+            arr.push(5);
+            console.log(arr);
+            
+            var num = arr.pop();
+            console.log(arr);
+            console.log(num);
+            
+            arr.push(6);
+            console.log(arr);
+            
+            arr.unshift(10);
+            arr.unshift(11);
+            console.log(arr);
+            
+            num = arr.shift();
+            console.log(arr);
+            console.log(num);
+            
+            console.log(arr.toString());
+        }
+        
+        function test8() {
+            var arr=["Hello", "World", "Hi", "Stack", "Que", "Deque"];
+            
+            var sl1 = arr.slice(2);
+            console.log(sl1);
+            console.log(arr);
+            
+            var sl2 = arr.slice(1, 3);
+            console.log(sl2);
+        }
+        
+        function test9() {
+            var arr=["Hello", "World", "Hi", "Stack", "Que", "Deque"];
+            var arr1 = [1, 2, 3, 4];
+            
+            var result = arr.splice(1, 0, arr1);
+            console.log(result);
+            console.log(arr);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="test1();">클릭</button>
+    <br>
+    <input type="text" id="in1" placeholder="과일을 입력하세요">
+    <button onclick="test2();">indexOf 테스트</button>
+    <br>
+    <button onclick="test3();">concat 테스트</button>
+    <br>
+    <button onclick="test4();">join 테스트</button>
+    <br>
+    <button onclick="test5();">reverse 테스트</button>
+    <br>
+    <button onclick="test6();">sort 테스트</button>
+    <br>
+    <button onclick="test7();">push/pop/shfit/unshift/toString 테스트</button>
+    <br>
+    <button onclick="test8();">slice 테스트</button>
+    <br>
+    <button onclick="test9();">splice 테스트</button>
+</body>
+</html>
