@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        .calc {
+            border: 2px solid blue;
+            width: 220px;
+            height: auto;
+            margin: 0 auto;
+        }
+        
+        #result {
+            margin: 0 auto;
+            margin-top: 1px;
+            box-sizing: border-box;
+            overflow: auto;
+            width: 99%;
+            height: 70px;
+            line-height: 68px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 20pt;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        
+        button {
+            width: 50px;
+            height: 50px;
+            font-weight: bold;
+            font-size: 15pt;
+        }
+        
+        table {
+            margin: 0 auto;
+        }
+    </style>
+    
+    <script>
+        
+        function clickbtn(btn) {
+            var result = document.getElementById("result");
+            
+            if (btn.innerHTML == '=') {
+                result.innerHTML = eval(result.innerHTML);
+            } else if(btn.innerHTML == 'AC') {
+                result.innerHTML = "";
+            } else if(isFinite(btn.innerHTML) || btn.innerHTML == '.') {
+                result.innerHTML = result.innerHTML + btn.innerHTML;
+            } else {
+                result.innerHTML = result.innerHTML + ' ' + btn.innerHTML + ' ';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>연습4</h1>
+    <h3>계산기 만들기</h3>
+    <hr>
+    <div class="calc">
+        <div id="result"></div>
+        <table>
+            <tr>
+                <th><button onclick="clickbtn(this);">(</button></th>
+                <th><button onclick="clickbtn(this);">)</button></th>
+                <th><button onclick="clickbtn(this);">%</button></th>
+                <th><button onclick="clickbtn(this);">AC</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="clickbtn(this);">7</button></th>
+                <th><button onclick="clickbtn(this);">8</button></th>
+                <th><button onclick="clickbtn(this);">9</button></th>
+                <th><button onclick="clickbtn(this);">/</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="clickbtn(this);">4</button></th>
+                <th><button onclick="clickbtn(this);">5</button></th>
+                <th><button onclick="clickbtn(this);">6</button></th>
+                <th><button onclick="clickbtn(this);">*</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="clickbtn(this);">1</button></th>
+                <th><button onclick="clickbtn(this);">2</button></th>
+                <th><button onclick="clickbtn(this);">3</button></th>
+                <th><button onclick="clickbtn(this);">-</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="clickbtn(this);">0</button></th>
+                <th><button onclick="clickbtn(this);">.</button></th>
+                <th><button onclick="clickbtn(this);">=</button></th>
+                <th><button onclick="clickbtn(this);">+</button></th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

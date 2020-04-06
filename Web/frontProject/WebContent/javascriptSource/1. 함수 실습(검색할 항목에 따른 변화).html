@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style type="text/css">
+        fieldset {
+            width: 400px;
+            text-align: center;
+            background: #dbdbdb;
+        }
+
+        div.box {
+            width: 500px;
+            height: 50px;
+
+            margin: 10px;
+            padding: 10px;
+            background: #ffcc00;
+            display: none;
+        }
+
+    </style>
+    
+    <script>
+        function selectCategory(radiobtn) {
+            var boxes = document.getElementsByClassName("box");
+            
+            for (var i = 0; i < boxes.length; i++) {
+                boxes[i].style.display = "none";
+            }
+            
+            var box = document.getElementById(radiobtn.value + "Box");
+            box.style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <h2>연습 3</h2>
+    <p>Hint 함수 호출 시 매개변수로 this를 보내면 호출한 엘리먼트가 전송</p>
+    <p>자바스크립트에서 엘리먼트.checked를 하면 라디오박스 선택시 true/선택이 안된경우 false를 리턴</p>
+    <fieldset>
+        <legend>검색할 항목을 선택하세요.</legend>
+        <input type="radio" name="category" value="title" id="title" onclick="selectCategory(this)"><label for="title">제목</label>&nbsp; &nbsp;
+        <input type="radio" name="category" value="date" id="date" onclick="selectCategory(this)"><label for="date">날짜</label>&nbsp; &nbsp;
+        <input type="radio" name="category" value="writer" id="writer" onclick="selectCategory(this)"><label for="writer">작성자</label>&nbsp; &nbsp;
+        <br>힌트 : display 속성을 이용<br>
+    </fieldset>
+    <hr>
+    <div id="titleBox" class="box">
+        <form method="post" action="">
+            <label> 검색할 제목을 입력하세요 : </label>
+            <br>
+            <input type="search" name="title" size="50"> &nbsp;
+            <input type="submit" value="검색">
+        </form>
+    </div>
+    <div id="dateBox" class="box">
+        <form method="post" action="">
+            <label> 검색할 날짜를 선택하세요 : </label>
+            <br>
+            <input type="date" name="start"> -
+            <input type="date" name="end"> &nbsp;
+            <input type="submit" value="검색">
+        </form>
+    </div>
+    <div id="writerBox" class="box">
+        <form method="post" action="">
+            <label> 검색할 작성자 아이디를 입력하세요 : </label>
+            <br>
+            <input type="search" name="writer" size="25"> &nbsp;
+            <input type="submit" value="검색">
+        </form>
+    </div>
+    <script type="text/javascript">
+        //요구한 내용을 변수, 연산자, 제어문 등을 사용하여 실행되게 하시오.
+        //제목 체크시, titleBox 만 보여지게
+        //날짜 체크시, dateBox 만 보여지게
+        //작성자 체크시, writerBox 만 보여지게 함
+
+    </script>
+</body>
+
+</html>
