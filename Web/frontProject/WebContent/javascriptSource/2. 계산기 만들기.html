@@ -43,10 +43,14 @@
         function clickbtn(btn) {
             var result = document.getElementById("result");
             
+            if (result.innerHTML == '0' && btn.innerHTML != '.') {
+                result.innerHTML = "";
+            }
+            
             if (btn.innerHTML == '=') {
                 result.innerHTML = eval(result.innerHTML);
             } else if(btn.innerHTML == 'AC') {
-                result.innerHTML = "";
+                result.innerHTML = "0";
             } else if(isFinite(btn.innerHTML) || btn.innerHTML == '.') {
                 result.innerHTML = result.innerHTML + btn.innerHTML;
             } else {
@@ -61,7 +65,7 @@
     <h3>계산기 만들기</h3>
     <hr>
     <div class="calc">
-        <div id="result"></div>
+        <div id="result">0</div>
         <table>
             <tr>
                 <th><button onclick="clickbtn(this);">(</button></th>
