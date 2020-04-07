@@ -26,12 +26,9 @@
             data.name = name;
             data.age = age;
             data.addr = addr;
-            data.str = function() {
-                return "이름 : " + name + "<br>나이 : " + age + "<br>주소 : " + addr;
-            }
 
             return function getData() {
-                return data;
+                return "이름 : " + data.name + "<br>나이 : " + data.age + "<br>주소 : " + data.addr;
             }
         }
 
@@ -47,9 +44,8 @@
             if (fun == null) {
                 alert("입력을 먼저 하세요");
             } else {
-                var data = fun();
                 var print = document.getElementById("print");
-                print.innerHTML = data.str();
+                print.innerHTML = fun();
             }
         }
 
