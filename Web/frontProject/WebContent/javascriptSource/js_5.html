@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        p {
+            height: 100px;
+            border: 1px solid aqua;
+        }
+
+    </style>
+
+    <script>
+        function test1() {
+            var stu = {
+                name: "박태규",
+                age: 27,
+                addr: "수궁동",
+                test: function() {
+                    alert("테스트 함수");
+                },
+                info: function() {
+                    return this.name + "/" + this.age + "/" + this.addr;
+                }
+            };
+
+            var result1 = document.getElementById("result1");
+//            result1.innerHTML = stu["name"] + "/" + stu.age + "/" + stu["addr"];
+            result1.innerHTML = stu["info"]();
+            stu["test"]();
+        }
+        
+        function test2() {
+            var testObj = {a: 100, b: 200};
+            console.log('a' in testObj);
+            console.log('c' in testObj);
+            
+            with(testObj) {
+                a = 300;
+                b = 400;
+            }
+            console.log(testObj.a);
+            console.log(testObj["b"]);
+        }
+
+        function test3() {
+            var testObj = {a: 100, b: 200};
+            testObj.c = 300;
+            console.log('c' in testObj);
+            
+            testObj.d = 400;
+            console.log(testObj);
+            
+            delete(testObj.c);
+            console.log(testObj);
+        }
+        
+        function test4() {
+            var objArr = [];
+            var test1 = {a: 100, b: 200};
+            var test2 = {name: "박태규", addr: "수궁동"};
+            var test3 = {name: "컴공", addr: "강릉"};
+            objArr.push(test1);
+            objArr.push(test2);
+            objArr.push(test3);
+            
+            console.log(objArr);
+            console.log(objArr[2].addr);
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="test1();">확인1</button>
+    <button onclick="test2();">확인2</button>
+    <button onclick="test3();">확인3</button>
+    <button onclick="test4();">확인4</button>
+    <p id="result1"></p>
+</body>
+
+</html>
