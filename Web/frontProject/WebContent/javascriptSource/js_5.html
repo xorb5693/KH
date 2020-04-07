@@ -69,6 +69,27 @@
             console.log(objArr);
             console.log(objArr[2].addr);
         }
+        
+        function test5() {
+            var obj = getObj(prompt("이름 : "), prompt("나이 : "), prompt("주소 : "));
+            console.log(obj);
+        }
+        
+        function getObj(name, age, addr) {
+            var obj = {name: name, age: age, addr: addr};
+            return obj;
+        }
+        
+        function test6() {
+            var stu = new Student(prompt("이름 : "), prompt("나이 : "), prompt("주소 : "));
+            console.log(stu);
+        }
+        
+        function Student(name, age, addr) {
+            this.name = name;
+            this.age = age;
+            this.addr = addr;
+        }
     </script>
 </head>
 
@@ -77,6 +98,8 @@
     <button onclick="test2();">확인2</button>
     <button onclick="test3();">확인3</button>
     <button onclick="test4();">확인4</button>
+    <button onclick="test5();">확인5</button>
+    <button onclick="test6();">확인6</button>
     <p id="result1"></p>
 </body>
 
