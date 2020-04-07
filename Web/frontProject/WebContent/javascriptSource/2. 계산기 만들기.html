@@ -1,64 +1,116 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
     <style>
         .calc {
             border: 2px solid blue;
-            width: 220px;
+            width: 420px;
             height: auto;
             margin: 0 auto;
         }
-        
+
         #result {
             margin: 0 auto;
             margin-top: 1px;
             box-sizing: border-box;
             overflow: auto;
-            width: 99%;
+            width: 98%;
             height: 70px;
-            line-height: 68px;
+            line-height: 50px;
             text-align: right;
             font-weight: bold;
             font-size: 20pt;
             border: 1px solid black;
-            display: inline-block;
+            padding: 2px;
         }
-        
+
         button {
-            width: 50px;
-            height: 50px;
+            width: 100px;
+            height: 100px;
             font-weight: bold;
             font-size: 15pt;
         }
-        
+
         table {
             margin: 0 auto;
         }
+
     </style>
-    
+
     <script>
-        
+        var check = false;
+
         function clickbtn(btn) {
             var result = document.getElementById("result");
-            
+
+            if (check) {
+                result.innerHTML = "0";
+                check = false;
+            }
+
             if (result.innerHTML == '0' && btn.innerHTML != '.') {
                 result.innerHTML = "";
             }
-            
+
             if (btn.innerHTML == '=') {
+                var start = 0;
+                var end = 0;
+
+                for (var i = 0; i < result.innerHTML.length; i++) {
+                    if (result.innerHTML.charAt(i) == '(') {
+                        start++;
+                    } else if (result.innerHTML.charAt(i) == ')') {
+                        end++;
+                    }
+                }
+
+                if (start > end) {
+                    for (var i = 0; i < start - end; i++) {
+                        result.innerHTML = result.innerHTML + ')';
+                    }
+                } else if (end > start) {
+                    for (var i = 0; i < end - start; i++) {
+                        result.innerHTML = '(' + result.innerHTML;
+                    }
+                }
+
+                check = true;
                 result.innerHTML = eval(result.innerHTML);
-            } else if(btn.innerHTML == 'AC') {
+            } else if (btn.innerHTML == '(') {
+                if (result.innerHTML == "" || result.innerHTML.charAt(result.innerHTML.length - 1) == ' ' || result.innerHTML.charAt(result.innerHTML.length - 1) == '(') {
+                    result.innerHTML = result.innerHTML + btn.innerHTML;
+                }
+            } else if (btn.innerHTML == ')') {
+                if (result.innerHTML.charAt(result.innerHTML.length - 1) != '(' && result.innerHTML.charAt(result.innerHTML.length - 1) != ' ') {
+                    result.innerHTML = result.innerHTML + btn.innerHTML;
+                }
+            } else if (btn.innerHTML == 'AC') {
                 result.innerHTML = "0";
-            } else if(isFinite(btn.innerHTML) || btn.innerHTML == '.') {
-                result.innerHTML = result.innerHTML + btn.innerHTML;
+            } else if (isFinite(btn.innerHTML)) {
+                if (result.innerHTML.charAt(result.innerHTML.length - 1) != ')') {
+                    result.innerHTML = result.innerHTML + btn.innerHTML;
+                }
+            } else if (btn.innerHTML == '.') {
+                if (isFinite(result.innerHTML.charAt(result.innerHTML.length - 1)) && result.innerHTML.charAt(result.innerHTML.length - 1) != ' ') {
+                    result.innerHTML = result.innerHTML + '.';
+                }
             } else {
-                result.innerHTML = result.innerHTML + ' ' + btn.innerHTML + ' ';
+                if (result.innerHTML == "") {
+                    result.innerHTML = "0";
+                } else if (result.innerHTML.charAt(result.innerHTML.length - 1) != ' ' || result.innerHTML.charAt(result.innerHTML.length - 2) == ')') {
+                    result.innerHTML = result.innerHTML + ' ' + btn.innerHTML + ' ';
+                } else {
+                    result.innerHTML = result.innerHTML.substr(0, result.innerHTML.length - 2) + btn.innerHTML + ' ';
+                }
             }
         }
+
     </script>
 </head>
+
 <body>
 
     <h1>연습4</h1>
@@ -100,4 +152,5 @@
         </table>
     </div>
 </body>
+
 </html>
