@@ -34,6 +34,20 @@
             var box = document.getElementById(radiobtn.value + "Box");
             box.style.display = "block";
         }
+        
+//        강사님 코드
+        function selectCategory() {
+            var boxes = document.getElementsByClassName("box");
+            var check = document.getElementsByName("category");
+            
+            for (var i = 0; i < check.length; i++) {
+                if (check[i].checked) {
+                    boxes[i].style.display = "block";
+                } else {
+                    boxes[i].style.display = "none";
+                }
+            }
+        }
     </script>
 </head>
 
@@ -43,9 +57,9 @@
     <p>자바스크립트에서 엘리먼트.checked를 하면 라디오박스 선택시 true/선택이 안된경우 false를 리턴</p>
     <fieldset>
         <legend>검색할 항목을 선택하세요.</legend>
-        <input type="radio" name="category" value="title" id="title" onclick="selectCategory(this)"><label for="title">제목</label>&nbsp; &nbsp;
-        <input type="radio" name="category" value="date" id="date" onclick="selectCategory(this)"><label for="date">날짜</label>&nbsp; &nbsp;
-        <input type="radio" name="category" value="writer" id="writer" onclick="selectCategory(this)"><label for="writer">작성자</label>&nbsp; &nbsp;
+        <input type="radio" name="category" value="title" id="title" onclick="selectCategory()"><label for="title">제목</label>&nbsp; &nbsp;
+        <input type="radio" name="category" value="date" id="date" onclick="selectCategory()"><label for="date">날짜</label>&nbsp; &nbsp;
+        <input type="radio" name="category" value="writer" id="writer" onclick="selectCategory()"><label for="writer">작성자</label>&nbsp; &nbsp;
         <br>힌트 : display 속성을 이용<br>
     </fieldset>
     <hr>
