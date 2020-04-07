@@ -1,6 +1,6 @@
 **1. 개요**
 - 이 폴더는 KH 정보교육 HTML 파일들을 모아놓기 위한 폴더입니다.
-- HTML파일은 frontProject/WebContent/HTML/ 폴더 밑에 있습니다.
+- HTML파일은 frontProject/WebContent/ 폴더 밑에 있습니다.
 
 **2. 목록**
 - 32일차(2020-03-23)
@@ -134,9 +134,9 @@
     2. 전체체크
     3. 전체체크 해제
   - js_2.html : javascript 테스트 프로그램 2, 각종 함수 테스트
-  - 2. 기본 문법 문제.html : javascript 실습 프로그램 3
+  - 기본 문법 문제.html : javascript 실습 프로그램 3
     1. 기본 문범
-  - 3. 간이 계산기 만들기 - 문제.html : javascript 실습 프로그램 4
+  - 간이 계산기 만들기 - 문제.html : javascript 실습 프로그램 4
     1. 계산기
 - 42일차(2020-04-06)
   - js_3.html : javascript Array 테스트 프로그램
@@ -147,11 +147,11 @@
     5. reverse 테스트
     6. sort 테스트(숫자 정렬)
     7. push/pop/shfit/unshift/toString 테스트
-  - 1. 배열 문제.html : javascript Array 실습 프로그램 1
+  - 배열 문제.html : javascript Array 실습 프로그램 1
     1. 배열의 위치 출력
     2. reverse()를 이용한 정답 만들기
     3. 입력받은 내용을 배열에 저장 후 출력버튼 클릭시 출력
-  - 2. 배열 문제2.html : javascript Array 실습 프로그램 2
+  - 배열 문제2.html : javascript Array 실습 프로그램 2
     1. 2개의 단어를 입력받아 앞에 입력받은 단어는 빼내고 뒤에 입력받은 단어는 뒤에 추가
   - 3. 배열 문제3.html : javascript Array 실습 프로그램 3
     1. 클릭한 순서대로 색깔 변경
@@ -163,7 +163,11 @@
     5. 함수 리턴(클로저)
     6. 내장함수(인코딩, 디코딩)
     7. 내장함수
-  - 1. 함수 실습(검색할 항목에 따른 변화).html
+  - 함수 실습(검색할 항목에 따른 변화).html
     1. 검색할 항목에 따른 변화
-  - 2. 계산기 만들기.html
+  - 계산기 만들기.html
     1. 계산기
+- 43일차(2020-04-07)
+  - js_5.html : 객체 테스트 프로그램
+  - 객체 실습(문제)_.html : 객체 실습 프로그램
+  - js_5.html : javascript BOM 테스트 프로그램
