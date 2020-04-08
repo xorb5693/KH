@@ -94,6 +94,21 @@
         function moveNaver() {
             location.href = "https://www.naver.com";
         }
+        
+        var lat, lng;
+        window.onload = function() {
+            navigator.geolocation.getCurrentPosition(showLocation);
+        }
+        
+        function showLocation(position) {
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+        }
+        
+        function latlong() {
+            console.log(lat);
+            console.log(lng);
+        }
     </script>
 </head>
 <body>
@@ -122,5 +137,6 @@
     <a name="bottom"></a>
     <button onclick="up();">위로 이동</button>
     <div id="div2" onclick="moveNaver();">네이버로 이동</div>
+    <button onclick="latlong();">위경도</button>
 </body>
 </html>
