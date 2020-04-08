@@ -170,4 +170,11 @@
 - 43일차(2020-04-07)
   - js_5.html : 객체 테스트 프로그램
   - 객체 실습(문제)_.html : 객체 실습 프로그램
-  - js_5.html : javascript BOM 테스트 프로그램
+  - js_6.html : javascript BOM 테스트 프로그램
+- 44일차(2020-04-08)
+  - js_7.html : javascript DOM 테스트 프로그램
+  - 회원 입력 테이블 자동 생성.html : javscript DOM 실습 프로그램 1
+  - 회원 입력 테이블 자동 생성 및 삭제버튼 구현.html : javascript DOM 실습 프로그램 2
+  - js_8.html : javascript 이벤트 테스트 프로그램
+  - js_9.html : javascript 정규식 테스트 프로그램
+  - regexpQue.html : javascript 정규식 실습 프로그램
