@@ -4,6 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
+    <style>
+        #d3 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        
+        .p1 {
+            font-size: 20px;
+        }
+    </style>
     <script>
         function test1() {
             //텍스트노드가 있는 문서객체 생성
@@ -40,7 +51,41 @@
             var d2 = document.getElementById("d2");
             d2.appendChild(imgTag);
         }
+        
+        function test3() {
+            var d3 = document.getElementById("d3");
+            d3.style.border = "1px solid red";
+            d3.style.backgroundColor = "aqua";
+            d3.style.borderRadius = "10px";
+            d3.style.boxShadow = "1px 1px 1px red";
+        }
+        
+        var num = 0;
 
+        function test4() {
+            var d4 = document.getElementById("d4");
+            
+            num++;
+            var text = document.createElement("p");
+            var textNode = document.createTextNode("Hello");
+            text.appendChild(textNode);
+            text.setAttribute("class", "p" + num);
+            
+            d4.appendChild(text);
+        }
+        
+        function test5() {
+            var pp = document.getElementsByClassName("p" + num);
+            pp[0].remove();
+            num--;
+        }
+        
+        function test6() {
+            var d4 = document.getElementById("d4");
+            var pp = document.getElementsByClassName("p" + num);
+            d4.removeChild(pp[0]);
+            num--;
+        }
     </script>
 </head>
 
@@ -51,6 +96,13 @@
     <hr>
     <div id="d2"></div>
     <button onclick="test2();">확인하기</button>
+    <hr>
+    <div id="d3"></div>
+    <button onclick="test3();">확인하기</button>
+    <div id="d4"></div>
+    <button onclick="test4();">확인하기</button>
+    <button onclick="test5();">본인삭제</button>
+    <button onclick="test6();">부모에서 삭제</button>
 </body>
 
 </html>
