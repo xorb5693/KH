@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        .layer2 {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            background-color: #ffffff;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        #notice {
+            font-weight: bold;
+            color: #566270;
+            font-size: 15pt;
+            height: 30px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        .info {
+            width: 80%;
+            margin: 0 auto;
+            border-top: 1px solid #566270;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        td {
+            border-bottom: 1px solid #E0E3DA;
+            text-align: left;
+            height: 20px;
+            line-height: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-sizing: content-box;
+        }
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .infoname {
+            width: 200px;
+            padding-left: 20px;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .footer {
+            height: 100px;
+            background-color: #566270;
+            margin: 0 auto;
+        }
+
+        input {
+            line-height: 20px;
+        }
+
+        .input {
+            width: 300px;
+            height: 20px;
+        }
+
+        .infobtn {
+            width: 100px;
+            height: 24px;
+            background-color: #090707;
+            border: none;
+            color: #ffffff;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .phone {
+            width: 80px;
+            height: 20px;
+        }
+
+        .gender+label {
+            width: 100px;
+            display: inline-block;
+            text-align: center;
+            background-color: #090707;
+            color: #ffffff;
+        }
+
+        .gender:checked+label {
+            background-color: #5c196b;
+            color: #ffffff;
+        }
+
+        .plusinfo {
+            display: inline;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .btndiv {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+    <script>
+        function check() {
+//            text.style.border = "2px solid red";
+            var notice = document.getElementById("notice");
+            var input = document.getElementsByTagName("input");
+            
+            var regExp = /^[a-z0-9]{4,12}$/;
+            if (!regExp.test(input[0].value)) {
+                notice.innerHTML = "아이디는 영어 소문자, 숫자만 4~12 글자";
+                return false;
+            } 
+            
+            regExp = /^[a-zA-Z0-9]{8,12}$/;
+            if (!regExp.test(input[1].value) || !regExp.test(input[2].value)) {
+                notice.innerHTML = "비밀번호는 영어 소문자, 대문자, 숫자만 8~12 글자";
+                return false;
+            }
+            
+            if (input[1].value != input[2].value) {
+                notice.innerHTML = "비밀번호와 비밀번호 확인이 다릅니다";
+                return false;
+            }
+            
+            regExp = /^[가-힣]{1,}$/;
+            if (!regExp.test(input[3].value)) {
+                notice.innerHTML = "NAME 한글로 1글자 이상";
+                return false;
+            } 
+            
+            regExp = /010/;
+            if (!regExp.test(input[4].value)) {
+                notice.innerHTML = "전화번호 1번째 자리는 010만 가능";
+                return false;
+            } 
+            
+            regExp = /^[0-9]{3,4}$/;
+            if (!regExp.test(input[5].value)) {
+                notice.innerHTML = "전화번호 2번째 자리는 3자리 이상";
+                return false;
+            } 
+            
+            regExp = /^[0-9]{4}$/;
+            if (!regExp.test(input[6].value)) {
+                notice.innerHTML = "전화번호 3번째 자리는 무조건 4자리";
+                return false;
+            } 
+          
+            regExp = /^[a-zA-z0-9]{4,12}@.+$/;            
+            if (!regExp.test(input[7].value)) {
+                notice.innerHTML = "Email은 @포함, @앞에 영어,숫자 4~12 글자";
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="layer2">
+        <h2>회원가입</h2>
+        <p id="notice"></p>
+        
+        <form action="#" method="post">
+
+            <table class="info">
+                <tr>
+                </tr>
+                <tr>
+                    <td class="infoname">아이디</td>
+                    <td>
+                        <input type="text" name="id" id="id" class="input"></td>
+                </tr>
+                <tr>
+                    <td class="infoname">비밀번호</td>
+                    <td><input type="password" name="pass1" id="pass1" class="input"></td>
+                </tr>
+                <tr>
+                    <td class="infoname">비밀번호 확인</td>
+                    <td><input type="password" name="pass2" id="pass2" class="input"></td>
+                </tr>
+                <tr>
+                    <td class="infoname">이름</td>
+                    <td><input type="text" name="name" id="name" class="input"></td>
+                </tr>
+                <tr>
+                    <td class="infoname">전화번호</td>
+                    <td>
+                        <input type="text" name="phone2" id="phone1" class="phone"> -
+                        <input type="text" name="phone2" id="phone2" class="phone"> -
+                        <input type="text" name="phone2" id="phone2" class="phone">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infoname">이메일</td>
+                    <td><input type="text" name="email" id="email" class="input"></td>
+                </tr>
+            </table>
+            <div class="btndiv">
+                <input type="submit" value="회원가입" class="infobtn" onclick="return check();">
+                <input type="reset" value="취소" class="infobtn">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
