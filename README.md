@@ -5167,20 +5167,150 @@
   - Browser Object Model의 약자로써 브라우저 객체 모델이라고 함
   - 브라우저의 정보나 URL 정보, 모니터화면 정보 등을 취득하거나 제어할 수 있는 객체
   - 브라우저 객체의 최상위 객체는 window 객체
+  - window 객체의 하위객체로 document, location, screen, history, navigator가 있으며 계층구조로 접근 가능
   - window
-    - window 함수 실행 메소드  
+    - 자바스크립트에서 최상위 객체로 생서되는 모든 객체가 window객체 하위에 존재
+    - 브라우저 창에 대한 설정을 하는 객체
     <table>
       <tr>
-        <th></th>
-        <th></th>
+        <th>메소드</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td>moveBy(x,y) / moveTo(x,y)</td>
+        <td>윈도우 위치 조정(상대 / 절대)</td>
+      </tr>
+      <tr>
+        <td>resizeBy(x,y) / resizeTo(x,y)</td>
+        <td>윈도우 크기 조정(상대 / 절대)</td>
+      </tr>
+      <tr>
+        <td>scrollBy(x,y) / scrollTo(x,y)</td>
+        <td>스크롤 위치 이동(상대 / 절대)</td>
+      </tr>
+      <tr>
+        <td>focus()</td>
+        <td>윈도우에 초첨 맞춤</td>
+      </tr>
+      <tr>
+        <td>blur()</td>
+        <td>윈도우에 초점 제거</td>
+      </tr>
+      <tr>
+        <td>close()</td>
+        <td>윈도우 닫기</td>
       </tr>
     </table>  
+  - window.open()
+    - 새 창을 띄우는 메소드
+    ```
+    window.open('주소', '이름 또는 open방식', '형태');
+    ```
+    <table>
+      <tr>
+        <th colspan = "3">형태옵션</th>
+      </tr>
+      <tr>
+        <th>메소드</th>
+        <th>내용</th>
+        <th>속성 값</th>
+      </tr>
+      <tr>
+        <td>height</td>
+        <td>창 높이</td>
+        <td>값</td>
+      </tr>
+      <tr>
+        <td>width</td>
+        <td>창 너비</td>
+        <td>값</td>
+      </tr>
+      <tr>
+        <td>location</td>
+        <td>주소 입력 창</td>
+        <td rowspan = "5">yes | no | 1 | 0</td>
+      </tr>
+      <tr>
+        <td>menubar</td>
+        <td>메뉴 유무</td>
+      </tr>
+      <tr>
+        <td>resizable</td>
+        <td>화면크기 조절</td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>상태 표시줄</td>
+      </tr>
+      <tr>
+        <td>toolbar</td>
+        <td>툴바 표시</td>
+      </tr>
+    </table>  
+  - window 함수실행 메소드  
+  
+    | 메소드 | 예시 |  
+    | :-----: | :-----: |  
+    | setTimeout(함수,시간(ms)) | 일정시간 후 함수를 한번 실행 / id 값 리턴 |  
+    | setInterval(함수,시간(ms)) | 일정시간마다 함수를 반복 실행 / id 값 리턴 |  
+    | clearTimeout(id) | setTimeout() 함수 실행 종료 |  
+    | clearInterval(id) | setInterval() 함수 종료 |  
+    
   - window.onload
+    - 윈도우 객체가 로드 완료되면 자동으로 onload에 설정되어 있는 함수를 실행
+    - 윈도우 객체 로드 완료 : 모든 태그가 화면에 나타날 때
+    ```
+    window.onload = function() {
+      로직구성 또는 작성된 함수 호출
+    }
+    ```
   - screen 객체
-    - client 운영체제 화면에 대한 속성값을 가지는 객체
+    - client 운영체제 화면에 대한 속성값을 가지는 객체  
+    
+    | 속성 | 내용 |  
+    | :-----: | :-----: |  
+    | height | 화면 높이 |  
+    | width | 화면 너비 |  
+    | availWidth | 실제 화면에서 사용 가능한 너비 |  
+    | availHeight | 실제 화면에서 사용 가능한 높이 |  
+    | colorDepth | 사용 가능한 색상 수 |  
+    | pixelDepth | 한 픽셀당 비트 수 |  
   - location 객체
     - 브라우저의 주소표시줄(URL)과 관련된 객체
-    - 프로토콜 종류, 호스트 이름, 문서 위치 등의 정보를 가짐
+    - 프로토콜 종류, 호스트 이름, 문서 위치 등의 정보를 가짐  
+    
+    | 속성 | 내용 |  
+    | :-----: | :-----: |  
+    | hash | 앵커 이름(#~) |  
+    | host | 호스트 이름과 포트번호 |  
+    | hostname | 호스트이름 |  
+    | href | 문서 URL 주소 |  
+    | origin | 호스트이름, 프로토콜, 포트번호 |  
+    | pathname | 디렉토리 경로 |  
+    | port | 포트번호 |  
+    | protocol | 프로토콜의 종류 |  
+    | search | 요청 매개변수 |  
+    
+    | 메소드 | 내용 |  
+    | :-----: | :-----: |  
+    | assign('주소') | 새로운 페이지 로드 → 뒤로가기 가능 |  
+    | reload() | 현재 문서 새로고침 |  
+    | replace('주소') | 현재페이지를 새 페이지로 교체 → 뒤로가기 불가능 |  
+  - navigator 객체
+    - 브라우저에 대한 정보를 가지는 객체  
+    
+    | 속성 | 내용 |  
+    | :-----: | :-----: |  
+    | appCodeName | 브라우저 코드명 |  
+    | appName | 브라우저 이름 |  
+    | appVersion | 브라우저 버전 |  
+    | platform | 사용중인 운영체제 |  
+    | userAgent | 브라우저 전체 정보 |  
+    | cookieEnabled | 쿠키 가능성을 확인(true/false) |  
+    | geolocation | 위도와 경도 출력 |  
+    | language | 위도와 경도 출력 |  
+    | online | 브라우저가 온라인/오프라인 환경인지 확인(true/false) |  
+    | product | 브라우저 엔진 이름 |  
 
 ### 2.44 44일차(2020-04-08)
 - DOM
