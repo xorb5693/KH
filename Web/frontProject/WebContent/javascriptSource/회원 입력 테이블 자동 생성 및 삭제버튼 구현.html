@@ -42,8 +42,8 @@
             var btn = document.createElement("button");
             var text4 = document.createTextNode("삭제");
             btn.appendChild(text4);
-            btn.setAttribute("id", trNumber);
             btn.setAttribute("onclick","delTr(this);");
+            btn.setAttribute("btnno", trNumber);
             td4.appendChild(btn);
             tr.appendChild(td4);
 
@@ -51,7 +51,7 @@
         }
 
         function delTr(btn) {
-            var tr = document.getElementById("tr" + btn.id);
+            var tr = document.getElementById("tr" + btn.getAttribute("btnno"));
             tr.remove();
         }
     </script>
