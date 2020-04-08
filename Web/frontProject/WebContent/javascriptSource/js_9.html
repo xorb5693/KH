@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        function check() {
+            var val = document.getElementById("id").value;
+
+            var regExp;
+//            1. a가 하나라도 존재하면
+//            regExp = /a/;
+//            2. a로 시작하면
+//            regExp = /^a/;
+//            3. a또는 b가 있다면
+//            regExp = /[ab]/;
+//            4. a또는 b로 시작한다면
+//            regExp = /^[ab]/;
+//            5. a로 끝난다면
+//            regExp = /a$/;
+//            6. a로 시작해서 b로 끝난다면
+//            regExp = /^a.*b$/;
+//            7. 숫자만 입력해야 할 때
+//            regExp = /^\d+$/;
+//            regExp = /^[(0-9)(a-z)]+$/;
+//            8. 영어 대소문자만 입력
+//            regExp = /^[a-zA-Z]+$/;
+//            9. 영어 대소문자+숫자만 입력
+//            regExp = /^[0-9a-zA-Z]+$/;
+//            10. 영어 대소문자+숫자만 입력 시작은 영어로 시작
+//            regExp = /^[a-zA-Z][0-9a-zA-Z]+$/;
+//            11. 한글만 입력
+//            regExp = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+//            12. 알파벳으로 최소3글자, 최대 5글자
+            regExp = /^[a-zA-Z]{6,15}$/;
+
+            if (regExp.test(val)) {
+                alert("성공");
+            } else {
+                alert("정규표현식에 어긋남");
+            }
+        }
+
+        function check2() {
+            var val = document.getElementById("id").value;
+
+            var regExp = /Hello ?World/;
+            //Hello World, HelloWorld
+
+            var regExp2 = /Hello(   )?World/;
+            //Hello World, Hello World
+
+            console.log(val);
+            if (regExp.test(val)) {
+                console.log("성공");
+            } else {
+                console.log("정규표현식에 어긋남");
+            }
+
+            if (regExp2.test(val)) {
+                console.log("성공");
+            } else {
+                console.log("정규표현식에 어긋남");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="id">
+    <button onclick="check();">체크</button>
+    <button onclick="check2();">?사용하기</button>
+</body></html>
