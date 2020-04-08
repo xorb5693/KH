@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        function test1() {
+            //텍스트노드가 있는 문서객체 생성
+            //요소노드 생성 -> 텍스트노드 생성 -> 요소노드에 텍스트노드 추가 -> HTML 문서에 추가
+            var text = document.getElementById("in1").value;
+
+            //요소노드 생성
+            var element = document.createElement("p");
+
+            //텍스트노드 생성
+            var textNode = document.createTextNode(text);
+
+            //요소노드에 텍스트노드 추가
+            element.appendChild(textNode);
+
+            //d1에 요소노드 추가
+            var d1 = document.getElementById("d1");
+            d1.appendChild(element);
+        }
+
+        function test2() {
+            //요소노드 생성
+            var imgTag = document.createElement("img");
+
+            //요소노드의 속성값 설정
+            imgTag.src = "../imgs/dog2.jpg";
+            imgTag.width = "150";
+            imgTag.height = "300";
+            //없는 속성의 경우 아래방식으로 입력불가
+//            imgTag.myProperty = "123";
+            //없는 속성은 setAttribute로 입력가능
+            imgTag.setAttribute("myProperty", "123");
+
+            var d2 = document.getElementById("d2");
+            d2.appendChild(imgTag);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="d1"></div>
+    <input type="text" id="in1">
+    <button onclick="test1();">확인하기</button>
+    <hr>
+    <div id="d2"></div>
+    <button onclick="test2();">확인하기</button>
+</body>
+
+</html>
