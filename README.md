@@ -30,6 +30,7 @@
 - 교육명은 「디바이스&웹 콘텐츠 융합 디지털 컨버전스 양성과정」입니다.
 - 이번 교육의 Java 버전은 1.8.0_144입니다.
 - 이번 교육에서 사용하는 ojdbc 버전은 ojdbc6입니다.
+- 이번 교육에서 사용하는 jQuery 버전은 3.3.1입니다.
 - 교육 내용
   1. 운영체제
   2. 프로그래밍 언어
@@ -3620,7 +3621,7 @@
 
     <태그 속성=값>내용</태그>
     ```
-    - 자손 선택자
+  - 자손 선택자
     ```
     태그1>태그2{ 
       속성1 : 값1;
@@ -5650,7 +5651,165 @@
       regExp.test(str);
     }
     ```
+### 2.45 45일차(2020-04-09)
+- jQuery
+  - 정의
+    - 존레식에 이해 개발된 경량 javascript 라이브러리
+    - Write Less DO More(보다 간단히 많은 것을) 모토로 복잡했던 코드를 손쉽게 구현
+      1. DOM과 관련된 처리 쉽게 구현
+      2. 일관된 이벤트 연결 쉽게 구현
+      3. 시작적 효과 쉽게 구현
+      4. Ajax 애플리케이션 쉽게 개발
+    - 애니메이션 기능, Ajax 통신, 이벤트 처리 등 폭넓게 지원
+    - jQuery 플러그인을 통해 차트 작성, 슬라이드쇼, 액셀같은 테이블도 간단한 코드로 구현 가능
+  - jQuery 연결
+    - CDN(Content Delivery Network)을 통한 연결 -> 온라인으로 js 파일을 불러와서 실행
+    - 파일 다운로드 연결(오프라인에서 사용) -> jQuery 홈페이지에서 js파일 다운로드
+    ```
+    <script type='text/javascript' src='http://code.jquery.com/jquery-3.3.1.js'></script>
+    <script>
+      $(document).ready(function() {
+        $("p").css("color", "red");
+      });
+    </script>
     
+    - jQuery를 연결하지 않으면 스크립트 사용 시 에러가 발생
+    - jQuery 연결 script 선언과 따로 script를 선언하고 메소드를 작성
+    ```
+  - jQuery 사용
+    - $(선택자).메소드명(속성, 값);이 가장 기본적인 형태
+      ```
+      $("p").css('color', 'red');
+      
+      - p태그의 글씨색 모두를 red로 변경
+      ```
+    - $는 jQuery를 선언하거나 접근할 때 사용하며, 같은 표현으로는 jQuery가 존재
+      ```
+      jQuery(선택자).메소드명();
+      ```
+  - jQuery 선택자
+    - input:checked : input 태그 중 체크된 객체
+    - input:disabled : input 태그 중 비활성화된 객체
+    - input:enabled : input 태그 중 활성화된 객체
+    - option:selected : select 태그의 option 태그 중 선택된 객체
+    - 요소:eq(n) : n번째 위치하는 객체
+    - 요소:gt(n) : n번째를 초과하는 객체
+    - 요소:lt(n) - n번째 미만에 위치하는 
+    - 요소:nth-child(수식) : 수식에 위치하는 객체 선택
+    - 요소:not(선택자) : 선택자와 일치하는 객체
+  - jQuery 메소드
+    - html() : innerHTML과 동일. 매개변수로 값을 넣으면 해당 값이 들어간다.
+    - val() : value와 동일. 매개변수로 값을 넣으면 해당 값이 들어간다.
+    - eq(숫자) : 해당하는 속성이 여러가지일 때 숫자번째 가져오는 것. 배열의 대괄호와 동일한 역할.
+- 객체탐색
+  - jQuery Traversing
+    - jQuery의 순회(탐색)이라는 의미
+    - 특정 요소를 찾거나 필터링하는 작업은 대부분 선택자를 사용하면 되지만, 선
+  - filtering 메소드
+    - 선택자로 지정한 객체를 기준으로 객체그룹에서 위치를 기준으로 객체를 선택하는 메소드  
+    <table>
+      <tr>
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td>$('선택자').first()</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table> 
+  - Ancestors 메소드
+    - 선택된 요소의 상위 요소들을 선택할 수 있는 메소드
+    <table>
+      <tr>
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td>$('선택자').parent()</td>
+        <td>선택된 요소의 바로 위 상위요소만 리턴</td>
+      </tr>
+      <tr>
+        <td>$('선택자').parents([인자])</td>
+        <td>선택된 요소의 모든 상위요소 리턴<br>단, 매개변수가 있는 경우 매개변</td>
+      </tr>
+      <tr>
+        <td>$('선택자').parentsUntil([인자])</td>
+        <td></td>
+      </tr>
+    </table> 
+  - Descendants 메소드
+    - 선택된 요소의 하위 요소들을 선택할 수 있는 메소드
+    <table>
+      <tr>
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td>$('선택자').first()</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table> 
+  - Sideways 메소드
+    - 선택된 요소의 같은 레벨에 있는 요소*형제)를 선택할 수 있는 메소드
+    <table>
+      <tr>
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td>$('선택자').siblings([인자])</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$('선택자').next()</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$('선택자').nextAll()</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$('선택자').nextUntil([인자])</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$('선택자').prev()</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$('선택자').prevAll()</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$('선택자').prevUntil([인자])</td>
+        <td></td>
+      </tr>
+    </table> 
+  - 요소가 있는지 찾는 메소드
+    - 선택자로 지정된 범위에 특정한 요소가 존재하는지 찾을 때 사용하는 메소드
+    <table>
+      <tr>
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td>$('선택자').siblings([인자])</td>
+        <td></td>
+      </tr>
+    </table> 
+
 ## 3. 이클립스 기능
 - 단축키
   - ctrl + shift + F : 자동 줄맞춤
