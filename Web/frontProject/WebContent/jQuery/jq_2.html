@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $(function() {
+            var first = $("h3").first();
+            first.css("color", "red");
+
+            var last = $("h3").last();
+            last.css("color", "blue");
+
+            var second = $("h3").eq(1);
+            second.css("color", "pink");
+
+            $("h3").filter(".h").css("background-color", "yellow");
+            $("h3").not(".h").css("background-color", "cyan");
+        });
+
+        function test1() {
+            var par = $("span").parent();
+            par.css("border", "2px solid red");
+        }
+
+        function test2() {
+            var par = $("span").parents();
+            par.css("border", "2px solid orange");
+        }
+
+        function test3() {
+            var par = $("span").parents("ul");
+            par.css("border", "2px solid yellow");
+        }
+
+        function test4() {
+            var par = $("span").parentsUntil("div");
+            par.css("border", "2px solid green");
+        }
+
+        function test5() {
+            //            var child = $(".descendants").children();
+            var child = $(".descendants").children(".child1");
+            child.css("border", "2px solid red");
+        }
+
+        function test6() {
+            var child = $(".descendants").find("span");
+            child.css("border", "2px solid orange");
+        }
+        
+        function test7() {
+            var si = $("#hh").siblings();
+            si.css("border", "2px solid red");
+        }
+        
+        function test8() {
+            var ne = $("#hh").next();
+            ne.css("border", "2px solid orange");
+        }
+        
+        function test9() {
+            var ne = $("#hh").nextAll();
+            ne.css("border", "2px solid yellow");
+        }
+        
+        function test10() {
+            var ne = $("#hh").nextUntil("h6");
+            ne.css("border", "2px solid green");
+        }
+        
+        function test11() {
+            var pr = $("#hh2").prev();
+            pr.css("border", "2px solid blue");
+        }
+        
+        function test12() {
+            var pr = $("#hh2").prevAll();
+            pr.css("border", "2px solid navy");
+        }
+        
+        function test13() {
+            var pr = $("#hh2").prevUntil("p");
+            pr.css("border", "2px solid purple");
+        }
+    </script>
+
+    <style>
+        .ancestors *,
+        .descendants *,
+        .sideway * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 class="h">header-0</h3>
+    <h3 class="h">header-1</h3>
+    <h3>header-2</h3>
+    <h3>header-3</h3>
+    <hr>
+
+    <div class="ancestors">
+        
+        <div style="width:500px;">div(great-parent)
+            <ul>ul(grand parent)
+                <li>li(direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div style="width:500px;">div(grand parent)
+            <p>p(direct parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+    <button onclick="test1();">parent()</button>
+    <button onclick="test2();">parents()</button>
+    <button onclick="test3();">parents(ul)</button>
+    <button onclick="test4();">parentsUntil(div)</button>
+    <hr>
+    
+    <div class="descendants" style="width:500px;">div(current element)
+        <p class="child1">p(child)
+            <span>span(grandchild)</span>
+        </p>
+        <p class="child2">p(child)
+            <span>span(grandchild)</span>
+        </p>
+    </div>
+    <button onclick="test5();">child()</button>
+    <button onclick="test6();">find()</button>
+    <hr>
+    
+    <div class="sideway">
+        <div>div(parent)
+            <p>p</p>
+            <span>span</span>
+            <h2 id="hh">h2</h2>
+            <h3>h3</h3>
+            <h4>h4</h4>
+            <h5 id="hh2">h5</h5>
+            <h6>h6</h6>
+            <p>p</p>
+        </div>
+    </div>
+    <button onclick="test7();">siblings()</button>
+    <button onclick="test8();">next()</button>
+    <button onclick="test9();">nextAll()</button>
+    <button onclick="test10();">nextUntil(h6)</button>
+    <button onclick="test11();">prev()</button>
+    <button onclick="test12();">prevAll()</button>
+    <button onclick="test13();">prevUntil(p)</button>
+</body></html>
