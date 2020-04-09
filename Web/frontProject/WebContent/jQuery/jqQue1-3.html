@@ -13,21 +13,25 @@
         function click1() {
             clear();
             $("tr:eq(1)>td:not(:first)").css("color", "yellow");
+            $("tr:eq(1)>td:gt(0)").css("color", "red");
         }
         
         function click2() {
             clear();
             $("tr:eq(2)>td:not(:first)").css("color", "yellow");
+            $("tr:eq(2)>td:gt(0)").css("color", "red");
         }
         
         function click3() {
             clear();
             $("tr:not(:last)>td:nth-child(2)").css("color", "yellow");
+            $("td:nth-child(3n+2):lt(2)").css("color", "red");
         }
         
         function click4() {
             clear();
             $("tr:not(:last)>td:nth-child(3)").css("color", "yellow");
+            $("td:nth-child(3n+3):lt(2)").css("color", "red");
         }
         
     </script>
