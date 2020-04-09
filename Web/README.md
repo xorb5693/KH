@@ -178,3 +178,10 @@
   - js_8.html : javascript 이벤트 테스트 프로그램
   - js_9.html : javascript 정규식 테스트 프로그램
   - regexpQue.html : javascript 정규식 실습 프로그램
+- 45일차(2020-04-09)
+  - regexpQue2.html : javascript 정규식 실습 프로그램 2
+  - jq_1 : jQuery 테스트 프로그램
+  - jqQue1-1 : jQuery 실습 프로그램 1
+  - jqQue1-2 : jQuery 실습 프로그램 2
+  - jqQue1-3 : jQuery 실습 프로그램 3
+  - jq_2 : jQuery 객체탐색 테스트 프로그램
