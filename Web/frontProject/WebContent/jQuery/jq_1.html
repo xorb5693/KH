@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        //        window.onload = function() {
+        //            var p = document.getElementsByTagName("p");
+        //            for (var i = 0; i < p.length; i++) {
+        //                p[i].style.color = "red";
+        //            }
+        //        }
+        $(function() {
+            //            $("p").css("color", "red");
+            //            $("#p3").css("background-color", "yellow");
+            //            $("*").css("color", "red");
+            $("span").css("background-color", "yellow");
+            $("#p4").css("background-color", "aqua");
+            $(".test").css("text-decoration", "underline");
+            $("#p2, #p3").css("background-color", "pink");
+            $("div>ul").css("color", "blue");
+            $("li>h1").css("color", "green");
+            $("div>h1").css("color", "red");
+            $("div h1").css("background-color", "aqua");
+            $("input[type=text]").css("background-color", "yellow");
+            $("input[type=password]").css("background-color", "red");
+            $("input[name^=fi]").css("color", "blue");
+            $("input[name$=th]").css("color", "aqua");
+//            alert($("input:text").eq(0).val());
+            console.log($("input:checked").eq(0).val());
+            
+//            setTimeout(function() {
+//                var value = $("option:selected").val();
+//                alert(value);
+//            }, 5000);
+//            $("tr:first").css("background-color", "lightgray");
+//            $("tr:last").css("background-color", "lightgray")
+//            $("tr:odd").css("color", "red");
+//            $("tr:even").css("color","blue");
+            $("tr:eq(0)").css("background-color", "lightgray").css("color", "white");
+            $("td:nth-child(3n+1)").css("color", "red");
+            $("td:nth-child(3n+2)").css("color", "blue");
+        });
+
+    </script>
+</head>
+
+<body>
+    <p id="p1" class="test">Test1</p>
+    <p id="p2" class="test">Test2</p>
+    <p id="p3" class="test">Test3</p>
+    <p id="p4">Test4</p>
+    <span id="span1" class="test">Test5</span><br>
+    <span id="span2">Test5</span>
+    <hr>
+    <div>
+        <ul>
+            <li>
+                <h1>1111</h1>
+            </li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+        <h1>5555</h1>
+    </div>
+    <ul>
+        <li>
+            <h1>1111</h1>
+        </li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    <input type="text" name="first" value="테스트1">
+    <input type="text" name="second" value="테스트2">
+    <input type="password" name="third" value="테스트3">
+    <input type="password" name="fourth" value="테스트4">
+    <hr>
+    <input type="checkbox" name="hobby" value="축구">축구
+    <input type="checkbox" name="hobby" value="야구" checked>야구
+    <input type="checkbox" name="hobby" value="농구">농구
+    <hr>
+    <select>
+        <option>Apple</option>
+        <option>Banana</option>
+        <option>Cat</option>
+        <option>Dog</option>
+    </select>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>혈액형</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>다현</td>
+            <td>B형</td>
+            <td>수원</td>
+        </tr>
+        <tr>
+            <td>동건</td>
+            <td>A형</td>
+            <td>부천</td>
+        </tr>
+        <tr>
+            <td>기창</td>
+            <td>B형</td>
+            <td>서울</td>
+        </tr>
+        <tr>
+            <td>혜진</td>
+            <td>O형</td>
+            <td>인천</td>
+        </tr>
+        <tr>
+            <td>도형</td>
+            <td>AB형</td>
+            <td>부천</td>
+        </tr>
+    </table>
+</body>
+
+</html>
