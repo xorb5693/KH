@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        .layer2 {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            background-color: #ffffff;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        #notice {
+            font-weight: bold;
+            color: #566270;
+            font-size: 15pt;
+            height: 30px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .info {
+            width: 80%;
+            margin: 0 auto;
+            border-top: 1px solid #566270;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        td {
+            border-bottom: 1px solid #E0E3DA;
+            text-align: left;
+            height: 20px;
+            line-height: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-sizing: content-box;
+        }
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .infoname {
+            width: 200px;
+            padding-left: 20px;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .footer {
+            height: 100px;
+            background-color: #566270;
+            margin: 0 auto;
+        }
+
+        input {
+            line-height: 30px;
+            border: 1px solid #566270;
+            box-sizing: border-box;
+        }
+
+        .input {
+            width: 300px;
+            height: 30px;
+        }
+
+        .infobtn {
+            width: 100px;
+            height: 30px;
+            background-color: #090707;
+            border: none;
+            color: #ffffff;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .phone {
+            width: 80px;
+            height: 30px;
+        }
+
+        .gender+label {
+            width: 100px;
+            display: inline-block;
+            text-align: center;
+            background-color: #090707;
+            color: #ffffff;
+        }
+
+        .gender:checked+label {
+            background-color: #5c196b;
+            color: #ffffff;
+        }
+
+        .plusinfo {
+            display: inline;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .btndiv {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .plusinfo {
+            display: inline;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .info>tbody>tr>td:first-child {
+            width: 25%;
+        }
+
+        .info>tbody>tr>td:last-child {
+            width: 35%;
+        }
+
+    </style>
+    <script>
+        function check() {
+            var input = document.getElementsByTagName("input");
+            var info = document.getElementsByClassName("plusinfo");
+            var check = true;
+
+            for (var i = 0; i < input.length; i++) {
+                input[i].style.border = "1px solid #566270";
+            }
+            
+            for (var i = 0; i < info.length; i++) {
+                info[i].innerHTML = "";
+            }
+
+            var regExp = /^[a-z0-9]{4,12}$/;
+            if (!regExp.test(input[0].value)) {
+                info[0].innerHTML = "아이디는 영어 소문자, 숫자만 4~12 글자";
+                input[0].style.border = "2px solid #E53A40";
+                input[0].focus();
+                check = false;
+            }
+
+            regExp = /^[a-zA-Z0-9]{8,12}$/;
+            if (!regExp.test(input[1].value) || !regExp.test(input[2].value)) {
+                info[1].innerHTML = "비밀번호는 영어 소문자, 대문자, 숫자만 8~12 글자";
+                input[1].style.border = "2px solid #E53A40";
+                input[2].style.border = "2px solid #E53A40";
+                input[1].focus();
+                check = false;
+            } else {
+
+                if (input[1].value != input[2].value) {
+                    info[1].innerHTML = "비밀번호와 비밀번호 확인이 다릅니다";
+                    input[1].style.border = "2px solid #E53A40";
+                    input[2].style.border = "2px solid #E53A40";
+                    input[1].focus();
+                    check = false;
+                }
+            }
+
+            regExp = /^[가-힣]{1,}$/;
+            if (!regExp.test(input[3].value)) {
+                info[3].innerHTML = "NAME 한글로 1글자 이상";
+                input[3].style.border = "2px solid #E53A40";
+                input[3].focus();
+                check = false;
+            }
+            
+            //주소 체크 자리
+            
+            regExp = /^010$/;
+            var regExp2 = /^[0-9]{3,4}$/;
+            var regExp3 = /^[0-9]{4}$/;
+            if (!regExp.test(input[5].value) || !regExp2.test(input[6].value) || !regExp3.test(input[7].value)) {
+                info[5].innerHTML = "전화번호 1번째 자리는 010만, 2번째 자리는 3자리 이상 3번째 자리는 무조건 4자리 가능";
+                input[5].style.border = "2px solid #E53A40";
+                input[6].style.border = "2px solid #E53A40";
+                input[7].style.border = "2px solid #E53A40";
+                input[5].focus();
+                check = false;
+            }
+
+            regExp = /^[a-zA-z0-9]{4,12}@.+$/;
+            if (!regExp.test(input[8].value)) {
+                info[6].innerHTML = "Email은 @포함, @앞에 영어,숫자 4~12 글자";
+                input[8].style.border = "2px solid #E53A40";
+                input[8].focus();
+                check = false;
+            }
+
+            return check;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="layer2">
+        <h2>회원가입</h2>
+        <p id="notice"></p>
+
+        <form action="#" method="post">
+
+            <table class="info">
+                <tr>
+                    <td class="infoname">아이디</td>
+                    <td><input type="text" name="id" id="id" class="input"></td>
+                    <td>
+                        <div class="plusinfo"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infoname">비밀번호</td>
+                    <td><input type="password" name="pass1" id="pass1" class="input">
+                    </td>
+                    <td>
+                        <div class="plusinfo"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infoname">비밀번호 확인</td>
+                    <td><input type="password" name="pass2" id="pass2" class="input"></td>
+                    <td>
+                        <div class="plusinfo"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infoname">이름</td>
+                    <td><input type="text" name="name" id="name" class="input"></td>
+                    <td>
+                        <div class="plusinfo"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infoname">주소</td>
+                    <td><input type="text" name="name" id="name" class="input"></td>
+                    <td>
+                        <div class="plusinfo"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infoname">전화번호</td>
+                    <td>
+                        <input type="text" name="phone2" id="phone1" class="phone"> -
+                        <input type="text" name="phone2" id="phone2" class="phone"> -
+                        <input type="text" name="phone2" id="phone2" class="phone">
+                    </td>
+                    <td>
+                        <div class="plusinfo"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infoname">이메일</td>
+                    <td><input type="text" name="email" id="email" class="input"></td>
+                    <td>
+                        <div class="plusinfo"></div>
+                    </td>
+                </tr>
+            </table>
+            <div class="btndiv">
+                <input type="submit" value="회원가입" class="infobtn" onclick="return check();">
+                <input type="reset" value="취소" class="infobtn">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
