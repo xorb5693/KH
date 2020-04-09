@@ -152,35 +152,37 @@
                 return false;
             } 
             
-            regExp = /^010$/;
-            if (!regExp.test(input[4].value)) {
-                notice.innerHTML = "전화번호 1번째 자리는 010만 가능";
-                input[4].style.border = "2px solid #E53A40";
-                input[4].focus();
-                return false;
-            } 
+            //주소 체크 자리
             
-            regExp = /^[0-9]{3,4}$/;
+            regExp = /^010$/;
             if (!regExp.test(input[5].value)) {
-                notice.innerHTML = "전화번호 2번째 자리는 3자리 이상";
+                notice.innerHTML = "전화번호 1번째 자리는 010만 가능";
                 input[5].style.border = "2px solid #E53A40";
                 input[5].focus();
                 return false;
             } 
             
-            regExp = /^[0-9]{4}$/;
+            regExp = /^[0-9]{3,4}$/;
             if (!regExp.test(input[6].value)) {
-                notice.innerHTML = "전화번호 3번째 자리는 무조건 4자리";
+                notice.innerHTML = "전화번호 2번째 자리는 3자리 이상";
                 input[6].style.border = "2px solid #E53A40";
                 input[6].focus();
                 return false;
             } 
-          
-            regExp = /^[a-zA-z0-9]{4,12}@.+$/;            
+            
+            regExp = /^[0-9]{4}$/;
             if (!regExp.test(input[7].value)) {
-                notice.innerHTML = "Email은 @포함, @앞에 영어,숫자 4~12 글자";
+                notice.innerHTML = "전화번호 3번째 자리는 무조건 4자리";
                 input[7].style.border = "2px solid #E53A40";
                 input[7].focus();
+                return false;
+            } 
+          
+            regExp = /^[a-zA-z0-9]{4,12}@.+$/;            
+            if (!regExp.test(input[8].value)) {
+                notice.innerHTML = "Email은 @포함, @앞에 영어,숫자 4~12 글자";
+                input[8].style.border = "2px solid #E53A40";
+                input[8].focus();
                 return false;
             }
         }
@@ -212,6 +214,10 @@
                 </tr>
                 <tr>
                     <td class="infoname">이름</td>
+                    <td><input type="text" name="name" id="name" class="input"></td>
+                </tr>
+                <tr>
+                    <td class="infoname">주소</td>
                     <td><input type="text" name="name" id="name" class="input"></td>
                 </tr>
                 <tr>
