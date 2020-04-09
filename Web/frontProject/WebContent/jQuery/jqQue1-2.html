@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>1-2</title>
+    <style>
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+        $(function() {
+            $("ol>.first").css("color", "red");
+            $("ol>.second").css("color", "orange");
+            $("ol>.third").css("color", "green");
+            $("ul>.third:first").css("color", "blue");
+            $("ul>.second").css("color", "mediumpurple");
+            $("ul>.third:last").css("color", "purple");
+        });
+    </script>
+</head>
+
+<body>
+    <ol>
+        <li class="first">
+            <h2>1-1</h2>
+        </li>
+        <li class="second">
+            <h2>1-2</h2>
+        </li>
+        <li class="third">
+            <h2>1-3</h2>
+        </li>
+    </ol>
+    <ul>
+        <li class="third">
+            <h2>1-1</h2>
+        </li>
+        <li class="second">
+            <h2>1-2</h2>
+        </li>
+        <li class="third">
+            <h2>1-3</h2>
+        </li>
+    </ul>
+</body></html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>1-1</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $(function() {
+            $("*").css("color", "red");
+            $("#text").css("color", "orange");
+            $("h1[name=text]").css("color", "yellow");
+            $(".text").css("color", "green");
+        });
+    </script>
+</head>
+
+<body>
+    <h1>text1</h1>
+    <h1 id="text">text2</h1>
+    <h1 name="text">text3</h1>
+    <h1 class="text">text4</h1>
+</body></html>

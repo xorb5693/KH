@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>1-3</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+        function clear() {
+            $("table *").removeAttr("style");
+        }
+        
+        function click1() {
+            clear();
+            $("tr:eq(1)>td:not(:first)").css("color", "yellow");
+        }
+        
+        function click2() {
+            clear();
+            $("tr:eq(2)>td:not(:first)").css("color", "yellow");
+        }
+        
+        function click3() {
+            clear();
+            $("tr:not(:last)>td:nth-child(2)").css("color", "yellow");
+        }
+        
+        function click4() {
+            clear();
+            $("tr:not(:last)>td:nth-child(3)").css("color", "yellow");
+        }
+        
+    </script>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>구분</th>
+            <th>A</th>
+            <th>B</th>
+        </tr>
+        <tr>
+            <td>가</td>
+            <td>10</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>나</td>
+            <td>20</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>계</td>
+            <td>30</td>
+            <td>30</td>
+        </tr>
+    </table>
+    
+    <input type="button" value="[가]색 변경" onclick="click1()"/>
+    <input type="button" value="[나]색 변경" onclick="click2()"/>
+    <input type="button" value="[A]색 변경" onclick="click3()"/>
+    <input type="button" value="[B]색 변경" onclick="click4()"/>
+</body></html>
