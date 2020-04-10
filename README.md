@@ -5638,7 +5638,8 @@
         <td>replace()</td>
         <td>일치하는 문자열을 찾아 대체할 때 사용</td>
       </tr>
-    </table> 
+    </table>  
+    
     ```
     funcution regTest() {
       //id가 input1인 input태그의 value값
