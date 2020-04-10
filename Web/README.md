@@ -185,3 +185,10 @@
   - jqQue1-2 : jQuery 실습 프로그램 2
   - jqQue1-3 : jQuery 실습 프로그램 3
   - jq_2 : jQuery 객체탐색 테스트 프로그램
+- 46일차(2020-04-10)
+  - 객체탐색 실습.html : jQuery 객체탐색 실습 프로그램
+  - jq_3.html : jQuery 객체조작 테스트 프로그램
+  - 객체조작 실습1.html : jQuery 객체조작 실습 프로그램 1
+  - 객체조작 실습2.html : jQuery 객체조작 실습 프로그램 2
+  - 객체조작 실습3.html : jQuery 객체조작 실습 프로그램 3
+  - 객체조작 실습4.html : jQuery 객체조작 실습 프로그램 4
