@@ -21,14 +21,16 @@
         var color;
 
         function select(colorBox) {
-            color = $(colorBox).attr("style");
+//            color = $(colorBox).attr("style");
+            color = $(colorBox).css("background-color");
         }
 
         function setColor(colorBox) {
             if (color == null) {
                 alert("색을 선택하세요.");
             } else {
-                $(colorBox).attr("style", color);
+//                $(colorBox).attr("style", color);
+                $(colorBox).css("background-color", color);
             }
         }
 
