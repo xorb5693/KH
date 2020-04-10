@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        .test * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 3px;
+            margin: 15px;
+        }
+
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        function action1() {
+            var li = $("#pp").prev().children("li").first();
+            li.css("background-color", "red");
+        }
+        
+        function action2() {
+            var span = $("ul").next().children().eq(1);
+            span.css("background-color", "red");
+        }
+        
+        function action3() {
+            var div = $("#pica").parents("div").first();
+            div.css("border", "2px solid blue");
+        }
+        
+        function action4() {
+            var li = $(".test").find("li");
+            
+            for (var i = 0; i < li.length; i++) {
+                console.log(li.eq(i).html());
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="test">
+        <div>
+            난 부모
+            <ul>
+                <li>당근</li>
+                <li>김치</li>
+                <li>오이</li>
+                <li>양배추</li>
+                <li>파푸리카</li>
+            </ul>
+
+            <p id="pp">
+                <span id="pica">피카츄</span>
+                <span>파이리</span>
+                <span>꼬부기</span>
+            </p>
+            <p>난 뭐임?</p>
+        </div>
+    </div>
+
+    문제1. 아래의 버튼을 클릭하였을때 p태그(id=pp)를 중점으로 당근을 <br>
+    선택하여 빨간색 배경으로 만들어 보아라.
+    <button onclick="action1();">작동1</button><br><br>
+
+    문제2. 아래의 버튼을 클릭하였을때 ul태그를 중점으로 파이리를 <br>
+    선택하여 빨간색 배경으로 만들어 보아라.
+    <button onclick="action2();">작동2</button><br><br>
+
+    문제3. 아래의 버튼을 클릭하였을때 span 태그(id="pica")를 중점으로 <br>
+    ul과 p태그를 감싸고 있는 div 의 테두리를 파란색으로 만들어 보아라.
+    <button onclick="action3();">작동3</button><br><br>
+
+
+    문제4. 아래의 버튼을 클릭하였을때 div태그(class="test")를 이용하여<br>
+    당근,김치,오이,양배추,파푸리카가 console.log에 출력 되도록 <br>
+    만들어 보아라. (JS 에서 innerHTML은 jQuery에선 html() 입니다.)
+    <button onclick="action4();">작동4</button><br><br>
+
+
+
+
+</body>
+
+</html>
