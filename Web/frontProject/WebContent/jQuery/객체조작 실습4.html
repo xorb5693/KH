@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        function print() {
+            
+            $("input:checked").each(function(index) {
+                var tr = $(this).parents("tr").children();
+                var str = "<span>" + (index + 1) + "번째 학생 이름 : " + tr.eq(1).html() + " / 나이 : " + tr.eq(2).html() + " / 주소 : " + tr.eq(3).html() + "<span>"
+                $("div").append(str);
+                $("div").append("<br>");
+            });
+        }
+    </script>
+</head>
+
+<body>
+  
+    <style>
+    </style>
+
+    <table border="1px" style="text-align:center">
+
+        <tr>
+            <th>체크</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" /></td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>서울시</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" /></td>
+            <td>김말똥</td>
+            <td>30</td>
+            <td>경기도</td>
+
+        </tr>
+        <tr>
+            <td><input type="checkbox" /></td>
+            <td>고길똥</td>
+            <td>40</td>
+            <td>강원도</td>
+
+        </tr>
+        <tr>
+            <td><input type="checkbox" /></td>
+            <td>김지똥</td>
+            <td>50</td>
+            <td>인천광역시</td>
+
+        </tr>
+    </table>
+    <br>
+
+    <label>출력</label>
+    <div style="border:3px solid red; height:200px; width:500px;" id="result">
+
+    </div>
+
+    <button id="btn" onclick="print();">출력</button>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

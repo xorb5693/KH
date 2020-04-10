@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <style>
+        div {
+            border: 2px solid black;
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            float: left;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        var color;
+
+        function select(colorBox) {
+            color = $(colorBox).attr("style");
+        }
+
+        function setColor(colorBox) {
+            if (color == null) {
+                alert("색을 선택하세요.");
+            } else {
+                $(colorBox).attr("style", color);
+            }
+        }
+
+        function resetColor() {
+            color = undefined;
+            $("fieldset:last").children("div").removeAttr("style");
+        }
+
+    </script>
+</head>
+
+<body>
+
+    문제3<br>
+    다음 2개의 그림 중 선택한 후 복사 될 수 있도록 구현하여라 <br>
+    <fieldset style="width:300px; margin:30px">
+        <legend>2개의 그림 중 선택하시오.</legend>
+        <div id="img1" style="background-color:red;" onclick="select(this)">
+
+        </div>
+        <div id="img2" style="background-color:blue;" onclick="select(this)">
+
+        </div>
+    </fieldset>
+
+    <fieldset style="width:800px;  margin:30px">
+
+        <legend>복사되는 공간</legend>
+
+        <div id="div1" onclick="setColor(this)">
+
+        </div>
+        <div id="div2" onclick="setColor(this)">
+
+        </div>
+        <div id="div3" onclick="setColor(this)">
+
+        </div>
+        <div id="div4" onclick="setColor(this)">
+
+        </div>
+        <div id="div5" onclick="setColor(this)">
+
+        </div>
+        <div id="div6" onclick="setColor(this)">
+
+        </div>
+        <div id="div7" onclick="setColor(this)">
+
+        </div>
+    </fieldset>
+
+    <button id="btn1" onclick="resetColor()"> 초기화 </button>
+
+
+
+</body>
+
+</html>

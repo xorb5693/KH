@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <style>
+        .title {
+            background-color: black;
+            color: white;
+        }
+
+        .name {
+            background-color: yellow;
+        }
+
+        .age {
+            background-color: blue;
+        }
+
+        .addr {
+            background-color: grey;
+        }
+
+    </style>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <script>
+        function setClass() {
+            $("tr").first().children().addClass("title");
+            $("tr").not(":first").each(function(indext, item) {
+               $(item).children().eq(0).addClass("name");
+               $(item).children().eq(1).addClass("age");
+               $(item).children().eq(2).addClass("addr");
+            });
+        }
+        
+        function resetClass() {
+            $("tr").first().children().removeClass("title");
+            $("tr").not(":first").each(function() {
+               $(this).children().eq(0).removeClass("name");
+               $(this).children().eq(1).removeClass("age");
+               $(this).children().eq(2).removeClass("addr");
+            });
+        }
+    </script>
+</head>
+
+<body>
+    문제2. <br>
+    적용 버튼 클릭시 style이 적용될 수 있도록 하여라.<br>
+    취소 버튼 클릭시 style이 취소될 수 있도록 하여라.<br>
+    (css 코드는 변경하지 않도록 함) <br>
+
+    <table border="1px">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>서울시</td>
+        </tr>
+        <tr>
+            <td>김말똥</td>
+            <td>30</td>
+            <td>경기도</td>
+        </tr>
+        <tr>
+            <td>고길똥</td>
+            <td>40</td>
+            <td>강원도</td>
+        </tr>
+        <tr>
+            <td>김지똥</td>
+            <td>50</td>
+            <td>인천광역시</td>
+        </tr>
+    </table>
+
+    <button id="btn2" onclick="setClass();">적용</button>
+    <button id="reset" onclick="resetClass();">취소</button>
+
+
+
+</body>
+
+</html>
