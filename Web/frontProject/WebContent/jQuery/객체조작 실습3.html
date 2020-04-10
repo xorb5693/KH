@@ -21,7 +21,7 @@
         var color;
 
         function select(colorBox) {
-//            color = $(colorBox).attr("style");
+            //            color = $(colorBox).attr("style");
             color = $(colorBox).css("background-color");
         }
 
@@ -29,7 +29,7 @@
             if (color == null) {
                 alert("색을 선택하세요.");
             } else {
-//                $(colorBox).attr("style", color);
+                //                $(colorBox).attr("style", color);
                 $(colorBox).css("background-color", color);
             }
         }
@@ -39,6 +39,18 @@
             $("fieldset:last").children("div").removeAttr("style");
         }
 
+        $(function() {
+            $("div").click(function() {
+                var index = $("div").index($(this));
+                
+                if (index < 2) {
+                    color = $(this).css("background-color");
+                } else {
+                    $(this).css("background-color", color);
+                }
+            });
+        });
+
     </script>
 </head>
 
@@ -46,6 +58,7 @@
 
     문제3<br>
     다음 2개의 그림 중 선택한 후 복사 될 수 있도록 구현하여라 <br>
+    <!--
     <fieldset style="width:300px; margin:30px">
         <legend>2개의 그림 중 선택하시오.</legend>
         <div id="img1" style="background-color:red;" onclick="select(this)">
@@ -84,8 +97,47 @@
     </fieldset>
 
     <button id="btn1" onclick="resetColor()"> 초기화 </button>
+    
+-->
+    - onclick 제거 버전 -<br>
+    <fieldset style="width:300px; margin:30px">
+        <legend>2개의 그림 중 선택하시오.</legend>
+        <div id="img1" style="background-color:red;">
 
+        </div>
+        <div id="img2" style="background-color:blue;">
 
+        </div>
+    </fieldset>
+
+    <fieldset style="width:800px;  margin:30px">
+
+        <legend>복사되는 공간</legend>
+
+        <div id="div1">
+
+        </div>
+        <div id="div2">
+
+        </div>
+        <div id="div3">
+
+        </div>
+        <div id="div4">
+
+        </div>
+        <div id="div5">
+
+        </div>
+        <div id="div6">
+
+        </div>
+        <div id="div7">
+
+        </div>
+    </fieldset>
+
+    <button id="btn1" onclick="resetColor()"> 초기화 </button>
 
 </body>
 
