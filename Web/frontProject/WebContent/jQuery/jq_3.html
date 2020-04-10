@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        .red {
+            color:red;
+        }
+        
+        .bg-blue {
+            background-color: blue;
+        }
+    </style>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        
+        function add() {
+            var table = document.getElementById("member");
+
+            var tr = document.createElement("tr");
+
+            var td1 = document.createElement("td");
+            var text1 = document.createTextNode(prompt("이름을 입력하세요."));
+            td1.appendChild(text1);
+            tr.appendChild(td1);
+
+            var td2 = document.createElement("td");
+            var text2 = document.createTextNode(prompt("나이를 입력하세요."));
+            td2.appendChild(text2);
+            tr.appendChild(td2);
+
+            var td3 = document.createElement("td");
+            var text3 = document.createTextNode(prompt("주소를 입력하세요."));
+            td3.appendChild(text3);
+            tr.appendChild(td3);
+            
+            var td4 = document.createElement("td");
+            var btn = document.createElement("button");
+            var text4 = document.createTextNode("삭제");
+            btn.appendChild(text4);
+            btn.setAttribute("onclick","delTr();");
+            td4.appendChild(btn);
+            tr.appendChild(td4);
+
+            table.appendChild(tr);
+        }
+
+        function delTr() {
+            $(this).parent().parent().remove();
+        }
+        
+        function func1() {
+            var li = $(".drink").children();
+//            $.each(li, function(index, item) {
+//               alert("인덱스번호 : " + index + " / 값 : " + item.innerHTML);
+//            });
+//            
+//            $(li).each(function(index, item) {
+//                alert("인덱스번호 : " + index + " / 값 : " + $(item).html());
+//            });
+            
+            $(li).each(function() {
+                alert($(this).html());
+            });
+        }
+        
+        function func2() {
+            $(".drink").children().last().addClass("red bg-blue");
+        }
+        
+        function func3() {
+            $(".drink").children().last().removeClass("red");
+        }
+        
+        function func4() {
+            alert($("#img").attr("height"));
+        }
+        
+        function func5() {
+            $("#img").attr({"width":"500", "height":400});
+        }
+        
+        function func6() {
+            $("#img").removeAttr("width");
+            $("#img").removeAttr("height");
+        }
+        
+        function func7() {
+            $(".drink>li").first().remove();
+        }
+        
+        function func8() {
+            $(".drink").empty();
+        }
+        
+        function func11() {
+            $("<span>추가</span>").appendTo("#p1");
+        }
+        
+        function func12() {
+            $("<span>추가</span>").prependTo("#p2");
+        }
+        
+        function func13() {
+            $("<span>추가</span>").insertAfter("#p3");
+        }
+        
+        function func14() {
+            $("<span>추가</span>").insertBefore("#p4");
+        }
+        
+        function func15() {
+            $("#p1").append("<span>추가</span>");
+        }
+        
+        function func16() {
+            $("#p2").prepend("<span>추가</span>");
+        }
+        
+        function func17() {
+            $("#p3").after("<span>추가</span>");
+        }
+        
+        function func18() {
+            $("#p4").before("<span>추가</span>");
+        }
+        
+        function func19() {
+            $("#p1").append($("label").clone());
+        }
+    </script>
+</head>
+<body>
+    <button onclick="func1();">목록 가져오기</button>
+    <button onclick="func2();">클래스 추가</button>
+    <button onclick="func3();">클래스 삭제</button>
+    <ul class="drink">
+        <li>커피</li>
+        <li>우유</li>
+        <li>콜라</li>
+    </ul>
+    <img id="img" src="../likeNaverImgs/2204903D581890FD1C.gif" width="400" height="300"><br>
+    <button onclick="func4();">파일 정보 알아오기</button>
+    <button onclick="func5();">이미지 크기 변경</button>
+    <button onclick="func6();">속성 삭제</button>
+    <button onclick="func7();">문서 객체 제거</button>
+    <button onclick="func8();">하위 객체 모두 제거</button>
+    <label>test</label>
+    <p id="p1">test1</p>
+    <p id="p2">test2</p>
+    <p id="p3">test3</p>
+    <p id="p4">test4</p>
+<!--    <input type="text">-->
+    <button onclick="func11()";>appenTo</button>
+    <button onclick="func12()";>prependTo</button>
+    <button onclick="func13()";>insertAfter</button>
+    <button onclick="func14()";>insertBefore</button>
+    <br>
+    <button onclick="func15()";>append</button>
+    <button onclick="func16()";>prepend</button>
+    <button onclick="func17()";>after</button>
+    <button onclick="func18()";>before</button>
+    <button onclick="func19()";>append</button>
+<!--
+    <center>
+        문제1. 추가 버튼을 클릭하면 이름,나이,주소를 입력 받은 후 테이블에 추가하도록 하여라.
+
+        <table border="1" id="member">
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+                <th>상태</th>
+            </tr>
+        </table>
+
+        <button onclick="add();">추가</button>
+    </center>
+-->
+</body>
+</html>
