@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $(function() {
+            $(".star").mouseenter(function() {
+//                $(".star").each(function() {
+//                    $(this).attr("src", "../imgs/star-off.png");
+//                    $(this).attr("check", "off");
+//                });
+//                
+                var index = $(".star").index($(this));
+//                for (var i = 0; i <= index; i++) {
+//                    $(".star").eq(i).attr("src", "../imgs/star-on.png");
+//                    $(".star").eq(i).attr("check", "on");
+//                }
+                
+                $(".star").each(function(cnt) {
+                    if (cnt <= index) {
+                        $(this).attr("src", "../imgs/star-on.png");
+                    } else {
+                        $(this).attr("src", "../imgs/star-off.png");
+                    }
+                });
+            });
+            
+            $("#imgs").click(function() {
+                var count = 0;
+                $(".star").each(function() {
+                    if ($(this).attr("src") == "../imgs/star-on.png") {
+                        count++;
+                    } 
+                });
+                
+                $("#score").html(count + "점");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>별점</h1>
+    <hr>
+    별점 : 
+    <span id="imgs">
+        <img src="../imgs/star-off.png" class="star">
+        <img src="../imgs/star-off.png" class="star">
+        <img src="../imgs/star-off.png" class="star">
+        <img src="../imgs/star-off.png" class="star">
+        <img src="../imgs/star-off.png" class="star">
+    </span>
+    <span id="score"></span>
+</body>
+</html>

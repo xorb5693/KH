@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $(function() {
+            $(".sub").siblings("a").click(function() {
+                $(this).siblings("ul").slideToggle();
+                var span = $(this).children("span");
+                if ($(span).attr("class") == "rotate") {
+                    $(span).removeClass("rotate");
+                    $(span).addClass("norotate");
+                } else {
+                    $(span).removeClass("norotate");
+                    $(span).addClass("rotate");
+                }
+            });
+
+            $(".sub").each(function() {
+                $(this).prev().append("<span>+</span>");
+            });
+        });
+    </script>
+
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0px;
+        }
+        
+        li {
+            border-top: 1px solid #FFFFF3;
+            border-bottom: 1px solid #FFFFF3;
+        }
+
+        a {
+            height: 50px;
+            display: block;
+            text-decoration: none;
+            line-height: 50px;
+        }
+
+        .menu {
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 200px;
+            background-color: #E53A40;
+        }
+
+        .menu>li>a {
+            padding-left: 10%;
+            width: 90%;
+            background-color: #E53A40;
+            color: #FFFFF3;
+        }
+
+        .menu>li>a:hover {
+            background-color: #D52A30;
+        }
+        
+        .sub {
+            width: 100%;
+            display: none;
+        }
+
+        .sub>li {
+            width: 100%;
+            background-color: #566270;
+        }
+
+        .sub>li>a {
+            padding-left: 15%;
+            width: 85%;
+            background-color: #566270;
+            color: #FFFFF3;
+            box-sizing: content-box;
+        }
+
+        .sub>li>a:hover {
+            background-color: #465260;
+        }
+
+        a>span {
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            color: #FFFFF3;
+            line-height: 50px;
+            float: right;
+            margin-right: 10%;
+        }
+        
+        .rotate {
+            transition-duration: 0.5s;
+            transform: rotate(45deg);
+        }
+        
+        .norotate {
+            transition-duration: 0.5s;
+            transform: rotate(0deg);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">JAVA</a></li>
+        <li><a href="#">Oracle</a></li>
+        <li>
+            <a href="#">FrontEnd</a>
+            <ul class="sub">
+                <li><a href="#">HTML5</a></li>
+                <li><a href="#">CSS3</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li>
+                    <a href="#">jQuery</a>
+                    <ul class="sub">
+                        <li><a href="#">객체탐색</a></li>
+                        <li><a href="#">객체조작</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">효과</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">Server</a></li>
+        <li>
+            <a href="#">FrameWork</a>
+            <ul class="sub">
+                <li><a href="#">Mybatis</a></li>
+                <li><a href="#">Spring</a></li>
+            </ul>
+        </li>
+    </ul>
+</body></html>
