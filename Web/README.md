@@ -192,3 +192,9 @@
   - 객체조작 실습2.html : jQuery 객체조작 실습 프로그램 2
   - 객체조작 실습3.html : jQuery 객체조작 실습 프로그램 3
   - 객체조작 실습4.html : jQuery 객체조작 실습 프로그램 4
+- 47일차(2020-04-13)
+  - jq_4.html : jQuery 이벤트 테스트 프로그램
+  - jqQue4-1.html : jQuery 이벤트 실습 프로그램 1
+    1. 별점
+  - jqQue4-1.html : jQuery 이벤트 실습 프로그램 2
+    1. 슬라이드 메뉴바
