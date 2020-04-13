@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <style>
+        .reverse {
+            background: black;
+            color: white;
+        }
+
+        .outer {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            padding: 50px;
+        }
+
+        .inner {
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            border: 1px solid black;
+        }
+
+        #test {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .sub {
+            display: none;
+        }
+
+        #div1 {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+
+        .orangered {
+            width: 50px;
+            height: 50px;
+            background-color: orangered;
+            position: relative;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $("h1").click(function() {
+                $(this).addClass("reverse");
+            });
+
+            $("h1").hover(function() {
+                $(this).addClass("reverse");
+            }, function() {
+                $(this).removeClass("reverse");
+            });
+
+            $("#btn2").click(function() {
+                $("#btn1").on("click", function() {
+                    $("#onOff").append("!!!!");
+                });
+            });
+
+            $("#btn3").click(function() {
+                $("#btn1").off("click");
+            });
+
+            $("#a1").click(function(event) {
+                event.preventDefault();
+                alert("a태그 클릭");
+                event.stopPropagation();
+            });
+
+            $("h2").click(function() {
+                alert("h2태그 클릭");
+            });
+
+            $(".btn").click(function() {
+                //                $(this).next().html(Number($(this).next().html()) + 1);
+
+                //index를 이용한 방법
+                var index = $(".btn").index($(this));
+                $(".level").eq(index).html(Number($(".level").eq(index).html()) + 1)
+            });
+
+            $("#allLevelUp").click(function() {
+                //                var level = $(this).siblings(".level");
+                //                $(level).each(function() {
+                //                   $(this).html(Number($(this).html()) + 1);
+                //                });
+
+                //3개의 버튼을 클릭시키는 방법
+                //                $(".btn").click();
+
+                //jQuery의 트리거를 이용한 방법
+                $(".btn").trigger("click");
+            });
+
+            $("#click").click(function() {
+                $(this).css("color", "red");
+            });
+
+            $("#dblclick").dblclick(function() {
+                $(this).css("color", "red");
+            });
+
+            $("#upDown").mousedown(function() {
+                $(this).css("background-color", "blue");
+            });
+
+            $("#upDown").mouseup(function() {
+                $(this).css("background-color", "red");
+            });
+
+            $("#mouseBtn").click(function() {
+                $(document).mousemove(function(event) {
+                    $("#mousePoint").html(event.pageX + " / " + event.pageY);
+                });
+            });
+
+            var flag = 0;
+            //            $(".outer").mouseover(function() {
+            $(".outer").mouseenter(function() {
+                if (flag == 0) {
+                    $("#test").css("background-color", "red");
+                    flag = 1;
+                } else {
+                    $("#test").css("background-color", "white");
+                    flag = 0;
+                }
+            });
+
+            $("#inputArea").keypress(function() {
+                var inputLength = $(this).val().length;
+                var remain = 150 - inputLength;
+                if (remain < 0) {
+                    $(this).val($(this).val().substr(0, 149));
+                    remain = 0;
+                }
+                $("#textResult").html("작성 가능한 글자 수 : " + remain);
+            });
+
+            $("input[name=id]").focus(function() {
+                $(this).css("background-color", "aqua");
+            });
+
+            //            $("input[name=id]").change(function() {
+            $("input[name=id]").blur(function() {
+                //유효성 검사
+                var regExp = /^[a-z0-9]{4,12}$/;
+                var value = $(this).val();
+                $(this).next().html("");
+
+                if (regExp.test(value)) {
+                    $(this).css("background-color", "white");
+                } else {
+                    $(this).next().html("다시 입력해");
+                    $(this).focus();
+                }
+            });
+
+            $("#main>li").click(function() {
+//                $(this).children().toggle();
+//                $(this).children().slideToggle();
+                $(this).children().fadeToggle(5000);
+            });
+            
+//            $("#main>li").hover(function() {
+//                $(this).children().toggle();
+//                $(this).children().slideToggle();
+//            }, function() {
+//                $(this).children().toggle();
+//                $(this).children().slideToggle();
+//            });
+            
+            $("#divBtn1").click(function() {
+                $("#div1").animate({
+                    height:'300px',
+                    width:'300px',
+                    opacity:'0.4'
+                });
+            });
+            
+            $("#divBtn2").click(function() {
+                $("#div1").animate({
+                    height:'50px',
+                    width:'50px',
+                    opacity:'1'
+                });
+            });
+            
+            $("#orangeBtn").click(function() {
+                $(".orangered").each(function(index) {
+                    $(this).delay(index * 50).animate({
+                        left:500
+                    });
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <h1>Test1</h1>
+    <h1>Test2</h1>
+    <h1>Test3</h1>
+    <hr>
+    <button id="btn1">클릭</button>
+    <button id="btn2">클릭 추가</button>
+    <button id="btn3">클릭 제거</button>
+    <h1 id="onOff"></h1>
+    <hr>
+    <h2>
+        <a id="a1" href="https://www.naver.com">이동</a>
+    </h2>
+    <button class="btn">레벨업</button>
+    자바 : <span class="level">0</span><br>
+    <button class="btn">레벨업</button>
+    DB : <span class="level">0</span><br>
+    <button class="btn">레벨업</button>
+    HTML : <span class="level">0</span><br>
+    <button id="allLevelUp">전체레벨업</button>
+    <hr>
+    <p id="click">click</p>
+    <p id="dblclick">double click</p>
+    <div id="upDown" style="border:3px solid black; width:100px; height:100px"></div>
+    <hr>
+    <h1>Mouse is at coordinates : <span id="mousePoint"></span></h1>
+    <button id="mouseBtn">시작</button>
+    <hr>
+    <div class="outer">outer
+        <div class="inner">inner</div>
+    </div>
+    test
+    <div id="test"></div>
+
+    <div>
+        <p>글작성</p>
+        <h1 id="textResult">작성 가능한 글자 수 : 150</h1>
+        <textarea id="inputArea" cols="70" rows="5"></textarea>
+    </div>
+    <hr>
+    <form>
+        <input type="text" name="id"><span></span><br>
+        <input type="password" name="pw"><span></span>
+    </form>
+    <hr>
+    <ul id="main">
+        <li>main-1</li>
+        <li>
+            main-2
+            <ul class="sub">
+                <li>sub-1</li>
+                <li>sub-2</li>
+                <li>sub-3</li>
+            </ul>
+        </li>
+        <li>
+            main-3
+            <ul class="sub">
+                <li>sub-1</li>
+                <li>sub-2</li>
+                <li>sub-3</li>
+            </ul>
+        </li>
+    </ul>
+    <div id="div1"></div>
+    <button id="divBtn1">클릭</button>
+    <button id="divBtn2">클릭</button>
+    <hr>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <button id="orangeBtn">클릭</button>
+</body>
+
+</html>
