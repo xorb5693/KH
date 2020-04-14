@@ -196,5 +196,12 @@
   - jq_4.html : jQuery 이벤트 테스트 프로그램
   - jqQue4-1.html : jQuery 이벤트 실습 프로그램 1
     1. 별점
-  - jqQue4-1.html : jQuery 이벤트 실습 프로그램 2
+  - jqQue4-2.html : jQuery 이벤트 실습 프로그램 2
     1. 슬라이드 메뉴바
+- 48일차(2020-04-14)
+  - jqQue4-3.html : jQuery 이벤트 실습 프로그램 3
+    1. 탭메뉴
+  - jqQue4-4.html : jQuery 이벤트 실습 프로그램 4
+    1. 스탭메뉴
+  - jqQue4-5.html : jQuery 이벤트 실습 프로그램 5
+    1. 회원가입
