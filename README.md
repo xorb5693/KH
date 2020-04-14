@@ -5995,8 +5995,22 @@
     $('선택자').on(이벤트, function() {
     
     });
-    
     ```
+  - 기본 이벤트 제거 및 버블링 제거
+    <table>
+      <tr>
+        <th>구분</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td>event.preventDefault()</td>
+        <td>기본 이벤트를 제거하는 메소드</td>
+      </tr>
+      <tr>
+        <td>event.stopPropagation() </td>
+        <td>이벤트 전달을 제거하는 메소드</td>
+      </tr>
+    </table>
   - 간단한 연결 이벤트
     <table>
       <tr>
@@ -6088,7 +6102,8 @@
         <td>눌렸던 키가 올라올때</td>
       </tr>
     </table>  
-    - hover
+    - hover  
+    
       ```
       $("h1").hover(function() {
         $(this).addClass("reverse");
@@ -6098,7 +6113,8 @@
       
       - hover는 매개변수로 2개의 함수를 준다.
       - 1번째 매개변수는 마우스가 올라갈때, 2번째는 마우스가 내려갔을 때의 동작 함수이다.
-      ```
+      ```  
+      
   - trigger
     - DB의 트리거와 마찬가지로 어떤 이벤트가 일어나면 자동으로 다른 객체의 이벤트를 호출 하는 방법
     ```
