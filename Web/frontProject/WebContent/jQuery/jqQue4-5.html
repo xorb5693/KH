@@ -17,15 +17,15 @@
             });
 
             $("label>input").focusout(function() {
-                //                $(this).css("border-bottom", "1px solid");
                 var index = $("label>input").index($(this));
                 regTest($(this), index);
             });
 
             $("input[type=reset]").click(function() {
-                $("label>span").each(function() {
+                $("label>span").each(function(index) {
                     $(this).css("font-size", "30px");
                     $(this).children("span").html("");
+                    $(this).siblings("input").css("border-bottom", "1px solid");
                 });
             });
         });
@@ -120,9 +120,16 @@
         function check() {
             var check = true;
             $("label>input").each(function(index) {
+                if ($(this).val() == "" && index != $("label>input").length - 1) {
+                    $(this).click();
+                    $(this).val(" ");
+                }
                 var reg = regTest($(this), index);
                 if (!reg) {
                     check = reg;
+                }
+                if ($(this).val() == " " && index != $("label>input").length - 1) {
+                    $(this).val("");
                 }
             });
 
