@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+        var check = 0;
+
+        $(function() {
+            $(".main>li>span").click(function() {
+                $(".main>li").eq(check).children(".sub").toggle();
+                $(".main>li").eq(check).removeClass("select");
+                $(".main>li").eq(check).addClass("nonselect");
+
+                $(this).parent().addClass("select");
+                var index = $(".main>li>span").index($(this));
+                check = index;
+                $(".sub").eq(index).toggle();
+            });
+
+            $(".main>li").eq(check).addClass("select");
+            $(".main>li").eq(check).children(".sub").toggle();
+            
+        });
+
+    </script>
+
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0px;
+            width: 1000px;
+        }
+
+        ul>li {
+            float: left;
+        }
+
+        .main {
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .main>li {
+            width: 20%;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 3px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        
+        .main>li>span {
+            display: block;
+        }
+
+        .nonselect {
+            border-top: 5px solid #566270;
+            background-color: #566270;
+            color: #FFFFF3;
+        }
+
+        .select {
+            border-top: 5px solid #E53A40;
+            background-color: #E0E3DA;
+            color: #E53A40;
+        }
+
+        .main>li>span:hover {
+            cursor: pointer;
+        }
+
+        .sub {
+            display: none;
+            padding: 10px;
+            background-color: #E0E3DA;
+            position: absolute;
+            left: 0;
+        }
+
+        .sub>li {
+            color: black;
+            width: 100%;
+            background-color: #E0E3DA;
+            text-align: left;
+        }
+
+        .sub>li>div {
+            width: 100%;
+            background-color: #E0E3DA;
+            white-space: pre-line;
+            word-spacing: 1px;
+            line-height: 20px;
+            font-weight: 100;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>탭 메튜 만들기</h1>
+    <hr>
+    <ul class="main">
+        <li>
+            <span>HTML5</span>
+            <ul class="sub">
+                <li>
+                    <h2>HTML5</h2>
+                    <hr>
+                    <div>
+                        W3C가 발표하는 HTML의 최신 버전으로, 2014년 10월 28일 완전히 표준화되었다. XHTML에서 다시 HTML로 회귀하게 되었다. 따라서 HTML5는 XHTML의 상위 버전이 아니라, HTML4.01의 상위 버전이다. 완전히 XHTML 문법을 버린 것은 아니고 선택적으로 이용할 수 있게 되어있다. 어도비 플래시나 실버라이트 등의 플러그인을 기반으로 하는 응용 프로그램에 대한 필요성을 줄이는 것에 초점을 맞추고 있다. 이러한 방향성 덕분에 한국에서는 웹 표준에 대한 문제가 이슈로 떠오르면서 함께 주목을 받기도 하였다.
+
+                        HTML5라는 말은 의미가 넓어져, 꼭 W3C의 HTML5 표준만이 아닌 최신 웹 기술(HTML Living Standard, CSS3+, ECMAScript 6+ 등)을 통틀어 칭하기도 한다. HTML5가 상용화되면서 어도비 플래시는 지원 중단 절차를 밟게 되었다.
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="nonselect">
+            <span>CSS</span>
+            <ul class="sub">
+                <li>
+                    <h2>CSS</h2>
+                    <hr>
+                    <div>
+                        과거에는 HTML에 디자인적 요소를 포함하여 작성하는 것이 일반적이었다. 다시 말해서 온갖 레이아웃, 디자인 정보를 HTML 안에 욱여넣다 보니 HTML의 본연의 목적인 구조화된 문서가 아닌 디자인을 위한 문서로 전락하고 말았다. 표를 작성해야 하는 table 태그가 레이아웃을 구성하는 용도로 쓰이는 등으로 인해 HTML 소스코드만 보면 이 문서가 어떤 문서인지 전문가조차 알기 힘든 상황이었다.
+
+                        이에 따라 W3C에서는 "디자인적 요소를 HTML과 완전히 분리시켜 구조화된 HTML을 만들어보자!" 라는 목적으로 CSS를 발표했다. 거기에 따라 bgcolor 등과 같이 HTML에서 디자인에 관련된 요소들은 전부 사용하지 말 것을 권고하고 있다. CSS 발표 이후로 HTML문서의 구조화를 도와주는 div, span, section 등의 새로운 태그가 도입되고 strike, font 등의 스타일 태그는 비권장 태그로 전환되다가 HTML5에서는 아예 삭제되었다. table은 표 형태의 데이터를 표현하는 용도에만 쓰도록 권고하면서 표의 구조화를 도와줄 thead, tbody태그가 새로 소개되었다.
+
+                        구조화된 HTML은 HTML 태그를 본연의 용도에 맞게 사용하는 것이다. 예를 들어 최상위 제목을 뜻하는 h1 태그는 문서의 제목 수준으로 쓰이며, 본문 문단은 p 태그로 나눈다. 이렇게 하면 디자인적 요소가 대부분 배제되기 때문에 HTML을 알아보기 훨씬 쉽다. 여기서 '알아보기 쉽다'에는 사람(프로그래머)뿐만 아니라 기계(웹 브라우저)역시 포함된다. 기계가 이해하기 쉬운 HTML은 다양한 포맷으로 출력 형식을 바꾸기 용이하고(CSS파일을 모바일용, PC용 등으로 각자 준비해 교체하는 방식으로 적용한다), 문서의 해독(파싱)속도가 빨라지며 동적인 기능을 구현하기가 더 쉬워진다. 그리고 대부분의 경우 구조화된 HTML이 과거의 비구조화 HTML보다 문서 크기가 상대적으로 작다.
+
+                        이렇게 하면 디자인에 필요한 부분은 CSS가 전담하기 때문에 웹디자이너와 웹프로그래머 간의 협업이 훨씬 용이해진다. 게다가 CSS는 HTML문서에 style태그 안에 삽입할 수도 있지만 별도의 파일로 분리하는 것도 가능해서 다른 HTML에서도 동일한 CSS를 사용할 수 있다. 즉 웹페이지를 제작할 경우 글꼴 등의 웹페이지의 스타일을 저장해두면 웹페이지의 한가지 요소만 변경해도 관련되는 전체 페이지의 내용을 한꺼번에 변경할수 있어 일관성을 유지하고 작업시간도 줄이고 트래픽을 줄이는 효과도 있다. 트래픽은 모바일 환경에서 더더욱 장점으로 작용하는데, 인터넷 무제한 요금제(정액제)가 아닌 이상 패킷을 최대한 적게 쓰는 것이 요금폭탄을 피하는 최선의 방법이다. 또한 로딩 속도가 빨라지는 장점도 있다.
+
+                        단, CSS는 HTML을 완벽하게 습득한 상태라 할지라도 그 용법이나 문법에 상이한 차이를 가지고 있기 때문에 상당 시간의 연습과 실전 경험이 필요하다. 특히 인터넷 익스플로러 구버전(6~7)에서는 자신의 의도와는 다른 결과물을 출력하는 경우가 많다. 이 때문에 IE 6, 7을 지원하기 위해 작업하다 보면 CSS에 각종 핵이 우후죽순으로 들어서는 것을 볼 수 있다. CSS 최신 표준안(버전 2.1)의 지원이 IE8에서야 제대로 이루어졌기 때문에 발생하는 일이다. 2010년대에는 이 자리를 Safari가 꿰찼다.
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="nonselect">
+            <span>Javascript</span>
+            <ul class="sub">
+                <li>
+                    <h2>Javascript</h2>
+                    <hr>
+                    <div>
+                        프로토타입기반의 객체지향 프로그래밍 언어로, 스크립트 언어에 해당된다. 특수한 목적이 아닌 이상 모든 웹 브라우저에 인터프리터가 내장되어 있다. 오늘날 HTML, CSS와 함께 웹을 구성하는 요소 중 하나다. HTML이 웹 페이지의 기본 구조를 담당하고, CSS가 디자인을 담당한다면 JavaScript는 클라이언트 단에서 웹 페이지가 동작하는 것을 담당한다. 웹 페이지를 자동차에 비유하자면, HTML은 자동차의 뼈대, CSS는 자동차의 외관, JavaScript는 자동차의 동력이라고 볼 수 있다.
+
+                        썬 마이크로시스템즈(현재 오라클)에서 개발한 Java와는 별 관계가 없는 언어이다. 이름이 비슷하다고 같은 언어가 아니다. 사람들이 흔히 헷갈리는 부분 중 하나. 실질적인 구동 방식도 JVM을 이용해서 돌리는 Java와, 브라우저 내에 스크립트 엔진(인터프리터)이 존재하는 JavaScript는 완전히 다르다. 심지어는 웹 서버용 파생 규격도 다르다.
+
+                        JavaScript는 C에서 영향을 받은 C-Family 언어로 기본적인 문법이 유사 중괄호로 구분하는 블럭, 세미콜론으로 줄이 끝남을 알리는 것[2], 변수 쓰는 법, 연산자 사용법 등 기초적인 문법이 C 문법과 크게 다르지 않다.
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="nonselect">
+            <span>jQuery</span>
+            <ul class="sub">
+                <li>
+                    <h2>jQuery</h2>
+                    <hr>
+                    <div>
+                        jQuery는 HTML 속 클라이언트 사이드 스크립트 언어를 단순화하도록 설계된 브라우저 호환성이 있는 JavaScript 라이브러리이다. 존 레식에 의해 2006년 뉴욕 시 바캠프(Barcamp NYC)에서 공식적으로 소개되었다. 현재 가장 인기 있는 JavaScript 라이브러리이며 표준에 가까운 점유율을 자랑한다.
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>
