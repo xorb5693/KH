@@ -69,7 +69,7 @@
                         if (!regExp.test($("input").eq(index).val())) {
                             $("input").eq(index).prev().children("span").html("영어대소문자+숫자 6~18자리");
                             return false;
-                        } else if(($("input").eq(2).val() != "") && ($("input").eq(3).val() != "") && $("input").eq(2).val() != $("input").eq(3).val()) {
+                        } else if (($("input").eq(2).val() != "") && ($("input").eq(3).val() != "") && $("input").eq(2).val() != $("input").eq(3).val()) {
                             $("input").eq(2).prev().children("span").html("비밀번호가 일치하지 않습니다.");
                             return false;
                         } else {
@@ -77,18 +77,18 @@
                             $("input").eq(3).prev().children("span").html("");
                             $("input").eq(2).css("border-bottom", "1px solid");
                             $("input").eq(3).css("border-bottom", "1px solid");
-                            return true;
                         }
-                    case 3:
-                        regExp = /^[a-z0-9]{6,18}$/;
-                        $(input).prev().children("span").html("");
-                        if (!regExp.test($("input").eq(index).val())) {
-                            $("input").eq(index).prev().children("span").html("영어대소문자+숫자 6~18자리");
-                            return false;
-                        }
-
-                        $(input).css("border-bottom", "1px solid");
                         return true;
+                        //                        case 3:
+                        // regExp = /^[a-z0-9]{6,18}$/;
+                        // $(input).prev().children("span").html("");
+                        // if (!regExp.test($("input").eq(index).val())) {
+                        // $("input").eq(index).prev().children("span").html("영어대소문자+숫자 6~18자리");
+                        // return false;
+                        // }
+                        //
+                        // $(input).css("border-bottom", "1px solid");
+                        // return true;
                     case 4:
                         regExp = /^[a-z0-9]+@.+$/;
                         $(input).prev().children("span").html("");
@@ -108,7 +108,7 @@
                         }
                         $(input).css("border-bottom", "1px solid");
                         return true;
-                    default: 
+                    default:
                         $(input).css("border-bottom", "1px solid");
                         return true;
                 }
@@ -120,16 +120,18 @@
         function check() {
             var check = true;
             $("label>input").each(function(index) {
-                if ($(this).val() == "" && index != $("label>input").length - 1) {
-                    $(this).click();
-                    $(this).val(" ");
-                }
-                var reg = regTest($(this), index);
-                if (!reg) {
-                    check = reg;
-                }
-                if ($(this).val() == " " && index != $("label>input").length - 1) {
-                    $(this).val("");
+                if (index != $("label>input").length - 1) {
+                    if ($(this).val() == "") {
+                        $(this).click();
+                        $(this).val(" ");
+                    }
+                    var reg = regTest($(this), index);
+                    if (!reg) {
+                        check = reg;
+                    }
+                    if ($(this).val() == " " && index != $("label>input").length - 1) {
+                        $(this).val("");
+                    }
                 }
             });
 
@@ -140,7 +142,7 @@
     <style>
         body {
             background: linear-gradient(to bottom, #566270, #FFFFF3);
-            overflow: hidden;
+            overflow: auto;
             background-repeat: no-repeat;
         }
 
@@ -227,7 +229,7 @@
 
 <body>
     <div>
-        <h1>회원가입</h1>
+        <h1 style="color: #FFFFF3;">회원가입</h1>
         <div class="content">
             <form action="#" method="get">
                 <table>
