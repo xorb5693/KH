@@ -17,8 +17,17 @@
             });
 
             $("label>input").focusout(function() {
-                var index = $("label>input").index($(this));
-                regTest($(this), index);
+                if ($(this).val() == "") {
+                    $(this).prev().animate({
+                        fontSize: '30px'
+                    }, 500);
+                    $(this).css("border-bottom", "1px solid");
+                    return false;
+                } else {
+                    var index = $("label>input").index($(this));
+
+                    regTest($(this), index);
+                }
             });
 
             $("input[type=reset]").click(function() {
@@ -32,88 +41,70 @@
 
         function regTest(input, index) {
 
-            if ($(input).val() == "") {
-                $(input).prev().animate({
-                    fontSize: '30px'
-                }, 500);
-                $(input).css("border-bottom", "1px solid");
-                return false;
-            } else {
-                var regExp;
 
-                switch (index) {
-                    case 0:
-                        regExp = /^[a-z][a-z0-9]{3,11}$/;
-                        $(input).prev().children("span").html("");
-                        if (!regExp.test($("input").eq(index).val())) {
-                            $("input").eq(index).prev().children("span").html("영어소문자 +숫자 4~12자리/영어로 시작");
-                            return false;
-                        }
+            var regExp;
 
-                        $(input).css("border-bottom", "1px solid");
-                        return true;
-                    case 1:
-                        regExp = /^[가-힣]{2,4}$/;
-                        $(input).prev().children("span").html("");
-                        if (!regExp.test($("input").eq(index).val())) {
-                            $("input").eq(index).prev().children("span").html("한글 2~4글자");
-                            return false;
-                        }
+            switch (index) {
+                case 0:
+                    regExp = /^[a-z][a-z0-9]{3,11}$/;
+                    $(input).prev().children("span").html("");
+                    if (!regExp.test($("input").eq(index).val())) {
+                        $("input").eq(index).prev().children("span").html("영어소문자 +숫자 4~12자리/영어로 시작");
+                        return false;
+                    }
 
-                        $(input).css("border-bottom", "1px solid");
-                        return true;
-                    case 2:
-                    case 3:
-                        regExp = /^[a-z0-9]{6,18}$/;
-                        $(input).prev().children("span").html("");
-                        if (!regExp.test($("input").eq(index).val())) {
-                            $("input").eq(index).prev().children("span").html("영어대소문자+숫자 6~18자리");
-                            return false;
-                        } else if (($("input").eq(2).val() != "") && ($("input").eq(3).val() != "") && $("input").eq(2).val() != $("input").eq(3).val()) {
-                            $("input").eq(2).prev().children("span").html("비밀번호가 일치하지 않습니다.");
-                            return false;
-                        } else {
-                            $("input").eq(2).prev().children("span").html("");
-                            $("input").eq(3).prev().children("span").html("");
-                            $("input").eq(2).css("border-bottom", "1px solid");
-                            $("input").eq(3).css("border-bottom", "1px solid");
-                        }
-                        return true;
-                        //                        case 3:
-                        // regExp = /^[a-z0-9]{6,18}$/;
-                        // $(input).prev().children("span").html("");
-                        // if (!regExp.test($("input").eq(index).val())) {
-                        // $("input").eq(index).prev().children("span").html("영어대소문자+숫자 6~18자리");
-                        // return false;
-                        // }
-                        //
-                        // $(input).css("border-bottom", "1px solid");
-                        // return true;
-                    case 4:
-                        regExp = /^[a-z0-9]+@.+$/;
-                        $(input).prev().children("span").html("");
-                        if (!regExp.test($("input").eq(index).val())) {
-                            $("input").eq(index).prev().children("span").html("Email 형식에 맞지 않습니다.");
-                            return false;
-                        }
+                    $(input).css("border-bottom", "1px solid");
+                    return true;
+                case 1:
+                    regExp = /^[가-힣]{2,4}$/;
+                    $(input).prev().children("span").html("");
+                    if (!regExp.test($("input").eq(index).val())) {
+                        $("input").eq(index).prev().children("span").html("한글 2~4글자");
+                        return false;
+                    }
 
-                        $(input).css("border-bottom", "1px solid");
-                        return true;
-                    case 5:
-                        regExp = /^0[0-9]{2}-[0-9]{4}-[0-9]{4}$/;
-                        $(input).prev().children("span").html("");
-                        if (!regExp.test($("input").eq(index).val())) {
-                            $("input").eq(index).prev().children("span").html("전화번호 형식(000-0000-0000)");
-                            return false;
-                        }
-                        $(input).css("border-bottom", "1px solid");
-                        return true;
-                    default:
-                        $(input).css("border-bottom", "1px solid");
-                        return true;
-                }
+                    $(input).css("border-bottom", "1px solid");
+                    return true;
+                case 2:
+                case 3:
+                    regExp = /^[a-z0-9]{6,18}$/;
+                    $(input).prev().children("span").html("");
+                    if (!regExp.test($("input").eq(index).val())) {
+                        $("input").eq(index).prev().children("span").html("영어대소문자+숫자 6~18자리");
+                        return false;
+                    } else if (($("input").eq(2).val() != "") && ($("input").eq(3).val() != "") && $("input").eq(2).val() != $("input").eq(3).val()) {
+                        $("input").eq(2).prev().children("span").html("비밀번호가 일치하지 않습니다.");
+                        return false;
+                    } else {
+                        $("input").eq(2).prev().children("span").html("");
+                        $("input").eq(3).prev().children("span").html("");
+                        $("input").eq(2).css("border-bottom", "1px solid");
+                        $("input").eq(3).css("border-bottom", "1px solid");
+                    }
+                    return true;
+                case 4:
+                    regExp = /^[a-z0-9]+@.+$/;
+                    $(input).prev().children("span").html("");
+                    if (!regExp.test($("input").eq(index).val())) {
+                        $("input").eq(index).prev().children("span").html("Email 형식에 맞지 않습니다.");
+                        return false;
+                    }
+
+                    $(input).css("border-bottom", "1px solid");
+                    return true;
+                case 5:
+                    regExp = /^0[0-9]{2}-[0-9]{4}-[0-9]{4}$/;
+                    $(input).prev().children("span").html("");
+                    if (!regExp.test($("input").eq(index).val())) {
+                        $("input").eq(index).prev().children("span").html("전화번호 형식(000-0000-0000)");
+                        return false;
+                    }
+                    $(input).css("border-bottom", "1px solid");
+                    return true;
+                default:
+                    $(input).css("border-bottom", "1px solid");
+                    return true;
             }
-
             return true;
         }
 
@@ -123,20 +114,17 @@
                 if (index != $("label>input").length - 1) {
                     if ($(this).val() == "") {
                         $(this).click();
-                        $(this).val(" ");
                     }
                     var reg = regTest($(this), index);
                     if (!reg) {
                         check = reg;
-                    }
-                    if ($(this).val() == " " && index != $("label>input").length - 1) {
-                        $(this).val("");
                     }
                 }
             });
 
             return check;
         }
+
     </script>
 
     <style>
@@ -225,6 +213,7 @@
             float: right;
             margin-right: 25%;
         }
+
     </style>
 </head>
 
@@ -278,4 +267,6 @@
             </form>
         </div>
     </div>
-</body></html>
+</body>
+
+</html>
