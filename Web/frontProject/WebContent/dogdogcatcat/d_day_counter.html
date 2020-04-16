@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>멍멍아 야옹해봐!: D-Day Counter</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <style>
+        body>div {
+            margin: 0 auto;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .tg_content {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tg_main>div>h1 {
+            padding-top: 20px;
+            padding-left: 20px;
+        }
+        
+        .tg_counter {
+            overflow: hidden;
+        }
+        
+        .tg_counter>div {
+            float: left;
+        }
+        
+        .tg_counter_img {
+            width: 500px;
+            height: 500px;
+            background-image: url("./img/abandoned1.jpg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-top: 100px;
+            margin-left: 100px;
+            animation-name: tg_counter;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes tg_counter {
+            33% {
+                background-image: url("./img/abandoned2.jpg");
+            }
+            
+            66% {
+                background-image: url("./img/abandoned3.jpg");
+            }
+            
+            100% {
+                background-image: url("./img/abandoned1.jpg");
+            }
+        }
+        
+        .tg_counter_span {
+            width: 500px;
+            height: 200px;
+            background-color: black;
+            margin-top: 250px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div class="header"></div>
+        <div class="tg_content">
+            <div class="tg_main">
+                <div>
+                    <h1>안락사 D-Day Counter</h1>
+                </div>
+                <hr>
+                <div class="tg_counter">
+                    <div class="tg_counter_img"></div>
+                    <div class="tg_counter_span"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+</body>
+</html>

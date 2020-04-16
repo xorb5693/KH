@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>멍멍아 야옹해봐!</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <script>
+        $(function() {
+            margin = (screen.height - 400) / 2 + "px";
+            $("body>div").css("margin-top", margin);
+            
+            $("body>div").click(function() {
+                location.href="https://www.naver.com";
+            });
+        });
+    </script>
+    
+    <style>
+        body {
+            background-image: url("./img//body-image.jpg");
+            background-size: auto;
+            overflow: auto;
+            animation-name: tg_body;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes tg_body {
+            25% {
+                background-position: 0% 18%;
+            }
+            
+            50% {
+                background-position: 100% 18%;
+            }
+            
+            75% {
+                background-position: 100% 0%;
+            }
+        }
+        
+        body>div {
+            width: 500px;
+            height: 300px;
+            background-color: white;
+            margin: 0 auto;
+            background-image: url("img/logo1.png");
+            background-color: #FFFFF3;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 60%;
+            border-radius: 20px;
+            -ms-user-select: none; 
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        body>div>span {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 10px;
+            cursor: default;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#92;Click 야옹!/</span>
+    </div>
+</body>
+</html>
