@@ -32,7 +32,9 @@
 
             $("input[type=reset]").click(function() {
                 $("label>span").each(function(index) {
-                    $(this).css("font-size", "30px");
+                    $(this).animate({
+                        fontSize: '30px'
+                    }, 500);
                     $(this).children("span").html("");
                     $(this).siblings("input").css("border-bottom", "1px solid");
                 });
