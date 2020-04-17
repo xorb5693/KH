@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>멍멍아 야옹해봐!: 강아지 용품</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--Css Link-->
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+
+    <style>
+
+        body>div {
+            margin: 0 auto;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .tg_content {
+            width: 1200px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-bottom: 0;
+        }
+
+        .tg_main>div>h1 {
+            padding-top: 20px;
+            padding-left: 20px;
+            margin: 0px;
+        }
+
+        .goods {
+            width: 100%;
+            /*            height: 500px;*/
+            margin: 0 auto;
+        }
+
+        .goods>ul {
+            list-style-type: none;
+            overflow: hidden;
+            width: 1000px;
+            height: 100%;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .goods>ul>li {
+            float: left;
+        }
+
+        li>div {
+            width: 290px;
+            height: 350px;
+            margin: 20px;
+            border: 1px solid white;
+        }
+
+        li>div>a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: black;
+        }
+
+        .search {
+            padding: 20px;
+            padding-bottom: 50px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        form>div {
+            display: inline-block;
+        }
+
+        form>div>div {
+            float: left;
+        }
+
+        input[type="text"] {
+            width: 250px;
+            height: 30px;
+            font-size: 20px;
+            border: 1px solid #f199bc;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        input[type="submit"] {
+            width: 50px;
+            height: 34px;
+            background-color: #f199bc;
+            color: white;
+            margin-left: 30px;
+            border: 1px solid #f199bc;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .img {
+            overflow: hidden;
+            width: 100%;
+            height: 80%;
+        }
+
+        .img>div {
+            width: auto;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .img>div:hover {
+            transform: scale(1.2, 1.2);
+            transition-duration: 0.5s;
+        }
+
+        a>span {
+            text-align: center;
+            display: block;
+            margin: 0px;
+            width: 290px;
+            height: 70px;
+            line-height: 70px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .noticepage {
+            width: 100%;
+            text-align: center;
+        }
+
+        .noticepage>a,
+        .noticepage>span {
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 5px;
+            margin-left: 1px;
+            color: #566270;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #f199bc;
+        }
+
+        .noticepage>span {
+            background-color: rgb(250, 177, 206);
+            color: #fffff3;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+    <div class="bjh_logo">
+        <img src="./img/logo.jpg">
+    </div>
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a href="#">소개</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a href="#">가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">가맹점 소개</a></li>
+                    <li><a href="#">보호 유기동물</a></li>
+                    <li><a href="#">게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a href="#">용품</a>
+                <ul class="bjh_sub">
+                    <li><a href="./dog_goods.html">강아지 용품</a></li>
+                    <li><a href="./cat_goods.html">고양이 용품</a></li>
+                </ul>
+            </li>
+            <li><a href="#">입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">후기보기</a></li>
+                    <li><a href="#">후기작성</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="bjh_content" style="background-color: white">
+        <div class="tg_content">
+            <div class="tg_main">
+                <div>
+                    <h1>강아지 용품</h1>
+                </div>
+            </div>
+            <hr><br>
+            <div class="goods">
+                <ul>
+                    <li>
+                        <div>
+                            <a href="https://arrr.kr/product/detail.html?product_no=53&cate_no=24&display_group=1&cafe_mkt=naver_ks&mkt_in=Y&ghost_mall_id=naver&ref=naver_open&n_media=11068&n_query=%EA%B0%95%EC%95%84%EC%A7%80%EC%BF%A0%EC%85%98&n_rank=1&n_ad_group=grp-a001-02-000000011022041&n_ad=nad-a001-02-000000063003744&n_campaign_type=2&n_mall_pid=53&NaPm=ct%3Dk93u8nrk%7Cci%3D0zu0003giDzsGMuZAfiP%7Ctr%3Dpla%7Chk%3D6044165e8104bf377e301903be39820c193b96c9">
+                                <div class="img">
+                                    <div style="background-image: url('./img/dog_goods1.jpg');">
+                                    </div>
+                                </div>
+                                <span>[사계절용] 아르르 꿀잠 방석</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="https://www.varram.co.kr/robot/?idx=1&n_media=11068&n_query=%EA%B0%95%EC%95%84%EC%A7%80%EC%9E%A5%EB%82%9C%EA%B0%90&n_rank=1&n_ad_group=grp-a001-02-000000013936241&n_ad=nad-a001-02-000000084119259&n_campaign_type=2&n_mall_pid=s201905233cba34acd344e&NaPm=ct%3Dk93u8jwo%7Cci%3D0AC0003biDzsc4X4uvki%7Ctr%3Dpla%7Chk%3D32bfcd7497652ed37cb757a368bba8eb84ebddab">
+                                <div class="img">
+                                    <div style="background-image: url('./img/dog_goods2.jpg');">
+                                    </div>
+                                </div>
+                                <span>[움직이는 강아지 장난감] 분리불안 훈련, 노즈워크 로봇 바램 펫 피트니스</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="https://smartstore.naver.com/gallerypet/products/241284952?NaPm=ct%3Dk93u8fa0%7Cci%3D0Am00037iDzsbnC0%2DvkA%7Ctr%3Dpla%7Chk%3Dec88292e83ee94fa90371dfd6a13c9183f6b7c43">
+                                <div class="img">
+                                    <div style="background-image: url('./img/dog_goods3.jpg');">
+                                    </div>
+                                </div>
+                                <span>진돗개사료 진도예찬 (10kg+10kg) 강아지사료 샘플증정</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="https://smartstore.naver.com/daengdaengvely/products/4744783949?NaPm=ct%3Dk93ubwa0%7Cci%3D328cd39901d529e1a3a28f865342cd39afc831e5%7Ctr%3Dslsl%7Csn%3D926894%7Cic%3D%7Chk%3Dc9c03351accb58c41a91885649fa36fa22fa41f4">
+                                <div class="img">
+                                    <div style="background-image: url('./img/dog_goods4.jpg');">
+                                    </div>
+                                </div>
+                                <span>잇츄 1+2 핏펫 강아지 양치껌 개껌 치석제거껌 꿀잠츄 3+무배</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="https://smartstore.naver.com/daengdaengvely/products/4744783949?NaPm=ct%3Dk93ubwa0%7Cci%3D328cd39901d529e1a3a28f865342cd39afc831e5%7Ctr%3Dslsl%7Csn%3D926894%7Cic%3D%7Chk%3Dc9c03351accb58c41a91885649fa36fa22fa41f4">
+                                <div class="img">
+                                    <div style="background-image: url('./img/dog_goods5.jpg');">
+                                    </div>
+                                </div>
+                                <span>[DOGTOC]독톡 일체형 세움 배변판 강아지 화장실</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="https://smartstore.naver.com/doghoney/products/4875110006?n_media=11068&n_query=%EA%B0%95%EC%95%84%EC%A7%80%EC%98%B7&n_rank=2&n_ad_group=grp-a001-02-000000014998803&n_ad=nad-a001-02-000000091262582&n_campaign_type=2&n_mall_pid=4875110006&NaPm=ct%3Dk93ued0g%7Cci%3D0zW0003qiTzsmr%2D7GuYq%7Ctr%3Dpla%7Chk%3D1d92c0f6c153afd491f640b80510971312496312">
+                                <div class="img">
+                                    <div style="background-image: url('./img/dog_goods6.jpg');">
+                                    </div>
+                                </div>
+                                <span>동동이네 원피스 강아지옷 XS-XL 블라우스&셔츠</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <br>
+                <hr>
+                <div></div>
+                <div class="noticepage">
+                    <span>1</span>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <a href="#">></a>
+                    <a href="#">>></a>
+                </div>
+                <div class="search">
+                    <form action="#" method="get">
+                        <div>
+                            <div>
+                                <input type="text" name="search" placeholder="검색할 내용을 입력하세요.">
+                            </div>
+
+                            <div>
+                                <input type="submit" value="검색">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bjh_footer" style="height:170px;">
+        <div>
+        상호명: 멍멍아 야옹해봐<br>
+        대표: 이윤수<br>
+        주소: 서울특별시 영등포구 당산동<br>
+        사업자등록번호: 542-18-45649<br>
+        Tel: 010-1234-5678<br>
+        Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+        </div>
+    </div>
+
+</body>
+
+</html>

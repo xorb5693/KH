@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>멍멍아 야옹해봐!: 안락사 시간 변경</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--Css Link-->
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+    <script>
+        $(function() {
+            var id = 0;
+            
+            function setClock(date2) {
+                id = window.setInterval(function() {
+                    var date1 = new Date();
+                    var counter = date2.getTime() - date1.getTime();
+
+                    counter = Math.floor(counter / 1000);
+                    //                console.log(counter);
+                    var day = Math.floor(counter / 86400);
+                    counter -= day * 86400;
+
+                    var hour = Math.floor(counter / 3600);
+                    counter -= hour * 3600;
+
+                    var minute = Math.floor(counter / 60);
+                    counter -= minute * 60;
+
+                    $("#tg_p").html("D-" + day + "일 " + hour + " : " + minute + " : " + counter);
+                }, 1000);
+            }
+            
+            window.setInterval(function() {
+                if ($("#tg_p").hasClass("tg_down")) {
+                    $("#tg_p").removeClass("tg_down");
+                    $("#tg_p").addClass("tg_up");
+                } else {
+                    $("#tg_p").removeClass("tg_up");
+                    $("#tg_p").addClass("tg_down");
+                }
+            }, 800);
+            
+            $("input[type=date]").change(function() {
+                window.clearInterval(id);
+                var date2 = new Date($("input[type=date]").val());
+                date2.setHours($("select").eq(0).val());
+                date2.setMinutes($("select").eq(1).val());
+                setClock(date2);
+            });
+            
+            $("select").change(function() {
+                window.clearInterval(id);
+                var date2 = new Date($("input[type=date]").val());
+                date2.setHours($("select").eq(0).val());
+                date2.setMinutes($("select").eq(1).val());
+                setClock(date2);
+            });
+
+            $("div>input[type=button]").click(function() {
+                location.href = "./d_day_counter.html";
+            });
+            
+            var now = new Date();
+            var month = now.getMonth() + 1;
+            if (month < 10) {
+                month = "0" + month;
+            }
+            
+            var date = now.getDate();
+            if (date < 10) {
+                date = "0" + date;
+            }
+            
+            $("input[type=date]").val(now.getFullYear() + "-" + month + "-" + date);
+            $("input[type=date]").change();
+        });
+
+    </script>
+
+    <style>
+        form {
+            text-align: center;
+        }
+
+        form>div {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        form>div:first-child {
+            display: inline-block;
+        }
+
+        form>div>div {
+            float: left;
+        }
+
+        input[type="date"] {
+            width: 300px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            font-family: 'Noto Sans KR', sans-serif;
+            border: 1px solid #f199bc;
+            margin-right: 50px;
+            outline: none;
+            background-color: rgb(250,177,206);
+            color: white;
+            text-align: center;
+        }
+
+        select {
+            width: 100px;
+            height: 50px;
+            border: none;
+            font-size: 20px;
+            outline: none;
+            border: 1px solid #f199bc;
+            background-color: rgb(250,177,206);
+            color: white;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            width: 200px;
+            height: 100px;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: rgb(250,177,206);
+            color: white;
+            border: 1px solid #f199bc;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .tg_content {
+            width: 1200px;
+            height: auto;
+            margin: 0 auto;
+            margin-bottom: 0;
+        }
+
+        .tg_main>div>h1 {
+            padding-top: 20px;
+            padding-left: 20px;
+            margin: 0px;
+        }
+
+        .tg_counter_p {
+            width: 500px;
+            height: 500px;
+            line-height: 500px;
+            background-image: url("./img/blood.png");
+            background-size: contain;
+            margin: 0 auto;
+        }
+
+        #tg_p {
+            font-weight: bolder;
+            margin-top: 0px;
+            color: #2E294E;
+            text-align: center;
+        }
+        
+        .tg_up {
+            transition-duration: 0.8s;
+            font-size: 60px;
+        }
+        
+        .tg_down {
+            transition-duration: 0.8s;
+            font-size: 50px;
+        }
+
+        .tg_main>p {
+            text-align: center;
+            font-size: 20px;
+            padding-bottom: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+    <div class="bjh_logo">
+        <img src="./img/logo.jpg">
+    </div>
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a href="#">소개</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a href="#">가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">가맹점 소개</a></li>
+                    <li><a href="#">보호 유기동물</a></li>
+                    <li><a href="#">게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a href="#">용품</a>
+                <ul class="bjh_sub">
+                    <li><a href="./dog_goods.html">강아지 용품</a></li>
+                    <li><a href="./cat_goods.html">고양이 용품</a></li>
+                </ul>
+            </li>
+            <li><a href="#">입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">후기보기</a></li>
+                    <li><a href="#">후기작성</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="bjh_content" style="background-color: white">
+        <div class="tg_content">
+            <div class="tg_main">
+                <div>
+                    <h1>안락사 시간 변경</h1>
+                </div>
+                <hr>
+                <div class="tg_set_counter">
+                    <form action="#" method="get">
+                        <div>
+                            <div>
+                                <input type="date" name="date">
+                            </div>
+                            <div>
+                                <select name="hour">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23" selected>23</option>
+                                </select>
+                                <span>시</span>
+                                <select name="minute">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59" selected>59</option>
+                                </select>
+                                <span>분</span>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" value="확인">
+                            <input type="button" value="취소">
+                        </div>
+                    </form>
+                </div>
+                <div class="tg_counter">
+                    <div class="tg_counter_p">
+                        <p id="tg_p" class="tg_down"></p>
+                    </div>
+                </div>
+                <p>현재 안락사 시간까지</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bjh_footer" style="height:170px;">
+        <div>
+        상호명: 멍멍아 야옹해봐<br>
+        대표: 이윤수<br>
+        주소: 서울특별시 영등포구 당산동<br>
+        사업자등록번호: 542-18-45649<br>
+        Tel: 010-1234-5678<br>
+        Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+        </div>
+    </div>
+
+</body>
+
+</html>

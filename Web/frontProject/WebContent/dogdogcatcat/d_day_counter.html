@@ -1,33 +1,95 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>멍멍아 야옹해봐!: D-Day Counter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>멍멍아 야옹해봐!: D-Day Counter</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--Css Link-->
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+    <script>
+        $(function() {
+            window.setInterval(function() {
+                var date1 = new Date();
+                var date2 = new Date(2020, 3, 20, 0, 20);
+                var counter = date2.getTime() - date1.getTime();
+
+                counter = Math.floor(counter / 1000);
+                //                console.log(counter);
+                var day = Math.floor(counter / 86400);
+                counter -= day * 86400;
+
+                var hour = Math.floor(counter / 3600);
+                counter -= hour * 3600;
+
+                var minute = Math.floor(counter / 60);
+                counter -= minute * 60;
+                //                console.log(day + " : " + hour + " : " + minute + " : " + counter);
+
+                $("#tg_p").html("D-" + day + "일 " + hour + " : " + minute + " : " + counter);
+            }, 1000);
+            
+            window.setInterval(function() {
+                if ($("#tg_p").hasClass("tg_down")) {
+                    $("#tg_p").removeClass("tg_down");
+                    $("#tg_p").addClass("tg_up");
+                } else {
+                    $("#tg_p").removeClass("tg_up");
+                    $("#tg_p").addClass("tg_down");
+                }
+            }, 800);
+                        
+            $("h1>button").click(function() {
+                location.href="./set_d_day.html";
+            });
+        });
+    </script>
+
     <style>
+        body {
+            margin: 8px;
+        }
+        
+        .bjh_logo{
+            line-height: 195px;
+            
+        }
         body>div {
             margin: 0 auto;
             font-family: 'Noto Sans KR', sans-serif;
         }
+
         .tg_content {
             width: 1200px;
+            height: auto;
             margin: 0 auto;
+            margin-bottom: 0;
         }
-        
+
         .tg_main>div>h1 {
             padding-top: 20px;
             padding-left: 20px;
+            margin: 0px;
         }
-        
+
         .tg_counter {
             overflow: hidden;
         }
-        
+
         .tg_counter>div {
             float: left;
         }
-        
+
         .tg_counter_img {
             width: 500px;
             height: 500px;
@@ -41,44 +103,194 @@
             animation-duration: 8s;
             animation-iteration-count: infinite;
         }
-        
+
         @keyframes tg_counter {
             33% {
                 background-image: url("./img/abandoned2.jpg");
             }
-            
+
             66% {
                 background-image: url("./img/abandoned3.jpg");
             }
-            
+
             100% {
                 background-image: url("./img/abandoned1.jpg");
             }
         }
-        
-        .tg_counter_span {
+
+        .tg_counter_p {
             width: 500px;
-            height: 200px;
-            background-color: black;
-            margin-top: 250px;
+            height: 500px;
+            margin-top: 100px;
+            background-image: url("./img/blood.png");
+            background-size: contain;
         }
+
+        #tg_p {
+            font-weight: bolder;
+            margin-top: 200px;
+            color: #2E294E;
+            text-align: center;
+        }
+        
+        .tg_up {
+            transition-duration: 0.8s;
+            font-size: 60px;
+        }
+        
+        .tg_down {
+            transition-duration: 0.8s;
+            font-size: 50px;
+        }
+        
+        /* Make the image fully responsive */
+        .carousel-inner>div>img {
+            height: 600px;
+            width: auto;
+        }
+
+        .carousel-inner {
+            width: 100%;
+            height: 600px;
+/*            background-color: black;*/
+            text-align: center;
+        }
+        
+        .tg_imgs {
+            height: 800px;
+        }
+        
+        h1>button {
+            font-size: 20px;
+            float: right;
+            padding: 10px;
+            border: 1px solid #f199bc;
+            background-color: rgb(250,177,206);
+            color: white;
+            border-radius: 10px;
+        }
+        
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-        <div class="header"></div>
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+        <div class="bjh_logo">
+            <img src="./img/logo.jpg">
+        </div>
+        <div class="bjh_navigation">
+            <ul>
+                <li>
+                     <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul> 
+                </li>
+                <li><a href="#">소개</a>
+                     <ul class="bjh_sub">
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">제휴기업</a></li>
+                    </ul> 
+                </li>
+                <li><a href="#">가맹점 안내</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">가맹점 소개</a></li>
+                        <li><a href="#">보호 유기동물</a></li>
+                        <li><a href="#">게시글 쓰기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">유기동물</a>
+                    <ul class="bjh_sub">
+                        <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">용품</a>
+                    <ul class="bjh_sub">
+                    <li><a href="./dog_goods.html">강아지 용품</a></li>
+                    <li><a href="./cat_goods.html">고양이 용품</a></li>
+                    </ul>
+                </li>            
+                <li><a href="#">입양후기</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">후기보기</a></li>
+                        <li><a href="#">후기작성</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Q&A</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">공지사항 작성</a></li>
+                    </ul>
+                </li> 
+                <li>
+                     <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul> 
+                </li>
+            </ul>
+        </div>
+
+    <div class="bjh_content" style="background-color: white">
         <div class="tg_content">
-            <div class="tg_main">
+            <div class="tg_main"> 
                 <div>
-                    <h1>안락사 D-Day Counter</h1>
+                    <h1>안락사 D-Day Counter<button>Counter 설정</button></h1>
                 </div>
                 <hr>
                 <div class="tg_counter">
                     <div class="tg_counter_img"></div>
-                    <div class="tg_counter_span"></div>
+                    <div class="tg_counter_p">
+                        <p id="tg_p" class="tg_down"></p>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="tg_imgs">
+                <div>
+                    <h1>안락사 예정 동물</h1>
+                </div>
+                <hr><br><br>
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./img/des1.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/des2.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/des3.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/des4.jpg">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="footer"></div>
-</body>
-</html>
+    </div>
+    <div class="bjh_footer" style="height:170px;">
+        <div>
+        상호명: 멍멍아 야옹해봐<br>
+        대표: 이윤수<br>
+        주소: 서울특별시 영등포구 당산동<br>
+        사업자등록번호: 542-18-45649<br>
+        Tel: 010-1234-5678<br>
+        Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+        </div>
+    </div>
+
+
+</body></html>
