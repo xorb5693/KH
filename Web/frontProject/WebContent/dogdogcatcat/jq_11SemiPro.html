@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+    <style>
+        .content {
+
+            background-image: url("./img/wrapper.jpg");
+            background-size: 100% 100%;
+            width: 1600px;
+            overflow: hidden;
+            box-sizing: border-box;
+            /*            background-color: #fab1ce;*/
+
+        }
+
+        .con_Rap {
+            margin: 0 auto;
+            width: 70%;
+            overflow: hidden;
+        }
+
+        .con_Header {
+            
+/*            text-align: center;*/
+            width: 100%;
+            box-sizing: border-box;
+            height: 250px;
+            background-color: white;
+/*
+            border: 1px dashed orange;
+            background-image: url("board_Main.jpeg");
+*/
+            position:relative;
+            background-size: 100% 120%;
+            line-height: 170px;
+
+        }
+        
+        .cover {
+            width: 100%;
+            height: 250px;
+            opacity:0.6;
+            background-image: url(./img/board_Main.jpeg);
+            z-index: 50;
+            position: absolute;
+            background-size: cover;
+            background-position: 20%;
+            top: 0;
+            left: 0;
+        }
+        
+        .con_Header>h1{
+            position: absolute;
+            z-index: 100;
+            text-align: center;
+            width: 100%;
+            height: 250px;
+            line-height: 250px;
+            margin: 0 auto;
+        }
+        
+        .list {
+            width: 100%;
+            box-sizing: border-box;
+            /*
+            border-top-color: dimgray;
+            border-bottom-color: dimgray;
+*/
+            overflow: hidden;
+        }
+
+        .list>ul {
+            margin-top: 10px;
+            list-style: none;
+            padding: 0px;
+
+        }
+
+        .list>ul>li {
+
+            float: left;
+            text-align: center;
+            background-color: #ffbbd6;
+            font-family: 'Noto Sans KR', sans-serif;
+            border-bottom: 1.5px solid snow;
+            box-sizing: border-box;
+            height: 29px;
+            color: darkslategray;
+            
+        }
+
+        .list>ul:first-child>li {
+            float: left;
+            text-align: center;
+            background-color: aliceblue;
+           
+            font-family: 'Noto Sans KR', sans-serif;
+            border-bottom: 1.5px solid gray;
+
+        }
+
+        .title>a {
+            text-decoration: none;
+            color: darkslategray;
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+
+        .no {
+            width: 10%;
+
+
+        }
+
+        .title {
+            width: 38%;
+
+        }
+
+        .writer {
+            width: 15%;
+
+        }
+
+        .date {
+            width: 17%;
+
+        }
+
+        .view {
+            width: 10%;
+
+
+        }
+
+        .like {
+            width: 10%;
+
+        }
+
+        .con_Foot {
+            width: 100%;
+            box-sizing: border-box;
+            height: 170px;
+            background-color: whitesmoke;
+        }
+
+        .root {
+            width: 100%;
+            box-sizing: border-box;
+            height: 35px;
+            background-color: whitesmoke;
+            padding: 2px;
+            line-height: 85px;
+        }
+
+        .si {
+
+            background-color: slategray;
+            height: 30px;
+            color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+            width: 70px;
+        }
+
+        .u {
+            float: right;
+        }
+
+        .search {
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(to bottom, beige, whitesmoke);
+            line-height: 85px;
+        }
+
+        .search {
+            font-size: 30px;
+            font-weight: 500;
+            color: darkslategray;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $(".title").mouseover(function() {
+                
+                var ul = $(this).parent();
+                $(ul).children().css("color","snow");
+                $(this).children().css("color","snow");
+
+            });
+            
+            $(".title").mouseout(function() {
+                var ul = $(this).parent();
+                $(ul).children().css("color","darkslategray");
+                $(this).children().css("color","darkslategray");
+            });
+            
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="Header">
+            <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+            <div class="bjh_logo">
+                <img src="./img/logo.jpg">
+            </div>
+            <div class="bjh_navigation">
+                <ul>
+                    <li>
+                        <ul class="bjh_sub">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">소개</a>
+                        <ul class="bjh_sub">
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">제휴기업</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">가맹점 안내</a>
+                        <ul class="bjh_sub">
+                            <li><a href="#">가맹점 소개</a></li>
+                            <li><a href="#">보호 유기동물</a></li>
+                            <li><a href="#">게시글 쓰기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">유기동물</a>
+                        <ul class="bjh_sub">
+                            <li><a href="#">안락 D-DAY</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">용품</a>
+                        <ul class="bjh_sub">
+                            <li><a href="#">강아지 용품</a></li>
+                            <li><a href="#">고양이 용품</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">입양후기</a>
+                        <ul class="bjh_sub">
+                            <li><a href="#">후기보기</a></li>
+                            <li><a href="#">후기작성</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Q&A</a>
+                        <ul class="bjh_sub">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">공지사항 작성</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="bjh_sub">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="con_Rap">
+                <div class="con_Header">
+                    <h1>게시판 (입양후기)</h1>
+                    <div class="cover"></div>
+
+                </div>
+                <div class="list">
+                    <ul>
+                        <li class="no">No</li>
+                        <li class="title">제목</li>
+                        <li class="writer">글쓴이</li>
+                        <li class="date">작성시간</li>
+                        <li class="view">조회수</li>
+                        <li class="like">좋아요</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="jq_12SemiPro.html">사기당한거 같아요. 애가 숨을 안 쉬어요.</a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="#">냥줍으로 시작된 집사인생</a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="#">멍멍아 야옹해봐 </a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="#">화상채팅 좋아요</a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="#">입양은 사랑입니다.</a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="#">제 고양이 사랑스럽지 않나요?</a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="#">턱시도맨</a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                    <ul>
+                        <li class="no">1</li>
+                        <li class="title"><a href="#">코로나 싫어요</a></li>
+                        <li class="writer">혼모노</li>
+                        <li class="date">1960.02.11</li>
+                        <li class="view">299</li>
+                        <li class="like">7</li>
+                    </ul>
+                </div>
+                <div class="con_Foot">
+                    <div class="root">
+                        <button class="si u">글쓰기</button>
+                    </div>
+                    <form class="search" action="search" method="get">
+
+                        <span>Search</span>
+                        <input type="text" name="text">
+                        <button class="si">검색</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+<!--        <div class="bjh_content" style="height:500px;"></div>-->
+        <div class="bjh_footer" style="height:200px;"></div>
+
+    </div>
+</body></html>

@@ -74,7 +74,6 @@
             float: left;
             width: 330px;
             height: 45px;
-
         }
 
         h3 {
@@ -130,10 +129,18 @@
             top: 0;
             left: 0;
         }
-
-        .add>h1,
-        .add>h3 {
+        
+        .text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             z-index: 150;
+        }
+
+        .add>div>h1,
+        .add>div>h3 {
+            margin: 0px;
+            height: 33%;
         }
 
         h1 {
@@ -181,9 +188,9 @@
                     <li><a href="./cat_goods.html">고양이 용품</a></li>
                 </ul>
             </li>
-            <li><a href="#">입양후기</a>
+            <li><a href="./jq_11SemiPro.html">입양후기</a>
                 <ul class="bjh_sub">
-                    <li><a href="#">후기보기</a></li>
+                    <li><a href="./jq_11SemiPro.html">후기보기</a></li>
                     <li><a href="#">후기작성</a></li>
                 </ul>
             </li>
@@ -206,9 +213,11 @@
 
     <div class="bjh_content">
         <div class="add">
-            <h1>You Love Pet</h1>
-            <h1>-</h1>
-            <h3>'멍멍아 야옹해봐'에서 보호중인 아이들을 만나보세요.</h3>
+            <div class="text">
+                <h1>You Love Pet</h1>
+                <h1>-</h1>
+                <h3>'멍멍아 야옹해봐'에서 보호중인 아이들을 만나보세요.</h3>
+            </div>
             <div class="cover"></div>
         </div>
         <div class="mainhead">

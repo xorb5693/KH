@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>멍멍아 야옹해봐!</title>
+    <title>멍멍아 야옹해봐! : Main Page</title>
+
+    <!--jQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <!--Font-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -11,23 +14,268 @@
     <!--Css Link-->
     <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--MAIN Slide Img-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin: 8px;
+        }
+
+        .bjh_sub>li:hover {
+            opacity: 1.0;
+        }
+
+        .bjh_logo {
+            line-height: 200px;
+        }
+
+        .carousel-inner>div>img {
+            width: 100%;
+            opacity: 0.7;
+        }
+
+        .bjh_middle_menu {
+            background-color: white;
+            margin: 0 auto;
+            width: 100%;
+            height: 450px;
+        }
+
+        .bjh_middle_menu>.bjh_img:first-child {
+            margin-left: 340px;
+        }
+
+        .bjh_middle_menu>.bjh_img {
+            margin-left: 80px;
+            margin-top: 60px;
+            float: left;
+            width: 250px;
+            height: 370px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+
+        }
+
+        .bjh_menu1 {
+            background-image: url(./imgs/menu_img1.jpg);
+        }
+
+        .bjh_menu2 {
+            background-image: url(./imgs/menu_img2.jpg);
+        }
+
+        .bjh_menu3 {
+            background-image: url(./imgs/menu_img3.jpg);
+        }
+
+        .bjh_menu_comment {
+            background-color: white;
+            height: 80px;
+        }
+
+        .bjh_menu_comment>.bjh_img_comment:first-child {
+            margin-left: 340px;
+        }
+
+        .bjh_menu_comment>.bjh_img_comment {
+            margin-left: 80px;
+            float: left;
+            width: 250px;
+            height: 20px;
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 20px;
+        }
+
+        .bjh_img_comment>a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .bjh_img_comment>a:hover {
+            font-size: 23px;
+        }
+
+        .bjh_animal_list {
+            text-align: center;
+            width: 100%;
+            height: 1700px;
+        }
+
+        .title_txt {
+            font-size: 40px;
+        }
+
+        .title_txt2 {
+            font-size: 25px;
+        }
+
+        .bjh_animal_list_div {
+            width: 300px;
+            height: 300px;
+            border: 5px solid bisque;
+            float: left;
+            margin-left: 60px;
+            margin-top: 40px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .bjh_animal_list_div:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .list_first {
+            margin-left: 100px;
+        }
+
+        .bjh_list1 {
+            background-image: url(./imgs/list_img1.jpg);
+        }
+
+        .bjh_list2 {
+            background-image: url(./imgs/list_img12.jpg);
+        }
+
+        .bjh_list3 {
+            background-image: url(./imgs/list_img2.jpg);
+        }
+
+        .bjh_list4 {
+            background-image: url(./imgs/list_img11.jpg);
+        }
+
+        .bjh_list5 {
+            background-image: url(./imgs/list_img3.jpg);
+        }
+
+        .bjh_list6 {
+            background-image: url(./imgs/list_img10.jpg);
+        }
+
+        .bjh_list7 {
+            background-image: url(./imgs/list_img4.jpg);
+        }
+
+        .bjh_list8 {
+            background-image: url(./imgs/list_img9.jpg);
+        }
+
+        .bjh_list9 {
+            background-image: url(./imgs/list_img5.jpg);
+        }
+
+        .bjh_list10 {
+            background-image: url(./imgs/list_img8.jpg);
+        }
+
+        .bjh_list11 {
+            background-image: url(./imgs/list_img6.jpg);
+        }
+
+        .bjh_list12 {
+            background-image: url(./imgs/list_img7.jpg);
+        }
+
+        .bjh_comment {
+            height: 120px;
+        }
+
+        .bjh_comment>.bjh_list_comment:first-child {
+            margin-left: 100px;
+        }
+
+        .bjh_list_comment {
+            width: 300px;
+            height: 100px;
+            float: left;
+            margin-left: 60px;
+            text-align: center;
+        }
+
+        .bjh_list_comment>span:first-child {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .bjh_list_comment>span:last-child {
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .bjh_album_comment {
+            text-align: center;
+        }
+
+        .bjh_album_div {
+            margin-bottom: 10px;
+        }
+
+        .bjh_album_div>img {
+            margin-left: 10px;
+        }
+
+        .bjh_album_div>img:first-child {
+            margin-left: -5px;
+        }
+
+        .bjh_album_dropdwon,
+        .bjh_more_info {
+            background-color: rgb(250, 177, 206);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .bjh_album_dropdwon:hover {
+            font-size: 15px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .bjh_more_info:hover {
+            font-size: 15px;
+            color: white;
+            cursor: pointer;
+        }
+
+    </style>
 
     <script>
+        var album = false;
+
         $(function() {
-            $(".bjh_logo").children("img").click(function() {
-                location.href = "./animal_main.html";
+            $(".bjh_album_div").css("display", "none"); //안보임
+            $(".bjh_more_info").css("display", "none");
+
+            $(".bjh_album_dropdwon").click(function() {
+                $(".bjh_album_div").toggle();
+                $(".bjh_more_info").toggle();
+            });
+
+            $(".bjh_img_comment>a").hover(function() {
+                var index = $(".bjh_img_comment>a").index($(this));
+                console.log(index);
+                $(this).parent().parent().prev().children().eq(index).css("opacity", "1.0");
+            }, function() {
+                var index = $(".bjh_img_comment>a").index($(this));
+                $(this).parent().parent().prev().children().eq(index).css("opacity", "0.7");
             });
         });
 
     </script>
-
 </head>
 
 <body>
     <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
     <div class="bjh_logo">
-        <img src="./img/logo.jpg">
+        <a href="animal_main.html"><img src="./imgs/logo2.jpg"></a>
     </div>
     <div class="bjh_navigation">
         <ul>
@@ -62,9 +310,9 @@
                     <li><a href="./cat_goods.html">고양이 용품</a></li>
                 </ul>
             </li>
-            <li><a href="#">입양후기</a>
+            <li><a href="./jq_11SemiPro.html">입양후기</a>
                 <ul class="bjh_sub">
-                    <li><a href="#">후기보기</a></li>
+                    <li><a href="./jq_11SemiPro.html">후기보기</a></li>
                     <li><a href="#">후기작성</a></li>
                 </ul>
             </li>
@@ -85,7 +333,181 @@
 
 
 
-    <div class="bjh_content" style="height:500px;"></div>
+    <div class="bjh_content">
+
+
+        <div class="container" style="width:100%; padding:0px;">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active" style="width:100%;">
+                        <img src="./imgs/dog5.jpg" style="width:100%; height:500px;">
+                    </div>
+
+                    <div class="item" style="width:100%;">
+                        <img src="./imgs/dog4.jpg" style="width:100%; height:500px;">
+                    </div>
+
+                    <div class="item" style="width:100%;">
+                        <img src="./imgs/dog7.jpg" style="width:100%; height:500px;">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="bjh_middle_menu">
+            <div class="bjh_menu1 bjh_img"></div>
+            <div class="bjh_menu2 bjh_img"></div>
+            <div class="bjh_menu3 bjh_img"></div>
+        </div>
+
+        <div class="bjh_menu_comment">
+            <div class="bjh_img_comment"><a href="#">가맹점 안내!</a></div>
+            <div class="bjh_img_comment"><a href="#">애견용품 Go!</a></div>
+            <div class="bjh_img_comment"><a href="#">보호 아이들 보러가기</a></div>
+        </div>
+
+        <div class="bjh_animal_list">
+            <br><br>
+            <span class="title_txt">보호중인아이들</span>
+            <br><br>
+            <span class="title_txt2">새로운 가족을 기다리는 아이들에게 가족이 되어주세요!</span>
+            <br><br><br><br>
+
+            <div style="height:350px;">
+                <div class="bjh_animal_list_div list_first bjh_list1"></div>
+                <div class="bjh_animal_list_div bjh_list2"></div>
+                <div class="bjh_animal_list_div bjh_list3"></div>
+                <div class="bjh_animal_list_div bjh_list4"></div>
+            </div>
+
+            <div class="bjh_comment">
+                <div class="bjh_list_comment comment_first">
+                    <span>보호견 : 자바 / 2살 / ♂ </span> <br>
+                    <span>등록일 : 2018-03-11 조회수 : 23</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호묘 : 파이썬 / 3살 / ♀ </span> <br>
+                    <span>등록일 : 2019-05-25 조회수 : 11</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호견 : DB / 1살 / ♂ </span> <br>
+                    <span>등록일 : 2020-01-09 조회수 : 36</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호묘 : JS / 1살 / ♀ </span> <br>
+                    <span>등록일 : 2019-12-28 조회수 : 56</span>
+                </div>
+            </div>
+
+            <div style="height:350px;">
+                <div class="bjh_animal_list_div list_first bjh_list5"></div>
+                <div class="bjh_animal_list_div bjh_list6"></div>
+                <div class="bjh_animal_list_div bjh_list7"></div>
+                <div class="bjh_animal_list_div bjh_list8"></div>
+            </div>
+
+            <div class="bjh_comment">
+                <div class="bjh_list_comment comment_first">
+                    <span>보호견 : Ajax / 3살 / ♂ </span> <br>
+                    <span>등록일 : 2018-09-25 조회수 : 15</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호묘 : HTML / 2살 / ♂ </span> <br>
+                    <span>등록일 : 2019-04-20 조회수 : 52</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호견 : JSP / 1살 / ♀ </span> <br>
+                    <span>등록일 : 2019-10-01 조회수 : 66</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호묘 : Nodejs / 1살 / ♀ </span> <br>
+                    <span>등록일 : 2019-12-01 조회수 : 35</span>
+                </div>
+            </div>
+
+            <div style="height:350px;">
+                <div class="bjh_animal_list_div list_first bjh_list9"></div>
+                <div class="bjh_animal_list_div bjh_list10"></div>
+                <div class="bjh_animal_list_div bjh_list11"></div>
+                <div class="bjh_animal_list_div bjh_list12"></div>
+            </div>
+
+            <div class="bjh_comment">
+                <div class="bjh_list_comment comment_first">
+                    <span>보호견 : C / 3살 / ♀ </span> <br>
+                    <span>등록일 : 2017-05-30 조회수 : 25</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호견 : JSON / 2살 / ♂ </span> <br>
+                    <span>등록일 : 2018-04-24 조회수 : 45</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호견 : C++ / 6살 / ♂ </span> <br>
+                    <span>등록일 : 2016-01-26 조회수 : 33</span>
+                </div>
+                <div class="bjh_list_comment">
+                    <span>보호견 : MVC / 4살 / ♀ </span> <br>
+                    <span>등록일 : 2017-11-11 조회수 : 16</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bjh_album_comment">
+            <br><br>
+            <span class="title_txt">입양 후기</span>
+            <br><br>
+            <div class="bjh_album_dropdwon" style="font-size:20px; text-align:center; width:980px; margin-left:310px;">입양 후기 보기▼</div>
+            <br><br>
+
+            <div class="bjh_album_div">
+                <img src="./imgs/saram1.jpg">
+                <img src="./imgs/saram2.jpg">
+                <img src="./imgs/saram3.jpg">
+                <img src="./imgs/saram4.jpg">
+            </div>
+            <div class="bjh_album_div">
+                <img src="./imgs/saram5.jpg">
+                <img src="./imgs/saram6.jpg">
+                <img src="./imgs/saram7.jpg">
+                <img src="./imgs/saram8.jpg">
+            </div>
+            <div class="bjh_album_div">
+                <img src="./imgs/saram9.jpg">
+                <img src="./imgs/saram10.jpg">
+                <img src="./imgs/saram11.jpg">
+                <img src="./imgs/saram12.jpg">
+            </div>
+            <div class="bjh_album_div">
+                <img src="./imgs/saram13.jpg">
+                <img src="./imgs/saram14.jpg">
+                <img src="./imgs/saram15.jpg">
+                <img src="./imgs/saram16.jpg">
+            </div>
+
+            <div class="bjh_more_info" style="font-size:20px; text-align:center; width:150px; height:50px; line-height:50px; margin-left:720px;">더보기</div>
+        </div>
+
+        <br><br><br><br><br>
+    </div>
     <div class="bjh_footer" style="height:170px;">
         <div>
             상호명: 멍멍아 야옹해봐<br>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>멍멍아 야옹해봐! : Si Page</title>
+    <!--jQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--Css Link-->
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+
+    <!--MAIN Slide Img-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        bool = [false, false, false, false, false, false];
+
+        $(function() {
+            $("form>div").last().css("width", "100%");
+
+            $("form>div").each(function(index, item) {
+                $(item).children().first().children().children().first().css("font-weight", "bold");
+                $(item).children().first().children().children().last().css("font-size", "5px").css("color", "red").css("font-weight", "bold").css("display", "none");
+                $(item).children().last().children().css("border", "none");
+                $(item).children().last().children().css("width", "230px");
+                $(item).children().last().children().css("outline", "none");
+            });
+            $("form>input").first().css("margin-left", "100px");
+
+
+
+            $("form>div").find("input").focusin(function() {
+                $(this).parent().prev().children().children().last().css("display", "none");
+                $(this).parent().prev().children().children().first().addClass("size");
+
+                $(this).css("border", "none");
+
+            });
+
+
+            var idExp = /^[a-z][0-9a-z]{3,11}$/;
+            var nameExp = /^[가-힣ㄱ-ㅎㅏ-ㅣ]{2,4}$/;
+            var pwExp = /^[a-zA-Z0-9]{5,17}$/;
+            var emailExp = /^[a-zA-Z0-9]+@.+$/;
+            var phoneExp = /^[0-9]{3}-[0-9]{3,4}-[0-9]{4}$/;
+
+            $("form>div").find("input").focusout(function() {
+                var index = $(".inputs").index($(this));
+
+
+
+                switch (index) {
+                    case 0:
+                        var id = $("#id").val();
+                        if (!idExp.test(id)) {
+                            $("#id").parent().prev().children().children().last().css("display", "inline-block");
+                            $("#id").css("border", "1px solid red");
+                            bool[0] = false;
+                        } else {
+                            $("#id").parent().prev().children().children().last().css("display", "none");
+                            $("#id").css("border", "none");
+                            bool[0] = true;
+                        }
+                        break;
+                    case 1:
+                        var name = $("#name").val();
+                        if (!nameExp.test(name)) {
+                            $("#name").parent().prev().children().children().last().css("display", "inline-block");
+                            $("#name").css("border", "1px solid red");
+                            bool[1] = false;
+                        } else {
+                            $("#name").parent().prev().children().children().last().css("display", "none");
+                            $("#name").css("border", "none");
+                            bool[1] = true;
+                        }
+                        break;
+                    case 2:
+                        var pw = $("#pw").val();
+                        if (!pwExp.test(pw)) {
+                            $("#pw").parent().prev().children().children().last().css("display", "inline-block");
+                            $("#pw").css("border", "1px solid red");
+                            bool[2] = false;
+                        } else {
+                            $("#pw").parent().prev().children().children().last().css("display", "none");
+                            $("#pw").css("border", "none");
+                            bool[2] = true;
+                        }
+                        break;
+                    case 3:
+                        var pw_re = $("#pw_re").val();
+                        if (pw_re != $("#pw").val()) {
+                            $("#pw_re").parent().prev().children().children().last().css("display", "inline-block");
+                            $("#pw_re").css("border", "1px solid red");
+                            bool[3] = false;
+                        } else {
+                            $("#pw_re").parent().prev().children().children().last().css("display", "none");
+                            $("#pw_re").css("border", "none");
+                            bool[3] = true;
+                        }
+                        break;
+                    case 4:
+                        var email = $("#email").val();
+                        if (!emailExp.test(email)) {
+                            $("#email").parent().prev().children().children().last().css("display", "inline-block");
+                            $("#email").css("border", "1px solid red");
+                            bool[4] = false;
+                        } else {
+                            $("#email").parent().prev().children().children().last().css("display", "none");
+                            $("#email").css("border", "none");
+                            bool[4] = true;
+                        }
+                        break;
+                    case 5:
+                        var phone = $("#phone").val();
+                        if (!phoneExp.test(phone)) {
+                            $("#phone").parent().prev().children().children().last().css("display", "inline-block");
+                            $("#phone").css("border", "1px solid red");
+                            bool[5] = false;
+                        } else {
+                            $("#phone").parent().prev().children().children().last().css("display", "none");
+                            $("#phone").css("border", "none");
+                            bool[5] = true;
+                        }
+                        break;
+                }
+            });
+
+            $("#reset").click(function() {
+                $(".inputs").css("border", "none");
+                $(".spans").css("display", "none");
+            });
+        });
+
+        function sub() {
+            $("form>div").find("input").each(function() {
+                $(this).focusout();
+            });
+            
+            for (var i = 0; i < bool.length; i++) {
+                if (bool[i] == false) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    </script>
+
+    <style>
+        body {
+            margin: 8px;
+        }
+
+        .bjh_logo {
+            line-height: 200px;
+        }
+
+        .bjh_content {
+            padding-bottom: 50px;
+            padding-top: 50px;
+            color:
+        }
+
+        #sign {
+            margin: 0 auto;
+            width: 600px;
+            height: 400px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border: 3px solid rgb(250, 177, 206);
+            padding-top: 30px;
+        }
+
+        #sign>div {
+            margin: 0 auto;
+            width: 85%;
+            height: 90%;
+        }
+
+        form>div {
+            width: 245px;
+            float: left;
+            margin-top: 20px;
+        }
+
+        .rightDiv {
+            float: right;
+        }
+
+        form>input {
+            margin-top: 25px;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color: white;
+            color: rgb(250, 177, 206);
+            font-weight: bold;
+            border: 2px solid rgb(250, 177, 206);
+        }
+
+        form>input:hover {
+            color: white;
+            background-color: rgb(250, 177, 206);
+        }
+
+        form>div>div input {
+            height: 20px;
+        }
+
+        .bjh_content>span {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+    <div class="bjh_logo">
+        <a href="animal_main.html"><img src="./imgs/logo2.jpg"></a>
+    </div>
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a href="#">소개</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a href="./Affiliation.html">가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a href="./Affiliation.html">가맹점 소개</a></li>
+                    <li><a href="./pickboard.html">보호 유기동물</a></li>
+                    <li><a href="#">게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./d_day_counter.html">유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a href="./dog_goods.html">용품</a>
+                <ul class="bjh_sub">
+                    <li><a href="./dog_goods.html">강아지 용품</a></li>
+                    <li><a href="./cat_goods.html">고양이 용품</a></li>
+                </ul>
+            </li>
+            <li><a href="./jq_11SemiPro.html">입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a href="./jq_11SemiPro.html">후기보기</a></li>
+                    <li><a href="#">후기작성</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="bjh_content">
+        <span style="font-size:30px; margin-left:730px; margin-bottom:30px;">회원가입</span>
+        <div id="sign">
+            <div>
+                <form>
+
+                    <div>
+                        <div><label for="id"><span>아이디*</span><span class="spans">영소문자+숫자 4-12자리/영어로 시작</span></label></div>
+                        <div><input class="inputs" id="id" type="text"></div>
+                    </div>
+                    <div class="rightDiv">
+                        <div><label for="name"><span>이름*</span><span class="spans">한글 2-4글자</span></label></div>
+                        <div><input class="inputs" id="name" type="text"></div>
+                    </div>
+                    <div>
+                        <div><label for="pw"><span>비밀번호*</span><span class="spans">영문대소문자+숫자 6-18자리</span></label></div>
+                        <div><input class="inputs" id="pw" type="password"></div>
+                    </div>
+                    <div class="rightDiv">
+                        <div><label for="pw_re"><span>비밀번호 확인*</span><span class="spans">비밀번호가 일치하지 않음.</span></label></div>
+                        <div><input class="inputs" id="pw_re" type="password"></div>
+                    </div>
+                    <div>
+                        <div><label for="email"><span>EMAIL*</span><span class="spans">Email 형식에 맞지 않습니다.</span></label></div>
+                        <div><input class="inputs" id="email" type="email"></div>
+                    </div>
+                    <div class="rightDiv">
+                        <div><label for="phone"><span>PHONE*</span><span class="spans">전화번호 형식(000-0000-0000)</span></label></div>
+                        <div><input class="inputs" id="phone" type="text"></div>
+                    </div>
+                    <div>
+                        <div><label for="addr"><span>주소</span><span></span></label></div>
+                        <div><input class="inputs" id="addr" type="text"></div>
+                    </div>
+                    <input type="submit" onclick="return sub();" value="회원가입">
+                    <input type="reset" id="reset" value="초기화">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="bjh_footer" style="height:170px;">
+        <div>
+            상호명: 멍멍아 야옹해봐<br>
+            대표: 이윤수<br>
+            주소: 서울특별시 영등포구 당산동<br>
+            사업자등록번호: 542-18-45649<br>
+            Tel: 010-1234-5678<br>
+            Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+        </div>
+    </div>
+</body>
+
+</html>
