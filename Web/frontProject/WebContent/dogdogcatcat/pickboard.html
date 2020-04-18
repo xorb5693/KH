@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
@@ -10,15 +11,16 @@
     <!--Css Link-->
     <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <!--
+
     <script>
-        $(function(){
-            $(".box").each(function(index){
-                
+        $(function() {
+            $(".bjh_logo").children("img").click(function() {
+                location.href = "./animal_main.html";
             });
-        })
+        });
+
     </script>
--->
+
     <style>
         .mainhead {
             background-image: url(../miniPj/header1.jpg);
@@ -78,6 +80,7 @@
             color: white;
 
         }
+
     </style>
 </head>
 
@@ -290,4 +293,6 @@
         </div>
     </div>
 
-</body></html>
+</body>
+
+</html>

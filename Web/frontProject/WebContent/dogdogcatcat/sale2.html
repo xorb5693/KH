@@ -4,6 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <script>
+        $(function() {
+            $(".bjh_logo").children("img").click(function() {
+                location.href = "./animal_main.html";
+            });
+        });
+    </script>
 
     <!--Font-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -70,7 +79,8 @@
         h3 {
             margin-left: 10px;
         }
-        .callme{
+
+        .callme {
             position: absolute;
             width: 200px;
             height: 80px;
@@ -81,21 +91,25 @@
             top: 400px;
             right: 150px;
         }
-        span{
+
+        span {
             font-size: 12px;
             color: lightslategray;
         }
-        .contents{
+
+        .contents {
             margin: 0 auto;
             width: 1000px;
             border-bottom: 1px solid black;
         }
-        .mts{
-            margin-left:  100px;
+
+        .mts {
+            margin-left: 100px;
             width: 800px;
             height: 600px;
         }
-        .add{
+
+        .add {
             width: 100%;
             height: 350px;
             background-image: url(../miniPj/pick1.jpg);
@@ -104,10 +118,10 @@
             color: black;
             line-height: 100px;
         }
-        h1{
+
+        h1 {
             margin: 0 auto;
         }
-        
     </style>
 </head>
 
@@ -205,8 +219,8 @@
         </div>
         <div class="contents">
             <br><br><br>
-            <img src="./img/martis.gif" class="mts"><br> 
-                <pre style="color:pink;font-size:25px;">      '멍멍아 야옹해봐'는 생후 1개월~2개월 이상 아가들을 분양하며,
+            <img src="./img/martis.gif" class="mts"><br>
+            <pre style="color:pink;font-size:25px;">      '멍멍아 야옹해봐'는 생후 1개월~2개월 이상 아가들을 분양하며,
             종합백신 1차,2차접종, 건강상태확인 후 소비자께 분양을 원칙으로 합니다.</pre>
             <img src="./img/martis2.jpg" class="mts"><br>
             <img src="./img/martis3.jpg" class="mts"><br>
@@ -225,6 +239,4 @@
             Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
         </div>
     </div>
-</body>
-
-</html>
+</body></html>

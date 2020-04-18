@@ -78,6 +78,10 @@
             
             $("input[type=date]").val(now.getFullYear() + "-" + month + "-" + date);
             $("input[type=date]").change();
+            
+            $(".bjh_logo").children("img").click(function() {
+                location.href = "./animal_main.html";
+            });
         });
 
     </script>
