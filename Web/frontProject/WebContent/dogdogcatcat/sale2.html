@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <title>멍멍아 야옹해봐!: 유기동물 - 말티즈(티슈)</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    
+
     <script>
         $(function() {
             $(".bjh_logo").children("img").click(function() {
                 location.href = "./animal_main.html";
             });
         });
+
     </script>
 
     <!--Font-->
@@ -112,16 +113,33 @@
         .add {
             width: 100%;
             height: 350px;
+            text-align: center;
+            color: black;
+            line-height: 100px;
+            position: relative;
+        }
+
+        .cover {
+            width: 100%;
+            height: 350px;
             background-image: url(./img/pick1.jpg);
             background-size: 100% 350px;
-            text-align: center;
-            color: white;
-            line-height: 100px;
+            position: absolute;
+            z-index: 100;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+        }
+
+        .add>h1,
+        .add>h3 {
+            z-index: 150;
         }
 
         h1 {
             margin: 0 auto;
         }
+
     </style>
 </head>
 
@@ -191,6 +209,7 @@
             <h1>You Love Pet</h1>
             <h1>-</h1>
             <h3>'멍멍아 야옹해봐'에서 보호중인 아이들을 만나보세요.</h3>
+            <div class="cover"></div>
         </div>
         <div class="mainhead">
             <div class="imgs"><img src="./img/dogsale.jpg" class="dog"></div>
@@ -239,4 +258,6 @@
             Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
         </div>
     </div>
-</body></html>
+</body>
+
+</html>

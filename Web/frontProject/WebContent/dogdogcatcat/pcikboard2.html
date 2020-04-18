@@ -49,11 +49,26 @@
         .add {
             width: 100%;
             height: 350px;
+            text-align: center;
+            color: black;
+            line-height: 100px;
+            position: relative;
+        }
+        
+        .cover {
+            width: 100%;
+            height: 350px;
             background-image: url(./img/pick1.jpg);
             background-size: 100% 350px;
-            text-align: center;
-            color: white;
-            line-height: 100px;
+            position: absolute;
+            z-index: 100;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+        }
+        
+        .add>h1, .add>h3 {
+            z-index: 150;
         }
 
         h1 {
@@ -65,7 +80,7 @@
             width: 150px;
             height: 30px;
             background-color: gainsboro;
-            color: white;
+            color: black;
 
         }
 
@@ -167,6 +182,7 @@
             <h1>You Love Pet</h1>
             <h1>-</h1>
             <h3>'멍멍아 야옹해봐'에서 보호중인 아이들을 만나보세요.</h3>
+            <div class="cover"></div>
         </div>
         <div class="mainhead">
             <br><br><br><br>
