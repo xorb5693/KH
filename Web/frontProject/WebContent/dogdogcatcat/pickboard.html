@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--Css Link-->
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--
+    <script>
+        $(function(){
+            $(".box").each(function(index){
+                
+            });
+        })
+    </script>
+-->
+    <style>
+        .mainhead {
+            background-image: url(../miniPj/header1.jpg);
+            height: 200px;
+        }
+
+        .page {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+
+        .add {
+            margin-left: 400px;
+
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+
+        .maincontent {
+            overflow: hidden;
+            margin: 0 auto;
+            width: 1000px;
+            height: 100%;
+        }
+
+        .box {
+            padding-left: 20px;
+            padding-right: 20px;
+            list-style: none;
+            float: left;
+            height: 350px;
+            width: 230px;
+            /*            border: 1px solid black;*/
+        }
+
+        .txtbox {
+            border-radius: 10px;
+            background-color: inherit;
+            text-align: center;
+
+        }
+
+        .imging {
+            border-radius: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+    <div class="bjh_logo">
+        <img src="./img/logo.jpg">
+    </div>
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a href="#">소개</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a href="./Affiliation.html">가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a href="./Affiliation.html">가맹점 소개</a></li>
+                    <li><a href="./pickboard.html">보호 유기동물</a></li>
+                    <li><a href="#">게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./d_day_counter.html">유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a href="./dog_goods.html">용품</a>
+                <ul class="bjh_sub">
+                    <li><a href="./dog_goods.html">강아지 용품</a></li>
+                    <li><a href="./cat_goods.html">고양이 용품</a></li>
+                </ul>
+            </li>
+            <li><a href="#">입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">후기보기</a></li>
+                    <li><a href="#">후기작성</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="bjh_content">
+        <div class="mainhead" style="width:100% height:400px;">
+            <br>
+            <h1 style="margin:0;">임시보호중인 유기동물</h1>
+            <br>
+            <!--
+            <div class="add">
+                <img src="../miniPj/add1.jpg" style="width:700px; height:200px;margin:0 auto; border-radius :20px;">
+            </div>
+-->
+            <!--        <hr>-->
+        </div>
+        <div class="maincontent">
+            <ul>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox" style="">
+                            <img src="./img/abandonment.jpg" class="imging">
+                        </div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 믹스(9개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment2.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <p style="font-size:15px; color:silver;">
+                                <h4>[2020.04]영등포 믹스(3개월)</h4>
+                                <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment3.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 믹스(16개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment4.png" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]여의도 포메라니안(5개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 여의도동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment5.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 진돗개(4개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment6.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 말티즈(15개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment7.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]당산 말티즈(11개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 당산동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment8.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 믹스(5개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment9.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 믹스(10개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment10.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 믹스(24개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등포동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment11.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]당산동 웰시코기(11개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 당산동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="box">
+                    <a href="#">
+                        <div class="imgbox"><img src="./img/abandonment12.jpg" class="imging"></div>
+                        <div class="txtbox">
+                            <h4>[2020.04]영등포 믹스(3개월)</h4>
+                            <p style="font-size:15px; color:silver;">작성일:2020.04.17 안녕하세요 영등동 '멍멍아 야옹해봐'입니다...</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="page">
+            <a href="#" class="pagenum">1</a>
+            <a href="#" class="pagenum">2</a>
+            <a href="#" class="pagenum">3</a>
+            <a href="#" class="pagenum">4</a>
+            <a href="#" class="pagenum">5</a>
+
+        </div>
+        <br>
+    </div>
+    <div class="bjh_footer" style="height:170px;">
+        <div>
+            상호명: 멍멍아 야옹해봐<br>
+            대표: 이윤수<br>
+            주소: 서울특별시 영등포구 당산동<br>
+            사업자등록번호: 542-18-45649<br>
+            Tel: 010-1234-5678<br>
+            Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+        </div>
+    </div>
+
+</body></html>

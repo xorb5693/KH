@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>멍멍아 야옹해봐!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <!--Css Link-->
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+
+    <script>
+        $(function() {
+            $(".cp").parent().click(function() {
+                var href = $(this).find("a").attr("href");
+                location.href = href;
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .main {
+            overflow: hidden;
+        }
+
+        .content {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            border: 1px solid black;
+            width: 100%;
+            height: 150px;
+            background-color: #ffbbd6;
+        }
+
+        .mainhed1 {
+            float: left;
+            width: 700px;
+            height: 100px;
+            display: inline-block;
+
+        }
+
+        span {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .mid {
+            padding-left: 10px;
+            width: 100%;
+            /*            height: 600px;*/
+            background-color: beige;
+        }
+
+        .conmain {
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+            /*            overflow: hidden;*/
+        }
+
+        .c1 {
+            width: 100%;
+            height: 47px;
+        }
+
+        .c2 {
+            margin-top: 20px;
+            margin-left: 10px;
+            width: 300px;
+            height: 200px;
+            background-color: white;
+            display: inline-block;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .c3 {
+            padding-left: 10px;
+            width: 820px;
+            height: 200px;
+            display: inline-block;
+
+        }
+
+        .c4 {
+
+            width: 1200px;
+            margin: 0 auto;
+
+        }
+
+        h1 {
+            margin: 0 auto;
+        }
+
+        .c4-1 {
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 20px;
+            width: 350px;
+            /*            height: 400px;*/
+            background-color: antiquewhite;
+            display: inline-block;
+        }
+
+        .c4-2 {
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 20px;
+            width: 350px;
+            /*            height: 400px;*/
+            background-color: antiquewhite;
+            display: inline-block;
+        }
+
+        .c4-3 {
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 20px;
+            width: 350px;
+            /*            height: 400px;*/
+            background-color: antiquewhite;
+            display: inline-block;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        .pick1 {
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 350px;
+            height: 200px;
+
+
+        }
+
+        .pick1:hover {
+            transform: scale(1.2);
+            transition-duration: 2s;
+        }
+
+        .dogwe {
+            width: 50px;
+            height: 50px;
+        }
+
+        .cp {
+            width: 350px;
+            height: 200px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+        <div class="bjh_logo">
+            <img src="./img/logo.jpg">
+        </div>
+        <div class="bjh_navigation">
+            <ul>
+                <li>
+                    <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li><a href="#">소개</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">제휴기업</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Affiliation.html">가맹점 안내</a>
+                    <ul class="bjh_sub">
+                        <li><a href="./Affiliation.html">가맹점 소개</a></li>
+                        <li><a href="./pickboard.html">보호 유기동물</a></li>
+                        <li><a href="#">게시글 쓰기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./d_day_counter.html">유기동물</a>
+                    <ul class="bjh_sub">
+                        <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                    </ul>
+                </li>
+                <li><a href="./dog_goods.html">용품</a>
+                    <ul class="bjh_sub">
+                        <li><a href="./dog_goods.html">강아지 용품</a></li>
+                        <li><a href="./cat_goods.html">고양이 용품</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">입양후기</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">후기보기</a></li>
+                        <li><a href="#">후기작성</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Q&A</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">공지사항 작성</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+
+            <div class="mid">
+                <div class="conmain">
+                    <div class="c1">
+                        <h1>가맹점 소개</h1>
+                        <hr>
+                    </div>
+                    <div class="c2">
+                        <p>09:00~19:00 / 매주 월요일 휴무.</p>
+                        <p><img src="./img/dogwe1.gif" class="dogwe"> Phone. </p>
+                        <p> H.P:010-****-****</p>
+                    </div>
+                    <div class="c3">
+                        <h2>모든 동물들이 존중받고 사랑받는곳, '멍멍아야옹해봐' 입니다.</h2>
+                        <p>가족의 웃음이 담긴 사진속에, 여행을 떠나는 여러분의 옆자리에, 자녀를 위한
+                            정서적인 친구로,일상의 작은 감동을 만드는 순간 모두 당신의 반려동물이 함께 해왔습니다.
+                            이런 마음을 알기에 쿤펫은 고객님의 반려동물에게 또 하나의 가족이 되어,
+                            우리의 반려동물을 보살피고 같이 동행하겠습니다.
+                            사랑과 신뢰로 성장해 온 만큼, 더 좋은 애견문화를 위해 항상 노력하겠습니다.</p>
+                    </div>
+                    <div class="c4">
+                        <div class="c4-1">
+                            <div class="cp">
+                                <img src="./img/house1.jpg" class="pick1">
+                            </div>
+                            <a href="Detail.html">멍멍아 야옹해봐 당산점</a>
+                            <span>당산동 최고의 애견샵을 자랑하는 '멍멍아 야옹해봐'당산점입니다 늘 애견,애묘들을 아끼고 가족같이 생각하며 진심을다해 대하겠습니다.감사합니다.
+                            </span>
+                        </div>
+                        <div class="c4-2">
+                            <div class="cp">
+                                <img src="./img/house2.jpg" class="pick1">
+                            </div>
+                            <a href="Detail2.html">멍멍아 야옹해봐 영등포점</a>
+                            <span>당산동 최고의 애견샵을 자랑하는 '멍멍아 야옹해봐'영등포점입니다 늘 애견,애묘들을 아끼고 가족같이 생각하며 진심을다해 대하겠습니다.감사합니다.
+                            </span>
+                        </div>
+                        <div class="c4-3">
+                            <div class="cp">
+                                <img src="./img/house3.jpg" class="pick1">
+                            </div>
+                            <a href="Detail3.html">멍멍아 야옹해봐 여의도점</a>
+                            <span>당산동 최고의 애견샵을 자랑하는 '멍멍아 야옹해봐'여의도점입니다 늘 애견,애묘들을 아끼고 가족같이 생각하며 진심을다해 대하겠습니다.감사합니다.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="side2"></div>
+        </div>
+        <div class="bjh_footer" style="height:170px;">
+            <div>
+                상호명: 멍멍아 야옹해봐<br>
+                대표: 이윤수<br>
+                주소: 서울특별시 영등포구 당산동<br>
+                사업자등록번호: 542-18-45649<br>
+                Tel: 010-1234-5678<br>
+                Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+            </div>
+        </div>
+    </div>
+</body></html>

@@ -38,7 +38,7 @@
 
                 $("#tg_p").html("D-" + day + "일 " + hour + " : " + minute + " : " + counter);
             }, 1000);
-            
+
             window.setInterval(function() {
                 if ($("#tg_p").hasClass("tg_down")) {
                     $("#tg_p").removeClass("tg_down");
@@ -48,22 +48,24 @@
                     $("#tg_p").addClass("tg_down");
                 }
             }, 800);
-                        
+
             $("h1>button").click(function() {
-                location.href="./set_d_day.html";
+                location.href = "./set_d_day.html";
             });
         });
+
     </script>
 
     <style>
         body {
             margin: 8px;
         }
-        
-        .bjh_logo{
+
+        .bjh_logo {
             line-height: 195px;
-            
+
         }
+
         body>div {
             margin: 0 auto;
             font-family: 'Noto Sans KR', sans-serif;
@@ -132,17 +134,17 @@
             color: #2E294E;
             text-align: center;
         }
-        
+
         .tg_up {
             transition-duration: 0.8s;
             font-size: 60px;
         }
-        
+
         .tg_down {
             transition-duration: 0.8s;
             font-size: 50px;
         }
-        
+
         /* Make the image fully responsive */
         .carousel-inner>div>img {
             height: 600px;
@@ -152,89 +154,89 @@
         .carousel-inner {
             width: 100%;
             height: 600px;
-/*            background-color: black;*/
+            /*            background-color: black;*/
             text-align: center;
         }
-        
+
         .tg_imgs {
             height: 800px;
         }
-        
+
         h1>button {
             font-size: 20px;
             float: right;
             padding: 10px;
             border: 1px solid #f199bc;
-            background-color: rgb(250,177,206);
+            background-color: rgb(250, 177, 206);
             color: white;
             border-radius: 10px;
         }
-        
+
     </style>
 </head>
 
 <body>
     <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
-        <div class="bjh_logo">
-            <img src="./img/logo.jpg">
-        </div>
-        <div class="bjh_navigation">
-            <ul>
-                <li>
-                     <ul class="bjh_sub">
-                        <li></li>
-                        <li></li>
-                    </ul> 
-                </li>
-                <li><a href="#">소개</a>
-                     <ul class="bjh_sub">
-                        <li><a href="#">회사소개</a></li>
-                        <li><a href="#">제휴기업</a></li>
-                    </ul> 
-                </li>
-                <li><a href="#">가맹점 안내</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">가맹점 소개</a></li>
-                        <li><a href="#">보호 유기동물</a></li>
-                        <li><a href="#">게시글 쓰기</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">유기동물</a>
-                    <ul class="bjh_sub">
-                        <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">용품</a>
-                    <ul class="bjh_sub">
+    <div class="bjh_logo">
+        <img src="./img/logo.jpg">
+    </div>
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a href="#">소개</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a href="./Affiliation.html">가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a href="./Affiliation.html">가맹점 소개</a></li>
+                    <li><a href="./pickboard.html">보호 유기동물</a></li>
+                    <li><a href="#">게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./d_day_counter.html">유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a href="./dog_goods.html">용품</a>
+                <ul class="bjh_sub">
                     <li><a href="./dog_goods.html">강아지 용품</a></li>
                     <li><a href="./cat_goods.html">고양이 용품</a></li>
-                    </ul>
-                </li>            
-                <li><a href="#">입양후기</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">후기보기</a></li>
-                        <li><a href="#">후기작성</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Q&A</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">공지사항 작성</a></li>
-                    </ul>
-                </li> 
-                <li>
-                     <ul class="bjh_sub">
-                        <li></li>
-                        <li></li>
-                    </ul> 
-                </li>
-            </ul>
-        </div>
+                </ul>
+            </li>
+            <li><a href="#">입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">후기보기</a></li>
+                    <li><a href="#">후기작성</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
-    <div class="bjh_content" style="background-color: white">
+    <div class="bjh_content">
         <div class="tg_content">
-            <div class="tg_main"> 
+            <div class="tg_main">
                 <div>
                     <h1>안락사 D-Day Counter<button>Counter 설정</button></h1>
                 </div>
@@ -283,14 +285,16 @@
     </div>
     <div class="bjh_footer" style="height:170px;">
         <div>
-        상호명: 멍멍아 야옹해봐<br>
-        대표: 이윤수<br>
-        주소: 서울특별시 영등포구 당산동<br>
-        사업자등록번호: 542-18-45649<br>
-        Tel: 010-1234-5678<br>
-        Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+            상호명: 멍멍아 야옹해봐<br>
+            대표: 이윤수<br>
+            주소: 서울특별시 영등포구 당산동<br>
+            사업자등록번호: 542-18-45649<br>
+            Tel: 010-1234-5678<br>
+            Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
         </div>
     </div>
 
 
-</body></html>
+</body>
+
+</html>

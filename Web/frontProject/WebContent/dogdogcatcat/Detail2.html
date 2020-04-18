@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>멍멍아 야옹해봐!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <!--Css Link-->
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .main {
+            overflow: hidden;
+        }
+
+        .content {
+            background-color: beige;
+            width: 100%;
+            overflow: hidden;
+
+        }
+
+        .header {
+            border: 1px solid black;
+            width: 100%;
+            height: 150px;
+            background-color: #ffbbd6;
+        }
+
+        .mainhed1 {
+            float: left;
+            width: 700px;
+            height: 100px;
+            display: inline-block;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .conmain {
+            padding: 0;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            /*            overflow: hidden;*/
+        }
+
+        .c1 {
+            width: 100%;
+            height: 47px;
+        }
+
+        .c2 {
+            margin: 0 auto;
+            overflow: hidden;
+            height: 90%;
+            width: 1500px;
+
+        }
+
+        .pick1 {
+            height: 300px;
+            width: 300px;
+        }
+
+        h1 {
+            margin: 0 auto;
+        }
+
+        .side1 {
+            float: left;
+            display: inline-block;
+            width: 350px;
+            display: inline-block;
+            height: 100%;
+            padding: 20px;
+
+
+        }
+
+        .center {
+            width: 600px;
+            display: inline-block;
+            height: 100%;
+            float: left;
+
+        }
+
+        .side2 {
+            overflow: hidden;
+            float: left;
+            width: 300px;
+            position: relative;
+            display: inline-block;
+            height: 300px;
+            top: 60px;
+        }
+
+        .dog1 {
+            position: absolute;
+            display: block;
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 150px;
+            top: 90px;
+            left: 15px;
+
+        }
+
+        .come {
+            position: absolute;
+            display: inline-block;
+            background-color: pink;
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+            border-radius: 150px;
+            line-height: 80px;
+        }
+
+        .minia {
+
+            color: white;
+            font-size: 10px;
+        }
+
+        .m1 {
+            top: 0;
+            left: 30px;
+        }
+
+        .m3 {
+            top: 90px;
+            right: 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+        <div class="bjh_logo">
+            <img src="./img/logo.jpg">
+        </div>
+        <div class="bjh_navigation">
+            <ul>
+                <li>
+                    <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li><a href="#">소개</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">제휴기업</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Affiliation.html">가맹점 안내</a>
+                    <ul class="bjh_sub">
+                        <li><a href="./Affiliation.html">가맹점 소개</a></li>
+                        <li><a href="./pickboard.html">보호 유기동물</a></li>
+                        <li><a href="#">게시글 쓰기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./d_day_counter.html">유기동물</a>
+                    <ul class="bjh_sub">
+                        <li><a href="./d_day_counter.html">안락 D-DAY</a></li>
+                    </ul>
+                </li>
+                <li><a href="./dog_goods.html">용품</a>
+                    <ul class="bjh_sub">
+                        <li><a href="./dog_goods.html">강아지 용품</a></li>
+                        <li><a href="./cat_goods.html">고양이 용품</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">입양후기</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">후기보기</a></li>
+                        <li><a href="#">후기작성</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Q&A</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">공지사항 작성</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="conmain">
+                <div class="c1">
+                    <h1>지점 소개</h1>
+                    <hr>
+                </div>
+                <div class="c2">
+                    <div class="side1">
+                        <img src="./img/house2.jpg" class="pick1">
+                        <p>'멍멍아 야옹해봐' 영등포점.</p>
+                    </div>
+                    <div class="center">
+                        <h2>'멍멍아 야옹해봐' 영등포점 점장 "멍뭉이"입니다. </h2>
+                        <p>야옹아 멍멍해봐 당산점은
+                            서울시 영등포구 영등동에 위치해 있으며
+                            1~3층 300평 규모에 시설로 국내 입양견 최다 보유로 유명한 곳입니다
+
+                            2009년 설립으로 약 11년동안 착한입양 2만8천마리 달성으로
+                            국내에서 가장 많이 착한입양한 국내 NO.1으로 알려진곳으로
+                            네이버 평가글 5000건 이상 평점 9.9점이라는 신화같은 기록 또한 보유한 곳입니다.
+                            야옹아 멍멍해봐 는 반려동물 사랑나눔울 통해 좀더 정직하고 착한 입양문화 정착에
+                            힘쓰겠습니다.</p>
+                    </div>
+                    <div class="side2">
+                        <div class="come m1"><a href="pickboard.html" class="minia">보호중인 유기동물</a></div>
+                        <div class="come m2"><a href="sale.html" class="minia">지점분양</a></div>
+                        <div class="come m3"><a href="#" class="minia">관리자게시판</a>
+                        </div>
+                        <div class="side3">
+                            <img src="./img/dogimg1.jpg" class="dog1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bjh_footer" style="height:170px;">
+            <div>
+                상호명: 멍멍아 야옹해봐<br>
+                대표: 이윤수<br>
+                주소: 서울특별시 영등포구 당산동<br>
+                사업자등록번호: 542-18-45649<br>
+                Tel: 010-1234-5678<br>
+                Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
