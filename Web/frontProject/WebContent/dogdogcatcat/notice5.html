@@ -1,91 +1,102 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-     <!--Font-->
-   <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!--Css Link-->
     <link href="./css/animal_CSS.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="./js/animal_javascript.js"></script>
     <style>
-        #backP1{
-            
-            margin:0px;
+        #backP1 {
+
+            margin: 0px;
             background-image: url(./imgs/backP2.jpg);
             margin-left: 180px;
-            
+
             width: 80%;
             height: 400px;
             padding-top: 100px;
-            position:relative;
+            position: relative;
         }
-        #title{
-            width:200px;
+
+        #title {
+            width: 200px;
             font-size: 50px;
-             margin-top: 50px;
-             margin: 0 auto;
+            margin-top: 50px;
+            margin: 0 auto;
             text-align: center;
             border-top: 1px solid white;
             border-bottom: 1px solid white;
             color: dimgrey;
             text-shadow: 1px 1px lightgray;
             font-family: 'Contrail One', cursive;
-            
+
         }
-         #noticef{
+
+        #noticef {
             margin-left: 270px;
             width: 70%;
             border-bottom: 1px solid black;
             font-size: 30px;
         }
-        #title1{
+
+        #title1 {
             font-size: 30px;
             text-align: center;
             color: lightslategrey;
             text-shadow: gray;
             font-family: 'Noto Sans KR', sans-serif;
         }
-        #table{
-            margin-top:100px;
+
+        #table {
+            margin-top: 100px;
             margin-left: 400px;
             margin-bottom: 100px;
-            width:  900px;
+            width: 900px;
             height: 500px;
             border: 1px solid lightgray;
             border-collapse: collapse;
-             border-spacing: 0px;
+            border-spacing: 0px;
         }
-        .tr{
+
+        .tr {
             height: 70px;
-            
+
         }
-        .tr>td{
+
+        .tr>td {
             border-left: 1px solid lightgray;
             border-collapse: collapse;
             border-bottom: 1px solid lightgray;
-           
+
         }
-        .td{
+
+        .td {
             width: 80px;
             text-align: center;
         }
-        textarea{
-            width:800px;
+
+        textarea {
+            width: 800px;
             height: 550px;
             resize: none;
             background-color: beige;
             color: black;
             border: none;
         }
-        #noticeP2{
+
+        #noticeP2 {
             width: 100%;
-            height:300px;
+            height: 300px;
             background-clip: border-box;
         }
-        .btn{
+
+        .btn {
             width: 100px;
             height: 30px;
             margin-left: 400px;
@@ -97,77 +108,79 @@
             display: block;
             text-align: center;
         }
-        
+
     </style>
 </head>
+
 <body>
-        <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
-        <div class="bjh_logo">
-            <img src="./img/logo.jpg">
-        </div>
-        <div class="bjh_navigation">
-            <ul>
-                <li>
-                     <ul class="bjh_sub">
-                        <li></li>
-                        <li></li>
-                    </ul> 
-                </li>
-                <li><a href="#">소개</a>
-                     <ul class="bjh_sub">
-                        <li><a href="#">회사소개</a></li>
-                        <li><a href="#">제휴기업</a></li>
-                    </ul> 
-                </li>
-                <li><a href="#">가맹점 안내</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">가맹점 소개</a></li>
-                        <li><a href="#">보호 유기동물</a></li>
-                        <li><a href="#">게시글 쓰기</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">유기동물</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">안락 D-DAY</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">용품</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">강아지 용품</a></li>
-                        <li><a href="#">고양이 용품</a></li>
-                    </ul>
-                </li>            
-                <li><a href="#">입양후기</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">후기보기</a></li>
-                        <li><a href="#">후기작성</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Q&A</a>
-                    <ul class="bjh_sub">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">공지사항 작성</a></li>
-                    </ul>
-                </li> 
-                <li>
-                     <ul class="bjh_sub">
-                        <li></li>
-                        <li></li>
-                    </ul> 
-                </li>
-            </ul>
-        </div>
-    
-    
-    
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+    <div class="bjh_logo">
+        <img src="./img/logo.jpg">
+    </div>
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a>소개</a>
+                <ul class="bjh_sub">
+                    <li><a>회사소개</a></li>
+                    <li><a>제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a>가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a>가맹점 소개</a></li>
+                    <li><a>보호 유기동물</a></li>
+                    <li><a>게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a>안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a>용품</a>
+                <ul class="bjh_sub">
+                    <li><a>강아지 용품</a></li>
+                    <li><a>고양이 용품</a></li>
+                </ul>
+            </li>
+            <li><a>입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a>후기보기</a></li>
+                    <li><a>후기작성</a></li>
+                </ul>
+            </li>
+            <li><a>Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a>공지사항</a></li>
+                    <li><a>공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+
     <div class="bjh_content" style="height:auto;">
         <div>
-            <div id="backP1"><p id="title">Notice</p>
-            <br>
-            <p id="title1">멍멍아 야옹해봐에서 전해드리는 소식을 알아보세요</p>
+            <div id="backP1">
+                <p id="title">Notice</p>
+                <br>
+                <p id="title1">멍멍아 야옹해봐에서 전해드리는 소식을 알아보세요</p>
             </div>
-        </div> 
+        </div>
         <div>
             <p id="noticef">Notice</p>
         </div>
@@ -183,7 +196,7 @@
                 </tr>
                 <tr class="tr">
                     <td class="td">첨부파일</td>
-                    <td><input type="file" ></td>
+                    <td><input type="file"></td>
                 </tr>
                 <tr class="tr">
                     <td class="td">내용</td>
@@ -214,19 +227,19 @@
 기간은 20.01.01 ~ 19일까지 이오니
 
 많은 관심과 참여 부탁드릴게요!</textarea>
-                    
+
                 </tr>
                 <tr class="tr">
-                <td colspan="2"><img id="noticeP2"src="./imgs/noticeP6.JPG"></td>
+                    <td colspan="2"><img id="noticeP2" src="./imgs/noticeP6.JPG"></td>
                 </tr>
             </table>
             <div id="list">
-            <a class="btn" href="../animal/board.html">목록</a>
+                <a class="btn" href="../animal/board.html">목록</a>
             </div>
         </div>
-        
+
     </div>
-    
+
     <div class="bjh_footer" style="height:170px;">
         <div>
             상호명: 멍멍아 야옹해봐<br>
@@ -238,6 +251,7 @@
         </div>
     </div>
     <button class="upper">↑</button>
-    
+
 </body>
+
 </html>

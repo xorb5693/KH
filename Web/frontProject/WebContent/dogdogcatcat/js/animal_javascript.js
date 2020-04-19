@@ -22,31 +22,8 @@ $(function () {
         location.href = "./animal_main.html";
     });
     
-    $(".bjh_navigation>ul>li").click(function() {
-        var index = $(".bjh_navigation>ul>li").index($(this));
-        
-        switch(index) {
-            case 0:
-                break;
-            case 1:
-                location.href = "./comexplain.html";
-                break;
-            case 2:
-                location.href = "./Affiliation.html";
-                break;
-            case 3:
-                location.href = "./d_day_counter.html";
-                break;
-            case 4:
-                location.href = "./dog_goods.html";
-                break;
-            case 5:
-                location.href = "./jq_11SemiPro.html";
-                break;
-            case 6:
-                location.href = "./board.html";
-                break;
-        }
+    $(".bjh_navigation>ul>li>a").click(function() {
+        $(this).siblings("ul").children("li").eq(0).click();
     });
     
     $(".bjh_sub>li").hover(function() {
@@ -67,7 +44,7 @@ $(function () {
                 location.href="./comexplain.html";
                 break;
             case 3:
-                location.href="#";
+                location.href="./alliance_company.html";
                 break;
             case 4:
                 location.href="./Affiliation.html";

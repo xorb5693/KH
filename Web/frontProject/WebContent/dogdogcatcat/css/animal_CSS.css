@@ -61,6 +61,7 @@ img:hover {
 .bjh_navigation > ul > li > a {
     text-decoration: none;
     color: #092e20;
+    display: block;
     height: 50px;
 }
 
