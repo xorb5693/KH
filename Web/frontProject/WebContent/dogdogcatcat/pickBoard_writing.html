@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>멍멍아 야옹해봐!</title>
+
+
+
+    <!--Font-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+
+    <!--Css Link-->
+
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="./js/animal_javascript.js"></script>
+
+
+    <script>
+        $(".theader").click(function() {
+            $(".theader").val = " ";
+        })
+
+    </script>
+
+
+    <style>
+        h1 {
+            text-align: center;
+            margin: 0;
+        }
+
+        .conheader {
+            height: 300px;
+            width: 100%;
+            border: 1px solid black;
+            background-image: url(./img/dogbook.jpg);
+            background-size: 100% 200px;
+        }
+
+        .contable {
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid black;
+            border bottom: 1px solid black;
+
+        }
+
+        .conheader {
+            line-height: 200px;
+            width: 100%;
+            height: 200px;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        .theader {
+            background-color: beige;
+            border-bottom: 2px solid pink;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            width: 300px;
+            height: 30px;
+        }
+
+        .pet {
+            width: 300px;
+            height: 30px;
+            background-color: beige;
+            border-bottom: 2px solid pink;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .t1 {
+            /*            border: 1px solid black;*/
+            width: 150px;
+            height: 30px;
+
+        }
+
+        .t2 {
+            /*            border: 1px solid black;*/
+            width: 300px;
+            height: 30px;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+
+        .file {
+            float: left;
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+
+    <div class="bjh_logo">
+
+        <img src="./img/logo.jpg">
+
+    </div>
+
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a>소개</a>
+                <ul class="bjh_sub">
+                    <li><a>회사소개</a></li>
+                    <li><a>제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a>가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a>가맹점 소개</a></li>
+                    <li><a>보호 유기동물</a></li>
+                    <li><a>게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a>안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a>용품</a>
+                <ul class="bjh_sub">
+                    <li><a>강아지 용품</a></li>
+                    <li><a>고양이 용품</a></li>
+                </ul>
+            </li>
+            <li><a>입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a>후기보기</a></li>
+                    <li><a>후기작성</a></li>
+                </ul>
+            </li>
+            <li><a>Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a>공지사항</a></li>
+                    <li><a>공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+
+
+
+    <div class="bjh_content">
+        <div class="conheader">
+            <h1 style="color:white;">유기동물 게시글 등록</h1>
+        </div>
+        <form action="pickBoard_writing.html">
+            <div class="contable">
+                <br><br>
+                <table>
+                    <tr>
+                        <td class="t1">제목</td>
+                        <td class="t2"><input type="text" class="theader" value="게시글 제목을 입력하세요." onfocus="this.value=''; return true;"></td>
+                        <td class="t1">작성자</td>
+                        <td class="t2" style="text-decoration: underline;">관리자 </td>
+                    </tr>
+                    <tr>
+                        <td class="t1">묘종/견종</td>
+                        <td class="t2"><input type="text" class="pet title"></td>
+                        <td class="t1">나이</td>
+                        <td class="t2"><input type="text" class="pet age"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1">성별</td>
+                        <td class="t2"><input type="text" class="pet gender"></td>
+                        <td class="t1">분류</td>
+                        <td class="t2"><input type="text" class="pet kind"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1">색상</td>
+                        <td class="t2"><input type="text" class="pet color"></td>
+                        <td class="t1">접종유무</td>
+                        <td class="t2"><input type="text" class="pet vc"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1">중성화유/무</td>
+                        <td class="t2"><input type="text" class="pet ng"></td>
+                        <td class="t1">특이사항</td>
+                        <td class="t2"><input type="text" class="pet uni"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1">첨부파일</td>
+                        <td class="t2"><input type="file" value="첨부파일" class="uplord"></td>
+                    </tr>
+
+                </table>
+                <br>
+            </div>
+            <hr><br><br>
+            <div class="contxt" style="width:1040px; margin:0 auto;">
+                <textarea class="txtarea" style="width:1040px; height:700px; margin:0 auto; resize: none" required></textarea>
+            </div>
+            <br>
+            <div class="con footer" style="width:500px;margin:0 auto;">
+                <button type="submit" class="reg" value="게시글 등록" style="width:200px; height:50px;border-radius: 15px;">게시글 등록</button>
+                <button type="reset" class="res" value="게시글 초기화" style="width:200px; height:50px;border-radius: 15px; background-color:black; color:white;">게시글 초기화 </button>
+            </div>
+        </form>
+
+        <br><br>
+    </div>
+
+    <div class="bjh_footer" style="height:170px;">
+
+        <div>
+
+            상호명: 멍멍아 야옹해봐<br>
+
+            대표: 이윤수<br>
+
+            주소: 서울특별시 영등포구 당산동<br>
+
+            사업자등록번호: 542-18-45649<br>
+
+            Tel: 010-1234-5678<br>
+
+            Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+
+        </div>
+
+    </div>
+    <button class="upper">↑</button>
+
+
+
+</body>
+
+
+
+</html>

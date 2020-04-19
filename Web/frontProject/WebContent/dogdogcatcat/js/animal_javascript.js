@@ -53,7 +53,7 @@ $(function () {
                 location.href="./pickboard.html";
                 break;
             case 6:
-                location.href="#";
+                location.href="./pickBoard_writing.html";
                 break;
             case 7:
                 location.href="./d_day_counter.html";
