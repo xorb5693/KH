@@ -112,3 +112,26 @@ img:hover {
     color: white;
     font-weight: bold;
 }
+
+.upper {
+    background-color: rgb(250, 177, 206);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    font-size: 25px;
+    color: white;
+    opacity: 0.8;
+    display: none;
+}
+
+.bjh_navigation>ul>li:hover {
+    cursor: pointer;
+}
+
+.bjh_sub>li:hover {
+    cursor: pointer;
+}

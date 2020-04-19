@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+     <!--Font-->
+   <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!--Css Link-->
+    <link href="./css/animal_CSS.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="./js/animal_javascript.js"></script>
+    <style>
+        #backP1{
+            
+            margin:0px;
+            background-image: url(./imgs/backP2.jpg);
+            margin-left: 180px;
+            
+            width: 80%;
+            height: 400px;
+            padding-top: 100px;
+            position:relative;
+        }
+        #title{
+            width:200px;
+            font-size: 50px;
+             margin-top: 50px;
+             margin: 0 auto;
+            text-align: center;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            color: dimgrey;
+            text-shadow: 1px 1px lightgray;
+            font-family: 'Contrail One', cursive;
+            
+        }
+         #noticef{
+            margin-left: 270px;
+            width: 70%;
+            border-bottom: 1px solid black;
+            font-size: 30px;
+        }
+        #title1{
+            font-size: 30px;
+            text-align: center;
+            color: lightslategrey;
+            text-shadow: gray;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        #table{
+            margin-top:100px;
+            margin-left: 400px;
+            margin-bottom: 100px;
+            width:  900px;
+            height: 500px;
+            border: 1px solid lightgray;
+            border-collapse: collapse;
+             border-spacing: 0px;
+        }
+        .tr{
+            height: 70px;
+            
+        }
+        .tr>td{
+            border-left: 1px solid lightgray;
+            border-collapse: collapse;
+            border-bottom: 1px solid lightgray;
+           
+        }
+        .td{
+            width: 80px;
+            text-align: center;
+        }
+        textarea{
+            width:800px;
+            height: 550px;
+            resize: none;
+            background-color: beige;
+            color: black;
+            border: none;
+        }
+        #noticeP4{
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+        <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+        <div class="bjh_logo">
+            <img src="./img/logo.jpg">
+        </div>
+        <div class="bjh_navigation">
+            <ul>
+                <li>
+                     <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul> 
+                </li>
+                <li><a href="#">소개</a>
+                     <ul class="bjh_sub">
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">제휴기업</a></li>
+                    </ul> 
+                </li>
+                <li><a href="#">가맹점 안내</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">가맹점 소개</a></li>
+                        <li><a href="#">보호 유기동물</a></li>
+                        <li><a href="#">게시글 쓰기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">유기동물</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">안락 D-DAY</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">용품</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">강아지 용품</a></li>
+                        <li><a href="#">고양이 용품</a></li>
+                    </ul>
+                </li>            
+                <li><a href="#">입양후기</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">후기보기</a></li>
+                        <li><a href="#">후기작성</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Q&A</a>
+                    <ul class="bjh_sub">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">공지사항 작성</a></li>
+                    </ul>
+                </li> 
+                <li>
+                     <ul class="bjh_sub">
+                        <li></li>
+                        <li></li>
+                    </ul> 
+                </li>
+            </ul>
+        </div>
+    
+    
+    
+    <div class="bjh_content" style="height:auto;">
+        <div>
+            <div id="backP1"><p id="title">Notice</p>
+            <br>
+            <p id="title1">멍멍아 야옹해봐에서 전해드리는 소식을 알아보세요</p>
+            </div>
+        </div> 
+        <div>
+            <p id="noticef">Notice</p>
+        </div>
+        <div>
+            <table id="table">
+                <tr class="tr">
+                    <td class="td">제목</td>
+                    <td>▶멍멍아 야옹해봐  봄맞이 특별 이벤트◀</td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">등록일</td>
+                    <td>2020-03-20</td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">첨부파일</td>
+                    <td><input type="file" ></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">내용</td>
+                    <td><textarea disabled>여러분이 찾는 모든 반려동물이 이 곳에!
+
+동물을 사랑하는 펫 브랜드 유럽펫입니다.
+
+듣기만 해도 설레이는 봄!
+
+드디어 2020년의 봄이 찾아오고 있습니다.
+
+더욱 설레이고 행복한 봄을 선물해드리기 위해
+
+유럽펫에서는 봄맞이 특별 이벤트를 진행하여
+
+사랑스러운 반려동물 맞이에 적극적인 지원을
+
+해드리기로 결심했습니다!
+
+.
+
+1. 일반 분양 시 50~70% 분양가 할인
+
+2. 홈스쿨 체험권
+
+3. 반려동물 용품 지원
+
+.
+
+이번 이벤트 혜택 외에도 유럽펫에서는
+
+건강관리 및 유럽펫만의 특별 서비스들이 준비되어 있으니
+
+많은 관심과 참여 부탁드립니다.</textarea>
+                    
+                </tr>
+                <tr class="tr">
+                <td colspan="2"><img id="noticeP4"src="./imgs/noticeP4.JPG"></td>
+                </tr>
+            </table>
+            <div id="list">
+            <a class="btn" href="../animal/board.html">목록</a>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="bjh_footer" style="height:170px;">
+        <div>
+            상호명: 멍멍아 야옹해봐<br>
+            대표: 이윤수<br>
+            주소: 서울특별시 영등포구 당산동<br>
+            사업자등록번호: 542-18-45649<br>
+            Tel: 010-1234-5678<br>
+            Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+        </div>
+    </div>
+    <button class="upper">↑</button>
+    
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--Css Link-->
+    <link href="./css/animal_CSS.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="./js/animal_javascript.js"></script>
+    <style>
+        #top {
+            width: 100%;
+            height: 110px;
+            background-color: #ffbbd6;
+            text-align: center;
+
+
+        }
+
+        #top>p {
+            font-family: 'Noto Sans KR', sans-serif;
+            float: right;
+            font-size: 47px;
+            color: antiquewhite;
+            text-shadow: 1px 1px 1px gray;
+            background-clip: text;
+
+        }
+
+        .main {
+            margin-top: 100px;
+            margin-left: 300px;
+        }
+
+        .textpink {
+            width: 450px;
+            font-size: 30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            border-bottom: 1px solid #ffbbd6;
+            color: #ffbbd6;
+            margin: 0px;
+
+
+        }
+
+        .text1 {
+            font-size: 20px;
+            margin: 10px;
+            text-align: right;
+            color: gray;
+
+        }
+
+        .text2 {
+            font-size: 20px;
+            margin: 0px;
+            text-align: left;
+            color: gray;
+
+        }
+
+        .font1 {
+            color: #ffbbd6;
+            display: inline;
+            font-size: 20px;
+
+
+        }
+
+        .font2 {
+            color: #99f19e;
+            display: inline;
+            font-size: 23px;
+
+
+        }
+
+        #pic1 {
+            width: 450px;
+            height: 300px;
+
+        }
+
+        #pic2 {
+            width: 450px;
+            height: 300px;
+            margin-top: 130px;
+        }
+
+        .tr2 {
+            margin: 50px;
+        }
+
+        .t {
+            margin-left: 85px;
+            margin-top: -100px; /////////////////
+
+        }
+
+        .t1 {
+            color: #f199bc;
+            display: inline;
+            margin: 0px;
+
+        }
+
+        .comp {
+            display: inline;
+        }
+
+        #systitle {
+
+            font-size: 30px;
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 180px;
+            margin-left: 600px;
+            color: darkslategrey;
+            border-top: 1px solid #ffbbd6;
+            border-bottom: 1px solid #ffbbd6;
+
+            text-align: center;
+        }
+
+        .syscontent {
+            margin-top: 50px;
+        }
+
+        .syscontent>p {
+            width: 50px;
+            display: inline;
+            font-size: 30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin-left: 450px;
+            margin-top: 300px;
+            color: gray;
+        }
+
+        .prideform {
+            width: 900px;
+            height: 700px;
+            margin-left: 300px;
+            margin-top: 100px;
+            margin-bottom: 200px;
+        }
+
+        .pridecon1 {
+            background-clip: border-box;
+            width: 50%;
+            height: 350px;
+
+            float: left;
+        }
+
+        .pridecon1>img {
+            margin-left: 115px;
+            height: 85px;
+            margin-top: -5px;
+
+        }
+
+        .pridecon2 {
+            background-clip: border-box;
+            width: 50%;
+            height: 350px;
+            float: left;
+
+        }
+
+        .pridecon2>img {
+            margin-left: 115px;
+            height: 80px;
+
+        }
+
+        .pridecon3 {
+            background-clip: border-box;
+            width: 50%;
+            height: 350px;
+            margin-top: 30px;
+            float: left;
+        }
+
+        .pridecon3>img {
+            margin-left: 115px;
+            height: 80px;
+
+        }
+
+        .pridecon4 {
+            background-clip: border-box;
+            width: 50%;
+            height: 350px;
+            margin-top: 30px;
+            float: left;
+        }
+
+        .pridecon4>img {
+            margin-left: 115px;
+            height: 80px;
+
+        }
+
+        .pridetitle {
+            font-size: 30px;
+            margin: 0px;
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+
+        .pridecont {
+            margin: 0px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 22px;
+            color: dimgray;
+            text-align: center;
+        }
+
+        #p {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+    <div class="bjh_logo">
+        <img src="./img/logo.jpg">
+    </div>
+    <div class="bjh_navigation">
+        <ul>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+            <li><a href="#">소개</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">제휴기업</a></li>
+                </ul>
+            </li>
+            <li><a href="#">가맹점 안내</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">가맹점 소개</a></li>
+                    <li><a href="#">보호 유기동물</a></li>
+                    <li><a href="#">게시글 쓰기</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">유기동물</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">안락 D-DAY</a></li>
+                </ul>
+            </li>
+            <li><a href="#">용품</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">강아지 용품</a></li>
+                    <li><a href="#">고양이 용품</a></li>
+                </ul>
+            </li>
+            <li><a href="#">입양후기</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">후기보기</a></li>
+                    <li><a href="#">후기작성</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Q&A</a>
+                <ul class="bjh_sub">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">공지사항 작성</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="bjh_sub">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <!--     <div class="bjh_content" style="height:500px;">-->
+    <div class="bjh_content">
+        <div id="top">
+            <P>멍멍아 야옹해봐</P>
+
+        </div>
+        <table class="main">
+            <tr class="tr1">
+                <td>
+                    <p class="textpink">U LOVE PET</p><br>
+                    <p class="text1">반려생활의 시작,<br>반려생활의 행복<br>어떻게 시작하시겠습니까?<br>
+                        유럽펫만의 체계적이고 안전한 분양을 통해<br>멋지고 예쁜 견주님<br>
+                        혹은 집사님이 되어보세요!</p><br><br><br><br>
+                    <p></p>
+                    <div class="t">
+                        <p class="font1">with</p>
+                        <p class="font2"> Animal</p>
+                        <p class="font1">, With</p>
+                        <p class="font2"> Love</p>
+                        <p class="font1"> with</p>
+                        <p class="font2"> Animal</p>
+                    </div>
+                </td>
+                <td><img id="pic1" src="./imgs/pic1.JPG"></td>
+            </tr>
+            <tr class="tr2">
+                <td><img id="pic2" src="./imgs/pic2.JPG"></td>
+                <td>
+                    <p id="p" class="textpink">Only<br>ULovePet. Benefits</p><br>
+                    <p class="text2">프리미엄서비스, 365 할인 이벤트,<br>착한분양 시스템, 꼼꼬만 기록,<br>매일 건강검진 체크,<br>철저한 관리를 통한 분양</p>
+
+                    <!--
+            <div><span><img class="comp"src="../imgs/comP1.JPG"><br><p class="t1">Premium Pet</p></span>
+            <span><img class="comp"src="../imgs/comP1.JPG"><br><p class="t1">Every Day <br>Event</p></span>       
+            </div>
+-->
+
+                </td>
+            </tr>
+        </table>
+        <div>
+            <p id="systitle">회사 시스템</p>
+        </div>
+        <div class="syscontent">
+            <p>유럽펫 회원-온라인 상담-방문-맞춤 분양-사후 관리</p>
+        </div>
+        <div>
+            <p id="systitle">멍멍아 야옹해봐만의 PRIDE</p>
+        </div>
+        <div class="prideform">
+            <div class="pridecon1"><img src="./imgs/comP3.JPG">
+                <p class="pridetitle">최고의 퀄리티 보장</p><br>
+                <p class="pridecont">멍멍아 야옹해봐에서는<br>보다 예쁘고 사랑스러운<br>강아지, 고양이와 함께하고 있으며<br>건강 등에 관한<br>멍멍아 야옹해봐만의<br>최고의 퀄리티를 보장합니다.</p>
+            </div>
+            <div class="pridecon2"><img src="./imgs/comP6.JPG">
+                <p class="pridetitle">최고의 건강 보장</p><br>
+                <p class="pridecont">분양 전부터 분양 후까지<br>행복한 반려생활을 위해<br>전문과들과 함께<br>꼼꼼한 건강 관리를 통하여<br>건강을 유지할 수 있도록<br>최고의 컨디션을 보장합니다.</p>
+            </div>
+            <div class="pridecon3"><img src="./imgs/comP7.JPG">
+                <p class="pridetitle">최고의 사후관리 보장</p><br>
+                <p class="pridecont">단순한 분양에서 끝이 아닌<br>반려생활을 끝까지 함께하는<br>평생 케어 서비스 등<br>분양 후 관리까지<br>철저하게 도와드리며<br>최괴의 사후관리를 보장합니다.</p>
+            </div>
+            <div class="pridecon4"><img src="./imgs/comP8.JPG">
+                <p class="pridetitle">최고의 고객만족 보장</p><br>
+                <p class="pridecont">프리미엄분양, 착한분양,<br>책임분양을 통한 <br>분양서비스 용품 증정,<br>할인 이벤트 등 만족도 높은<br>서비스를 최우선으로 하여<br>최고의 고객만족을 보장합니다.</p>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="bjh_footer" style="height:170px;">
+        <div>
+            상호명: 멍멍아 야옹해봐<br>
+            대표: 이윤수<br>
+            주소: 서울특별시 영등포구 당산동<br>
+            사업자등록번호: 542-18-45649<br>
+            Tel: 010-1234-5678<br>
+            Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+        </div>
+    </div>
+    <button class="upper">↑</button>
+
+</body>
+
+</html>

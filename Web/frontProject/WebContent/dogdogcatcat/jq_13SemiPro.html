@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="./js/animal_javascript.js"></script>
+    <style>
+        .wrapper {
+            width: 1600px;
+            overflow: hidden;
+        }
+
+        .content {
+
+            /*
+            background-image: url("wrapper.jpg");
+            background-size: 100% 100%;
+*/
+            background-color: beige;
+            width: 100%;
+            opacity: 0.8;
+            z-index: 1;
+            box-sizing: border-box;
+            /*            background-color: #fab1ce;*/
+
+        }
+
+        .con_Rap {
+            margin: 0 auto;
+            width: 70%;
+            overflow: hidden;
+            display: block;
+        }
+
+        .con_Header {
+
+            /*            text-align: center;*/
+            width: 100%;
+            box-sizing: border-box;
+            height: 250px;
+            background-color: white;
+            /*
+            border: 1px dashed orange;
+            background-image: url("board_Main.jpeg");
+*/
+            position: relative;
+            background-size: 100% 120%;
+            line-height: 170px;
+
+        }
+
+        .con_Header>h1 {
+            top: 150px;
+            left: 600px;
+            position: absolute;
+            z-index: 90;
+            line-height: 0px;
+            opacity: 0.7;
+        }
+
+        .con_Foot {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .con_Con {
+            margin: 0 auto;
+            width: 85%;
+
+            background-color: white;
+            border: 1.5px solid black;
+
+        }
+
+        .con_Con_Wrap {
+            margin: 0 auto;
+            width: 80%;
+
+
+        }
+
+        .con_Write {
+            width: 80%;
+            background-color: white;
+
+
+        }
+
+        .con_Title {
+            margin-top: 40px;
+            padding-left: 60px;
+            background-color: #ffbbd6;
+            width: 100%;
+            height: 40px;
+            box-sizing: border-box;
+        }
+
+        .con_Title>input {
+            margin-left: 10px;
+            color: black;
+            border: 0.5 dashed;
+            width: 400px;
+            height: 20px;
+
+        }
+
+        .fo {
+            font-size: 22px;
+            font-family: 'Noto Sans KR', sans-serif;
+            border: none;
+        }
+
+        .con_Pic {
+
+            padding-left: 60px;
+            background-color: #ffbbd6;
+            width: 100%;
+            height: 40px;
+            box-sizing: border-box;
+        }
+
+        .con_Contents {
+            padding-left: 60px;
+            background-color: #ffbbd6;
+            width: 100%;
+            height: 450px;
+            box-sizing: border-box;
+
+        }
+
+        #content {
+            width: 800px;
+            height: 360px;
+            resize: none;
+        }
+
+        .con_Submit {
+            /*          padding-left: 60px;*/
+            background-color: #fab1ce;
+            width: 100%;
+            height: 100px;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .con_Submit>* {
+            background-color: rosybrown;
+            color: white;
+        }
+    </style>
+    <script>
+        $(function() {
+
+
+            $("#content").keyup(function() {
+                var inputLength = $(this).val().length;
+                var remain = 500 - inputLength;
+                $("#textCount").html("작성 가능한 글자 수 :" + remain);
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="Header">
+            <div class="bjh_loginAndSign"><a href="animal_login.html">로그인</a><a>/</a><a href="animal_signUp.html">회원가입</a></div>
+            <div class="bjh_logo">
+                <img src="./img/logo.jpg">
+            </div>
+            <div class="bjh_navigation">
+                <ul>
+                    <li>
+                        <ul class="bjh_sub">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                    <li><a>소개</a>
+                        <ul class="bjh_sub">
+                            <li><a>회사소개</a></li>
+                            <li><a>제휴기업</a></li>
+                        </ul>
+                    </li>
+                    <li><a>가맹점 안내</a>
+                        <ul class="bjh_sub">
+                            <li><a>가맹점 소개</a></li>
+                            <li><a>보호 유기동물</a></li>
+                            <li><a>게시글 쓰기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>유기동물</a>
+                        <ul class="bjh_sub">
+                            <li><a>안락 D-DAY</a></li>
+                        </ul>
+                    </li>
+                    <li><a>용품</a>
+                        <ul class="bjh_sub">
+                            <li><a>강아지 용품</a></li>
+                            <li><a>고양이 용품</a></li>
+                        </ul>
+                    </li>
+                    <li><a>입양후기</a>
+                        <ul class="bjh_sub">
+                            <li><a>후기보기</a></li>
+                            <li><a>후기작성</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Q&A</a>
+                        <ul class="bjh_sub">
+                            <li><a>공지사항</a></li>
+                            <li><a>공지사항 작성</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="bjh_sub">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="con_Rap">
+                <div class="con_Header">
+                    <img src="./img/board_Main.jpeg" style="width:100%;height:100%;opacity:0.6;">
+                    <h1>후기 작성</h1>
+
+                </div>
+                <form class="con_Con" method="post" action="push">
+                    <div class="con_Title">
+                        <span class="fo">제목</span>
+                        <input type="text" placeholder="제목 작성">
+                    </div>
+                    <div class="con_Pic">
+                        첨부 파일 :
+                        <input type="file" name="picture">
+                    </div>
+                    <div class="con_Contents">
+                        <div>내용 작성하기 &nbsp;&nbsp;&nbsp;<span id="textCount"></span></div>
+                        <textarea id="content" placeholder="내용을 작성하세요."></textarea>
+                    </div>
+                    <div class="con_Submit">
+                        <input type="submit" value="글 작성" class="fo">
+                        <input type="reset" value="취소" class="fo">
+                    </div>
+                </form>
+                <div class="con_Foot">
+                    <div class="root"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bjh_footer" style="height:170px;">
+            <div>
+                상호명: 멍멍아 야옹해봐<br>
+                대표: 이윤수<br>
+                주소: 서울특별시 영등포구 당산동<br>
+                사업자등록번호: 542-18-45649<br>
+                Tel: 010-1234-5678<br>
+                Copyright © 2019-2010 DogAndCat All Rights Reserved.<br>
+            </div>
+        </div>
+    </div>
+    <button class="upper">↑</button>
+</body></html>
