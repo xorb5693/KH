@@ -22,7 +22,7 @@
         $(function() {
             window.setInterval(function() {
                 var date1 = new Date();
-                var date2 = new Date(2020, 3, 20, 0, 20);
+                var date2 = new Date(2020, 4, 20, 0, 20);
                 var counter = date2.getTime() - date1.getTime();
 
                 counter = Math.floor(counter / 1000);
@@ -121,11 +121,13 @@
         }
 
         .tg_counter_p {
-            width: 500px;
+            width: 600px;
             height: 500px;
             margin-top: 100px;
             background-image: url("./img/blood.png");
             background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         #tg_p {
