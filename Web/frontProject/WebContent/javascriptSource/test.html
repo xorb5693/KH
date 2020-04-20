@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <style>
+        div.d1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+    </style>
+
+    <script>
+        $(function() {
+            //jQuery
+            //1. 고전이벤트 방식
+            //$(".d1").click(function() {
+            //    alert($(this).html());
+            //});
+            
+            $(".d1").on("click", function() {
+                alert($(this).html());
+            });
+        });
+        
+        //2. 인라인 방식
+        function test() {
+            alert($(".d1").html());
+        }
+        
+        /*
+        window.onload = function() {
+            //JavaScript 방식
+            //1. 고전 이벤트 방식
+            //var d1 = document.getElementsByClassName("d1");
+            //d1[0].onclick = function() {
+            //    alert(d1[0].innerHTML);
+            //}
+
+            //3. 표준 이벤트 모델
+            var d1 = document.getElementsByClassName("d1");
+            d1[0].addEventListener("click", function() {
+                alert(d1[0].innerHTML);
+            });
+        }
+
+        //2. 인라인 모델
+        function test() {
+            var d1 = document.getElementsByClassName("d1");
+            alert(d1[0].innerHTML);
+        }
+        */
+    </script>
+</head>
+
+<body>
+
+    <div class="d1">테스트메세지</div>
+    <input type="checkbox" name="hobby" value="축구">축구
+    <input type="checkbox" name="hobby" value="야구">야구
+    <input type="checkbox" name="hobby" value="농구">농구
+    <input type="checkbox" name="hobby" value="배구">배구
+    <input type="checkbox" name="hobby" value="탁구">탁구
+    <input type="checkbox" name="hobby" value="당구">당구
+    <button id="btn1">확인(js)</button>
+    <button id="btn2">확인(jQ)</button>
+    <button id="btn3">전체체크(js)</button>
+    <button id="btn4">전체체크(jQ)</button>
+    
+    <script>
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function() {
+            var arr = document.getElementsByName("hobby");
+            var count = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].checked) {
+                    count++;
+                }
+            }
+            
+            alert(count);
+        }
+        
+        $("#btn2").click(function() {
+            alert($("input[type=checkbox]:checked").length);
+        });
+        
+        btn3.onclick = function() {
+            var arr = document.getElementsByName("hobby");
+            
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].checked = true;
+            }
+        }
+        
+        $("#btn4").click(function() {
+            $("input[type=checkbox]").each(function() {
+                $(this).prop("checked", true);
+            });
+            //for (var i = 0; i < arr.length; i++) {
+            //    console.log(arr.eq(i).prop("checked"));
+            //}
+        });
+    </script>
+</body>
+
+</html>
