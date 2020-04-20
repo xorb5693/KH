@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>멍멍아 야옹해봐!: 입양후기 작</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="css/animal_CSS.css" rel="stylesheet" type="text/css">
@@ -40,6 +40,7 @@
         .con_Header {
 
             /*            text-align: center;*/
+            
             width: 100%;
             box-sizing: border-box;
             height: 250px;
@@ -56,7 +57,7 @@
 
         .con_Header>h1 {
             top: 150px;
-            left: 600px;
+            left: 480px;
             position: absolute;
             z-index: 90;
             line-height: 0px;
@@ -71,9 +72,8 @@
         .con_Con {
             margin: 0 auto;
             width: 85%;
-
-            background-color: white;
-            border: 1.5px solid black;
+            background-color: beige;
+            border: none;
 
         }
 
@@ -83,6 +83,7 @@
 
 
         }
+/*
 
         .con_Write {
             width: 80%;
@@ -90,14 +91,16 @@
 
 
         }
+*/
 
         .con_Title {
-            margin-top: 40px;
+            padding-top:20px;
             padding-left: 60px;
-            background-color: #ffbbd6;
+/*            background-color: #ffbbd6;*/
             width: 100%;
-            height: 40px;
+            height: 60px;
             box-sizing: border-box;
+            
         }
 
         .con_Title>input {
@@ -118,30 +121,34 @@
         .con_Pic {
 
             padding-left: 60px;
-            background-color: #ffbbd6;
+/*            background-color: #ffbbd6;*/
             width: 100%;
             height: 40px;
             box-sizing: border-box;
+            line-height: 40px;
         }
 
         .con_Contents {
             padding-left: 60px;
-            background-color: #ffbbd6;
+/*            background-color: #ffbbd6;*/
             width: 100%;
             height: 450px;
             box-sizing: border-box;
 
         }
-
+        .con_Contents>span>input{
+            margin-top: 14px;
+        }
         #content {
             width: 800px;
-            height: 360px;
+            height: 330px;
             resize: none;
+            display: block;
         }
 
         .con_Submit {
             /*          padding-left: 60px;*/
-            background-color: #fab1ce;
+/*            background-color: #fab1ce;*/
             width: 100%;
             height: 100px;
             box-sizing: border-box;
@@ -152,6 +159,7 @@
         .con_Submit>* {
             background-color: rosybrown;
             color: white;
+            margin: 5px;
         }
     </style>
     <script>
@@ -233,12 +241,13 @@
             <div class="con_Rap">
                 <div class="con_Header">
                     <img src="./img/board_Main.jpeg" style="width:100%;height:100%;opacity:0.6;">
-                    <h1>후기 작성</h1>
+                    <h1>후기글   작성</h1>
 
                 </div>
                 <form class="con_Con" method="post" action="push">
                     <div class="con_Title">
                         <span class="fo">제목</span>
+                        
                         <input type="text" placeholder="제목 작성">
                     </div>
                     <div class="con_Pic">
@@ -246,8 +255,12 @@
                         <input type="file" name="picture">
                     </div>
                     <div class="con_Contents">
-                        <div>내용 작성하기 &nbsp;&nbsp;&nbsp;<span id="textCount"></span></div>
+                        <div style="height:25px;padding-top:10px;padding-bottom:10px;"><span id="textCount"></span></div>
                         <textarea id="content" placeholder="내용을 작성하세요."></textarea>
+                        <span>기능 설정
+                            <input type="checkbox" name="otherText">댓글 허용 
+                            <input type="checkbox" name="share">공유 허용 
+                        </span>
                     </div>
                     <div class="con_Submit">
                         <input type="submit" value="글 작성" class="fo">
