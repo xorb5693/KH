@@ -138,7 +138,10 @@
   - admin.sql
   - jdbc.sql
     - JDBC 테스트용 테이블 생성
-    
 - 31일차(2020-03-20)
   - jdbc.sql
     - JDBC 실습용 테이블
+- 53일차(2020-04-22)
+  - admin.sql
+  - webtest.sql
+    - Servlet 테스트용 테이블
