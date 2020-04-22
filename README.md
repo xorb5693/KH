@@ -21,7 +21,7 @@
 | [2.21](#221-21일차2020-02-25) | [2.22](#222-22일차2020-03-09) | [2.23](#223-23일차2020-03-10) | [2.24](#224-24일차2020-03-11) | [2.25](#225-25일차2020-03-12) | [2.26](#226-26일차2020-03-13) | [2.27](#227-27일차2020-03-16) | [2.28](#228-28일차2020-03-17) | [2.29](#229-29일차2020-03-18) | [2.30](#230-30일차2020-03-19) |
 | [2.31](#231-31일차2020-03-20) | [2.32](#232-32일차2020-03-23) | [2.33](#233-33일차2020-03-24) | [2.34](#234-34일차2020-03-25) | [2.35](#235-35일차2020-03-26) | [2.36](#236-36일차2020-03-27) | [2.37](#237-37일차2020-03-30) | [2.38](#238-38일차2020-03-31) | [2.39](#239-39일차2020-04-01) | [2.40](#240-40일차2020-04-02) |
 | [2.41](#241-41일차2020-04-03) | [2.42](#242-42일차2020-04-06) | [2.43](#243-43일차2020-04-07) | [2.44](#244-44일차2020-04-08) | [2.45](#245-45일차2020-04-09) | [2.46](#246-46일차2020-04-10) | [2.47](#247-47일차2020-04-13) | [2.48](#248-48일차2020-04-14) | [2.49](#249-49일차2020-04-16) | [2.50](#250-50일차2020-04-17) |
-| [2.51](#251-51일차2020-04-20) | [2.52](#252-52일차2020-04-21) | [2.53](#) | [2.54](#) | [2.55](#) | [2.56](#) | [2.57](#) | [2.58](#) | [2.59](#) | [2.60](#) |
+| [2.51](#251-51일차2020-04-20) | [2.52](#252-52일차2020-04-21) | [2.53](#253-53일차2020-04-22) | [2.54](#) | [2.55](#) | [2.56](#) | [2.57](#) | [2.58](#) | [2.59](#) | [2.60](#) |
 
 </div>
 </details>  
@@ -6246,6 +6246,191 @@
     - New - Other - Dynamic Web Project 생성
   - 파일 생성
     - Web Content 폴더 하위에 생성
+    
+### 2.53 53일차(2020-04-22)
+- Web
+  - 개요
+    - 서버 : 서비스를 제공하는 컴퓨터
+    - 클라이언트 : 서비스를 이용하는 사용자
+    - 서버의 종류
+    <table>
+      <tr align=center>
+        <th>종류</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>Web Server</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>Mail Server</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>FTP Server</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>Telnet Server</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>Database Server</td>
+        <td></td>
+      </tr>
+    </table>
+  - Web 통신 구조
+  - Web Server
+    - 사용자에게 HTML 페이지나 jpg, png같은 이미지를 HTTP 프로토콜을 통해 웹브라우저에 제공하는 서버로, 내부의 내용이 이미 만들어져 있는 정적적인 요소들을 화면에 보여주는 역할을 한다.
+    <table>
+      <tr align=center>
+        <th>종류</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>Apache</td>
+        <td>Apache Software Foundation에서 만든 서버로 HTTP 통신에 대한 여러 라이브러리를 제공</td>
+      </tr>
+      <tr>
+        <td align=center>Windows IIS</td>
+        <td>Windows OS에서 제공하는 웹 서버로, 높은 수준의 보안성과 성능을 제공</td>
+      </tr>
+      <tr>
+        <td align=center>NGINX</td>
+        <td>무료 오픈 소스 서버로, 사용자 요청을 스레드가 아닌 확장성이 있는 이벤트 기반 설계를 통해 필요한 리소스만 할당하여 사용</td>
+      </tr>
+    </table>
+  - WAS
+    - Web Application Server의 약자로, 사용자가 요청한 서비스의 결과를 스크립트 언어 등으로 가공하여 생성한 동적인 페이지를 사용자에게 보여주는 역할
+    <table>
+      <tr align=center>
+        <th>종류</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>toncat</td>
+        <td>Apache Software Foundation에서 Servlet과 JSP를 통한 동적인 웹문서를 처리하기 위해 만든 웹 어플리케이션 서버</td>
+      </tr>
+      <tr>
+        <td>wildfly</td>
+        <td>JBOSS라고도 불리며, 톰캣이 제공하는 SErvlet Container뿐만 아니라, EJB Container를 별도로 제공하여 폭넓은 서비스를 구현</td>
+      </tr>
+      <tr>
+        <td align=center>jeus</td>
+        <td>국산 WAS로 대용량 데이터 트랜잭션을 고성능으로 처리하며 개발 및 운영에 관한 기술지원이 뛰어남</td>
+      </tr>
+    </table>
+  - WAS에서 사용하는 언어
+    <table>
+      <tr align=center>
+        <th>종류</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>jsp<br>(Java Server Pages)</td>
+        <td>SUN사의 JAVA를 기반으로 웹 환경에 맞게 개발된 동적</td>
+      </tr>
+      <tr>
+        <td align=center>php<br>(Projessional Hypertext Preprocessor)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>asp<br>(Active Server Pages)</td>
+        <td></td>
+      </tr>
+    </table>
+  - Web Server VS WAS
+    <table>
+      <tr align=center>
+        <th>구분</th>
+        <th>장점</th>
+        <th>단점</th>
+      </tr>
+      <tr>
+        <td align=center>Web Server</td>
+        <td>- 요청에 대한 결과 페이지만 전송하기 떄문에 처리속도가 빠름<br>- HTML같은 단순 문서로만 구성되어 있어 구현이 쉬움</td>
+        <td>- 만들어진 정보만 보여주기 때문에 서비스가 한정적<br>- 문서의 내용이 변경될 경우 직접 수정</td>
+      </tr>
+      <tr>
+        <td align=center>WAS</td>
+        <td>- 여러 데이터 활용이 가능하여 다양한 서비스 제공 가능<br>- 문서의 내용이 변경될 경우 직접 수정하지 않음</td>
+        <td>- 데이터를 처리하여 결과를 전송해야 하기 때문에 처리속도가 느림<br>- 서비스에 해당하는 소스를 직접 작성해야 하기 때문에 구현이 어려움</td>
+      </tr>
+    </table>
+- 개발 환경 구축
+  1. 현재 자바 버전 확인
+      - Window -> Preferences -> Java -> Installed JREs -> jre 1.8 확인
+  2. 아파치-톰캣 서버 버전 별 지원 정보 확인
+      - http://tomcat.apache.org/ -> Which version?
+  3. 아파치
+  4. 아파치-톰캣 서버 설치
+      - 다운로드한 zip 파일을 원하는 폴더에 압축 풀기
+  5. 이클립스 필요 항목 추가
+      - window -> show view -> Navigator
+      - window -> Perspective -> Customize Perspective -> Shortcuts
+  6. 문자 set 설정
+      - JDBC때 진행했던 것과 동일
+  7. 아파치 톰캣 서버 
+  8. 아파치 톰캣 서버 등록
+  9. 아파치 톰캣 서버 설정
+  10. 아파치 톰캣
+- Sevlet
+  - 정의
+    - Server + Applet의 합성어
+    - JAVA 언어를 이용하여 사용자의 요청을 받아 처리하고 그 결과를 다시 사용자에게 전홍하는 역할의 Class 파일
+    - 웹에서 동적인 페이지를 JAVA로
+  - Servlet 설계 규약
+  - Servlet 동작 구조
+    - Servlet 컨테이너 : 웹 서버 또는 응용 프로그램 서버의 일부로, 웹 서버에서 온 요청을 받아서 서블릿 class를 관리하는 역할(생명주기)을 한다.
+  - 배포 서술자(Deployment Desciptor)
+    - 어플리케이션에 대한 전체 설정정보를 가지고 있는 파일로 이 정보를 가지고 웹 컨테이너가 서블릿을 구동
+    - xml 파일로 태그로 이루어져 있음
+    - 어플리케이션 폴더의 WEB-INF폴더에 web.xml 파일
+  - 설정정보
+    - Servlet 정의/Ser
+  - web.xml 파일 주요 태그
+  - 서블릿 매핑
+    - client가 servlet에 접근할 때 원본 클래스명이 아닌 다른 명칭으로 접근시 사용 접근명칭과 클래스명을 매핑해주는 것
+    - web.xml을 이용하는 방법 : web.xml에 태그를 이용하여 매핑 정보를 등록
+    - @annotation을 이용하는 방법 : 해당 서블릿 클래스 상단에 @anntaion
+  - web.xml을 이용한 방법
+  - @annotation을 이용한 방법
+    ```
+    @anntation
+    ```
+  - server.xml
+    - WAS 서버에 대한 설정을 변경할 수 있는 파일
+  - Context Path
+    - 어플리케이션에 접근하는 경로
+    - 어플리케이션의 root 경로(최상위 경로)
+    - 하나의 WAS에 여러 프로젝트를 이용하여
+  - 서블릿 라이프 사이클
+    1. 첫번째 요청인 경우, 객체를 생성하며 init() 메소드 호출
+    2. 이후 작업이 실행 될 때마다 HTTP Type에 따른 doGet(), doPost() 메소드 호출
+    3. 최정적으로 서블릿이 서비스 되지 않을 때(서버가 꺼질 때) destroy() 메소드 호출  
+    ※ destroy() 메소드는 보통 서버가 종료되었을 때, 내용이 변경되어 재컴파일 될 때 호출
+- Servlet
+  - 동작 순서
+    1. 전송 값에 한글이 있을 경우를 대비하여 인코딩 처리 
+      ```
+      request.setCharacterEncoding("utf-8");
+      ```  
+    2. 웹에서 보내준 데이터를 꺼내서 변수에 저장  
+      ```  
+      String test = request.getParameter("test");
+      String test3 = request.getParameter("test3");
+      System.out.println(test + "/" + test3);
+      ```  
+    3. 비지니스 로직 처리(Service 호출)  
+    4. 처리 결과 내보내기(Response)  
+      ```
+      response.setContentType("text/html; charset=utf-8");
+      PrintWriter out = response.getWriter();
+      out.println("<html><head><title>result</title></head>");
+      out.println("<body>");
+      out.println("<h1>서블릿 호출 완료</h1>");
+      out.println("</body></html>");
+      ```
 
 ## 3. 이클립스 기능
 - 단축키
