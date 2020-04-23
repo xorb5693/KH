@@ -6260,26 +6260,27 @@
       </tr>
       <tr>
         <td align=center>Web Server</td>
-        <td></td>
+        <td>웹 브라우저와 HTTP 프로토콜을 사용하여 사용자의 요구에 따른 특정 서비스를 제공하는 서버</td>
       </tr>
       <tr>
         <td align=center>Mail Server</td>
-        <td></td>
+        <td>인터넷을 통해 사용자 간의 전자 우편을 주고받는 서비스를 제공하는 서버</td>
       </tr>
       <tr>
         <td align=center>FTP Server</td>
-        <td></td>
+        <td>서버 내에 파일을 업로드, 다운로드 할 수 있도록 파일 관리 기능을 제공하는 서버</td>
       </tr>
       <tr>
         <td align=center>Telnet Server</td>
-        <td></td>
+        <td>Terminal, 텍스트로만 이루어진 창에서 특정 명령어를 통해 원격지 서버를 접속, 관리</td>
       </tr>
       <tr>
         <td align=center>Database Server</td>
-        <td></td>
+        <td>Data를 저장하고, 원격지에서 접속할 경우 권한에 따라 해당 데이터를 열람, 추가, 수정, 삭제 기능을 처리</td>
       </tr>
     </table>
-  - Web 통신 구조
+  - Web 통신 구조  
+    ![20200423102410](./Image/20200423102410.PNG)
   - Web Server
     - 사용자에게 HTML 페이지나 jpg, png같은 이미지를 HTTP 프로토콜을 통해 웹브라우저에 제공하는 서버로, 내부의 내용이 이미 만들어져 있는 정적적인 요소들을 화면에 보여주는 역할을 한다.
     <table>
@@ -6328,15 +6329,15 @@
       </tr>
       <tr>
         <td align=center>jsp<br>(Java Server Pages)</td>
-        <td>SUN사의 JAVA를 기반으로 웹 환경에 맞게 개발된 동적</td>
+        <td>SUN사의 JAVA를 기반으로 웹 환경에 맞게 개발된 동적 웹 프로그래밍 언어</td>
       </tr>
       <tr>
-        <td align=center>php<br>(Projessional Hypertext Preprocessor)</td>
-        <td></td>
+        <td align=center>php<br>(Projessional<br>Hypertext<br>Preprocessor)</td>
+        <td>Rasmus Lerdorf가 개발한 동적 웹페이지 생성 스크립트 언어<br>C, C++, Perl, Java등의 언어를 기반으로 하여 만들어 졌고, C언어 문법과 유사</td>
       </tr>
       <tr>
         <td align=center>asp<br>(Active Server Pages)</td>
-        <td></td>
+        <td>Micro Soft에서 개발한 동적 웹 페이지 생성 스크립트 언어</td>
       </tr>
     </table>
   - Web Server VS WAS
@@ -6362,53 +6363,138 @@
       - Window -> Preferences -> Java -> Installed JREs -> jre 1.8 확인
   2. 아파치-톰캣 서버 버전 별 지원 정보 확인
       - http://tomcat.apache.org/ -> Which version?
-  3. 아파치
+  3. 아파치-톰캣 서버 다운로드
+      - Tocat 8 -> 8.5.xx -> zip 파일 다운로드
   4. 아파치-톰캣 서버 설치
       - 다운로드한 zip 파일을 원하는 폴더에 압축 풀기
   5. 이클립스 필요 항목 추가
       - window -> show view -> Navigator
-      - window -> Perspective -> Customize Perspective -> Shortcuts
+      - window -> show view -> others -> Package Explorer
+      - window -> show view -> Servers
+      - window -> show view -> others -> Problems
+      - window -> show view -> Console
+      - window -> Perspective -> Customize Perspective -> Shortcuts -> Java
+      - window -> Perspective -> Customize Perspective -> Shortcuts -> web
   6. 문자 set 설정
       - JDBC때 진행했던 것과 동일
-  7. 아파치 톰캣 서버 
+  7. 아파치 톰캣 서버 구성
+      - window -> preferences -> Servers -> Runtime Environments -> Add
+      - 다운받은 톰캣 버전 구성
+      - Browse 후 압축 푼 아파치 톰캣 폴더 선택
+      - 등록정보 확인 후 Apply and Close
   8. 아파치 톰캣 서버 등록
+      - Servers -> 마우스 우클릭 -> New -> Server
+      - 톰캣 버전 선택
+      - Server Name은 볼 이름을 지정
+      - Server runtime Environmnet 이전에 구성한 서버 목록이 뜸. 현재 1개지만 여러 개인 경우 여러개.
   9. 아파치 톰캣 서버 설정
-  10. 아파치 톰캣
+      - 내가 사용할 port번호 지정
+      - 여러 개 서버 운영 시 port번호 겹치지 않게 설정
+      - 파일 업로드 시 경로지정을 위한 설정 checkbox를 반드시 check해줄 것
+  10. 아파치 톰캣 서버 실행 테스트
+      - 서버 실행 후 Server startup 메시지 확인
 - Sevlet
   - 정의
     - Server + Applet의 합성어
     - JAVA 언어를 이용하여 사용자의 요청을 받아 처리하고 그 결과를 다시 사용자에게 전홍하는 역할의 Class 파일
-    - 웹에서 동적인 페이지를 JAVA로
+    - 웹에서 동적인 페이지를 JAVA로 구현한 서버측 프로그램
   - Servlet 설계 규약
+    1. 모든 서블릿은 javax.servlet.Servlet 인터페이스를 상속 받아 구현한다.
+    2. 서블릿을 구현 시 Servlet 인터페이스와 ServletConfig 인터페이스를 javax.servlet.GenericServlet에 구현한다.
+    3. HTTP 프로토콜을 사용하는 서블릿은 javax.servlet.http.HttpServlet클래스를 상속받는데 HttpServlet클래스는 javax.servletGenericServlet을 상속하여 구현된 클래스다.
+    4. 서블릿의 Exception을 처리하기 위해서는 javax.servlet.ServletException을 상속 받아야 한다.
   - Servlet 동작 구조
-    - Servlet 컨테이너 : 웹 서버 또는 응용 프로그램 서버의 일부로, 웹 서버에서 온 요청을 받아서 서블릿 class를 관리하는 역할(생명주기)을 한다.
+    - Servlet 컨테이너 : 웹 서버 또는 응용 프로그램 서버의 일부로, 웹 서버에서 온 요청을 받아서 서블릿 class를 관리하는 역할(생명주기)을 한다. 컨테이너의 서블릿에 대한 설정은 Deployment Descriptor(web.xml)파일을 이용한다.  
+    ![20200423112805](./Image/20200423112805.PNG)
   - 배포 서술자(Deployment Desciptor)
     - 어플리케이션에 대한 전체 설정정보를 가지고 있는 파일로 이 정보를 가지고 웹 컨테이너가 서블릿을 구동
     - xml 파일로 태그로 이루어져 있음
     - 어플리케이션 폴더의 WEB-INF폴더에 web.xml 파일
   - 설정정보
-    - Servlet 정의/Ser
+    - Servlet 정의 / Servlet 초기화 파라미터
+    - Session 설정 파라미터
+    - Servlet/jsp 매핑 / MIME type 매핑
+    - 보안설정
+    - Welcome file list 설정
+    - 에러페이지, 리소스, 환경변수 설정
   - web.xml 파일 주요 태그
+    <table>
+      <tr align=center>
+        <th>태그</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>web-app</td>
+        <td>context-param</td>
+      </tr>
+      <tr>
+        <td align=center>mime-mapping</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center><strong>servlet<br>servlet-class<br>sevlet-mapping</strong></td>
+        <td>서블릿 매핑</td>
+      </tr>
+      <tr>
+        <td align=center><strong>welcome-file-list</strong></td>
+        <td>시작페이지 설정</td>
+      </tr>
+      <tr>
+        <td align=center><strong>filter</strong></td>
+        <td>필터정보 등록</td>
+      </tr>
+      <tr>
+        <td align=center>error-page</td>
+        <td>에러발생시 안내페이지 설정</td>
+      </tr>
+    </table>
   - 서블릿 매핑
     - client가 servlet에 접근할 때 원본 클래스명이 아닌 다른 명칭으로 접근시 사용 접근명칭과 클래스명을 매핑해주는 것
     - web.xml을 이용하는 방법 : web.xml에 태그를 이용하여 매핑 정보를 등록
-    - @annotation을 이용하는 방법 : 해당 서블릿 클래스 상단에 @anntaion
+    - @annotation을 이용하는 방법 : 해당 서블릿 클래스 상단에 @annotation을 이용하여 매핑정보 등록
   - web.xml을 이용한 방법
+    ```
+    <servlet>
+      <servlet-name>mapping 명칭</servlet-name>
+      <servlet-class>실제 클래스 명칭 </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>mapping 명칭</servlet-name>
+      <url-pattern>사용자 접근 명칭</url-pattern>
+    </servlet-mapping>
+    ```
   - @annotation을 이용한 방법
     ```
-    @anntation
+    @web-servlet(“매핑명칭”)
+    public class 서블릿명칭 extends HttpServlet{
+      Servlet 클래스 내용
+    }
+    
+    - @annotation을 이용한 방식은 Servlet 파일 생성 시 바로 지정이 가능하고 편리하여 더 많이 사용
     ```
   - server.xml
     - WAS 서버에 대한 설정을 변경할 수 있는 파일
+    - 설정 정보
+      1. Context Path 설정(서버 내 애플리케이션 설정)
+      2. 어플리케이션 포트 설정
+      3. default 접속 경로 설정
+      4. 특정 이벤트 설정
   - Context Path
     - 어플리케이션에 접근하는 경로
     - 어플리케이션의 root 경로(최상위 경로)
-    - 하나의 WAS에 여러 프로젝트를 이용하여
+    - 하나의 WAS에 여러 프로젝트를 이용하여 다양한 어플리케이션을 사용이 가능한데 이를 구별해 주는 역할
+  - 접속 방법
+    ```
+    http://서버아이피:[포트번호]/[Context Path]/Servlet 매핑 값
+    ```
+    - 포트 번호 80을 사용하는 경우 포트번호 생략가능(그 외 포트는 포트번호 입력)
+    - 사용하는 어플리케이션이 1개인 경우 Context Path 또한 생략 가능하게 설정 가능
   - 서블릿 라이프 사이클
     1. 첫번째 요청인 경우, 객체를 생성하며 init() 메소드 호출
     2. 이후 작업이 실행 될 때마다 HTTP Type에 따른 doGet(), doPost() 메소드 호출
-    3. 최정적으로 서블릿이 서비스 되지 않을 때(서버가 꺼질 때) destroy() 메소드 호출  
-    ※ destroy() 메소드는 보통 서버가 종료되었을 때, 내용이 변경되어 재컴파일 될 때 호출
+    3. 최종적으로 서블릿이 서비스 되지 않을 때(서버가 꺼질 때) destroy() 메소드 호출  
+    ※ destroy() 메소드는 보통 서버가 종료되었을 때, 내용이 변경되어 재컴파일 될 때 호출  
+    ![20200423120105](./Image/20200423120105.PNG)
 - Servlet
   - 동작 순서
     1. 전송 값에 한글이 있을 경우를 대비하여 인코딩 처리 
@@ -6433,6 +6519,269 @@
       ```
 
 ### 2.54 54일차(2020-04-23)
+- Servlet 객체/메소드
+  - 사용자 데이터 전송 방식
+    1. get 방식 
+        - URL 창 "?"뒤에 데이터를 입력하는 방법(쿼리 스트링)으로 전송
+        - 전송할 데이터가 여러개인 경우 &를 이용하여 여러개 전송
+        - 데이터 검색에 많이 사용되며, 데이터 크기에 한계가 있으며, 보안에 취약
+    2. post 방식
+        - HTTP 헤더의 내용으로 보내는 방식으로 데이터 크기에 제한이 없고, 보안이 뛰어남
+        - 데이터 크기에 제한이 없기에 파일 업로드를 할 때는 post를 써야 한다.
+  - 사용자 데이터 전송 수신 메소드
+    1. doGet()
+        - client에서 데이터를 get방식으로 전송하게 되면 호출되는 메소드
+    2. doPost()
+        - client에서 데이터를 post방식으로 전송하게 되면 호출되는 메소드
+  - HttpServletRequest(interface)
+    - Http Servlets을 위한 요청정보(requst infomation)를 제공
+    - 인터페이스 구현은 컨테이너가 설정하며, 메소드만 사용
+    - javax.servlet.ServletRequest를 상속
+    <table>
+      <tr align=center>
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>getParameter(String)</td>
+        <td>client가 보내준 값이 저장된 명칭이 매개변수와 같은 명칭에 저장된 값을 불러오는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>getParameterNames()</td>
+        <td>client가 보내준 값을 저장한 명칭을 불러오는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>getParameterValues(String)</td>
+        <td>client가 보내준 값이 여러 개일 경우 그 값을 배열로 불러오는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>getParameterMap()</td>
+        <td>client가 보내준 값 전체를 Map방식으로 불러오는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>setAttribute(String,Object)</td>
+        <td>request 객체에 전달하고 싶은 값을 String 이름으로 Object객체로 저장하는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>getAttribute(String)</td>
+        <td>매개변수와 동일한 객체 속성 값을 불러오는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>removeAttribute(String)</td>
+        <td>request 객체에 저장되어 매개변수와 동일한 속성값을 삭제하는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>setCharacterEncoding(String)</td>
+        <td>전송 받은 request 객체의 값들의 CharacterSet을 설정해 주는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>getRequestDispatcher(String)</td>
+        <td>컨테이너내에서 request,response 객체를 전송하여 처리할 컴포넌트(jsp파일 등)를 불러오는 메소드로 forward() 메소드와 같이 사용</td>
+      </tr>
+    </table>
+  - HttpServletResponse(interface)
+    - 요청에 대한 처리결과를 작성하기 위해 사용하는 객체
+    - 인터페이스 구현은 컨테이너가 설정하며, 메소드만 사용
+    - javax.servlet.ServletResponse를 상속
+    <table>
+      <tr align=center>
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>setContentType(String)</td>
+        <td>응답으로 작성하는 페이지의 MIME type을 정하는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>setCharacterEncoding(String)</td>
+        <td>응답하는 데이터의 CharacterSet을 지정해주는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>getWriter()</td>
+        <td>문자를 페이지에 전송하기 위한 Stream을 가져오는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>getOutputStream()</td>
+        <td>byte 단위로 페이지에 전송을 위한 Stream을 가져오는 메소드</td>
+      </tr>
+      <tr>
+        <td align=center>sendRedirect(String)</td>
+        <td>client가 매개변수의 페이지를 다시 서버에 요청하게 하는 메소드</td>
+      </tr>
+    </table>
+- JSP
+  - 개요
+    - 동적인 웹페이지를 java 언어를 이용하여 html, xml 기반으로 작성할 수 있는 기술
+    - Servlet은 수정시 재컴파일(서버재시작)을 해야 하지만 jsp는
+  - Servlet과 JSP 비교
+    <table>
+      <tr align=center>
+        <th>구분</th>
+        <th>Servlet</th>
+        <th>JSP</th>
+      </tr>
+      <tr>
+        <td align=center>형태</td>
+        <td>Java 코드에 HTML 코드를 삽입</td>
+        <td>HTML 코드에 Java 코드를 삽입</td>
+      </tr>
+      <tr>
+        <td align=center>특징</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>예시</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  - JSP 실행 방식
+    - client가 jsp 파일을 요청하면 서블릿화 한 후 다시 컴파일하여 응답
+  - JSP 특징
+    - JSP 파일이 변경되지 않는다면 '.jsp' 파일에 대한 컴파일은 다시 일어나지 않는다.
+    - JSP 파일이 변경될 때마다, Web Container는 translation, compile
+- JSP Elements
+  <table>
+    <tr align=center>
+      <th>메소드</th>
+      <th>설명</th>
+    </tr>
+    <tr>
+      <td align=center></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td align=center></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td align=center></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td align=center></td>
+      <td></td>
+    </tr>
+  </table>
+  - Directive tag
+    - JSP 페이지 전체에 영향을 미치는 정보를 기술할 때 사용
+      ```
+      <%@ 지시자 속성="값" %>
+      ```
+  - Declaration tag
+    - Servlet 클래스의 멤버변수.메소드에 해당하는 코드를 작성할 때 사용
+      ```
+      <%! public static
+      ```
+  - Scriptlet tag
+    - _jspService 메소드의 로컬변수와 코드를 작성할 때 사용
+    ```
+    //로컬
+    ```
+  - Expression tag
+    - Servlet 코드에서 out.print의 역할을 수행
+    ```
+    <p>현재 시간은 <%=new
+    
+    - ;이 들어가지 않는다.
+    ```
+- JSP 내장 객체
+  - 정의
+    - JSP에서 기본적으로 제공하는 객체들로 request, response, out
+  - JSP 내장객체의 종류
+    <table>
+      <tr align=center>
+        <th>내장 객체</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>request</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>resopnse</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>out</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>session</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>application</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>page</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center>exception</td>
+        <td></td>
+      </tr>
+    </table>
+  - JSP 내장객체의 영역(scope)
+    <table>
+      <tr align=center>
+        <th>내장 객체</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>page</td>
+        <td>하나의 JSP페이지를 처리할 때 사용되는 영역(한 페이지)</td>
+      </tr>
+      <tr>
+        <td align=center>request</td>
+        <td>하나의 요청을 처리할 때 사용되는 영역(다음 페이지)</td>
+      </tr>
+      <tr>
+        <td align=center>session</td>
+        <td>하나의 브라우저와 관련된 영역</td>
+      </tr>
+      <tr>
+        <td align=center>application</td>
+        <td>하나의 웹 어플리케이션과 관련된 영역</td>
+      </tr>
+    </table>
+  - request 객체 주요 메소드
+    <table>
+      <tr align=center>
+        <th>메소드명</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+    </table>
 
 ## 3. 이클립스 기능
 - 단축키
