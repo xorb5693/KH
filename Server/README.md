@@ -6,3 +6,5 @@
   - startPjt : Servlet 테스트 프로그램
 - 53일차(2020-04-22)
   - firstWeb : Servlet DB 연동 테스트 
+- 54일차(2020-04-23)
+  - mvc1 : mvc1 패턴을 이용한 jsp 테스트 프로그램
