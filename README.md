@@ -6425,11 +6425,15 @@
       </tr>
       <tr>
         <td align=center>web-app</td>
-        <td>context-param</td>
+        <td>루트속성, 문법식별자 및 버전의 정보를 속성값으로 설정</td>
+      </tr>
+      <tr>
+        <td align=center>context-param</td>
+        <td>웹 어플리케이션에서 공유하기 위한 파라미터 설정</td>
       </tr>
       <tr>
         <td align=center>mime-mapping</td>
-        <td></td>
+        <td>특정 파일 다운로드시 파일이 깨지는 현상을 방지하기 위한 설정</td>
       </tr>
       <tr>
         <td align=center><strong>servlet<br>servlet-class<br>sevlet-mapping</strong></td>
@@ -6786,6 +6790,74 @@
 ### 2.55 55일차(2020-04-24)
 
 ### 2.56 56일차(2020-04-27)
+- Action Tag
+  - JSP Action Tag
+    - XML 기술을 이용하여 기존의 JSP 문법을 확장하는 메커니즘을 제공하는 태그
+    - 웹 브라우저에서 실행되는 것이 아니라 웹 컨테이너에서 실행되고 결과만
+    <table>
+      <tr align=center>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td align=center>사용법</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  - 표준 액션 태그
+    - JSP에서 기본으로 제공하는 태그
+    <table>
+      <tr align=center>
+        <th>태그 이름</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align=center>jsp:include</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align=center></td>
+        <td></td>
+      </tr>
+    </table>
+  - jsp:include
+    - "<%@ include file=파일명 %>"과 쓰임새가
+  - jsp:forward
+    - 하나의 페이지
+  - jsp:useBean
+    - java class를 창조하여 빈 객체를 생성하고, setProperty와 getProperty를 통해 값을 저장, 조회할 수 있으며, 이미 같은 이름의 객체가 생성된 경우 기존 객체를 참조
+    - 사용방식
+    ```
+    <jsp:useBean id="객체명" class="패키지명.클래스명"
+    ```
+- EL
 
 ## 3. 이클립스 기능
 - 단축키
