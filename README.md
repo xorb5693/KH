@@ -6925,24 +6925,25 @@
 - Action Tag
   - JSP Action Tag
     - XML 기술을 이용하여 기존의 JSP 문법을 확장하는 메커니즘을 제공하는 태그
-    - 웹 브라우저에서 실행되는 것이 아니라 웹 컨테이너에서 실행되고 결과만
+    - 웹 브라우저에서 실행되는 것이 아니라 웹 컨테이너에서 실행되고 결과만 브라우저 출력
     <table>
       <tr align=center>
         <th></th>
-        <th></th>
-        <th></th>
+        <th>표준 액션 태그</th>
+        <th>커스텀 액션 태그</th>
       </tr>
       <tr>
         <td align=center>사용법</td>
-        <td></td>
-        <td></td>
+        <td>- JSP 페이지에서 바로 사용<br>- 태그 앞에 jsp 접두어가 붙음</td>
+        <td>-별도의 라이브러리 설치 필요<br>- 라이브러리 선언에 맞는 접두어가 붙음</td>
       </tr>
       <tr>
-        <td align=center></td>
-        <td></td>
-        <td></td>
+        <td align=center>예시</td>
+        <td><jsp:include page=“header.jsp”/></td>
+        <td><c:set var=“cnt” value=“0”/></td>
       </tr>
-    </table>
+    </table>  
+    ※접두어란 태그 이름 앞에 XXX: 형식으로 제공하는 태그의 그룹을 지정하는 것
   - 표준 액션 태그
     - JSP에서 기본으로 제공하는 태그
     <table>
@@ -6955,27 +6956,23 @@
         <td></td>
       </tr>
       <tr>
-        <td align=center></td>
+        <td align=center>jsp:forward</td>
         <td></td>
       </tr>
       <tr>
-        <td align=center></td>
+        <td align=center>jsp:param</td>
         <td></td>
       </tr>
       <tr>
-        <td align=center></td>
+        <td align=center>jsp:useBean</td>
         <td></td>
       </tr>
       <tr>
-        <td align=center></td>
+        <td align=center>jsp:setProperty</td>
         <td></td>
       </tr>
       <tr>
-        <td align=center></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td align=center></td>
+        <td align=center>jsp:getProperty</td>
         <td></td>
       </tr>
     </table>
