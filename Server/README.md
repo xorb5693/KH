@@ -10,3 +10,6 @@
   - mvc1 : mvc1 패턴을 이용한 jsp 테스트 프로그램
 - 55일차(2020-04-24)
   - mvc2 : mvc2 패턴을 이용한 jsp 테스트 프로그램
+- 56일차(2020-04-27)
+  - jspTag : Action Tag, EL, JSTL 테스트 프로그램
+  - webProject : 서버 통합 테스트 
