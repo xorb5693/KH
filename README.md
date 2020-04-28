@@ -7319,6 +7319,25 @@
     ```
 
 ### 2.57 57일차(2020-04-28)
+- 페이징 처리 시 필요한 값
+  1. 사용자한테 받아야 하는 값
+      - 요청한 페이지 번호 : int reqPage
+  2. 개발자가 결정해야 하는 값
+      - 한 페이지당 게시물 수 : int numPerPage
+      - 한번에 표시할 페이지 수 : int pageNaviSize
+      - 페이지 표현 방식(1~5 : 1 2 3 4 5, 6~10 : 6 7 8 9 10) : reqPage에 종속됨
+  3. DB에서 조회해올 값
+      - 해당 페이지의 게시물 List
+      - 전체 게시물 수 : totalPage
+  ```
+  SELECT *
+  FROM(
+    SELECT ROWNUM AS RNUM, N.*
+    FROM (
+      SELECT * FROM NOTICE ORDER BY NOTICE_NO DESC
+    ) N
+  ) WHERE RNUM BETWEEN 1 AND 10;
+  ```
 
 ## 3. 이클립스 기능
 - 단축키
