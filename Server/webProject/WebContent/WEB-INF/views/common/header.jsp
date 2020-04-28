@@ -23,7 +23,7 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu1</a>
+                            <a class="nav-link" href="/noticeList?reqPage=1">공지사항</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Menu2</a>
@@ -44,13 +44,13 @@
                         <c:if test="${empty sessionScope.member }">
                         	<li class="nav-item">
                         		<button class="btn btn-danger" onclick="location.href='/loginFrm';">로그인</button>
-                        		<button class="btn btn-danger">회원가입</button>
+                        		<button class="btn btn-danger" onclick="location.href='/joinFrm';">회원가입</button>
                         	</li>
                         </c:if>
                         <c:if test="${not empty sessionScope.member }">
                         	<li class="nav-item">
-                        		<button class="btn btn-danger">${sessionScope.member.memberName }</button>
-                        		<button class="btn btn-danger">로그아웃</button>
+                        		<button class="btn btn-danger" onclick="location.href='/mypage?memberId=${sessionScope.member.memberId}';">${sessionScope.member.memberName }</button>
+                        		<button class="btn btn-danger" onclick="location.href='/logout';">로그아웃</button>
                         	</li>
                         </c:if>
                     </ul>
