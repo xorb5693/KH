@@ -188,11 +188,11 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Member> list = new ArrayList<Member>();
-		String query = "select * from member where member_id != 'admin' and REGEXP_LIKE(member_id, ?)  order by enroll_date desc";
+		String query = "select * from member where member_id != 'admin' and member_id like(?)  order by enroll_date desc";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, ".*" + keyword + ".*");
+			pstmt.setString(1, "%" + keyword + "%");
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -215,11 +215,11 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Member> list = new ArrayList<Member>();
-		String query = "select * from member where member_id != 'admin' and REGEXP_LIKE(member_name, ?) order by enroll_date desc";
+		String query = "select * from member where member_id != 'admin' and member_name like(?) order by enroll_date desc";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, ".*" + keyword + ".*");
+			pstmt.setString(1, "%" + keyword + "%");
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
