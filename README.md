@@ -7409,7 +7409,7 @@
     5. 파일 전송
     ```
     int read = -1;
-		while((read = bis.read()) != -1) {
+    while((read = bis.read()) != -1) {
       bos.write(read);
     }
     ```
