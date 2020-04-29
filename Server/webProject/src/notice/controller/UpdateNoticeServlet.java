@@ -3,7 +3,6 @@ package notice.controller;
 import java.io.File;
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -84,16 +83,10 @@ public class UpdateNoticeServlet extends HttpServlet {
 		int result = new NoticeService().updateNotice(n);
 		
 		if (result > 0) {
-			//새로운 파일이 존재하고 기존 파일이 존재한다면 기존 파일을 삭제하는 작업을 한다.
-			if (n.getFilename() != null && oldFilename != null) {
+			//status가 delete로 바뀐 경우 즉, 파일 삭제 버튼을 누른 경우 기존 파일을 삭제하는 작업을 한다.
+			if (status.equals("delete")) {
 				File delFile = new File(saveDirectory + oldFilepath);
 				delFile.delete();
-			} else {
-				//status가 delete로 바뀐 경우 즉, 파일 삭제 버튼을 누른 경우 기존 파일을 삭제하는 작업을 한다.
-				if (status.equals("delete")) {
-					File delFile = new File(saveDirectory + oldFilepath);
-					delFile.delete();
-				}
 			}
 			request.setAttribute("msg", "수정 성공!");
 		} else {

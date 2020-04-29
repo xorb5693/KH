@@ -11,6 +11,10 @@ public class Notice {
 	private String filename;
 	private String filepath;
 
+	public String getContentBr() {
+		return noticeContent.replaceAll("\r\n", "<br>");
+	}
+	
 	public Notice() {
 		super();
 		// TODO Auto-generated constructor stub
