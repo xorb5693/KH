@@ -7291,6 +7291,12 @@
     
     - <c:forEach> 사용  
     ```
+    <c:forEach items="${bookList}" var="book" varStatus="status">
+      <tr>
+        <td><c:out value="${status.count}" /></td>
+        <td><c:out value="${book.name}" /></td>
+      </tr>
+    </c:forEach>
     ```  
   - <c:forTokens>
     - 문자열에 포함된 구분자를 통해 토큰을 분리해서 반복 처리
