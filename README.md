@@ -7288,15 +7288,10 @@
           <td>현재 라운드가 반복을 통한 마지막 번째임을 의미</td>
         </tr>
       </table>
-    - &#60c:forEach&#62 사용  
+    
+    - <c:forEach> 사용  
     ```
-    <c:forEach items="${bookList}" var="book" varStatus="status">
-      <tr>
-        <td><c:out value="${status.count}" /></td>
-        <td><c:out value="${book.name}" /></td>
-      </tr>
-    </c:forEach>
-    ```
+    ```  
   - <c:forTokens>
     - 문자열에 포함된 구분자를 통해 토큰을 분리해서 반복 처리
     - items 속성에는 토큰을 포함하는 문자열, delims속성에는 토큰 구분자를 기술
