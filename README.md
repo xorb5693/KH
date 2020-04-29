@@ -7288,7 +7288,7 @@
           <td>현재 라운드가 반복을 통한 마지막 번째임을 의미</td>
         </tr>
       </table>
-    - <c:forEach> 사용
+    - &#60c:forEach&#62 사용  
     ```
     <c:forEach items="${bookList}" var="book" varStatus="status">
       <tr>
