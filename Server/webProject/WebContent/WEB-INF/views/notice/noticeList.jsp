@@ -6,7 +6,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>공지사항</title>
     <style>
         .table {
             width: 1000px;
@@ -34,6 +34,11 @@
             font-size: 18px;
             color: blue;
         }
+        
+        td>a {
+            color: black;
+            font-weight: bolder;
+        }
 
     </style>
 </head>
@@ -42,17 +47,22 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
     <section class="container">
         <h1>공지사항</h1>
+        <c:if test="${sessionScope.member.memberId eq 'admin' }">
+        <div style="text-align: right">
+        	<a class="btn btn-outline-primary btn-sm" href="noticeWriteFrm">글쓰기</a>
+        </div>
+        </c:if>
         <table class="table table-striped">
             <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
+                <th width="10%">번호</th>
+                <th width="50%">제목</th>
+                <th width="20%">작성자</th>
+                <th width="20%">작성일</th>
             </tr>
             <c:forEach items="${list }" var="n">
                 <tr>
                     <td>${n.noticeNo }</td>
-                    <td>${n.noticeTitle }</td>
+                    <td><a href="/noticeView?noticeNo=${n.noticeNo }&reqPage=<%=request.getParameter("reqPage")%>">${n.noticeTitle }</a></td>
                     <td>${n.noticeWriter }</td>
                     <td>${n.noticeDate }</td>
                 </tr>

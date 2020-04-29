@@ -68,4 +68,62 @@ public class NoticeService {
 		return data;
 	}
 
+	public int insertNotice(Notice n) {
+
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		int result = new NoticeDao().insertNotice(conn, n);
+		
+		if (result > 0) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
+	public Notice selectOneNotice(int noticeNo) {
+		
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Notice n = new NoticeDao().selectOneNotice(conn, noticeNo);
+		
+		JDBCTemplate.close(conn);
+		
+		return n;
+	}
+
+	public int deleteNotice(int noticeNo) {
+		
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		int result = new NoticeDao().deleteNotice(conn, noticeNo);
+		
+		if (result > 0) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
+	public int updateNotice(Notice n) {
+		
+		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		int result = new NoticeDao().updateNotice(conn, n);
+		
+		if (result > 0) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
 }

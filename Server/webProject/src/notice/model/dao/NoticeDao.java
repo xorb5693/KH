@@ -11,10 +11,8 @@ import notice.model.vo.Notice;
 
 public class NoticeDao {
 	
-	private Notice setNotice(ResultSet rset) throws SQLException {
-		
-		int index = 1;
-		
+	private Notice setNotice(ResultSet rset, int index) throws SQLException {
+				
 		return new Notice(rset.getInt(index++), 
 				rset.getString(index++), 
 				rset.getString(index++), 
@@ -44,11 +42,7 @@ public class NoticeDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				Notice n = new Notice();
-				n.setNoticeNo(rset.getInt("notice_no"));
-				n.setNoticeTitle(rset.getString("notice_title"));
-				n.setNoticeWriter(rset.getString("notice_writer"));
-				n.setNoticeDate(rset.getDate("notice_date"));
+				Notice n = setNotice(rset, 2);
 				list.add(n);
 			}
 		} catch (SQLException e) {
@@ -80,6 +74,107 @@ public class NoticeDao {
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int insertNotice(Connection conn, Notice n) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "insert into notice values(seq_notice.nextval, ?, ?, ?, sysdate, ?, ?)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			int index = 1;
+			pstmt.setString(index++, n.getNoticeTitle());
+			pstmt.setString(index++, n.getNoticeWriter());
+			pstmt.setString(index++, n.getNoticeContent());
+			pstmt.setString(index++, n.getFilename());
+			pstmt.setString(index++, n.getFilepath());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(conn);
+		}
+		
+		return result;
+	}
+
+	public Notice selectOneNotice(Connection conn, int noticeNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Notice n = null;
+		String query = "select * from notice where notice_no=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()) {
+				n = setNotice(rset, 1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return n;
+	}
+
+	public int deleteNotice(Connection conn, int noticeNo) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from notice where notice_no=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateNotice(Connection conn, Notice n) {
+
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "update notice set notice_title=?, notice_content=?, filename=?, filepath=? where notice_no=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			int index = 1;
+			pstmt.setString(index++, n.getNoticeTitle());
+			pstmt.setString(index++, n.getNoticeContent());
+			pstmt.setString(index++, n.getFilename());
+			pstmt.setString(index++, n.getFilepath());
+			pstmt.setInt(index++, n.getNoticeNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(conn);
 		}
 		
 		return result;
