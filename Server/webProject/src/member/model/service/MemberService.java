@@ -9,11 +9,9 @@ import member.model.vo.Member;
 
 public class MemberService {
 
-	private static final String ipAddress = "127.0.0.1";
-
 	public Member selectOneMember(String memberId, String memberPw) {
 		
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Connection conn = JDBCTemplate.getConnection();
 		Member m = new MemberDao().selectOneMember(conn, memberId, memberPw);
 		
 		JDBCTemplate.close(conn);
@@ -23,7 +21,7 @@ public class MemberService {
 
 	public int insertMember(Member m) {
 
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Connection conn = JDBCTemplate.getConnection();
 		
 		int result = new MemberDao().insertMember(conn, m);
 		
@@ -40,7 +38,7 @@ public class MemberService {
 
 	public Member selectOneMember(String memberId) {
 		
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Connection conn = JDBCTemplate.getConnection();
 		Member m = new MemberDao().selectOneMember(conn, memberId);
 		
 		JDBCTemplate.close(conn);
@@ -50,7 +48,7 @@ public class MemberService {
 
 	public int updateMember(Member m) {
 		
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Connection conn = JDBCTemplate.getConnection();
 		int result = new MemberDao().updateMember(conn, m);
 		
 		if (result > 0) {
@@ -66,7 +64,7 @@ public class MemberService {
 
 	public int deleteMember(String memberId) {
 		
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Connection conn = JDBCTemplate.getConnection();
 		int result = new MemberDao().deleteMember(conn, memberId);
 		
 		if (result > 0) {
@@ -82,7 +80,7 @@ public class MemberService {
 
 	public ArrayList<Member> selectAllMember() {
 		
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<Member> list = new MemberDao().selectAllMember(conn);
 		
 		JDBCTemplate.close(conn);
@@ -92,7 +90,7 @@ public class MemberService {
 
 	public ArrayList<Member> selectMember(String type, String keyword) {
 		
-		Connection conn = JDBCTemplate.getConnection(ipAddress);
+		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<Member> list = null;
 		
 		switch(type) {

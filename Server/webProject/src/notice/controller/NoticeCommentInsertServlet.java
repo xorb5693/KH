@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.NoticeViewData;
+import notice.model.vo.NoticeComment;
 
 /**
- * Servlet implementation class UpdateNoticeFrmServlet
+ * Servlet implementation class NoticeCommentInsertServlet
  */
-@WebServlet(name = "UpdateNoticeFrm", urlPatterns = { "/updateNoticeFrm" })
-public class UpdateNoticeFrmServlet extends HttpServlet {
+@WebServlet(name = "NoticeCommentInsert", urlPatterns = { "/noticeCommentInsert" })
+public class NoticeCommentInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateNoticeFrmServlet() {
+    public NoticeCommentInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,13 +34,24 @@ public class UpdateNoticeFrmServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		NoticeComment comment = new NoticeComment();
+		comment.setNoticeCommentContent(request.getParameter("noticeCommentContent"));
+		comment.setNoticeCommentLevel(Integer.parseInt(request.getParameter("noticeCommentLevel")));
+		comment.setNoticeCommentRef(Integer.parseInt(request.getParameter("noticeCommentRef")));
+		comment.setNoticeCommentWriter(request.getParameter("noticeCommentWriter"));
+		comment.setNoticeRef(Integer.parseInt(request.getParameter("noticeRef")));
 		
-		NoticeViewData data = new NoticeService().selectOneNotice(noticeNo);
+		int result = new NoticeService().noticeCommentInsert(comment);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/updateNotice.jsp");
-		request.setAttribute("n", data.getN());
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		
+		if (result > 0) {
+			request.setAttribute("msg", "댓글 등록 성공");
+		} else {
+			request.setAttribute("msg", "댓글 등록 실패");
+		}
+		
+		request.setAttribute("loc", "noticeView?noticeNo=" + comment.getNoticeRef());
 		rd.forward(request, response);
 	}
 

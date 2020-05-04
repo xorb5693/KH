@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.Notice;
+import notice.model.vo.NoticeViewData;
 
 /**
  * Servlet implementation class NoticeViewServlet
@@ -36,10 +36,11 @@ public class NoticeViewServlet extends HttpServlet {
 		
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
 		
-		Notice n = new NoticeService().selectOneNotice(noticeNo);
+		NoticeViewData data = new NoticeService().selectOneNotice(noticeNo);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeView.jsp");
-		request.setAttribute("n", n);
+		request.setAttribute("n", data.getN());
+		request.setAttribute("list", data.getList());
 		rd.forward(request, response);
 	}
 

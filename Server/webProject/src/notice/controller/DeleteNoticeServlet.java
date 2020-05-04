@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.Notice;
+import notice.model.vo.NoticeViewData;
 
 /**
  * Servlet implementation class DeleteNoticeServlet
@@ -37,7 +37,7 @@ public class DeleteNoticeServlet extends HttpServlet {
 		
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
 		
-		Notice n = new NoticeService().selectOneNotice(noticeNo);		
+		NoticeViewData data = new NoticeService().selectOneNotice(noticeNo);		
 		int result = new NoticeService().deleteNotice(noticeNo);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		
@@ -45,10 +45,10 @@ public class DeleteNoticeServlet extends HttpServlet {
 			request.setAttribute("msg", "삭제 성공!");
 			request.setAttribute("loc", "/noticeList?reqPage=1");
 			
-			if(n.getFilepath() != null) {
+			if(data.getN().getFilepath() != null) {
 				String saveDirectory = getServletContext().getRealPath("/upload/notice/");
-				System.out.println(saveDirectory + n.getFilepath());
-				File delFile = new File(saveDirectory + n.getFilepath());
+				System.out.println(saveDirectory + data.getN().getFilepath());
+				File delFile = new File(saveDirectory + data.getN().getFilepath());
 				boolean bool = delFile.delete();
 				System.out.println("삭제여부 : " + bool);
 			}

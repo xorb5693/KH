@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import common.JDBCTemplate;
 import notice.model.vo.Notice;
+import notice.model.vo.NoticeComment;
 
 public class NoticeDao {
 	
@@ -20,6 +21,18 @@ public class NoticeDao {
 				rset.getDate(index++), 
 				rset.getString(index++), 
 				rset.getString(index++));
+	}
+	
+	private NoticeComment setNoticeComment(ResultSet rset, int index) throws SQLException {
+		
+		return new NoticeComment(rset.getInt(index++),
+				rset.getInt(index++),
+				rset.getString(index++),
+				rset.getString(index++),
+				rset.getInt(index++),
+				rset.getInt(index++),
+				rset.getDate(index++));
+				
 	}
 
 	public ArrayList<Notice> selectList(Connection conn, int start, int end) {
@@ -178,6 +191,60 @@ public class NoticeDao {
 		}
 		
 		return result;
+	}
+
+	public int noticeCommentInsert(Connection conn, NoticeComment comment) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "insert into notice_comment values(seq_notice_comment.nextval, ?, ?, ?, ?, ?, SYSDATE)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			int index = 1;
+			pstmt.setInt(index++, comment.getNoticeCommentLevel());
+			pstmt.setString(index++, comment.getNoticeCommentWriter());
+			pstmt.setString(index++, comment.getNoticeCommentContent());
+			pstmt.setInt(index++, comment.getNoticeRef());
+//			pstmt.setInt(index++, comment.getNoticeCommentRef() != 0? comment.getNoticeCommentRef() : null);
+			pstmt.setString(index++, comment.getNoticeCommentRef()==0 ? null : String.valueOf(comment.getNoticeCommentRef()));
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public ArrayList<NoticeComment> selectCommentList(Connection conn, int noticeNo) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<NoticeComment> list = new ArrayList<NoticeComment>();
+		String query = "select * from notice_comment where notice_ref = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			rset = pstmt.executeQuery();
+			
+			while (rset.next()) {
+				NoticeComment comment = setNoticeComment(rset, 1);
+				list.add(comment);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return list;
 	}
 
 }
