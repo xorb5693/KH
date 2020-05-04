@@ -64,7 +64,6 @@ public class UpdateNoticeServlet extends HttpServlet {
 		n.setFilename(mRequest.getOriginalFileName("filename"));
 		n.setFilepath(mRequest.getFilesystemName("filename"));
 		
-		int reqPage = Integer.parseInt(mRequest.getParameter("reqPage"));
 		String status = mRequest.getParameter("status");
 		String oldFilepath = mRequest.getParameter("oldFilepath");
 		String oldFilename = mRequest.getParameter("oldFilename");
@@ -93,7 +92,7 @@ public class UpdateNoticeServlet extends HttpServlet {
 			request.setAttribute("msg", "수정 실패!");
 		}
 		
-		request.setAttribute("loc", "/noticeView?noticeNo=" + n.getNoticeNo() + "&reqPage=" + reqPage);
+		request.setAttribute("loc", "/noticeView?noticeNo=" + n.getNoticeNo());
 		request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp").forward(request, response);;
 	}
 

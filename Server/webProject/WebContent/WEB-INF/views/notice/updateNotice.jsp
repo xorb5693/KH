@@ -37,7 +37,6 @@
 		<form action="/updateNotice" method="post" enctype="multipart/form-data" id="updateFrm">
 			<h1>공지사항 수정</h1>
 			<input type="hidden" name="noticeNo" value="${n.noticeNo }">
-			<input type="hidden" name="reqPage" value="${reqPage }">
 			<table class="table table-bordered">
 				<tr>
 					<th>제목</th>

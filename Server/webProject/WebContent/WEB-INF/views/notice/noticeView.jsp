@@ -7,17 +7,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항 : ${n.noticeTitle }</title>
     <style>
-        .table-wrapper {
+        .table-wrapper, .comment-write {
             width: 1000px;
             margin: 0 auto;
         }
         
-        .table th {
+        .table-wrapper>.table th {
             width: 20%;
         }
         
-        .table td {
+        .table-wrapper>.table td {
             width: 80%;
+        }
+        
+        .comment-write td {
+            text-align: center;
+        }
+        
+        .comment-write td>textarea {
+            resize: none;
         }
     </style>
 </head>
@@ -54,11 +62,32 @@
                             <a class="btn btn-outline-primary btn-sm" href="/updateNoticeFrm?noticeNo=${n.noticeNo }&reqPage=<%=request.getParameter("reqPage")%>">수정하기</a>
                             <a class="btn btn-outline-primary btn-sm" href="javascript:void(0);" onclick="deleteNotice('${n.noticeNo}')">삭제하기</a>
                         </c:if>
-                        <a href="/noticeList?reqPage=<%=request.getParameter("reqPage") %>" class="btn btn-outline-primary btn-sm">목록으로</a>
+                        <a href="/noticeList?reqPage=1" class="btn btn-outline-primary btn-sm">목록으로</a>
                     </th>
                 </tr>
             </table>
         </div>
+        <c:if test="${not empty sessionScope.member}">
+            <div class="comment-write">
+                <form action="/noticeCommentInsert" method="post">
+                    <!-- 작성자, 게시글 번호, 참조, 댓글 레벨 -->
+                    <input type="hidden" name="noticeCommentWriter" value="${sessionScope.member.memberId }">
+                    <input type="hidden" name="noticeRef" value="${n.noticeNo }">
+                    <input type="hidden" name="noticeCommentLevle" value="1">
+                    <input type="hidden" name="noticeCommentRef" value="0">
+                    <table class="table">
+                        <tr>
+                            <td width="90%">
+                                <textarea class="form-control" name="noticeCommentContent" placeholder="댓글은 내 얼굴입니다."></textarea>
+                            </td>
+                            <td width="10%">
+                                <button type="submit" class="btn btn-primary">댓글 작성</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </c:if>
 	</section>
 	<script>
 		function fileDownload(filename, filepath) {
@@ -70,7 +99,7 @@
 		
 		function deleteNotice(noticeNo) {
 			if (confirm("해당 게시글을 삭제하시겠습니까?")) {
-                location.href = "/deleteNotice?noticeNo=" + noticeNo + "&reqPage=" + <%=request.getParameter("reqPage")%>;
+                location.href = "/deleteNotice?noticeNo=" + noticeNo;
             }
 		}
 	</script>

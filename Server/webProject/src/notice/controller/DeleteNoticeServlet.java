@@ -36,7 +36,6 @@ public class DeleteNoticeServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
 		
 		Notice n = new NoticeService().selectOneNotice(noticeNo);		
 		int result = new NoticeService().deleteNotice(noticeNo);
@@ -44,7 +43,7 @@ public class DeleteNoticeServlet extends HttpServlet {
 		
 		if (result > 0) {
 			request.setAttribute("msg", "삭제 성공!");
-			request.setAttribute("loc", "/noticeList?reqPage=" + reqPage);
+			request.setAttribute("loc", "/noticeList?reqPage=1");
 			
 			if(n.getFilepath() != null) {
 				String saveDirectory = getServletContext().getRealPath("/upload/notice/");
@@ -55,7 +54,7 @@ public class DeleteNoticeServlet extends HttpServlet {
 			}
 		} else {
 			request.setAttribute("msg", "삭제 실패!");
-			request.setAttribute("loc", "/noticeView?noticeNo=" + noticeNo + "&reqPage=" + reqPage );
+			request.setAttribute("loc", "/noticeView?noticeNo=" + noticeNo);
 		}
 		
 		rd.forward(request, response);

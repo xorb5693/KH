@@ -35,12 +35,10 @@ public class UpdateNoticeFrmServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
 		
 		Notice n = new NoticeService().selectOneNotice(noticeNo);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/updateNotice.jsp");
-		request.setAttribute("reqPage", reqPage);
 		request.setAttribute("n", n);
 		
 		rd.forward(request, response);

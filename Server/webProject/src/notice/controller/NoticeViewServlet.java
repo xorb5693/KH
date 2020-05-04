@@ -35,13 +35,11 @@ public class NoticeViewServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
 		
 		Notice n = new NoticeService().selectOneNotice(noticeNo);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeView.jsp");
 		request.setAttribute("n", n);
-		request.setAttribute("reqPage", reqPage);
 		rd.forward(request, response);
 	}
 
