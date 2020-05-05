@@ -145,4 +145,36 @@ public class NoticeService {
 		return result;
 	}
 
+	public int deleteComment(int noticeCommentNo) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new NoticeDao().deleteComment(conn, noticeCommentNo);
+		
+		if (result > 0) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
+	public int updateComment(int noticeCommentNo, String noticeCommentContent) {
+
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new NoticeDao().updateComment(conn, noticeCommentNo, noticeCommentContent);
+		
+		if (result > 0) {
+			JDBCTemplate.commit(conn);
+		} else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
+
 }
