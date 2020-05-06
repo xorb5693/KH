@@ -84,6 +84,27 @@
             </div>
         </form>
     </section>
+    <script>
+        $("#memberId").keyup(function() {
+            var memberId = $("#memberId").val();
+            
+            $.ajax({
+                url: "/checkId",
+                type: "get",
+                data: {memberId: memberId},
+                success: function(data) {
+                    if (data == 1) {
+                        $("#memberId").css('border', '1px solid green');
+                    } else {
+                        $("#memberId").css('border', '1px solid red');
+                    }
+                },
+                error: function() {
+                    console.log("아이디 중복체크 실패")
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

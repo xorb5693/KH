@@ -32,10 +32,10 @@
                             <a class="nav-link" href="#">Menu3</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu4</a>
+                            <a class="nav-link" href="/views/ajaxTest.jsp">Ajax</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu5</a>
+                            <a class="nav-link" href="/views/apiTest.jsp">API</a>
                         </li>
                     </ul>
                 </div>
