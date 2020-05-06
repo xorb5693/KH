@@ -32,13 +32,14 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("로그인 서블릿 시작");
 		//1. 인코딩
-		request.setCharacterEncoding("utf-8");
+//		request.setCharacterEncoding("utf-8");
 		
 		//2. 변수에 값저장
 		String memberId = request.getParameter("memberId");
 		String memberPw = request.getParameter("memberPw");
+		System.out.println("memberId : " + memberId);
 		
 		//3. 비지니스 로직
 		Member m = new MemberService().selectOneMember(memberId, memberPw);
@@ -57,6 +58,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		rd.forward(request, response);
+		System.out.println("로그인 서블릿 끝");
 	}
 
 	/**
