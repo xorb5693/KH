@@ -28,10 +28,10 @@
                 <input id="detailAddr" style="width: 803px; display: inline-block;" type="text" class="form-control" placeholder="상세주소">
             </li>
         </ul>
-        
+
         <h2>2. 네이버지도</h2>
         <div id="map" style="width: 100%; height: 500px;"></div>
-        
+
         <h2>3. 결제모듈(i'mport)</h2>
         <div id="pay">
             <h4>
@@ -44,19 +44,32 @@
             <button class="btn btn-danger">결제하기</button>
             <p id="paymentResult"></p>
         </div>
-        
+
         <h2>4. 영화 순위 검색</h2>
-        <input type="text" id="movie" class="form-conrol" style="width: 200px; display:inline-block;" placeholder="ex.20200507">
+        <input type="text" id="movie" class="form-control" style="width: 200px; display:inline-block;" placeholder="ex.20200507">
         <button id="movieBtn" class="btn btn-primary">영화 순위 검색</button>
         <div id="movieResult"></div>
-        
+
         <h2>5. LOL 전적검색</h2>
-        <input type="text" id="lol" class="form-conrol" style="width: 200px; display:inline-block;" placeholder="소환사명 입력">
+        <input type="text" id="lol" class="form-control" style="width: 200px; display:inline-block;" placeholder="소환사명 입력">
         <button id="lolBtn" class="btn btn-primary">전적 검색</button>
         <p id="lolResult"></p>
+
+        <h2>6. 메일보내기</h2>
+        <input type="text" id="mail" class="form-control" style="width: 300px; display: inline;">
+        <button id="mailBtn" class="btn btn-primary">메일전송</button><br>
+        <input type="text" id="mailCode" style="display: none; width: 300px;" class="form-control">
+        <button id="mailResult" class="btn btn-primary" style="display: none;">메일확인</button><br>
+        <span id="mailMsg"></span>
     </section>
+    <style>
+        .form-control {
+            display: inline-block;
+        }
+
+    </style>
     <script>
-        function addrSearch () {
+        function addrSearch() {
             new daum.Postcode({
                 oncomplete: function(data) {
                     // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
@@ -67,7 +80,7 @@
                 }
             }).open();
         }
-        
+
         window.onload = function() {
             var map = new naver.maps.Map('map', {
                 center: new naver.maps.LatLng(37.533807, 126.896772),
@@ -82,45 +95,45 @@
                 position: new naver.maps.LatLng(37.533807, 126.896772),
                 map: map
             });
-            
+
             //최초 중심지의 주소
-            var contentString= [
+            var contentString = [
                 "<div class='iw_inner'>",
                 "   <h3>KH정보교육원</h3>",
                 "   <p>서울시 영등포구 선유로 2동 57 이레빌딩 19F</p>",
                 "</div>"
             ].join("");
-            
+
             var infoWindow = new naver.maps.InfoWindow();
             naver.maps.Event.addListener(marker, "click", function(e) {
-                if(infoWindow.getMap()) {
+                if (infoWindow.getMap()) {
                     infoWindow.close();
                 } else {
                     infoWindow = new naver.maps.InfoWindow({
                         content: contentString
                     });
-                    
+
                     infoWindow.open(map, marker);
                 }
             });
-            
+
             naver.maps.Event.addListener(map, "click", function(e) {
                 marker.setPosition(e.coord);
                 if (infoWindow != null) {
-                    if(infoWindow.getMap()) {
+                    if (infoWindow.getMap()) {
                         infoWindow.close();
                     }
                 }
-                
+
                 naver.maps.Service.reverseGeocode({
-                    location: new naver.maps.LatLng(e.coord.lat(), e.coord.lng())                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                    location: new naver.maps.LatLng(e.coord.lat(), e.coord.lng())
                 }, function(status, response) {
                     if (status !== naver.maps.Service.Status.OK) {
                         return alert("못찾겠어");
                     }
-                    
+
                     var result = response.result;
-                    
+
                     items = result.items;
                     address = items[2].address;
                     contentString = [
@@ -130,7 +143,7 @@
                     ].join("");
                 });
             });
-        
+
             var totalPay = 0;
             $("#pay input").change(function() {
                 if ($(this).is(":checked")) {
@@ -138,15 +151,15 @@
                 } else {
                     totalPay -= Number($(this).val());
                 }
-                
+
                 $("#pay span").html(totalPay);
             });
-            
+
             $("#pay button").click(function() {
                 var price = $("#pay span").html();
-//                console.log($("#pay span").html());
+                //                console.log($("#pay span").html());
                 var d = new Date();
-                var date = d.getFullYear() + "" +(d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds();
+                var date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds();
                 IMP.init("imp19457973");
                 IMP.request_pay({
                     merchant_uid: '상품명_' + date,
@@ -161,41 +174,45 @@
                     if (rsp.success) {
                         var msg = "결제가 완료되었습니다.";
                         var r1 = "고유 ID : " + rsp.imp_uid;
-                        var r2 = "상점 거래 아이디 : "+ rsp.merchant_uid;
+                        var r2 = "상점 거래 아이디 : " + rsp.merchant_uid;
                         var r3 = "결제 금액 : " + rsp.paid_amount;
                         var r4 = "카드 승인번호 : " + rsp.apply_num;
-                        $("#paymentResult").html(msg + "<br>" + r1 + "<br>" + r2 + "<br>" + r3 + "<br>" + r4);  
+                        $("#paymentResult").html(msg + "<br>" + r1 + "<br>" + r2 + "<br>" + r3 + "<br>" + r4);
                     } else {
                         $("#paymentResult").html('에러내용 : ' + rsp.error_msg);
                     }
                 });
             })
-            
+
             $("#movieBtn").click(function() {
                 var targetDt = $("#movie").val();
-                
+
                 $.ajax({
                     url: "/movie",
                     type: "get",
-                    data: {targetDt: targetDt},
+                    data: {
+                        targetDt: targetDt
+                    },
                     success: function(data) {
                         var html = "";
                         for (var i = 0; i < data.length; i++) {
                             html += "순위 : " + data[i]['rank'] + "<br>";
                             html += "영화명 : " + data[i]['movieNm'] + "<br><br>";
                         }
-                        
+
                         $("#movieResult").html(html);
                     }
                 });
             });
-            
+
             $("#lolBtn").click(function() {
                 var id = $("#lol").val();
                 $.ajax({
                     url: "/lolSearch",
                     type: "get",
-                    data: {id: id},
+                    data: {
+                        id: id
+                    },
                     success: function(data) {
                         var html = "";
                         html += "소환사명 : " + data[0]['summonerName'] + "<br>";
@@ -203,12 +220,42 @@
                         html += "전적<br>";
                         html += "WIN : " + data[0]['wins'] + "승<br>";
                         html += "LOSS : " + data[0]['losses'] + "패";
-                        
+
                         $("#lolResult").html(html);
                     }
                 });
             });
+
+            var mailCode = "";
+
+            $("#mailBtn").click(function() {
+                var email = $("#mail").val();
+
+                $.ajax({
+                    url: "/sendMail",
+                    type: "post",
+                    data: {
+                        email: email
+                    },
+                    success: function(data) {
+                        $("#mailCode").show();
+                        $("#mailResult").show();
+                        mailCode = data;
+                    }
+                });
+            });
+            
+            $("#mailResult").click(function() {
+                if ($("#mailCode").val() == mailCode) {
+                    $("#mailMsg").html("인증 성공");
+                    $("#mailMsg").css("color", "green")
+                } else {
+                    $("#mailMsg").html("인증 실패");
+                    $("#mailMsg").css("color", "red")
+                }
+            });
         }
+
     </script>
 </body>
 
