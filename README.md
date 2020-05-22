@@ -7540,15 +7540,45 @@
 - Filter
   - 정의
     - 클라이언트와 서버 사이에서 request와 response 객체를 필터가 먼저 받아 사전/사후작업 등 공통적으로 필요한 부분을 처리하는 것
-    - 웹 브라우저가 필요한 서블릿을 호출할 경우, 필터가 대신 호출되어 전달받은 정보를 수정하고 서블릿에게 넘기는
+    - 웹 브라우저가 필요한 서블릿을 호출할 경우, 필터가 대신 호출되어 전달받은 정보를 수정하고 서블릿에게 넘기는 일종의 경유지 역할을 수행
   - Filter Interface의 메소드
     - init(FilterConfig config) : 웹 컨테이너가 필터를 호출할 경우 해당 메소드가 호출되어 필터 객체를 생성하며 초기화한다.(생성자)
     - doFilter(ServletRequest request, ServletResponse response, FilterChain chain) : 필터가 수행될 때 구동하는 메소드로, 요청 객체와 응답 객체를 사용해 일련의 작업을 수행한 뒤, chain을 통해 가공된 값을 목적지로 전송한다.
     - destroy() : 역할이 끝난 필터는 웹 컨테이너에 의해 해당 메소드를 호출하고 소멸된다.
     - 필터는 Filter Interface를 implements하여 구현한 클래스를 web.xml에 등록하여 사용
   - Filter 작성
+    ```
+    pacakge common.filter;
+    
+    public class CharsetEncodingFilter implements Filter {
+      public void init(FilterConfig fConfig) throws ServletException {
+      }
+      
+      public void destroy() {
+      
+      }
+      
+      public void doFilter(SevletRequest req, ServletResponse res, FilterChain chain)
+          throws IOEception, ServletException {
+          
+        req.setCharacterEncoding("utf-8");
+        chain.doFilter(req, res);
+      }
+    }
+    ```
   - Filter 등록
+    - web.xml에서 등록한다.
     - 패키지명부터 클래스명까지 다 입력해야 함
+    ```
+    <filter>
+      <filter-name>EncodingFilter</filter-name>
+      <filter-class>common.filter.CharsetEncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>EncodingFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    ```
 - ajax
   - 정의
     - 서버로부터 데이터를 가져와 전체 페이지를 새로 고치지 않고 일부만 로드할 수 있게 하는 기법으로 비동기식 요청을 보내는데 필요한 기술
@@ -7565,6 +7595,85 @@
   - 비동기식 처리모델
     - 페이지가 로드되는 동안 브라우저는 먼저 서버데이터 요청 script문을 실행한 후 나머지 페이지를 계속 로드하고 페이지와 상호작용을 처리하며, script요청 데이터를 기다리지 않는다. 그리고 요청 데이터가 도착하면 그때 이벤트가 발생하면서 지정된 함수가 호출되어 실행되는 방식
 - Javascript ajax
+  - XMLHttpRequest
+    - 비동기식으로 서버에 요청(Request)을 보내기 위한 객체로 요청 및 응답을 처리
+    - 속성
+    <table>
+      <tr align=center>
+        <th>속성명</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td align="center">onreadystatechange</td>
+        <td>readyState속성이 변경될 때 호출되는 메소드를 저장하는 변수</td>
+      </tr>
+      <tr>
+        <td align="center">readyState</td>
+        <td>객체의 상태를 저장하는 변수</td>
+      </tr>
+      <tr>
+        <td align="center">responseText</td>
+        <td>응답 결과를 문자열로 저장하는 변수</td>
+      </tr>
+      <tr>
+        <td align="center">responseXML</td>
+        <td>응답 결과를 XML data로 저장하는 변수</td>
+      </tr>
+      <tr>
+        <td align="center">status</td>
+        <td>전송/응답 결과를 저장하는 변수(코드값)</td>
+      </tr>
+      <tr>
+        <td align="center">statusText</td>
+        <td>전송/응답 결과를 저장하는 변수(문자열)</td>
+      </tr>
+    </table>
+    - readyState 속성 값
+    <table>
+      <tr align=center>
+        <th>속성명</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td align="center">0</td>
+        <td>요청이 시작되지 않은 상태 / open메소드가 호출되지 않음</td>
+      </tr>
+      <tr>
+        <td align="center">1(loading)</td>
+        <td>서버와 접속된 상태 / send메소드가 호출되지 않음</td>
+      </tr>
+      <tr>
+        <td align="center">2(loaded)</td>
+        <td>send메소드가 호출되고 헤더는 도착하지 않은 상태</td>
+      </tr>
+      <tr>
+        <td align="center">3(interactive)</td>
+        <td>일부 데이터를 받은 상태</td>
+      </tr>
+      <tr>
+        <td align="center">4(completed)</td>
+        <td>요청을 완료하고 응답하는 상태</td>
+      </tr>
+    </table>
+    - status 속성 값
+    <table>
+      <tr align=center>
+        <th>속성명</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td align="center">200(OK) </td>
+        <td>요청 성공</td>
+      </tr>
+      <tr>
+        <td align="center">404(Not Found)(loading)</td>
+        <td>페이지 없음</td>
+      </tr>
+      <tr>
+        <td align="center">500(Internal Server Error)(loaded)</td>
+        <td>서버 오류 발생</td>
+      </tr>
+    </table>
   - 처리절차
     1. srcipt문에 요청을 위한 XMLHttpRequest 객체 생성
     ```
@@ -7572,54 +7681,65 @@
     var httpReqeuest = new XMLHttpRequest();
     
     - IE6
-    
+    var httpRequest = new ActiveXObject(Microsoft.XMLHTTP);
     ```
     2. 서버의 응답을 처리하는 함수 설정
     ```
     - XMLHttpRequest 객체 생성 후 속성값에 함수를 저장
+    
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatuschange = 실행할 함수명;
+    
+    또는
+    
+    httpRequest.onreadystatuschange = function(){
+      처리로직
+    }
     ```
     3. 요청 대상 설정/요청 처리
     ```
     - XMLHttpRequest 객체 생성 후 open 메소드로 요청대상 설정
-    var httpRequest = new XMLHttp
+    var httpRequest = new XMLHttpRequest();
+    
+    // 요청 대상 설정
+    httpRequest.open( 전송방법, 요청페이지, 동기식/ 비동기식설정);
+
+    // 요청 처리
+    httpRequest.send(“param 값”);
+    
+    - send시 시 param 값은 post 인경우에는 필수, get 인경우에는 요청페이지에서 서 처리 가능
     ```
     4. 응답 처리
     ```
     - XML HttpRequest 객체 생성 후 속성값으로 응답 처리(text)
+    var httpRequest = new XMLHttpRequest();
+    
+    httpRequest.onreadystatechange = function(){
+      if(httpRequest.readyState == 4){// 요청이 완료되었고 
+        if(httpRequest.status==200){// 정상적으로 결과가 수신되었을 때
+          // 서버에서 보내준 데이터를 자바스크립트 변수에 저장
+          
+          var value = httpRequest.responseText;
+          // 서버에서 보내준 데이터를 이용하여 HTML 페이지 변경
+        }
+      }
+    }
+    
+    - XMLHttpRequest 객체 생성 후 후 속성값으로 응답 처리(XML)
+    var httpRequest = new XMLHttpRequest();
+
+    httpRequest.onreadystatechange = function(){
+      if(httpRequest.readyState == 4){// 요청이 완료되었고
+        if(httpRequest.status==200){// 정상적으로 결과가 수신되었을 때
+          // 서버에서 보내준 데이터를 자바스크립트 변수에 저장
+          var value = httpRequest.responseXML;
+          
+          //XML 에서 원하는 데이터만 추출하는 법
+          var xml = value.getElementsByTagName("태그명");
+        }
+      }
+    }
     ```
-  - XMLHttpRequest
-    - 비동기식으로 서버에 요청(Request)을 보내기 위한 객체로 요청 및 응답을 처리
-    <table>
-      <tr align=center>
-        <th>속성</th>
-        <th>내용</th>
-      </tr>
-      <tr>
-        <td align=center>onreadystatechange</td>
-        <td>readyState 속성이 변경될 때 호출되는 메소드를 저장하는 변수</td>
-      </tr>
-      <tr>
-        <td align=center></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td align=center></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td align=center></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td align=center></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td align=center></td>
-        <td></td>
-      </tr>
-    </table>
-- jQuert ajax
 - JSON과 XML
   - JSON : JavaScript Object Notation 의 약자로 자바스크립트 객체를 표현하기 위한 표기법으로 각언어별로 객체 표현방법이 달라서 통일하기 위해 사용 형식
   ```
@@ -7631,6 +7751,12 @@
   <태그명2>값2</태그명3>
   <태그명3>값3</태그명3>
   ```
+- jQuery ajax
+  - $.ajax()를 이하여 처리
+    1. url 속성을 통해 전송할 url 주소 설정
+    2. data 속성을 통해 전달할 데이터 설정
+    3. 성공, 실패 시 시 처리할 로직을 함수로 선언
+    4. 반드시 처리할 로직을 선언
 
 ### 2.63 63일차(2020-05-07)
 
