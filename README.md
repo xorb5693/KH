@@ -6700,7 +6700,7 @@
     <%@ include file="header.html" %>
     - 페이지 내부에 다른 jsp, html 페이지를 불러오는 지시자
     
-    <%@ taglib url="경로" prefix="a" %>
+    <%@ taglib uri="경로" prefix="a" %>
     - jsp 내부에서 EL, Action Tag Library, JSTL를 사용할 때 사용
     ```
   - Declaration tag
@@ -7154,7 +7154,7 @@
       </tr>
       <tr>
         <td align=center>Core Tags</td>
-        <td>- 변수와 url, 조건문, 반복문 등의 로직과 관련된 JSTL 문법 제공<br>- &#60;%@ taglib url="http://java.sun.com/jsp./jstl/core" prefix="c" %&#62;</td>
+        <td>- 변수와 url, 조건문, 반복문 등의 로직과 관련된 JSTL 문법 제공<br>- &#60;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&#62;</td>
       </tr>
       <tr>
         <td align=center>Formatting<br>Tags</td>
@@ -7910,7 +7910,6 @@
     - 확장관계(extend)는 확장 대상 유스케이스를 수행할 때 특정 조건에 따라 확장 기능 유스케이스를 수행하는 경우
   - Relation - Generalization
     - 일반화 관계(Generalization)는 유사한 유스케이스 또는 액터를 모아 추상화한 유스케이스 또는 액터와 연결시켜 그룹을 만들어 이해도를 높이기 위함
-- 시험
   
 ### 2.65 65일차(2020-05-11)
 - 5/11 ~ 5/22일 세미 프로젝트
@@ -7920,7 +7919,124 @@
 - FRAMEWORK
   - 정의
     - 개발자가 소프트웨어를 개발함에 있어 코드를 구현하는 개발 시간을 줄이고, 코드의 재사용성을 증가시키기 위해 일련의 클래스 묶음이나 뼈대, 틀을 제공하는 라이브러리를 구현해 놓은 것
-
+  - FRAMEWORK의 특징
+    - 개발자가 따라야 하는 가이드를 제공
+    - 개발할 수 있는 범위가 정해져 있음
+    - 개발자를 위한 다양한 도구, 플러그인을 지원
+    <table>
+      <tr align="center">
+        <th>장점</th>
+        <th>단점</th>
+      </tr>
+      <tr>
+        <td>- 개발 시간을 줄일 수 있음<br>- 정형화 되어 있어 일정 수준 이상의 품질을 기대할 수 있음<br>- 유지보수가 쉬움</td>
+        <td>- 너무 의존하는 경우 개발자들의 능력이 떨어져 스스로 직접 개발하는 것이 어려워 짐<br>- 습득에 걸리는 시간이 필요함</td>
+      </tr>
+    </table>
+  - Framework 종류
+    <table>
+      <tr align="center">
+        <th>구분</th>
+        <th>설명</th>
+        <th>종류</th>
+      </tr>
+      <tr>
+        <td align="center">영속성<br>프레임워크</td>
+        <td>데이터의 저장, 조회, 변경, 삭제를 다르는 클래스 및 설정 파일들을<br>라이브러리화 하여 구현한 프레임워크</td>
+        <td>- Mybatis<br>- Hibernate</td>
+      </tr>
+      <tr>
+        <td align="center">자바<br>프레임워크</td>
+        <td>JAVA EE를 통한 웹 어플리케이션 개발에 초점을 맞추어 필요한 <br>요소들을 모듈화 하여 제공하는 프렘임워크</td>
+        <td>- spring<br>- 전자정부표준<br>- Struts</td>
+      </tr>
+      <tr>
+        <td align="center">화면 구현<br>프레임워크</td>
+        <td>Front-End를 보다 쉽게 구현할 수 있게 틀을 제공하는 프레임워크</td>
+        <td>- Bootstrap<br>- Foundation<br>- MDL</td>
+      </tr>
+      <tr>
+        <td align="center">기능 및 지원<br>프레임워크</td>
+        <td>특정 기능이나 업무 수행에 도움을 줄 수 있는 기능을 제공하는<br>프레임워크</td>
+        <td>- Log4j<br>- JUnit5</td>
+      </tr>
+    </table>
+- Mybatis
+  - 정의
+    - 데이터의 입력, 조회, 수정, 삭제(CRUD)를 보다 편하게 사용하기 위해 xml로 구조화된 Mapper 설정 파일을 통해서 JDBC를 구현한 영속성 프레임워크
+  - ibatis와 Mybatis
+    - Apache Project에서 ibatis를 운영하던 팀이 2010년 5월 9일 Google 팀으로 이동하면서 Mybatis로 이름을 변경
+    - Mybatis는 기존 ibatis의 한계점이었던 동적 쿼리와 어노테이션 처리를 보강하여 더 나은 기능을 제공
+    - ibatis는 현재비활성화 상태이며, 기존에 ibatis로 만들어진 어플리케이션의 지원을 위해 라이브러리만 제공 중
+  - Mybatis 라이브러리 다운 및 연동 사이트
+    - https://github.com/mybatis/mybatis-3
+  - Mybatis에서 사용하는 XML 파일
+    <table>
+      <tr align="center">
+        <th>mybatis-config.xml</th>
+        <th>mapper.xml</th>
+      </tr>
+      <tr>
+        <td>- Mybatis를 이용하기 위한 설정들이 저장되어 있는 파일<br>- xml 파일 상단에 mybatis-config 파일이라는 선언</td>
+        <td>- 실제 Database에서 수행할 query문들을 저장하는 파일<br>- xml 파일 상단에 mybatis-mapper 파일이라는 선언</td>
+      </tr>
+    </table>
+  - mybatis-config.xml 사용 
+    <table>
+      <tr align="center">
+        <th>태그명</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">&#60;configuration&#62;</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">Example</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">&#60;settings&#62;</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">Example</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">&#60;typeAliases&#62;</td>
+        <td>Mybatis에서 사용할 자료형의 별칭을 선언</td>
+      </tr>
+      <tr>
+        <td align="center">Example</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">&#60;mappers&#62;</td>
+        <td>사용하고자 하는 쿼리가 정의된 mapper 파일을 등록</td>
+      </tr>
+      <tr>
+        <td align="center">Example</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">&#60;environments&#62;</td>
+        <td>Mybatis에서 연동할 Database 정보를 등록</td>
+      </tr>
+      <tr>
+        <td align="center">Example</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">&#60;transactionManager&#62;</td>
+        <td>트랜잭션 관리를 누가 할 것인가에 대한 설정<br>JDBC : JDBC commit과 rollback을</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;dataSource&#62;</td>
+        <td></td>
+      </tr>
+    </table>
+    
 ## 3. 이클립스 기능
 - 단축키
   - ctrl + shift + F : 자동 줄맞춤
