@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+	<select id="selectOneMember" parameterType="member" resultType="member">
+		select member_no as memberNo, member_id as memberId, member_pw as memberPw,
+		member_name as memberName, age, enroll_date as enrollDate
+		from member where member_id = #{memberId } and member_pw = #{memberPw }
+	</select>
+	<insert id="insertMember" parameterType="member" >
+		insert into member values(member_seq.nextval, #{memberId }, #{memberPw }, #{memberName }, #{age }, sysdate)
+	</insert>
+	<select id="selectAllMember" resultType="member">
+		select member_no as memberNo, member_id as memberId, member_pw as memberPw,
+		member_name as memberName, age, enroll_date as enrollDate from member
+	</select>
+	<update id="updateMember" parameterType="member">
+		update member set 
+			member_pw = #{memberPw}, member_name = #{memberName}
+		where member_id = #{memberId}
+	</update>
+	<delete id="deleteMember" parameterType="integer">
+		delete from member where member_no = #{_parameter}
+	</delete>
+</mapper>
