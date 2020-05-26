@@ -23,10 +23,11 @@
 					<option value="${com.companyCode }">${com.companyName }</option>
 				</c:forEach>
 			</select><br>
-			<label for="memberId">아이디 : </label><input type="text" name="memberId" id="memberId"><br>
-			<label for="memberPw">비밀번호 : </label><input type="password" name="memberPw" id="memberPw"><br>
+			<label for="memberId">아이디 : </label><input type="text" name="memberId" id="memberId" required><br>
+			<label for="memberPw">비밀번호 : </label><input type="password" name="memberPw" id="memberPw" required><br>
 			<label for="memberName">이름 : </label><input type="text" name="memberName" id="memberName"><br>
 			<label for="age">나이 : </label><input type="text" name="age" id="age"><br>
+			<label for="phone">전화번호 : </label><input type="text" name="phone" id="phone"><br>
 			<input type="submit" value="회원가입">
 			<input type="reset" value="취소">
 		</fieldset>

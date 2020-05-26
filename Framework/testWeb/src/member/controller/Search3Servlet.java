@@ -1,6 +1,8 @@
 package member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +13,16 @@ import member.model.service.MemberService;
 import member.model.vo.Member;
 
 /**
- * Servlet implementation class JoinServlet
+ * Servlet implementation class Search3Servlet
  */
-@WebServlet(name = "Join", urlPatterns = { "/join" })
-public class JoinServlet extends HttpServlet {
+@WebServlet(name = "Search3", urlPatterns = { "/search3" })
+public class Search3Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinServlet() {
+    public Search3Servlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +34,12 @@ public class JoinServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		Member m = new Member();
-		m.setMemberId(request.getParameter("memberId"));
-		m.setMemberPw(request.getParameter("memberPw"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setAge(Integer.parseInt(request.getParameter("age")));
-		m.setCompanyCode(Integer.parseInt(request.getParameter("companyCode")));
-		m.setPhone(request.getParameter("phone"));
+		String[] memberId = request.getParameterValues("memberId");
 		
-		int result = new MemberService().insertMember(m);
+		ArrayList<Member> list = new MemberService().selectKeyword(memberId);
 		
-		if (result > 0) {
-			request.setAttribute("msg", "회원가입 성공");
-		} else {
-			request.setAttribute("msg", "회원가입 실패");
-		}
-		
-		request.setAttribute("loc", "/");
-		
-		request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp").forward(request, response);
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("WEB-INF/views/member/allMember.jsp").forward(request, response);;
 	}
 
 	/**

@@ -21,4 +21,90 @@
 	<delete id="deleteMember" parameterType="integer">
 		delete from member where member_no = #{_parameter}
 	</delete>
+	<select id="totalCount" resultType="int">
+		select count(*) from member
+	</select>
+	<select id="selectMemberListPage" parameterType="hashmap" resultType="member">
+		select * from (
+			select rownum rnum, S.* from 
+				(select 
+			        member_no as memberNo, 
+			        member_id as memberId, 
+			        member_pw as memberPw,
+			        member_name as memberName, 
+			        age, 
+			        enroll_date as enrollDate 
+			    from member 
+			    order by member_no desc) 
+			S)
+		where rnum between #{start} and #{end}
+	</select>
+	<select id="memberInfo" parameterType="check" resultType="member">
+		select member_pw as memberPw,
+		<if test="ckId != null and ckId.equals('on')">
+			member_id as memberId,
+		</if>
+		<if test="ckNo != null and ckNo.equals('on')">
+			member_no as memberNo,
+		</if>
+		<if test="ckName != null and ckName.equals('on')">
+			member_name as memberName,
+		</if>
+		<if test="ckAge != null and ckAge.equals('on')">
+			age,
+		</if>
+		enroll_date as enrollDate
+		from member order by 1
+	</select>
+	<select id="slelctKeyword" parameterType="select" resultType="member">
+		select
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			age, 
+			enroll_date as enrollDate 
+		from member
+		<choose>
+			<when test="select.equals('name')">	
+				where member_name like '%'||#{keyword}||'%'
+			</when>
+			<when test="select.equals('id')">
+				where member_id like '%'||#{keyword}||'%'		
+			</when>
+		</choose>
+	</select>
+	<select id="selectKeyword2" parameterType="member" resultType="member">
+		select
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			age, 
+			enroll_date as enrollDate 
+		from member
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="memberName != null and !memberName.equals('')">
+				member_name like '%'||#{memberName}||'%'
+			</if>
+			<if test="memberId != null and !memberId.equals('')">
+				and member_id like '%'||#{memberId}||'%'
+			</if>
+		</trim>
+	</select>
+	<select id="selectKeyword3" parameterType="map" resultType="member">
+		select
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			age, 
+			enroll_date as enrollDate 
+		from member
+		where member_id in
+		<foreach collection="array" item="memberId" open="(" separator="," close=")">
+			#{memberId}
+		</foreach>
+		
+	</select>
 </mapper>

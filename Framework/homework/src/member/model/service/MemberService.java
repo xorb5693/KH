@@ -37,4 +37,14 @@ public class MemberService {
 		return result;
 	}
 
+	public Member selectOneMember(Member m) {
+		
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		Member member = new MemberDao().selectOneMember(session, m);
+		
+		session.close();
+		
+		return member;
+	}
+
 }

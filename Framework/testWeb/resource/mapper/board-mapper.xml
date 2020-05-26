@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="board">
+	<select id="totalCount" resultType="_int">
+		select count(*) from board
+	</select>
+	<select id="selectList" parameterType="map" resultType="board">
+		select *
+		from
+			(select rownum as rnum, B.*
+			from
+				(select
+					board_no as boardNo,
+					board_title as boardTitle,
+					board_content as boardContent,
+					board_writer as boardWriter,
+					read_count as readCount,
+					reg_date as regDate
+				from board
+				order by board_no desc)
+			B)
+		where rnum between #{start} and #{end}
+	</select>
+</mapper>

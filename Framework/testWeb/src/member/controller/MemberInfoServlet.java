@@ -1,6 +1,8 @@
 package member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import member.model.service.MemberService;
+import member.model.vo.Check;
 import member.model.vo.Member;
 
 /**
- * Servlet implementation class JoinServlet
+ * Servlet implementation class MemberInfoServlet
  */
-@WebServlet(name = "Join", urlPatterns = { "/join" })
-public class JoinServlet extends HttpServlet {
+@WebServlet(name = "MemberInfo", urlPatterns = { "/memberInfo" })
+public class MemberInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinServlet() {
+    public MemberInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,26 +34,18 @@ public class JoinServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
+		String ckNo = request.getParameter("ckNo");
+		String ckId = request.getParameter("ckId");
+		String ckName = request.getParameter("ckName");
+		String ckAge = request.getParameter("ckAge");
+//		System.out.println(ckNo);
 		
-		Member m = new Member();
-		m.setMemberId(request.getParameter("memberId"));
-		m.setMemberPw(request.getParameter("memberPw"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setAge(Integer.parseInt(request.getParameter("age")));
-		m.setCompanyCode(Integer.parseInt(request.getParameter("companyCode")));
-		m.setPhone(request.getParameter("phone"));
+		Check check = new Check(ckNo, ckId, ckName, ckAge);
 		
-		int result = new MemberService().insertMember(m);
+		ArrayList<Member> list = new MemberService().memberInfo(check);
 		
-		if (result > 0) {
-			request.setAttribute("msg", "회원가입 성공");
-		} else {
-			request.setAttribute("msg", "회원가입 실패");
-		}
-		
-		request.setAttribute("loc", "/");
-		
-		request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp").forward(request, response);
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/WEB-INF/views/member/allMember.jsp").forward(request, response);
 	}
 
 	/**

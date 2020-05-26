@@ -1,26 +1,27 @@
-package member.controller;
+package board.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import member.model.service.MemberService;
-import member.model.vo.Member;
+import board.model.service.BoardService;
+import board.model.vo.BoardData;
 
 /**
- * Servlet implementation class JoinServlet
+ * Servlet implementation class BoardListServlet
  */
-@WebServlet(name = "Join", urlPatterns = { "/join" })
-public class JoinServlet extends HttpServlet {
+@WebServlet(name = "BoardList", urlPatterns = { "/boardList" })
+public class BoardListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinServlet() {
+    public BoardListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,26 +32,19 @@ public class JoinServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
+		int reqPage;
 		
-		Member m = new Member();
-		m.setMemberId(request.getParameter("memberId"));
-		m.setMemberPw(request.getParameter("memberPw"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setAge(Integer.parseInt(request.getParameter("age")));
-		m.setCompanyCode(Integer.parseInt(request.getParameter("companyCode")));
-		m.setPhone(request.getParameter("phone"));
-		
-		int result = new MemberService().insertMember(m);
-		
-		if (result > 0) {
-			request.setAttribute("msg", "회원가입 성공");
-		} else {
-			request.setAttribute("msg", "회원가입 실패");
+		try {
+			reqPage = Integer.parseInt(request.getParameter("reqPage"));
+		} catch (NumberFormatException e) {	
+			reqPage = 1;
 		}
 		
-		request.setAttribute("loc", "/");
+		BoardData data = new BoardService().selectList(reqPage);
 		
-		request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp").forward(request, response);
+		request.setAttribute("list", data.getList());
+		request.setAttribute("pageNavi", data.getPageNavi());
+		request.getRequestDispatcher("/WEB-INF/views/board/boardList.jsp").forward(request, response);
 	}
 
 	/**

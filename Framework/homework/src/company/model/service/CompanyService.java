@@ -21,4 +21,14 @@ public class CompanyService {
 		return (ArrayList<Company>)list;
 	}
 
+	public Company selectOneCompany(int companyCode) {
+
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		Company com = new CompanyDao().selectOneCompany(session, companyCode);
+		
+		session.close();
+		
+		return com;
+	}
+
 }

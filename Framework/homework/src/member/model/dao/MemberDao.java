@@ -18,4 +18,9 @@ public class MemberDao {
 		return session.insert("member.insertMember", m);
 	}
 
+	public Member selectOneMember(SqlSession session, Member m) {
+		
+		return session.selectOne("member.selectOneMember", m);
+	}
+
 }

@@ -4,4 +4,12 @@
   <select id="selectAllCompany" resultType="company">
   	select company_code as companyCode, company_name as companyName, company_logo as companyLogo from company
   </select>
+  <select id="selectOneCompany" parameterType="_int" resultType="company">
+  	select 
+  		company_code as companyCode, 
+  		company_name as companyName, 
+  		company_logo as companyLogo 
+  	from company
+  	where company_code = #{_parameter}
+  </select>
 </mapper>

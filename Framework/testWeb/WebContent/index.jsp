@@ -20,10 +20,18 @@
 	<c:if test="${not empty sessionScope.member }">
 		<h2>[${sessionScope.member.memberName }]님</h2>
 		<hr>
+		<a href="/boardList">게시판 가기</a><br>
 		<a href="/allMember">전체 회원 조회</a><br>
+		<a href="/allMemberPage">전체 회원 조회 페이지</a><br>
 		<a href="/mypage">내정보 보기</a><br>
 		<a href="/delete">회원탈퇴</a><br>
 		<a href="/logout">로그아웃</a><br>
+		<hr>
+		<h2>Mybatis 동적쿼리</h2>
+		<a href="/views/dynamicQuery_if.html">1. 동적쿼리 if</a><br>
+		<a href="/views/dynamicQuery_choose.html">2. 동적쿼리 choose</a><br>
+		<a href="/views/dynamicQuery_trim.html">3. 동적쿼리 trim</a><br>
+		<a href="/views/dynamicQuery_foreach.html">4. 동적쿼리 foreach</a><br>
 	</c:if>
 </body>
 </html>

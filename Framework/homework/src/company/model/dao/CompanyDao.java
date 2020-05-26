@@ -13,4 +13,9 @@ public class CompanyDao {
 		return session.selectList("company.selectAllCompany");
 	}
 
+	public Company selectOneCompany(SqlSession session, int companyCode) {
+		
+		return session.selectOne("company.selectOneCompany", companyCode);
+	}
+
 }

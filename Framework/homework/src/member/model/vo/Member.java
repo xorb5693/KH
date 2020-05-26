@@ -9,6 +9,8 @@ public class Member {
 	private int age;
 	private String enrollDate;
 	private int companyCode;
+	private int memberLevel;
+	private String phone;
 
 	public Member() {
 		super();
@@ -16,7 +18,7 @@ public class Member {
 	}
 
 	public Member(int memberNo, String memberId, String memberPw, String memberName, int age, String enrollDate,
-			int companyCode) {
+			int companyCode, int memberLevel, String phone) {
 		super();
 		this.memberNo = memberNo;
 		this.memberId = memberId;
@@ -25,6 +27,8 @@ public class Member {
 		this.age = age;
 		this.enrollDate = enrollDate;
 		this.companyCode = companyCode;
+		this.memberLevel = memberLevel;
+		this.phone = phone;
 	}
 
 	public int getMemberNo() {
@@ -81,6 +85,22 @@ public class Member {
 
 	public void setCompanyCode(int companyCode) {
 		this.companyCode = companyCode;
+	}
+
+	public int getMemberLevel() {
+		return memberLevel;
+	}
+
+	public void setMemberLevel(int memberLevel) {
+		this.memberLevel = memberLevel;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }
