@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="board">
-	<select id="totalCount" resultType="_int">
+	<select id="totalCount" parameterType="map" resultType="_int">
 		select count(*) from board
+		<if test="type != null ">
+			<if test="type.equals('boardTitle')">
+				where board_title like '%'||#{keyword}||'%'
+			</if>
+			<if test="type.equals('boardWriter')">
+				where board_writer like '%'||#{keyword}||'%'
+			</if>
+		</if>
 	</select>
 	<select id="selectList" parameterType="map" resultType="board">
 		select *
@@ -12,13 +20,48 @@
 				(select
 					board_no as boardNo,
 					board_title as boardTitle,
-					board_content as boardContent,
 					board_writer as boardWriter,
 					read_count as readCount,
 					reg_date as regDate
 				from board
+				<if test="type != null ">
+					<if test="type.equals('boardTitle')">
+						where board_title like '%'||#{keyword}||'%'
+					</if>
+					<if test="type.equals('boardWriter')">
+						where board_writer like '%'||#{keyword}||'%'
+					</if>
+				</if>
 				order by board_no desc)
 			B)
 		where rnum between #{start} and #{end}
 	</select>
+	<insert id="insertBoard" parameterType="board">
+		insert into board values(board_seq.nextval, #{boardTitle}, #{boardContent}, #{boardWriter}, default, sysdate)
+	</insert>
+	<select id="selectOneBoard" parameterType="_int" resultType="board">
+		select
+			board_no as boardNo,
+			board_title as boardTitle,
+			board_content as boardContent,
+			board_writer as boardWriter,
+			read_count as readCount,
+			reg_date as regDate
+		from board
+		where board_no = #{_parameter}
+	</select>
+	<update id="updateView" parameterType="_int">
+		update board set read_count = read_count + 1
+		where board_no = #{_parameter}
+	</update>
+	<update id="updateBoard" parameterType="board">
+		update board set board_title=#{boardTitle}, board_content=#{boardContent}
+		where board_no = #{boardNo}
+	</update>
+	<delete id="deleteBoardList" parameterType="map">
+		delete from board where board_no in
+		<foreach collection="array" item="boardNo" open="(" separator="," close=")">
+			#{boardNo}
+		</foreach>
+	</delete>
 </mapper>

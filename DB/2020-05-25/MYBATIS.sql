@@ -91,3 +91,6 @@ insert into board values (board_seq.nextval, '½Ã½¿22', '½Ã½Ã½Ã½Ã½Ã½¿', 'user07',
 insert into board values (board_seq.nextval, '½Ã½¿@!!', '½Ã½Ã½Ã½Ã½Ã½¿', 'user08', default, sysdate);
 insert into board values (board_seq.nextval, '½Ã½¿½Ã½¿½Ã½¿', '½Ã½Ã½Ã½Ã½Ã½¿', 'user09', default, sysdate);
 insert into board values (board_seq.nextval, '½Ã½¿!!', '½Ã½Ã½Ã½Ã½Ã½¿', 'user10', default, sysdate);
+
+update board set read_count = read_count + 1 where board_no = 33;
+commit;

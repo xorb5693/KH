@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/css/style.css?after" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='http://code.jquery.com/jquery-3.3.1.js'></script>
 <title>Insert title here</title>
 <style>
 	table {
@@ -29,59 +31,82 @@
 	} 
 	
 	.imgDiv {
-		width: 500px;
+        margin: 0 auto;
+		width: 600px;
 		height: 300px;
+        line-height: 300px;
 		text-align: center;
 	}
 	
 	.imgDiv>img {
 		max-width: 500px;
 		max-height: 300px;
+		text-align: center;
+        vertical-align: middle;
 	}
 	
 	.info {
+        display: inline-block;
 		overflow: hidden;
+        margin: 20px;
 	}
 	
 	.info>* {
 		float: left;
+        text-align: center;
 	}
 </style>
+<script>
+    $(function() {
+        var img = $(".imgDiv>img");
+        console.log(img.css("height"));
+        img.css("margin-top", (300 - img.css("height").replace("px", "")) / 2);
+    });
+</script>
 </head>
 <body>
-	<div class="info">
-		<div class="imgDiv">
-			<img src="/img/logo/${sessionScope.company.companyLogo }">
-		</div>
-		<table>
-			<tr>
-				<th>소속</th>
-				<td>${sessionScope.company.companyName }</td>
-			</tr>
-			<tr>
-				<th>아이디</th>
-				<td>${sessionScope.member.memberId }</td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td>${sessionScope.member.memberName }</td>
-			</tr>
-			<tr>
-				<th>전화번호</th>
-				<td>${sessionScope.member.phone }</td>
-			</tr>
-			<tr>
-				<th>회원등급</th>
-				<td>
-					<c:if test="${sessionScope.member.memberLevel eq 1 }">
-						일반회원
-					</c:if>
-					<c:if test="${sessionScope.member.memberLevel eq 3 }">
-						관리자회원
-					</c:if>
-				</td>
-			</tr>
-		</table>
-	</div>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <section class="container">
+        <jsp:include page="/WEB-INF/views/common/menu.jsp"/>
+        <div class="main">
+            <div class="menuButton">
+                <button class="btn toggle">menu toggle</button>
+            </div>
+            <div class="info">
+                <div class="imgDiv">
+                    <img src="/img/logo/${sessionScope.company.companyLogo }">
+                </div>
+                <table>
+                    <tr>
+                        <th>소속</th>
+                        <td>${sessionScope.company.companyName }</td>
+                    </tr>
+                    <tr>
+                        <th>아이디</th>
+                        <td>${sessionScope.member.memberId }</td>
+                    </tr>
+                    <tr>
+                        <th>이름</th>
+                        <td>${sessionScope.member.memberName }</td>
+                    </tr>
+                    <tr>
+                        <th>전화번호</th>
+                        <td>${sessionScope.member.phone }</td>
+                    </tr>
+                    <tr>
+                        <th>회원등급</th>
+                        <td>
+                            <c:if test="${sessionScope.member.memberLevel eq 1 }">
+                                일반회원
+                            </c:if>
+                            <c:if test="${sessionScope.member.memberLevel eq 3 }">
+                                관리자회원
+                            </c:if>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

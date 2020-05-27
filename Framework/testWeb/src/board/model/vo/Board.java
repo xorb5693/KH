@@ -8,6 +8,10 @@ public class Board {
 	private String boardWriter;
 	private int readCount;
 	private String regDate;
+	
+	public String getContentBr() {
+		return boardContent.replaceAll("\r\n", "<br>");
+	}
 
 	public Board() {
 		super();
