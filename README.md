@@ -8157,25 +8157,27 @@
       </tr>
       <tr>
         <td align="center">Bean</td>
-        <td>- 스프링이</td>
+        <td>- 스프링이 IoC방식으로 관리하는 객체<br>- 스프링이 직접 생성과 제어를 담당하는 객체</td>
       </tr>
       <tr>
         <td align="center">BeanFactory</td>
-        <td></td>
+        <td>- 자바 빈 객체의 등록 및 관리<br>- getBean() 메소드를 통해 객체를 가져옴</td>
       </tr>
       <tr>
         <td align="center">ApplicationContext</td>
-        <td></td>
+        <td>- BeanFactory의 확장 개념<br>- Spring의 각종 부가 서비스를 제공<br>- 일반적인 IoC컨테이너를 의미</td>
       </tr>
       <tr>
         <td align="center">GenericXml<br>ApplicationContext</td>
-        <td></td>
+        <td>- ApplicationContext를 구현한 클래스<br>- 일반적인 XML형태의 문서를 읽어 컨테이너 역할을 수행</td>
       </tr>
     </table>
   - Spring DL
     - 의존성 검색이란 뜻으로 컨테이너가 제공하는 API 함수로 필요한 Bean을 검색해서 사용하는 방식
   - Spring DI
     - 의존성 주입이란 뜻으로 IoC 구현의 핵심 기술이며, 사용하는 객체를 직접 생성하는 것이 아니라 컨테이너가 빈의 설정정보를 읽어와 자동으로 해당 객체를 연결하는 것
+    - 개발자가 작성해야 할 코드가 단순해짐
+    - 각 객체 간의 종속관계(결합도)를 해소 할 수 있음
   - 결합도(객체 간의 종속 관계)
     - 한 클래스에서 필드 객체를 생성할 때 발생하는 두 객체간의 관계를 말하며, 각 객체간의 내용이 수정될 경우 영향을 미치는 정도
     - A Class와 B Class가 있다.
@@ -8207,14 +8209,41 @@
       <property name="school" ref="school1"/>
     </bean>
     
-    자바 코드
+    => 자바 코드 변환
     Schoole school = new School();
     Student student = new Student();
     student.setName("홍길동");
     student.setSchool(school1);
     ```
   - Spring DI 종류 - 생성자를 통한 의존성 주입
-    - setter 메소드를 통한 의존관계가 있는
+    - setter 메소드를 통한 의존관계가 있는 bean을 주입하려면 &#60;constructor-arg&#62;태그 사용
+    ```
+    <bean id="객체이름" class="클래스 풀네임">
+      <constructor-arg index="0" value="OOO"/>
+      <constructor-arg name="name" ref="OOO"/>
+    </bean>
+    
+    - name 속성은 생성자에 전달하는 매개변수의 변수명으로 설정
+    - 생성자 매개변수 순서에 따라 index 속성을 통해서도 접근 가능
+    
+    <bean id="school1" class="student.model.vo.School" />
+
+    - name을 이용한 방식
+    <bean id="student" class="student.model.vo.Student">
+      <constructor-arg name="name" value="홍길동"/>
+      <constructor-arg name="school" ref="school1"/>
+    </bean>
+
+    - index를 이용한 방식
+      <bean id="student" class="student.model.vo.Student">
+        <constructor-arg index="0" value="홍길동"/>
+        <constructor-arg index="1" ref="school1"/>
+    </bean>
+
+    => 자바 코드 변환
+    School school1 = new School();
+    Student student = new Student("홍길동", school1);
+    ```
 - DI Annotation
   - 정의
     - 대부분의 프레임워크가 그렇듯 Spring Framework 역시 XML 파일 설정이 매우 중요
@@ -8255,6 +8284,7 @@
         <td>- Persistence Layer Annotation으로 영속성(파일, DB)을 가진 클래스에 사용(DAO)</td>
       </tr>
     </table>
+    - @Controller, @Service, @Repository는 특정한 객체의 역할에 대한 @Component의 구체화된 형태
   - bean 의존 관계 주입 Annotation
     <table>
       <tr align="center">
@@ -8279,6 +8309,51 @@
       </tr>
     </table>
   - &#60;context:component-scan&#62; 태그
+    - Spring 설정 파일에 애플리케이션에서 사용할 &#60;bean&#62;을 등록하지 않고 Annotation을 통해 자동으로 생성하기 위해 사용하는 태그
+    - 특정 패키지 내부의 클래스들 중 @Component Annotation이 설정된 클래스들을 자동으로 객체 생성
+    ```
+    <context:component-scan base-package="kr.or.iei.member" />
+    
+    - kr.or.iei.member.controller -> 스캔대상
+    - kr.or.iei.member.model.vo -> 스캔대상
+    - kr.or.iei.board.controller -> 스캔대상 아님
+    - kr.or.iei.board.model.service -> 스캔대상 아님
+    ```
+- Spring MVC
+  - MVC Model 기본 흐름
+    - VIEW - Controller - Model - Conteroller - VIEW  
+    ![20200528164831](./Image/20200528164831.PNG)
+  - Spring MVC Model
+    - Spring MVC는 View, Controller, Model 부분을 유지보수 및 확장성을 고려하여 설계
+    <table>
+      <tr align="center">
+        <th>Spring MVC 요소</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">DispatcherServlet</td>
+        <td>- 유일한 Servlet 클래스로서 HTTP 프로토콜을 통해 들어오는 모든 요청을 가장 먼저 처리하는 Front Controller</td>
+      </tr>
+      <tr>
+        <td align="center">HandlerMapping</td>
+        <td>- 클라이언트 요청을 어떤 Controller가 처리할 지 URL Mapping값을 가지고 있음</td>
+      </tr>
+      <tr>
+        <td align="center">Controller</td>
+        <td>- 실질적인 클라이언트 요청을 처리</td>
+      </tr>
+      <tr>
+        <td align="center">ViewResolver</td>
+        <td>- Controller가 반환한 View 이름으로 실행 될 jsp 경로를 가지고 있음</td>
+      </tr>
+      <tr>
+        <td align="center">View</td>
+        <td>- 실제 클라이언트들에게 보여질 페이지</td>
+      </tr>
+    </table>  
+    ![20200528165442](./Image/20200528165442.PNG)
+  - Spring MVC 프로젝트 폴더 구조
+    ![20200528165523](./Image/20200528165523.PNG)
 
 ## 3. 이클립스 기능
 - 단축키
