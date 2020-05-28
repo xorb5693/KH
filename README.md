@@ -8215,6 +8215,70 @@
     ```
   - Spring DI 종류 - 생성자를 통한 의존성 주입
     - setter 메소드를 통한 의존관계가 있는
+- DI Annotation
+  - 정의
+    - 대부분의 프레임워크가 그렇듯 Spring Framework 역시 XML 파일 설정이 매우 중요
+    - XML 파일의 과도한 설정을 하게 되면 부담스러워 짐
+    - XML 방식 이외에도 Annotation 방식의 설정을 지원
+    - bean으로 사용될 클래스에 특별한 Annotation을 부여하고 Spring 컨테이너가 이 Annotation을 통해 자동으로 bean을 등록하는 방식으로, 빈 스캐닝(bean scanning)을 통한 자동인 bean 등록기능이라고 함
+  - DI Annotation의 장/단점
+    <table>
+      <tr align="center">
+        <th>장점</th>
+        <th>단점</th>
+      </tr>
+      <tr>
+        <td>- XML 문서 생성과 관리에 따른 수고를 덜어주고 개발 속도를 향상시킴<br>- 개발자 간 XML 설정 파일의 충돌을 최소화</td>
+        <td>- 어플리케이션에 등록될 bean이 어떤 것들이 있고, bean들 간의 의존관계가 어떻게 되는지 한눈에 파악할 수 없음</td>
+      </tr>
+    </table>
+  - bean 등록 Annotation
+    <table>
+      <tr align="center">
+        <th>Annotation</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">@Component</td>
+        <td>-객체를 나타내는 일반적인 타입으로 bean태그 역할</td>
+      </tr>
+      <tr>
+        <td align="center">@Controller</td>
+        <td>- Presentation Layer Annotation으로 view에서 전달된 웹 요청과 응답을 처리하는 클래스에 사용(Servlet)</td>
+      </tr>
+      <tr>
+        <td align="center">@Service</td>
+        <td>- Service Layer Annotation으로 비지니스 로직을 가진 클래스에 사용(Service)</td>
+      </tr>
+      <tr>
+        <td align="center">@Repository</td>
+        <td>- Persistence Layer Annotation으로 영속성(파일, DB)을 가진 클래스에 사용(DAO)</td>
+      </tr>
+    </table>
+  - bean 의존 관계 주입 Annotation
+    <table>
+      <tr align="center">
+        <th>Annotation</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">@Autowirde</td>
+        <td>- 주로 변수 위에 설정하여 해당 타입 객체를 컨테이너에서 찾아서 자동으로 주입</td>
+      </tr>
+      <tr>
+        <td align="center">@Inject</td>
+        <td>- @Autowired와 동일한 기능 지원<br>- @Autowired Spring 전용, @Inject는 Java전용</td>
+      </tr>
+      <tr>
+        <td align="center">@Qualifier</td>
+        <td>- @Autowired와 같이 사용되며, 특정 객체의 이름을 이용하여 의존성을 주입할 때 사용<br>- Autowired를 하려는 상황에 해당 타입의 객체가 컨테이너에 2개 이상 존재하는 경우 어떤 객체를 주입할지 결정할 수 없어 에러가 발생하는데 이를 해결함</td>
+      </tr>
+      <tr>
+        <td align="center">@Resource</td>
+        <td>- @Autowired와 Qualifier의 기능을 결합한 Annotation</td>
+      </tr>
+    </table>
+  - &#60;context:component-scan&#62; 태그
 
 ## 3. 이클립스 기능
 - 단축키
