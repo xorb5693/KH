@@ -8578,7 +8578,7 @@
     ```
     <servlet-mapping>
       <servlet-name>appServlet</servlet-name>
-      <url-pattern>/*.do</url-pattern>
+      <url-pattern>*.do</url-pattern>
     </servlet-mapping>
     ```
     - 필터 추가
