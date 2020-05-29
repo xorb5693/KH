@@ -7920,7 +7920,7 @@
         <td>상속관계를 의미하지만 interface의 implements를 의미</td>
       </tr>
     </table>
-    - Dependency : 한 클래스가 다른 클래스의 멤버를 참조 할 때 사용
+    - Dependency : 한 클래스가 다른 클래스의 멤버를 참조 할 때 사용  
       ```
       public Class Member{
         private String id;
