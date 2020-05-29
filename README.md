@@ -8596,6 +8596,19 @@
       <url-pattern>*.do</url-pattern>
     </filter-mapping>
     ```
+- JDBCTemplate 등록
+  ```
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+    <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+    <property name="username" value="MYBATIS"/>
+    <property name="password" value="1234"/>
+  </bean>
+	
+  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSource"/>
+  </bean>
+  ```
 - 페이지 이동
   - 직접이동일 경우 : "redirect:/"입력
 
