@@ -23,17 +23,22 @@
 </nav>
 <script>
     $(function() {
-        $(".menuButton").click(function() {
+        $(".menuButton>button").click(function() {
             if ($("nav").hasClass("hide")) {
                 $("nav").animate({
                     marginLeft: "0px"
                 }, 300);
                 $("nav").removeClass("hide");
+//                $(".main").addClass("showMenu");
+//                $(".main").removeClass("hideMenu");
             } else {
                 $("nav").animate({
                     marginLeft: "-200px"
                 }, 300);
                 $("nav").addClass("hide");
+                $(".main").removeClass("showMenu");
+//                $(".main").addClass("hideMenu");
+//                $(".main").removeClass("showMenu");
             }
         });
         

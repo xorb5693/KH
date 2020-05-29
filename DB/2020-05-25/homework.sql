@@ -18,11 +18,11 @@ CREATE SEQUENCE MEMBER_SEQ;
 CREATE TABLE COMPANY(
     COMPANY_CODE NUMBER PRIMARY KEY,
     COMPANY_NAME VARCHAR2(100) NOT NULL,
-    CAMPANY_LOGO VARCHAR2(1000)
+    CoMPANY_LOGO VARCHAR2(1000)
 );
 
 CREATE SEQUENCE COMPANY_SEQ;
-
+select company_code as companyCode, company_name as companyName, company_logo as companyLogo from company;
 insert into COMPANY values(company_seq.nextval, 'KH', 'kh.png');
 insert into COMPANY values(company_seq.nextval, 'Amazon', 'amazon.png');
 insert into COMPANY values(company_seq.nextval, 'Apple', 'apple.png');

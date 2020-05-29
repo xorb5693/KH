@@ -16,7 +16,7 @@
 			member_level as memberLevel,
 			phone
 		from member where member_id = #{memberId}
-		<if test="memberPw != null and memberPw.equals('')">
+		<if test="memberPw != null and !memberPw.equals('')">
 			and member_pw = #{memberPw}
 		</if>
 	</select>

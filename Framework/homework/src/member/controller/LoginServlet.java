@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("msg", "아이디 또는 비밀번호를 확인하세요.");
 		} else if (member.getMemberLevel() == 0) {
 			request.setAttribute("loc", "/");
-			request.setAttribute("msg", "관리자가 승인을 하지 않았습니다..");
+			request.setAttribute("msg", "관리자가 승인을 하지 않았습니다.");
 		} else if (member.getMemberLevel() == 1) {
 			Company com = new CompanyService().selectOneCompany(member.getCompanyCode());
 			

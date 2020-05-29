@@ -41,6 +41,8 @@ public class MemberService {
 		
 		SqlSession session = SqlSessionTemplate.getSqlSession();
 		Member member = new MemberDao().selectOneMember(session, m);
+//		System.out.println(m.getMemberPw());
+//		System.out.println(member.getMemberPw());
 		
 		session.close();
 		

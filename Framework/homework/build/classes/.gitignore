@@ -1,3 +1,5 @@
+/common/
+/company/
 /mapper/
 /member/
-/company/
+/mybatis-config.xml

@@ -158,6 +158,15 @@
     width: 1400px;
 }
 
+.showMenu {
+/*    transition-duration: 0.4s;*/
+    width: 1400px;
+}
+
+.hideMenu {
+/*    transition-duration: 0.25s;*/
+    width: 1600px;
+}
     
 .menuButton {
     width: 95%;
