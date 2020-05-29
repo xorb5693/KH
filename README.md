@@ -7856,7 +7856,7 @@
   - 정의
     - 동일한 속성과 행위를 수행하는 객체의 집합
     - 객체를 생성하는 설계도
-  - 클래스 다이어그램 기본 구조
+  - 클래스 다이어그램 기본 구조  
     ![20200508171632](./Image/20200508171632.PNG)
   - 클래스 다이어그램의 접근제어 지시자 표시
     <table>
@@ -7921,81 +7921,81 @@
       </tr>
     </table>
     - Dependency : 한 클래스가 다른 클래스의 멤버를 참조 할 때 사용
-    ```
-    public Class Member{
-      private String id;
-      public void func1(){
-        System.out.println(id);
+      ```
+      public Class Member{
+        private String id;
+        public void func1(){
+          System.out.println(id);
+        }
       }
-    }
-    
-    public Class A{
-      public void func2(){
-        Member m = new Member();
-        m.func1();
+
+      public Class A{
+        public void func2(){
+          Member m = new Member();
+          m.func1();
+        }
       }
-    }
-    ```
+      ```
     - Aggregation 관계 : A 클래스 내부에 B 클래스 변수가 있는 경우 매개변수를 통해 B 클래스 객체를 연결하는 경우 두 클래스 객체간의 라이프 사이클이 달라지게 되고 이러한 관계가 Aggregation 관계이다.
-    ```
-    public Class Member{
-      private String id;
-      public void func1(){
-        System.out.println(id);
+      ```
+      public Class Member{
+        private String id;
+        public void func1(){
+          System.out.println(id);
+        }
       }
-    }
 
-    public Class A{
-      private Member m;
-      public A(Member m1){
-        m = m1;
+      public Class A{
+        private Member m;
+        public A(Member m1){
+          m = m1;
+        }
       }
-    }
-    ```
+      ```
     - Composition 관계 : A 클래스 내부에 B 클래스 변수가 있는 경우 생성자를 통해 B 클래스 객체를 생성하는 경우 라이프 사이클이 동일한데 이 관계가 Composition이다.
-    ```
-    public Class Member{
-      private String id;
-      public void func1(){
-        System.out.println(id);
+      ```
+      public Class Member{
+        private String id;
+        public void func1(){
+          System.out.println(id);
+        }
       }
-    }
 
-    public Class A{
-      private Member m;
-      public A(){
-        m = new Member();
+      public Class A{
+        private Member m;
+        public A(){
+          m = new Member();
+        }
       }
-    }
-    ```
+      ```
     - Generailztion 관계 : 한 클래스가 다른 클래스를 상속하는 관계
-    ```
-    public Class Member{
-      private String id;
-      public void func1(){
-        System.out.println(id);
+      ```
+      public Class Member{
+        private String id;
+        public void func1(){
+          System.out.println(id);
+        }
       }
-    }
-    
-    public Class A extends Member{
-      public void func2(){
-        ...
-      }
-    }
-    ```
-    - Realization 관계 : 상속해서 구현해야 하는 인터페이스를 의미한다.(implements)
-    ```
-    public interface Member{
-      public void func1();
-    }
 
-    public Class A implements Member{
-      @Override
-      public void func1(){
-        ...
+      public Class A extends Member{
+        public void func2(){
+          ...
+        }
       }
-    }
-    ```
+      ```
+    - Realization 관계 : 상속해서 구현해야 하는 인터페이스를 의미한다.(implements)
+      ```
+      public interface Member{
+        public void func1();
+      }
+
+      public Class A implements Member{
+        @Override
+        public void func1(){
+          ...
+        }
+      }
+      ```
 - 유스케이스 다이어그램
   - 정의
     - Actor와 시스템이 수행하는 활동간의 관계를 표시하며 시스템의 기능적인 요구사항을 설명하기 위한 도구
