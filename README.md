@@ -8539,6 +8539,65 @@
       - 우측 Runtime에서 아파치 서버 선택
   16. 프로젝트 - src - main - webapp 밑에 jsp 파일 생성(기존 webcontent)
   17. 서버 더블 클릭 - Modules - Path "/"로 변경
+- 라이브러리 추가
+  - porm.xml에 태그를 추가하면 자동으로 추가
+  ```
+  <!-- commons-dbcp -->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
+  </dependency>
+  ```
+  - 설치한 라이브러리
+    - commons-dbcp 
+    - spring-jdbc
+- applicationContext.xml
+  - src/main/resource 폴더 아래 생성
+  - Spring Bean Configuration File 선택
+  - bean 체크박스 선택 후 아래 박스 제일 아래 버전 체크박스 선택
+  - context 체크박스 선택 후 아래 박스 제일 아래 버전 체크박스 선택
+  - p 체크박스 선택
+- Spring MVC 자동 설정
+  - web.xml
+    - servlet 태그 아래 classpath:applicationContext.xml 등록
+    ```
+    <servlet>
+      <servlet-name>appServlet</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/appServlet/servlet-context.xml
+        classpath:applicationContext.xml
+        </param-value>
+        </init-param>
+      <load-on-startup>1</load-on-startup>
+    </servlet>
+    ```
+    - servlet-mapping 태그 아래 url-pattern 수정
+    ```
+    <servlet-mapping>
+      <servlet-name>appServlet</servlet-name>
+      <url-pattern>/*.do</url-pattern>
+    </servlet-mapping>
+    ```
+    - 필터 추가
+    ```
+    <filter>
+      <filter-name>characterEncoding</filter-name>
+      <filter-class>org.springframework.wep.filter.CharacterEncodingFilter</filter-class>
+      <init-param>
+        <param-name>encoding</param-name>
+        <param-value>utf-8</param-value>
+      </init-param>
+    </filter>
+    <filter-mapping>
+      <filter-name>characterEncoding</filter-name>
+      <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    ```
+- 페이지 이동
+  - 직접이동일 경우 : "redirect:/"입력
 
 ## 3. 이클립스 기능
 - 단축키
@@ -8614,3 +8673,5 @@
   - W3Schools-JavaScript : https://www.w3schools.com/js/default.asp
 - json을 보기 쉽겨 변환해주는 사이트
   - Json Parser Online : http://json.parser.online.fr/
+- Maven 라이브러리 등록 사이트
+  - Maven Repository: Search/Browse/Explore : https://mvnrepository.com/
