@@ -8485,7 +8485,7 @@
       </tr>
       <tr>
         <td align="center">DispatcherServlet</td>
-        <td>- 유일한 Servlet 클래스로서 HTTP 프로토콜을 통해 들어오는 모든<br> 요청을 가장 먼저 처리하는 Front Controller</td>
+        <td>- 유일한 Servlet 클래스로서 HTTP 프로토콜을 통해 들어오는 모든 요청을 가장<br> 먼저 처리하는 Front Controller</td>
       </tr>
       <tr>
         <td align="center">HandlerMapping</td>
