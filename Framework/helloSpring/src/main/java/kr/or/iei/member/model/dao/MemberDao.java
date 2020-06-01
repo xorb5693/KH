@@ -20,11 +20,11 @@ public class MemberDao {
 		System.out.println("시슴3!!!!!!!!!!!!!!!!");
 	}
 
-	public List selectOneMember(Member m) {
+	public List<Member> selectOneMember(Member m) {
 		
 		String query = "select * from member where member_id=? and member_pw=?";
 		Object[] params = {m.getMemberId(), m.getMemberPw()};
-		List list = jdbcTemplate.query(query, params, new MemberRowMapper());
+		List<Member> list = jdbcTemplate.query(query, params, new MemberRowMapper());
 		
 		return list;
 	}
@@ -57,5 +57,22 @@ public class MemberDao {
 		int result = jdbcTemplate.update(query, params);
 		
 		return result;
+	}
+
+	public List<Member> checkId(String memberId) {
+		
+		String query = "select * from member where member_id=?";
+		Object[] params = {memberId};
+		List<Member> list = jdbcTemplate.query(query, params, new MemberRowMapper());
+		
+		return list;
+	}
+
+	public List<Member> selectAllMember() {
+		
+		String query = "select * from member";
+		List<Member> list = jdbcTemplate.query(query, new MemberRowMapper());
+		
+		return list;
 	}
 }

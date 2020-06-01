@@ -94,3 +94,44 @@ insert into board values (board_seq.nextval, 'Ω√Ωø!!', 'Ω√Ω√Ω√Ω√Ω√Ωø', 'user10',
 
 update board set read_count = read_count + 1 where board_no = 33;
 commit;
+
+CREATE TABLE NOTICE(
+    NOTICE_NO NUMBER PRIMARY KEY,
+    NOTICE_TITLE VARCHAR2(1000),
+    NOTICE_WRITER VARCHAR2(20) REFERENCES MEMBER(MEMBER_ID),
+    NOTICE_CONTENT VARCHAR2(4000),
+    FILENAME VARCHAR2(200),
+    FILEPATH VARCHAR2(200),
+    REG_DATE VARCHAR2(20)
+);
+
+CREATE SEQUENCE NOTICE_SEQ;
+
+SELECT * FROM NOTICE;
+commit;
+SELECT *
+FROM 
+    (SELECT ROWNUM AS RNUM, N.*
+    FROM 
+        (SELECT 
+            NOTICE_NO AS noticeNo,
+            NOTICE_TITLE AS noticeTitle,
+            NOTICE_WRITER AS noticeWriter,
+            NOTICE_CONTENT AS noticeContent,
+            filename,
+            filepath,
+            REG_DATE AS regDate
+        FROM NOTICE
+        ORDER BY NOTICE_NO DESC) 
+    N
+) WHERE RNUM BETWEEN 1 AND 2;
+insert into notice values (notice_seq.nextval, 'Ω√Ωø', 'user01', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√Ωø?', 'user02', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√Ω√Ωø', 'user03', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√Ωø!!', 'user04', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√Ω√Ω√Ω√Ωø', 'user05', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√¿Ã¿Ã¿ÃΩø', 'user06', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√Ωø22', 'user07', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√Ωø@!!', 'user08', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√ΩøΩ√ΩøΩ√Ωø', 'user09', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
+insert into notice values (notice_seq.nextval, 'Ω√Ωø!!', 'user10', 'Ω√Ω√Ω√Ω√Ω√Ωø', null, null, sysdate);
