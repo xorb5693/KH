@@ -23,7 +23,7 @@
 | [2.41](#241-41일차2020-04-03) | [2.42](#242-42일차2020-04-06) | [2.43](#243-43일차2020-04-07) | [2.44](#244-44일차2020-04-08) | [2.45](#245-45일차2020-04-09) | [2.46](#246-46일차2020-04-10) | [2.47](#247-47일차2020-04-13) | [2.48](#248-48일차2020-04-14) | [2.49](#249-49일차2020-04-16) | [2.50](#250-50일차2020-04-17) |
 | [2.51](#251-51일차2020-04-20) | [2.52](#252-52일차2020-04-21) | [2.53](#253-53일차2020-04-22) | [2.54](#254-54일차2020-04-23) | [2.55](#255-55일차2020-04-24) | [2.56](#256-56일차2020-04-27) | [2.57](#257-57일차2020-04-28) | [2.58](#258-58일차2020-04-29) | [2.59](#259-59일차2020-04-30) | [2.60](#260-60일차2020-05-01) |
 | [2.61](#261-61일차2020-05-04) | [2.62](#262-62일차2020-05-06) | [2.63](#263-63일차2020-05-07) | [2.64](#264-64일차2020-05-08) | [2.65](#265-65일차2020-05-11) | [2.66](#265-65일차2020-05-11) | [2.67](#265-65일차2020-05-11) | [2.68](#265-65일차2020-05-11) | [2.69](#265-65일차2020-05-11) | [2.70](#265-65일차2020-05-11) |
-| [2.71](#265-65일차2020-05-11) | [2.72](#265-65일차2020-05-11) | [2.73](#265-65일차2020-05-11) | [2.74](#265-65일차2020-05-11) | [2.75](#275-75일차2020-05-25) | [2.76](#276-76일차2020-05-26) | [2.77](#277-77일차2020-05-27) | [2.78](#278-78일차2020-05-28) | [2.79](#279-79일차2020-05-29) | [2.80](#) |
+| [2.71](#265-65일차2020-05-11) | [2.72](#265-65일차2020-05-11) | [2.73](#265-65일차2020-05-11) | [2.74](#265-65일차2020-05-11) | [2.75](#275-75일차2020-05-25) | [2.76](#276-76일차2020-05-26) | [2.77](#277-77일차2020-05-27) | [2.78](#278-78일차2020-05-28) | [2.79](#279-79일차2020-05-29) | [2.80](#280-80일차2020-06-01) |
 
 </div>
 </details>  
@@ -8130,8 +8130,8 @@
         <th>mapper.xml</th>
       </tr>
       <tr>
-        <td>- Mybatis를 이용하기 위한 설정들이 저장되어 있는 파일<br>- xml 파일 상단에 mybatis-config 파일이라는 선언</td>
-        <td>- 실제 Database에서 수행할 query문들을 저장하는 파일<br>- xml 파일 상단에 mybatis-mapper 파일이라는 선언</td>
+        <td>- Mybatis를 이용하기 위한 설정들이 저장되어 있는 파일<br>- xml 파일 상단에 mybatis-config 파일이라는 선언<br><br><br>&#60;?xml version="1.0" encoding="utf-8"?&#62;<br>&#60;!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd"&#62;</td>
+        <td>- 실제 Database에서 수행할 query문들을 저장하는 파일<br>- xml 파일 상단에 mybatis-mapper 파일이라는 선언<br><br><br>&#60;?xml version="1.0" encoding="utf-8"?&#62;<br>&#60;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&#62;</td>
       </tr>
     </table>
   - mybatis-config.xml 사용 
@@ -8142,19 +8142,19 @@
       </tr>
       <tr>
         <td align="center">&#60;configuration&#62;</td>
-        <td></td>
+        <td>최상위 태그로 내부에 필요한 설정들을 작성</td>
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;configuration&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&#60;/configuration&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;settings&#62;</td>
-        <td></td>
+        <td>Mybatis 구동 시 선언할 설정들을 작성</td>
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;settings&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- Null 값이 발생할 경우 빈칸이 아닌 null로 인식하라 --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;setting name="jdbcTypeForNull" value="NULL"/&#62;<br>&#60;/settings&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;typeAliases&#62;</td>
@@ -8162,7 +8162,7 @@
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;typeAliases&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- type에는 패키지 명까지 전부 기술해주어야 한다. --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;<typeAlias type="member.model.vo.Member" alias="Member" /><br>&#60;/typeAliases&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;mappers&#62;</td>
@@ -8170,7 +8170,7 @@
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;mappers&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;mapper resource="member/model/mapper/membermapper.xml" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;mapper resource=“notice/model/mapper/notice-mapper.xml" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;mapper resource=“board/model/mapper/board-mapper.xml" /&#62;<br>&#60;/mappers&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;environments&#62;</td>
@@ -8178,15 +8178,16 @@
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;environments default="development"&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- environment id를 구분하여 연결할 DB를 여러 개 구성할 수도 있다 --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;environment id="development"&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;transactionManager type="JDBC" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSource type="POOLED"&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="driver"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="oracle.jdbc.driver.OracleDriver" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="url"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="jdbc:oracle:thin:@127.0.0.1:1521:xe" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="username" value="student" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="password" value="student" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;/dataSource&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;/environment&#62;<br>&#60;/environments&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;transactionManager&#62;</td>
-        <td>트랜잭션 관리를 누가 할 것인가에 대한 설정<br>JDBC : JDBC commit과 rollback을</td>
+        <td>트랜잭션 관리를 누가 할 것인가에 대한 설정<br>JDBC : JDBC commit과 rollback을 처리하기 위해 connection을 가지고 온다(직접 처리)<br>MANAGED : commit과 rollback을 하지 않고, 대신 컨테이너가 트랜잭션을 관리하고 커넥션을 닫아주는 설정
+</td>
       </tr>
       <tr>
         <td align="center">&#60;dataSource&#62;</td>
-        <td></td>
+        <td>데이터 베이스 연결을 관리하는 설정<br>POOLED : Connection 객체를 pool영역에 저장해 두고 이후 Connection 객체를 생성할 때 이를 재사용 한다.<br>UNPOOLED : Connection 객체를 별도로 저장하지 않고, 객체 호출 시 매번 새로 생성하여 사용</td>
       </tr>
     </table>
 
@@ -8611,6 +8612,12 @@
   ```
 - 페이지 이동
   - 직접이동일 경우 : "redirect:/"입력
+
+### 2.80 80일차(2020-06-01)
+- Spring에서의 ajax
+  - 기본적으로 다른건 동일하나 ajax를 사용하기 위해서는 컨트롤러 메소드 위에 @ResponseBody를 추가해야 한다.
+  - 해당 데이터를 직접 전송한다는 의미의 태그이다.
+  - 한글 인코딩을 위해서는 @RequestMapping태그에 produces="text/html; charset=utf-8" 추가한다.
 
 ## 3. 이클립스 기능
 - 단축키
