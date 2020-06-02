@@ -24,6 +24,7 @@
 | [2.51](#251-51일차2020-04-20) | [2.52](#252-52일차2020-04-21) | [2.53](#253-53일차2020-04-22) | [2.54](#254-54일차2020-04-23) | [2.55](#255-55일차2020-04-24) | [2.56](#256-56일차2020-04-27) | [2.57](#257-57일차2020-04-28) | [2.58](#258-58일차2020-04-29) | [2.59](#259-59일차2020-04-30) | [2.60](#260-60일차2020-05-01) |
 | [2.61](#261-61일차2020-05-04) | [2.62](#262-62일차2020-05-06) | [2.63](#263-63일차2020-05-07) | [2.64](#264-64일차2020-05-08) | [2.65](#265-65일차2020-05-11) | [2.66](#265-65일차2020-05-11) | [2.67](#265-65일차2020-05-11) | [2.68](#265-65일차2020-05-11) | [2.69](#265-65일차2020-05-11) | [2.70](#265-65일차2020-05-11) |
 | [2.71](#265-65일차2020-05-11) | [2.72](#265-65일차2020-05-11) | [2.73](#265-65일차2020-05-11) | [2.74](#265-65일차2020-05-11) | [2.75](#275-75일차2020-05-25) | [2.76](#276-76일차2020-05-26) | [2.77](#277-77일차2020-05-27) | [2.78](#278-78일차2020-05-28) | [2.79](#279-79일차2020-05-29) | [2.80](#280-80일차2020-06-01) |
+| [2.81](#281-81일차2020-06-02) | [2.82](#) | [2.83](#) | [2.84](#) | [2.85](#) | [2.86](#) | [2.87](#) | [2.88](#) | [2.89](#) | [2.90](#) |
 
 </div>
 </details>  
@@ -8618,6 +8619,113 @@
   - 기본적으로 다른건 동일하나 ajax를 사용하기 위해서는 컨트롤러 메소드 위에 @ResponseBody를 추가해야 한다.
   - 해당 데이터를 직접 전송한다는 의미의 태그이다.
   - 한글 인코딩을 위해서는 @RequestMapping태그에 produces="text/html; charset=utf-8" 추가한다.
+
+### 2.81 81일차(2020-06-02)
+- Spring AOP
+  - Spring AOP 용어
+    <table>
+      <tr align="center">
+        <th>용어</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">Joinoint</td>
+        <td>- 클라이언트가 호출하는 모든 비지니스 메소드<br>- 일반적으로 Srvice의 모든 클래스</td>
+      </tr>
+      <tr>
+        <td align="center">Pointcut</td>
+        <td>- 필터링 된 조인 포인트<br>- Joinpoint 중 공통기능을 적용할 선택된 메소드</td>
+      </tr>
+      <tr>
+        <td align="center">Advice</td>
+        <td>- Pointcut에 적용할 공통 기능의 코드</td>
+      </tr>
+      <tr>
+        <td align="center">Aspect or Advisor</td>
+        <td>- Pointcut + Advice = Aspect<br>- 어떤 Point</td>
+      </tr>
+    </table>
+  - Spring AOP - Pointcut 표현식
+    - Joinpoin 중 Advice 적용을 원하는 메소드를 필터링 할 때 사용하는 표현식
+    <table>
+      <tr align="center">
+        <th>Pointcut 표현식</th>
+        <th>execution(* member.model.service.. *Service.*(..)</th>
+      </tr>
+      <tr>
+        <td align="center">*</td>
+        <td>- 메소드 리턴 타입</td>
+      </tr>
+      <tr>
+        <td align="center"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center"></td>
+        <td></td>
+      </tr>
+    </table>
+    
+    <table>
+      <tr align="center">
+        <th>형식</th>
+        <th>예</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center" rowspan="3"></td>
+      </tr>
+    </table>
+  - Spring AOP - Advice 동작 시점
+    - Pointcut(선택된 비지니스 메소드)이 수행될 때 Advice를 동작 시킬 시점
+    <table>
+      <tr align="center">
+        <th>용어</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">Before</td>
+        <td>- 비지니스 메소드 실행 전 동작</td>
+      </tr>
+      <tr>
+        <td align="center">After Returning</td>
+        <td>- 비지니스 메소드가</td>
+      </tr>
+      <tr>
+        <td align="center">After Throwing</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">After</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td align="center">Around</td>
+        <td></td>
+      </tr>
+    </table>
+  - Spring AOP - JoinPoint Interface
+    - JoinPoint는 Spring AOP 혹은 AspectJ에서 AOP의 부가 기능을 지닌 코드가 적용되는 지점을 뜻하며, Advice는 org.aspectj.lang.KoinPoint 타입의 파라미터를 어드바이스 메소드의 첫번째 매개변수로 선언해야 한다.
+    - 단, Around의 경우 JoinPoint의 하위 클래스인 ProceedingKoinPoint 타입의 파라미터를 필수적으로 선언해야 한다.
+  - Spring AOP - JoinPoint Interface 메소드
+    <table>
+      <tr align="center">
+        <th>용어</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center"></td>
+        <td></td>
+      </tr>
+    </table>
 
 ## 3. 이클립스 기능
 - 단축키
