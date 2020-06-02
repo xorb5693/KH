@@ -53,4 +53,7 @@
 		FROM NOTICE
 		where notice_no = #{_parameter}
 	</select>
+	<delete id="noticeDelete" parameterType="_int">
+		delete from notice where notice_no = #{_parameter}
+	</delete>
 </mapper>

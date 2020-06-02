@@ -35,4 +35,9 @@ public class NoticeDao {
 		return sqlSession.selectOne("notice.noticeRead", noticeNo);
 	}
 
+	public int noticeDelete(int noticeNo) {
+
+		return  sqlSession.delete("notice.noticeDelete", noticeNo);
+	}
+
 }

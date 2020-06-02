@@ -85,4 +85,9 @@ public class NoticeService {
 		
 		return noticeDao.noticeRead(noticeNo);
 	}
+
+	public int noticeDelete(int noticeNo) {
+		
+		return noticeDao.noticeDelete(noticeNo);
+	}
 }
