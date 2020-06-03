@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -56,6 +57,7 @@ public class MemberController {
 		}
 	}
 	
+//	@CrossOrigin(origins = "*")
 	@ResponseBody
 	@RequestMapping(value = "/checkId.do", produces = "text/html; charset=utf-8")
 	public String checkId(Member m) {
@@ -126,5 +128,15 @@ public class MemberController {
 		ArrayList<Member> list = service.selectAllMmember();
 		
 		return new Gson().toJson(list);
+	}
+	
+	@RequestMapping("/error.do")
+	public String error() {
+		return "common/error";
+	}
+	
+	@ExceptionHandler(RuntimeException.class)
+	public String errorHandler() {
+		return "redirect:error.do";
 	}
 }
