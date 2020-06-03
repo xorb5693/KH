@@ -8618,6 +8618,18 @@
   - 기본적으로 다른건 동일하나 ajax를 사용하기 위해서는 컨트롤러 메소드 위에 @ResponseBody를 추가해야 한다.
   - 해당 데이터를 직접 전송한다는 의미의 태그이다.
   - 한글 인코딩을 위해서는 @RequestMapping태그에 produces="text/html; charset=utf-8" 추가한다.
+- Spring에서의 mybatis 등록
+  ```
+  <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    <property name="mapperLocations" value="classpath:/mapper/**/*SQL.xml"></property>
+  </bean>
+  
+  <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    <constructor-arg index="0" ref="sqlSession"/>
+  </bean>
+  ```
 
 ### 2.81 81일차(2020-06-02)
 - Spring AOP
