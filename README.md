@@ -8630,6 +8630,8 @@
     <constructor-arg index="0" ref="sqlSession"/>
   </bean>
   ```
+  - mybatis : 3.4.0
+  - mybatis-spring : 1.3.0
 
 ### 2.81 81일차(2020-06-02)
 - Spring AOP
