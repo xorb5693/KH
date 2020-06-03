@@ -8183,8 +8183,7 @@
       </tr>
       <tr>
         <td align="center">&#60;transactionManager&#62;</td>
-        <td>트랜잭션 관리를 누가 할 것인가에 대한 설정<br>JDBC : JDBC commit과 rollback을 처리하기 위해 connection을 가지고 온다(직접 처리)<br>MANAGED : commit과 rollback을 하지 않고, 대신 컨테이너가 트랜잭션을 관리하고 커넥션을 닫아주는 설정
-</td>
+        <td>트랜잭션 관리를 누가 할 것인가에 대한 설정<br>JDBC : JDBC commit과 rollback을 처리하기 위해 connection을 가지고 온다(직접 처리)<br>MANAGED : commit과 rollback을 하지 않고, 대신 컨테이너가 트랜잭션을 관리하고 커넥션을 닫아주는 설정</td>
       </tr>
       <tr>
         <td align="center">&#60;dataSource&#62;</td>
