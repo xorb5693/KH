@@ -8163,7 +8163,7 @@
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td>&#60;typeAliases&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- type에는 패키지 명까지 전부 기술해주어야 한다. --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;<typeAlias type="member.model.vo.Member" alias="Member" /><br>&#60;/typeAliases&#62;</td>
+        <td>&#60;typeAliases&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- type에는 패키지 명까지 전부 기술해주어야 한다. --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;typeAlias type="member.model.vo.Member" alias="Member" /&#62;<br>&#60;/typeAliases&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;mappers&#62;</td>
