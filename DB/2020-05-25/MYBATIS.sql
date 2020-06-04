@@ -140,3 +140,16 @@ insert into notice values (notice_seq.nextval, '½Ã½¿22', 'user07', '½Ã½Ã½Ã½Ã½Ã½¿
 insert into notice values (notice_seq.nextval, '½Ã½¿@!!', 'user08', '½Ã½Ã½Ã½Ã½Ã½¿', null, null, sysdate);
 insert into notice values (notice_seq.nextval, '½Ã½¿½Ã½¿½Ã½¿', 'user09', '½Ã½Ã½Ã½Ã½Ã½¿', null, null, sysdate);
 insert into notice values (notice_seq.nextval, '½Ã½¿!!', 'user10', '½Ã½Ã½Ã½Ã½Ã½¿', null, null, sysdate);
+
+CREATE TABLE DIRECT_MESSAGE(
+    DM_NO NUMBER PRIMARY KEY,
+    DM_SENDER VARCHAR2(20),
+    DM_RECEIVER VARCHAR2(20),
+    MESSAGE VARCHAR2(4000),
+    CHECK_MSG NUMBER DEFAULT 0,  --0ÀÎ°æ¿ì ÀÐÁö ¾ÊÀ½, 1ÀÌ¸é ÀÐÀ½
+    DM_DATE VARCHAR2(20)
+);
+
+CREATE SEQUENCE DM_SEQ;
+
+SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:ss') FROM DUAL;

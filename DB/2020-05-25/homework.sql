@@ -14,6 +14,10 @@ ADD (MEMBER_LEVEL NUMBER);
 ALTER TABLE MEMBER
 ADD (phone varchar2(13));
 CREATE SEQUENCE MEMBER_SEQ;
+ALTER TABLE MEMBER
+MODIFY MEMBER_ID VARCHAR2(100);
+ALTER TABLE MEMBER
+MODIFY MEMBER_PW VARCHAR2(100);
 
 CREATE TABLE COMPANY(
     COMPANY_CODE NUMBER PRIMARY KEY,
@@ -28,7 +32,17 @@ insert into COMPANY values(company_seq.nextval, 'Amazon', 'amazon.png');
 insert into COMPANY values(company_seq.nextval, 'Apple', 'apple.png');
 insert into COMPANY values(company_seq.nextval, 'Google', 'google.png');
 commit;
-
+select
+			member_no as memberNo,
+			member_id as memberId,
+			member_name as memberName,
+			age,
+			enroll_date as enrollDate,
+			company_code as companyCode,
+			member_level as memberLevel,
+			phone
+		from member
+		where member_id = 'user01@gmail.com';
 select * from COMPANY;
 select * from member;
 UPDATE MEMBER SET MEMBER_LEVEL = 1;
