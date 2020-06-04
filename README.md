@@ -8635,6 +8635,10 @@
 
 ### 2.81 81일차(2020-06-02)
 - Spring AOP
+  - 정의
+    - Spring AOP란, 관점지향 프로그래밍의 약자로 일반적으로 사용하는 클래스(Service, DAO)에서 중복되는 공통 코드 부분(ex. commit, rollback, logging..)을 별도의 영역으로 분리해 내고, 코드가 실행되기 전이나 이 후의 시점에 해당 코드를 붙여 넣음으로써 소스코드의 중복을 줄이고, 필요할 때마다 가져다 쓸 수 있게 객체화 하는 기술  
+    ![20200604181431](./Image/20200604181431.PNG)  
+    ![20200604181513](./Image/20200604181513.PNG)
   - Spring AOP 용어
     <table>
       <tr align="center">
@@ -8655,7 +8659,7 @@
       </tr>
       <tr>
         <td align="center">Aspect or Advisor</td>
-        <td>- Pointcut + Advice = Aspect<br>- 어떤 Point</td>
+        <td>- Pointcut + Advice = Aspect<br>- 어떤 Pointcut에 어떤 Advice를 적용할지 결정<br>- Advisor는 Aspect와 같지만 몇몇 특수한 경우에 사용(트랜잭션 처리)</td>
       </tr>
     </table>
   - Spring AOP - Pointcut 표현식
@@ -8670,20 +8674,20 @@
         <td>- 메소드 리턴 타입</td>
       </tr>
       <tr>
-        <td align="center"></td>
-        <td></td>
+        <td align="center">member.model.service </td>
+        <td>- 패키지 경로</td>
       </tr>
       <tr>
-        <td align="center"></td>
-        <td></td>
+        <td align="center">*Service</td>
+        <td>- 클래스명(Service로 끝나는 모든 클래스)</td>
       </tr>
       <tr>
-        <td align="center"></td>
-        <td></td>
+        <td align="center">*</td>
+        <td>- 메소드 명</td>
       </tr>
       <tr>
-        <td align="center"></td>
-        <td></td>
+        <td align="center">(..)</td>
+        <td>- 매개변수</td>
       </tr>
     </table>
     
@@ -8694,7 +8698,77 @@
         <th>설명</th>
       </tr>
       <tr>
-        <td align="center" rowspan="3"></td>
+        <td align="center" rowspan="3">리턴 타입</td>
+        <td align="center">*</td>
+        <td>- 모든 리턴 타입 허용</td>
+      </tr>
+      <tr>
+        <td align="center">void</td>
+        <td>- 리턴 타입이 void인 메소드만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">!void</td>
+        <td>- 리턴 타입이 void가 아닌 메소드만 선택</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="3">패키지</td>
+        <td align="center">org.kh.test</td>
+        <td>- 정확하게 org.kh.test 패키지만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">org.kh.test..</td>
+        <td>- org.kh.test패키지 및 모든 하위 패키지 선택</td>
+      </tr>
+      <tr>
+        <td align="center">org.kh.test.*vice </td>
+        <td>- 패키지명이 org.kh.test로 시작하면서 마지막 패키지 이름임 vice로 끝나는 패키지</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="3">클래스</td>
+        <td align="center">MemberService</td>
+        <td>- 정확하게 MemberService 클래스만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">*Service</td>
+        <td>- 클래스 이름이 Service로 끝나는 클래스만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">MemberService+</td>
+        <td>- 클래스 이름 뒤에‘+’가 붙으면 해당 클래스로 부터 파생된 모든 자식클래스를 선택<br>- 인터페이스 뒤에 ‘+’가 붙으면 해당 인터페이스를 implement한 모든 클래스 선택</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="2">메소드</td>
+        <td align="center">*(..)</td>
+        <td>- 가장 기본 설정으로 모든 메소드 선택</td>
+      </tr>
+      <tr>
+        <td align="center">*Member(..)</td>
+        <td>- 메소드 이름이 Member로 끝나는 모든 메소드 선택</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="6">매개변수</td>
+        <td align="center">(..)</td>
+        <td>- 가장 기본 설정으로 매개변수 타입과 개수에 제약이 없음을 의미</td>
+      </tr>
+      <tr>
+        <td align="center">(*)</td>
+        <td>- 반드시 1개의 매개변수를 가지는 메소드</td>
+      </tr>
+      <tr>
+        <td align="center">(member.vo.Member)</td>
+        <td>- 매개변수로 Member를 가지는 메소드 선택, 이때 클래스의 패키지 경로를 포함해야함</td>
+      </tr>
+      <tr>
+        <td align="center">(!member.vo.Member)</td>
+        <td>- 매개변수로 Member를 가지지 않는 메소드를 선택</td>
+      </tr>
+      <tr>
+        <td align="center">(Integer,..)</td>
+        <td>- 한 개 이상의 매개변수를 가지되, 첫번째 매개변수 타입이 Integer인 메소드</td>
+      </tr>
+      <tr>
+        <td align="center">(Integer,*)</td>
+        <td>- 반드시 2 개의 매개변수를 가지되, 첫번째 매개변수 타입이 Integer인 메소드</td>
       </tr>
     </table>
   - Spring AOP - Advice 동작 시점
@@ -8710,19 +8784,19 @@
       </tr>
       <tr>
         <td align="center">After Returning</td>
-        <td>- 비지니스 메소드가</td>
+        <td>- 비지니스 메소드가 성공적으로 리턴 되면 동작</td>
       </tr>
       <tr>
         <td align="center">After Throwing</td>
-        <td></td>
+        <td>- 비즈니스 메소드 실행 중 예외가 발생하면 동작</td>
       </tr>
       <tr>
         <td align="center">After</td>
-        <td></td>
+        <td>- 비즈니스 메소드 실행 된 후 무조건 동작(에러,성공 상관없음)</td>
       </tr>
       <tr>
         <td align="center">Around</td>
-        <td></td>
+        <td>- 메소드 호출 자체를 가로채 비즈니스 메소드 실행 전후에 처리할 로직을 삽입 가능</td>
       </tr>
     </table>
   - Spring AOP - JoinPoint Interface
@@ -8731,12 +8805,127 @@
   - Spring AOP - JoinPoint Interface 메소드
     <table>
       <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">getArgs()</td>
+        <td>- 메소드의 매개 변수를 반환</td>
+      </tr>
+      <tr>
+        <td align="center">getSignature()</td>
+        <td>- 대상 객체 메소드의 설명(메소드 명, 리턴 타입 등) 반환</td>
+      </tr>
+    </table>
+  - Spring AOP - Signatur 객체 메소드
+    <table>
+      <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">getName() </td>
+        <td>- 클라이언트가 호출한 메소드 이름 리턴</td>
+      </tr>
+      <tr>
+        <td align="center">toLongString()</td>
+        <td>- 클라이언트가 호출한 메소드의 리턴 타입, 이름, 매개변수를 리턴</td>
+      </tr>
+      <tr>
+        <td align="center">toShortString()</td>
+        <td>- 클라이언트가 호출한 메소드 시그니처를 축약한 문자열로 리턴</td>
+      </tr>
+    </table>
+  - Spring AOP – ProceedingJoinPoint 메소드
+    - ProceedingJoinPoint 인터페이스는 JoinPoint를 상속한 인터페이스로 JoinPoint가 가진 모든 메소드를 지원하고, 추가적으로 proceed()메소드를 제공
+    - 단, ProceedingJoinPoint는 Around에서만 사용!(다른 시점에서는 JoinPoint사용)
+    <table>
+      <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">proceed()</td>
+        <td>- proceed() 메소드는 비즈니스 메소드를 수행하는 메소드로 Object 타입 객체를 리턴 하는데 이 Object 객체가 비즈니스 메
+소드 수행 후 리턴 하는 객체<br>- 다른 advice는 proceed()메소드가 필요 없지만, Around의 경우 비즈니스 로직 수행 전/후 로직을 모두 처리하기 때문에 비즈니스 메소드를 수행하는 proceed() 메소드가 필요하여 반드시 ProceedingJoinPoint 인터페이스가 필요</td>
+      </tr>
+    </table>
+- AOP 적용하기
+  - pom.xml을 이용한 라이브러리 추가
+    - AspectJ Weaver : AOP에서 advice의 핵심 기능에 적용하는 설정파일
+    ```
+    <!-- AspectJweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.8</version>
+    </dependency>
+    ```
+  - xml 파일에서 aop 설정 추가
+    - aop에서 제공하는 엘리먼트들을 사용하기 위한 namespace 추가
+  - AOP 설정 적용
+    1. AroundLog 클래스를 testAop라는 id로 bean 생성(AOP로 적용할 기능을 작성한 클래스)
+    2. &#60;aop:config&#62; : AOP 설정정보임을 나타냄
+    3. &#60;aop:aspect&#62; : aspect를 설정 → testAop를 이용하여 기능을 적용
+    4. &#60;aop:around&#62; : around 적용
+        - pointcut : 적용할 비즈니스 메소드를 선택 할 포인트컷 표현식(적용 할 메소드 선택)
+        - method : testAop객체 중 기능이 작성되어 있는 메소드명 선택
+  - Spring AOP – Advice 정의하는 태그
+    <table>
+      <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:before&#62;</td>
+        <td>- 메소드 실행 전에 적용되는 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:around&#62;</td>
+        <td>- 메소드 호출 이전, 이후, 예외 발생등 모든시점에 적용 가능한 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:around&#62;</td>
+        <td>- 메소드가 정상적으로 실행되는지 또는 예외를 발생시키는지 여부에 관계없이 실행되는 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:after-returning&#62;</td>
+        <td>- 메소드가 정상 실행된 후 적용되는 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop-throwing&#62;</td>
+        <td>- 메소드가 예외를 발생시킬 때 적용되는 어드바이스 정의</td>
+      </tr>
+    </table>
+  - Annotation을 이용한 AOP 설정
+    1. 클래스 선언부에 @Aspect 어노테이션 정의
+    2. 해당 클래스를 객체생성해야 사용이 가능하므로 @Component 어노테이션도 함께 정의
+    3. xml파일에 annotation 설정 입력(&#60;aop:aspectj-autoproxy/&#62;)
+  - Spring AOP - Advice 정의하는 어노테이션
+    <table>
+      <tr align="center">
         <th>용어</th>
         <th>설명</th>
       </tr>
       <tr>
-        <td align="center"></td>
-        <td></td>
+        <td align="center">@Before("pointcut")</td>
+        <td>- 타겟 객체의 메소드가 실행되기 전에 실행되는 어드바이스<br>- JoinPoint를 통해 파라미터 정보 참조 가능</td>
+      </tr>
+      <tr>
+        <td align="center">@After("pointcut")</td>
+        <td>- 타겟 객체 메소드가 실행되고나면 성공여부와 관계없이 모두 호출되는 어드바이스로, 반환값을 받을 수 없다.</td>
+      </tr>
+      <tr>
+        <td align="center">@Around("pointcut")</td>
+        <td>- 타겍 객체의 메소드 호출 전과 후에 실행될 코드를 구현할 어드바이스<br>- ProceedingJoinPoint를 통해 파라미터와, 반환값 모두 참조 가능</td>
+      </tr>
+      <tr>
+        <td align="center">@AfterReturning<br>("pointcut", returning="")</td>
+        <td>- 타겟 객체의 메소드가 정상 실행을 마친 후 호출되는 어드바이스<br>- 리턴값을 참조할 때는 returning 속성에 리턴값을 저장할 변수명을 지정</td>
+      </tr>
+      <tr>
+        <td align="center">@AfterThrowing<br>("pointcut", throwing="")</td>
+        <td>- 타겟 객체의 메소드가 예외가 발생하면 호출되는 어드바이스<br>- 발생된 예외를 참조할 때는 throwing 속성에 발생한 예외를 저장할 변수 이름을 지정</td>
       </tr>
     </table>
 - Hash 알고리즘
