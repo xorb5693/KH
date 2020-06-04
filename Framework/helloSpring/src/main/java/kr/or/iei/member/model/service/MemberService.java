@@ -1,5 +1,6 @@
 package kr.or.iei.member.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class MemberService {
 
 	public Member selectOneMember(Member m) {
 		
-		List list = dao.selectOneMember(m);
+		List<Member> list = dao.selectOneMember(m);
 		Member member = null;
 		
 		if (!list.isEmpty()) {
@@ -45,5 +46,24 @@ public class MemberService {
 	public int deleteMember(Member m) {
 		
 		return dao.deleteMember(m);
+	}
+
+	public Member checkId(String memberId) {
+		
+		List<Member> list = dao.checkId(memberId);
+		Member member = null;
+		
+		if (!list.isEmpty()) {
+			member = list.get(0);
+		}
+		
+		return member;
+	}
+
+	public ArrayList<Member> selectAllMmember() {
+		
+		List<Member> list = dao.selectAllMember();
+		
+		return (ArrayList<Member>)list;
 	}
 }

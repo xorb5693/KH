@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="notice">
+	<insert id="noticeInsert" parameterType="notice">
+		insert into notice values(notice_seq.nextval, #{noticeTitle}, #{noticeWriter}, #{noticeContent}, #{filename}, #{filepath}, sysdate)
+	</insert>
+	<select id="totalCount" parameterType="map" resultType="_int">
+		select count(*) from notice
+		<if test="type != null">
+			<if test="type.equals('noticeTitle')">
+				where notice_title like '%'||#{keyword}||'%'
+			</if>
+			<if test="type.equals('noticeWriter')">
+				where notice_writer like '%'||#{keyword}||'%'
+			</if>
+		</if>
+	</select>
+	<select id="noticeList" parameterType="map" resultType="notice">
+		SELECT *
+		FROM 
+		    (SELECT ROWNUM AS RNUM, N.*
+		    FROM 
+		        (SELECT 
+		            NOTICE_NO AS noticeNo,
+		            NOTICE_TITLE AS noticeTitle,
+		            NOTICE_WRITER AS noticeWriter,
+		            NOTICE_CONTENT AS noticeContent,
+		            filename,
+		            filepath,
+		            REG_DATE AS regDate
+		        FROM NOTICE
+		        <if test="type != null">
+					<if test="type.equals('noticeTitle')">
+						where notice_title like '%'||#{keyword}||'%'
+					</if>
+					<if test="type.equals('noticeWriter')">
+						where notice_writer like '%'||#{keyword}||'%'
+					</if>
+		        </if>
+		        ORDER BY NOTICE_NO DESC) 
+		    N
+		) WHERE RNUM BETWEEN #{start} AND #{end}
+	</select>
+	<select id="noticeRead" parameterType="_int" resultType="notice">
+		SELECT 
+			NOTICE_NO AS noticeNo,
+			NOTICE_TITLE AS noticeTitle,
+			NOTICE_WRITER AS noticeWriter,
+			NOTICE_CONTENT AS noticeContent,
+			filename,
+			filepath,
+			REG_DATE AS regDate
+		FROM NOTICE
+		where notice_no = #{_parameter}
+	</select>
+	<delete id="noticeDelete" parameterType="_int">
+		delete from notice where notice_no = #{_parameter}
+	</delete>
+</mapper>

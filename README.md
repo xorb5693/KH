@@ -23,7 +23,8 @@
 | [2.41](#241-41일차2020-04-03) | [2.42](#242-42일차2020-04-06) | [2.43](#243-43일차2020-04-07) | [2.44](#244-44일차2020-04-08) | [2.45](#245-45일차2020-04-09) | [2.46](#246-46일차2020-04-10) | [2.47](#247-47일차2020-04-13) | [2.48](#248-48일차2020-04-14) | [2.49](#249-49일차2020-04-16) | [2.50](#250-50일차2020-04-17) |
 | [2.51](#251-51일차2020-04-20) | [2.52](#252-52일차2020-04-21) | [2.53](#253-53일차2020-04-22) | [2.54](#254-54일차2020-04-23) | [2.55](#255-55일차2020-04-24) | [2.56](#256-56일차2020-04-27) | [2.57](#257-57일차2020-04-28) | [2.58](#258-58일차2020-04-29) | [2.59](#259-59일차2020-04-30) | [2.60](#260-60일차2020-05-01) |
 | [2.61](#261-61일차2020-05-04) | [2.62](#262-62일차2020-05-06) | [2.63](#263-63일차2020-05-07) | [2.64](#264-64일차2020-05-08) | [2.65](#265-65일차2020-05-11) | [2.66](#265-65일차2020-05-11) | [2.67](#265-65일차2020-05-11) | [2.68](#265-65일차2020-05-11) | [2.69](#265-65일차2020-05-11) | [2.70](#265-65일차2020-05-11) |
-| [2.71](#265-65일차2020-05-11) | [2.72](#265-65일차2020-05-11) | [2.73](#265-65일차2020-05-11) | [2.74](#265-65일차2020-05-11) | [2.75](#275-75일차2020-05-25) | [2.76](#276-76일차2020-05-26) | [2.77](#277-77일차2020-05-27) | [2.78](#278-78일차2020-05-28) | [2.79](#279-79일차2020-05-29) | [2.80](#) |
+| [2.71](#265-65일차2020-05-11) | [2.72](#265-65일차2020-05-11) | [2.73](#265-65일차2020-05-11) | [2.74](#265-65일차2020-05-11) | [2.75](#275-75일차2020-05-25) | [2.76](#276-76일차2020-05-26) | [2.77](#277-77일차2020-05-27) | [2.78](#278-78일차2020-05-28) | [2.79](#279-79일차2020-05-29) | [2.80](#280-80일차2020-06-01) |
+| [2.81](#281-81일차2020-06-02) | [2.82](#282-82일차2020-06-03) | [2.83](#283-83일차2020-06-04) | [2.84](#) | [2.85](#) | [2.86](#) | [2.87](#) | [2.88](#) | [2.89](#) | [2.90](#) |
 
 </div>
 </details>  
@@ -8130,8 +8131,8 @@
         <th>mapper.xml</th>
       </tr>
       <tr>
-        <td>- Mybatis를 이용하기 위한 설정들이 저장되어 있는 파일<br>- xml 파일 상단에 mybatis-config 파일이라는 선언</td>
-        <td>- 실제 Database에서 수행할 query문들을 저장하는 파일<br>- xml 파일 상단에 mybatis-mapper 파일이라는 선언</td>
+        <td>- Mybatis를 이용하기 위한 설정들이 저장되어 있는 파일<br>- xml 파일 상단에 mybatis-config 파일이라는 선언<br><br><br>&#60;?xml version="1.0" encoding="utf-8"?&#62;<br>&#60;!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd"&#62;</td>
+        <td>- 실제 Database에서 수행할 query문들을 저장하는 파일<br>- xml 파일 상단에 mybatis-mapper 파일이라는 선언<br><br><br>&#60;?xml version="1.0" encoding="utf-8"?&#62;<br>&#60;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&#62;</td>
       </tr>
     </table>
   - mybatis-config.xml 사용 
@@ -8142,19 +8143,19 @@
       </tr>
       <tr>
         <td align="center">&#60;configuration&#62;</td>
-        <td></td>
+        <td>최상위 태그로 내부에 필요한 설정들을 작성</td>
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;configuration&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&#60;/configuration&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;settings&#62;</td>
-        <td></td>
+        <td>Mybatis 구동 시 선언할 설정들을 작성</td>
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;settings&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- Null 값이 발생할 경우 빈칸이 아닌 null로 인식하라 --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;setting name="jdbcTypeForNull" value="NULL"/&#62;<br>&#60;/settings&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;typeAliases&#62;</td>
@@ -8162,7 +8163,7 @@
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;typeAliases&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- type에는 패키지 명까지 전부 기술해주어야 한다. --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;typeAlias type="member.model.vo.Member" alias="Member" /&#62;<br>&#60;/typeAliases&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;mappers&#62;</td>
@@ -8170,7 +8171,7 @@
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;mappers&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;mapper resource="member/model/mapper/membermapper.xml" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;mapper resource=“notice/model/mapper/notice-mapper.xml" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;mapper resource=“board/model/mapper/board-mapper.xml" /&#62;<br>&#60;/mappers&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;environments&#62;</td>
@@ -8178,15 +8179,15 @@
       </tr>
       <tr>
         <td align="center">Example</td>
-        <td></td>
+        <td>&#60;environments default="development"&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;!-- environment id를 구분하여 연결할 DB를 여러 개 구성할 수도 있다 --&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;environment id="development"&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;transactionManager type="JDBC" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSource type="POOLED"&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="driver"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="oracle.jdbc.driver.OracleDriver" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="url"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="jdbc:oracle:thin:@127.0.0.1:1521:xe" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="username" value="student" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;property name="password" value="student" /&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;/dataSource&#62;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#60;/environment&#62;<br>&#60;/environments&#62;</td>
       </tr>
       <tr>
         <td align="center">&#60;transactionManager&#62;</td>
-        <td>트랜잭션 관리를 누가 할 것인가에 대한 설정<br>JDBC : JDBC commit과 rollback을</td>
+        <td>트랜잭션 관리를 누가 할 것인가에 대한 설정<br>JDBC : JDBC commit과 rollback을 처리하기 위해 connection을 가지고 온다(직접 처리)<br>MANAGED : commit과 rollback을 하지 않고, 대신 컨테이너가 트랜잭션을 관리하고 커넥션을 닫아주는 설정</td>
       </tr>
       <tr>
         <td align="center">&#60;dataSource&#62;</td>
-        <td></td>
+        <td>데이터 베이스 연결을 관리하는 설정<br>POOLED : Connection 객체를 pool영역에 저장해 두고 이후 Connection 객체를 생성할 때 이를 재사용 한다.<br>UNPOOLED : Connection 객체를 별도로 저장하지 않고, 객체 호출 시 매번 새로 생성하여 사용</td>
       </tr>
     </table>
 
@@ -8611,6 +8612,558 @@
   ```
 - 페이지 이동
   - 직접이동일 경우 : "redirect:/"입력
+
+### 2.80 80일차(2020-06-01)
+- Spring에서의 ajax
+  - 기본적으로 다른건 동일하나 ajax를 사용하기 위해서는 컨트롤러 메소드 위에 @ResponseBody를 추가해야 한다.
+  - 해당 데이터를 직접 전송한다는 의미의 태그이다.
+  - 한글 인코딩을 위해서는 @RequestMapping태그에 produces="text/html; charset=utf-8" 추가한다.
+- Spring에서의 mybatis 등록
+  ```
+  <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    <property name="mapperLocations" value="classpath:/mapper/**/*SQL.xml"></property>
+  </bean>
+  
+  <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    <constructor-arg index="0" ref="sqlSession"/>
+  </bean>
+  ```
+  - mybatis : 3.4.0
+  - mybatis-spring : 1.3.0
+
+### 2.81 81일차(2020-06-02)
+- Spring AOP
+  - 정의
+    - Spring AOP란, 관점지향 프로그래밍의 약자로 일반적으로 사용하는 클래스(Service, DAO)에서 중복되는 공통 코드 부분(ex. commit, rollback, logging..)을 별도의 영역으로 분리해 내고, 코드가 실행되기 전이나 이 후의 시점에 해당 코드를 붙여 넣음으로써 소스코드의 중복을 줄이고, 필요할 때마다 가져다 쓸 수 있게 객체화 하는 기술  
+    ![20200604181431](./Image/20200604181431.PNG)  
+    ![20200604181513](./Image/20200604181513.PNG)
+  - Spring AOP 용어
+    <table>
+      <tr align="center">
+        <th>용어</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">Joinoint</td>
+        <td>- 클라이언트가 호출하는 모든 비지니스 메소드<br>- 일반적으로 Srvice의 모든 클래스</td>
+      </tr>
+      <tr>
+        <td align="center">Pointcut</td>
+        <td>- 필터링 된 조인 포인트<br>- Joinpoint 중 공통기능을 적용할 선택된 메소드</td>
+      </tr>
+      <tr>
+        <td align="center">Advice</td>
+        <td>- Pointcut에 적용할 공통 기능의 코드</td>
+      </tr>
+      <tr>
+        <td align="center">Aspect or Advisor</td>
+        <td>- Pointcut + Advice = Aspect<br>- 어떤 Pointcut에 어떤 Advice를 적용할지 결정<br>- Advisor는 Aspect와 같지만 몇몇 특수한 경우에 사용(트랜잭션 처리)</td>
+      </tr>
+    </table>
+  - Spring AOP - Pointcut 표현식
+    - Joinpoin 중 Advice 적용을 원하는 메소드를 필터링 할 때 사용하는 표현식
+    <table>
+      <tr align="center">
+        <th>Pointcut 표현식</th>
+        <th>execution(* member.model.service.. *Service.*(..)</th>
+      </tr>
+      <tr>
+        <td align="center">*</td>
+        <td>- 메소드 리턴 타입</td>
+      </tr>
+      <tr>
+        <td align="center">member.model.service </td>
+        <td>- 패키지 경로</td>
+      </tr>
+      <tr>
+        <td align="center">*Service</td>
+        <td>- 클래스명(Service로 끝나는 모든 클래스)</td>
+      </tr>
+      <tr>
+        <td align="center">*</td>
+        <td>- 메소드 명</td>
+      </tr>
+      <tr>
+        <td align="center">(..)</td>
+        <td>- 매개변수</td>
+      </tr>
+    </table>
+    
+    <table>
+      <tr align="center">
+        <th>형식</th>
+        <th>예</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center" rowspan="3">리턴 타입</td>
+        <td align="center">*</td>
+        <td>- 모든 리턴 타입 허용</td>
+      </tr>
+      <tr>
+        <td align="center">void</td>
+        <td>- 리턴 타입이 void인 메소드만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">!void</td>
+        <td>- 리턴 타입이 void가 아닌 메소드만 선택</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="3">패키지</td>
+        <td align="center">org.kh.test</td>
+        <td>- 정확하게 org.kh.test 패키지만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">org.kh.test..</td>
+        <td>- org.kh.test패키지 및 모든 하위 패키지 선택</td>
+      </tr>
+      <tr>
+        <td align="center">org.kh.test.*vice </td>
+        <td>- 패키지명이 org.kh.test로 시작하면서 마지막 패키지 이름임 vice로 끝나는 패키지</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="3">클래스</td>
+        <td align="center">MemberService</td>
+        <td>- 정확하게 MemberService 클래스만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">*Service</td>
+        <td>- 클래스 이름이 Service로 끝나는 클래스만 선택</td>
+      </tr>
+      <tr>
+        <td align="center">MemberService+</td>
+        <td>- 클래스 이름 뒤에‘+’가 붙으면 해당 클래스로 부터 파생된 모든 자식클래스를 선택<br>- 인터페이스 뒤에 ‘+’가 붙으면 해당 인터페이스를 implement한 모든 클래스 선택</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="2">메소드</td>
+        <td align="center">*(..)</td>
+        <td>- 가장 기본 설정으로 모든 메소드 선택</td>
+      </tr>
+      <tr>
+        <td align="center">*Member(..)</td>
+        <td>- 메소드 이름이 Member로 끝나는 모든 메소드 선택</td>
+      </tr>
+      <tr>
+        <td align="center" rowspan="6">매개변수</td>
+        <td align="center">(..)</td>
+        <td>- 가장 기본 설정으로 매개변수 타입과 개수에 제약이 없음을 의미</td>
+      </tr>
+      <tr>
+        <td align="center">(*)</td>
+        <td>- 반드시 1개의 매개변수를 가지는 메소드</td>
+      </tr>
+      <tr>
+        <td align="center">(member.vo.Member)</td>
+        <td>- 매개변수로 Member를 가지는 메소드 선택, 이때 클래스의 패키지 경로를 포함해야함</td>
+      </tr>
+      <tr>
+        <td align="center">(!member.vo.Member)</td>
+        <td>- 매개변수로 Member를 가지지 않는 메소드를 선택</td>
+      </tr>
+      <tr>
+        <td align="center">(Integer,..)</td>
+        <td>- 한 개 이상의 매개변수를 가지되, 첫번째 매개변수 타입이 Integer인 메소드</td>
+      </tr>
+      <tr>
+        <td align="center">(Integer,*)</td>
+        <td>- 반드시 2 개의 매개변수를 가지되, 첫번째 매개변수 타입이 Integer인 메소드</td>
+      </tr>
+    </table>
+  - Spring AOP - Advice 동작 시점
+    - Pointcut(선택된 비지니스 메소드)이 수행될 때 Advice를 동작 시킬 시점
+    <table>
+      <tr align="center">
+        <th>용어</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">Before</td>
+        <td>- 비지니스 메소드 실행 전 동작</td>
+      </tr>
+      <tr>
+        <td align="center">After Returning</td>
+        <td>- 비지니스 메소드가 성공적으로 리턴 되면 동작</td>
+      </tr>
+      <tr>
+        <td align="center">After Throwing</td>
+        <td>- 비즈니스 메소드 실행 중 예외가 발생하면 동작</td>
+      </tr>
+      <tr>
+        <td align="center">After</td>
+        <td>- 비즈니스 메소드 실행 된 후 무조건 동작(에러,성공 상관없음)</td>
+      </tr>
+      <tr>
+        <td align="center">Around</td>
+        <td>- 메소드 호출 자체를 가로채 비즈니스 메소드 실행 전후에 처리할 로직을 삽입 가능</td>
+      </tr>
+    </table>
+  - Spring AOP - JoinPoint Interface
+    - JoinPoint는 Spring AOP 혹은 AspectJ에서 AOP의 부가 기능을 지닌 코드가 적용되는 지점을 뜻하며, Advice는 org.aspectj.lang.KoinPoint 타입의 파라미터를 어드바이스 메소드의 첫번째 매개변수로 선언해야 한다.
+    - 단, Around의 경우 JoinPoint의 하위 클래스인 ProceedingKoinPoint 타입의 파라미터를 필수적으로 선언해야 한다.
+  - Spring AOP - JoinPoint Interface 메소드
+    <table>
+      <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">getArgs()</td>
+        <td>- 메소드의 매개 변수를 반환</td>
+      </tr>
+      <tr>
+        <td align="center">getSignature()</td>
+        <td>- 대상 객체 메소드의 설명(메소드 명, 리턴 타입 등) 반환</td>
+      </tr>
+    </table>
+  - Spring AOP - Signatur 객체 메소드
+    <table>
+      <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">getName() </td>
+        <td>- 클라이언트가 호출한 메소드 이름 리턴</td>
+      </tr>
+      <tr>
+        <td align="center">toLongString()</td>
+        <td>- 클라이언트가 호출한 메소드의 리턴 타입, 이름, 매개변수를 리턴</td>
+      </tr>
+      <tr>
+        <td align="center">toShortString()</td>
+        <td>- 클라이언트가 호출한 메소드 시그니처를 축약한 문자열로 리턴</td>
+      </tr>
+    </table>
+  - Spring AOP – ProceedingJoinPoint 메소드
+    - ProceedingJoinPoint 인터페이스는 JoinPoint를 상속한 인터페이스로 JoinPoint가 가진 모든 메소드를 지원하고, 추가적으로 proceed()메소드를 제공
+    - 단, ProceedingJoinPoint는 Around에서만 사용!(다른 시점에서는 JoinPoint사용)
+    <table>
+      <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">proceed()</td>
+        <td>- proceed() 메소드는 비즈니스 메소드를 수행하는 메소드로 Object 타입 객체를 리턴 하는데 이 Object 객체가 비즈니스 메소드 수행 후 리턴 하는 객체<br>- 다른 advice는 proceed()메소드가 필요 없지만, Around의 경우 비즈니스 로직 수행 전/후 로직을 모두 처리하기 때문에 비즈니스 메소드를 수행하는 proceed() 메소드가 필요하여 반드시 ProceedingJoinPoint 인터페이스가 필요</td>
+      </tr>
+    </table>
+- AOP 적용하기
+  - pom.xml을 이용한 라이브러리 추가
+    - AspectJ Weaver : AOP에서 advice의 핵심 기능에 적용하는 설정파일
+    ```
+    <!-- AspectJweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.8</version>
+    </dependency>
+    ```
+  - xml 파일에서 aop 설정 추가
+    - aop에서 제공하는 엘리먼트들을 사용하기 위한 namespace 추가
+  - AOP 설정 적용
+    1. AroundLog 클래스를 testAop라는 id로 bean 생성(AOP로 적용할 기능을 작성한 클래스)
+    2. &#60;aop:config&#62; : AOP 설정정보임을 나타냄
+    3. &#60;aop:aspect&#62; : aspect를 설정 → testAop를 이용하여 기능을 적용
+    4. &#60;aop:around&#62; : around 적용
+        - pointcut : 적용할 비즈니스 메소드를 선택 할 포인트컷 표현식(적용 할 메소드 선택)
+        - method : testAop객체 중 기능이 작성되어 있는 메소드명 선택
+  - Spring AOP – Advice 정의하는 태그
+    <table>
+      <tr align="center">
+        <th>메소드</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:before&#62;</td>
+        <td>- 메소드 실행 전에 적용되는 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:around&#62;</td>
+        <td>- 메소드 호출 이전, 이후, 예외 발생등 모든시점에 적용 가능한 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:around&#62;</td>
+        <td>- 메소드가 정상적으로 실행되는지 또는 예외를 발생시키는지 여부에 관계없이 실행되는 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop:after-returning&#62;</td>
+        <td>- 메소드가 정상 실행된 후 적용되는 어드바이스 정의</td>
+      </tr>
+      <tr>
+        <td align="center">&#60;aop-throwing&#62;</td>
+        <td>- 메소드가 예외를 발생시킬 때 적용되는 어드바이스 정의</td>
+      </tr>
+    </table>
+  - Annotation을 이용한 AOP 설정
+    1. 클래스 선언부에 @Aspect 어노테이션 정의
+    2. 해당 클래스를 객체생성해야 사용이 가능하므로 @Component 어노테이션도 함께 정의
+    3. xml파일에 annotation 설정 입력(&#60;aop:aspectj-autoproxy/&#62;)
+  - Spring AOP - Advice 정의하는 어노테이션
+    <table>
+      <tr align="center">
+        <th>용어</th>
+        <th>설명</th>
+      </tr>
+      <tr>
+        <td align="center">@Before("pointcut")</td>
+        <td>- 타겟 객체의 메소드가 실행되기 전에 실행되는 어드바이스<br>- JoinPoint를 통해 파라미터 정보 참조 가능</td>
+      </tr>
+      <tr>
+        <td align="center">@After("pointcut")</td>
+        <td>- 타겟 객체 메소드가 실행되고나면 성공여부와 관계없이 모두 호출되는 어드바이스로, 반환값을 받을 수 없다.</td>
+      </tr>
+      <tr>
+        <td align="center">@Around("pointcut")</td>
+        <td>- 타겍 객체의 메소드 호출 전과 후에 실행될 코드를 구현할 어드바이스<br>- ProceedingJoinPoint를 통해 파라미터와, 반환값 모두 참조 가능</td>
+      </tr>
+      <tr>
+        <td align="center">@AfterReturning<br>("pointcut", returning="")</td>
+        <td>- 타겟 객체의 메소드가 정상 실행을 마친 후 호출되는 어드바이스<br>- 리턴값을 참조할 때는 returning 속성에 리턴값을 저장할 변수명을 지정</td>
+      </tr>
+      <tr>
+        <td align="center">@AfterThrowing<br>("pointcut", throwing="")</td>
+        <td>- 타겟 객체의 메소드가 예외가 발생하면 호출되는 어드바이스<br>- 발생된 예외를 참조할 때는 throwing 속성에 발생한 예외를 저장할 변수 이름을 지정</td>
+      </tr>
+    </table>
+- Hash 알고리즘
+  - 암호화 알고리즘
+  - 특징
+    - 단방향(One-Way, 복호화 불가능) : 암호화는 하되 복호화는 제공하지 않음
+    - compression : 다양한 길이의 데이터를 입력해도 고정길이로 출력
+    - 효율성 : 평문에서 암호화하는 과정이 빠름
+    - collision-free : 메세지가 고유하면 해시값도 고유
+  - 종류
+    - MD-5
+    - SHA : SHA-1, SHA-2(SHA-224, SHA-256, SHA-384, SHA-512 등)
+
+### 2.82 82일차(2020-06-03)
+- CORS(Cross-Origin Resources Sharing)
+  - 정의
+    - 동일한 출처가 아니어도 다른 출처의 자원을 요청하여 쓸 수 있게 허용하는 구조
+    - 기본적으로 막혀있다.
+- @Scheduled
+  - cron
+    - 옵션 포함 총 7개의 필드로 구성됨
+    - &#42;  &#42;  &#42;  &#42;  &#42;   &#42;   [*]
+    - 초 분 시 일 월 요일 [년도]
+    - 각 필드를 공백으로 구분함
+    - 초 : 0~59, -(범위), *(모든), /(간격)
+    - 분 : 0~59, -, *, /
+    - 시 : 0~23, -, *, /
+    - day of month : 1~31, -, *, ?, /, L, W
+    - month : 1~12, or JAN~DEC, -, *, /
+    - day of week : 1(일요일)~7, SUN-SAT, -, *, ?, L, #
+    - year : 1970~2099, -, *, /
+    - 간격 : 0/10 * * * * * - 1초부터 시작해서 10초마다
+    - ? : 해당 항목 사용하지 않음(해당 날짜 사용하지 않음)
+    - L : 해당월 가장 마지막 날(day of month), 해당주 마지막 요일(토요일 day of week)
+    - &#35; : n번째 X요일
+    - W : 가장 가까운 평일
+    ```
+    * * * 13W * * 
+    - 13일 기준 가장 가까운 평일
+    
+    * * * LW * *
+    - 해당 마지막 평일
+    
+    * * * * * 4#2
+    - 2번째 주 수요일
+    
+    * * * * * 6#4
+    - 4번째주 금요일
+    
+    0 0 12 * * *
+    - 매일 12:00:00에 작동
+    
+    0 15 10 * * *
+    - 매일 10:15:00에 작동
+    
+    0 * 14 * * *
+    - 매일 14:00:00~14:59:00동안 매분 작동
+    
+    0 0/5 14 * * *
+    - 매일 14:00:00~14:59:00동안 5분마다 작동
+    
+    0 0/5 14,18 * * *
+    - 매일 14:00:00:~14:59:00동안과 18:00:00~18:59:00동안 5분마다 작동
+    
+    0 50 7 ? * MON-FRI
+    - 월~금 07:50:00에 작동
+    
+    0 0 10 ? * 6L
+    - 매달 마지막 금요일 10:00:00에 작동
+    
+    0 /1 * * * * 
+    - 매분마다 작동
+    
+    0 /10 * * * *
+    - 10분마다 작동
+    ```
+  - 매개변수 사용시 에러
+  - 스케쥴 관련 Annotation 사용 선언이 필요
+  ```
+  <task:annotation-driven/>
+  ```
+- xml 파일 
+  - pom.xml : 라이브러리 관리(라이브러리 추가/삭제)
+  - web.xml : 서버가 실행될때 설정
+  - applicationContext.xml : spring에서 사용할 설정(bean 객체 생성, annotation 사용 선언, component-scan)
+  - mybatis-config.xml : mybatis 설정(null, 별칭alias 설정)
+  - mapper.xml : 동작할 쿼리문
+
+### 2.83 83일차(2020-06-04)
+- WebSocket 통신
+  1. 라이브러리 추가
+  ```
+  <!-- spring-websocket -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-websocket</artifactId>
+    <version>${org.springframework-version}</version>
+  </dependency>
+  ```
+  2. TextWebSocketHandler 상속
+  ```
+  public class MyHandler extends TextWebSocketHandler {
+    ...
+  }
+  ```
+  3. ArrayList, HashMap 생성
+  ```
+  private ArrayList<WebSocketSession> members;
+  private HashMap<String, WebSocketSession> map;
+
+  public MyHandler() {
+    members = new ArrayList<WebSocketSession>();
+    map = new HashMap<String, WebSocketSession>();
+  }
+  ```
+  4. 메소드 오버라이드
+  ```
+  //소켓이 생성되어 연결되었을 때 실행되는 메소드
+  @Override
+  public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+  
+    System.out.println("연결 성공!!");
+    members.add(session);//신규 접속자 정보 저장
+  }
+	
+  //메세지를 수신하면 동작하는 메소드
+  //실제 동작하는 내용이 들어감
+  @Override
+  protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+    System.out.println(message.getPayload());
+		
+    //소켓으로 받은 메세지를 JSON 타입으로 변경하여 사용
+    JsonParser parser = new JsonParser();
+		
+    JsonElement element = parser.parse(message.getPayload());
+    String type = element.getAsJsonObject().get("type").getAsString();
+		
+    if (type.equals("register")) {
+      String memberId = element.getAsJsonObject().get("memberId").getAsString();
+      map.put(memberId, session);
+    } else {
+      String target = element.getAsJsonObject().get("target").getAsString();
+      String msg = element.getAsJsonObject().get("msg").getAsString();
+      WebSocketSession ws = map.get(target);
+			
+      //해당 접속자가 접속한 경우
+      if (ws != null) {
+        ws.sendMessage(new TextMessage(msg));
+      }
+    }
+	}
+	
+  //연결이 끊겼을 때 동작하는 메소드
+  @Override
+  public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+  	
+    System.out.println("연결 종료!!");
+    members.remove(session);
+  }
+  ```
+  5. application.xml namespace 추가 : websocket
+  6. 웹소켓 설정 추가
+  ```
+  <!-- 웹소켓 설정 -->
+  <websocket:handlers>
+    <websocket:mapping handler="myHandler" path="/chat.do"/>
+    <websocket:handshake-interceptors>
+      <bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"></bean>
+    </websocket:handshake-interceptors>
+  </websocket:handlers>
+  ```
+  7. 페이지 생성
+  ```
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-3.3.1.js'></script>
+  </head>
+  <body>
+    <textarea rows="5" cols="30" id="msgArea"></textarea>
+    <br>
+    메세지 : <input type="text" id="chatMsg"><br>
+    상대 아이디 : <input type="text" id="target"><br>
+    <button id="sendBtn">전송</button>
+    <script>
+      var ws;
+      var memberId = "${sessionScope.member.memberId}";
+      
+      function connect() {
+        ws = new WebSocket("ws://localhost/chat.do");
+        ws.onopen = function() {
+				  console.log("웹소켓 연결 생성");
+          
+          var msg = {
+            type: "register",
+            memberId: memberId
+          }
+          
+          ws.send(JSON.stringify(msg));
+        };
+			
+        ws.onmessage = function() {
+          var msg = e.data;
+          var chat = $("#msgArea").val() + "\n상대방 : " + msg;
+          $("#msgArea").val(chat);
+        };
+			
+        ws.onclose = function() {
+          console.log("연결종료");
+        };
+      }
+      
+      $(function() {
+        connect();
+        $("#sendBtn").click(function() {
+          var chat = $("#chatMsg").val();
+          var msg = $("msgArea").val() + "\n나 : " + chat;
+          $("#msgArea").val(msg);
+          $("#chatMsg").val("");
+
+          var sendMsg = {
+            type: "chat",
+            target: $("#target").val(),
+            msg: chat
+          }
+
+          ws.send(JSON.stringify(sendMsg));
+        });
+      });
+    </script>
+  </body>
+  </html>
+  ```
+  8. 스크립트 추가
 
 ## 3. 이클립스 기능
 - 단축키

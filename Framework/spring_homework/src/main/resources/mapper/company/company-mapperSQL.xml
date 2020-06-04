@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="company">
+	<select id="selectListCompany" resultType="company">
+		select
+			company_code as companyCode,
+			company_name as companyName,
+			company_logo as companyLogo
+		from company
+	</select>
+	<select id="selectOneCompany" parameterType="_int" resultType="company">
+		select
+			company_code as companyCode,
+			company_name as companyName,
+			company_logo as companyLogo
+		from company
+		where company_code = #{_parameter}
+	</select>
+</mapper>

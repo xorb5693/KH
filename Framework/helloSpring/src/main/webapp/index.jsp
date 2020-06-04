@@ -20,6 +20,7 @@
 	<c:if test="${not empty sessionScope.member }">
 		<h1>[${sessionScope.member.memberName }]</h1>
 		<hr>
+		<a href="/allMember.do">회원관리</a><br>
 		<a href="/logout.do">로그아웃</a><br>
 		<a href="/mypage.do">마이페이지</a><br>
 		<a href="/delete.do">회원탈퇴</a>
