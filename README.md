@@ -8846,8 +8846,7 @@
       </tr>
       <tr>
         <td align="center">proceed()</td>
-        <td>- proceed() 메소드는 비즈니스 메소드를 수행하는 메소드로 Object 타입 객체를 리턴 하는데 이 Object 객체가 비즈니스 메
-소드 수행 후 리턴 하는 객체<br>- 다른 advice는 proceed()메소드가 필요 없지만, Around의 경우 비즈니스 로직 수행 전/후 로직을 모두 처리하기 때문에 비즈니스 메소드를 수행하는 proceed() 메소드가 필요하여 반드시 ProceedingJoinPoint 인터페이스가 필요</td>
+        <td>- proceed() 메소드는 비즈니스 메소드를 수행하는 메소드로 Object 타입 객체를 리턴 하는데 이 Object 객체가 비즈니스 메소드 수행 후 리턴 하는 객체<br>- 다른 advice는 proceed()메소드가 필요 없지만, Around의 경우 비즈니스 로직 수행 전/후 로직을 모두 처리하기 때문에 비즈니스 메소드를 수행하는 proceed() 메소드가 필요하여 반드시 ProceedingJoinPoint 인터페이스가 필요</td>
       </tr>
     </table>
 - AOP 적용하기
