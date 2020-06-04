@@ -8825,6 +8825,158 @@
   - mybatis-config.xml : mybatis 설정(null, 별칭alias 설정)
   - mapper.xml : 동작할 쿼리문
 
+### 2.83 83일차(2020-06-04)
+- WebSocket 통신
+  1. 라이브러리 추가
+  ```
+  <!-- spring-websocket -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-websocket</artifactId>
+    <version>${org.springframework-version}</version>
+  </dependency>
+  ```
+  2. TextWebSocketHandler 상속
+  ```
+  public class MyHandler extends TextWebSocketHandler {
+    ...
+  }
+  ```
+  3. ArrayList, HashMap 생성
+  ```
+  private ArrayList<WebSocketSession> members;
+  private HashMap<String, WebSocketSession> map;
+
+  public MyHandler() {
+    members = new ArrayList<WebSocketSession>();
+    map = new HashMap<String, WebSocketSession>();
+  }
+  ```
+  4. 메소드 오버라이드
+  ```
+  //소켓이 생성되어 연결되었을 때 실행되는 메소드
+  @Override
+  public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+  
+    System.out.println("연결 성공!!");
+    members.add(session);//신규 접속자 정보 저장
+  }
+	
+  //메세지를 수신하면 동작하는 메소드
+  //실제 동작하는 내용이 들어감
+  @Override
+  protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+    System.out.println(message.getPayload());
+		
+    //소켓으로 받은 메세지를 JSON 타입으로 변경하여 사용
+    JsonParser parser = new JsonParser();
+		
+    JsonElement element = parser.parse(message.getPayload());
+    String type = element.getAsJsonObject().get("type").getAsString();
+		
+    if (type.equals("register")) {
+      String memberId = element.getAsJsonObject().get("memberId").getAsString();
+      map.put(memberId, session);
+    } else {
+      String target = element.getAsJsonObject().get("target").getAsString();
+      String msg = element.getAsJsonObject().get("msg").getAsString();
+      WebSocketSession ws = map.get(target);
+			
+      //해당 접속자가 접속한 경우
+      if (ws != null) {
+        ws.sendMessage(new TextMessage(msg));
+      }
+    }
+	}
+	
+  //연결이 끊겼을 때 동작하는 메소드
+  @Override
+  public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+  	
+    System.out.println("연결 종료!!");
+    members.remove(session);
+  }
+  ```
+  5. application.xml namespace 추가 : websocket
+  6. 웹소켓 설정 추가
+  ```
+  <!-- 웹소켓 설정 -->
+  <websocket:handlers>
+    <websocket:mapping handler="myHandler" path="/chat.do"/>
+    <websocket:handshake-interceptors>
+      <bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"></bean>
+    </websocket:handshake-interceptors>
+  </websocket:handlers>
+  ```
+  7. 페이지 생성
+  ```
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-3.3.1.js'></script>
+  </head>
+  <body>
+    <textarea rows="5" cols="30" id="msgArea"></textarea>
+    <br>
+    메세지 : <input type="text" id="chatMsg"><br>
+    상대 아이디 : <input type="text" id="target"><br>
+    <button id="sendBtn">전송</button>
+    <script>
+      var ws;
+      var memberId = "${sessionScope.member.memberId}";
+      
+      function connect() {
+        ws = new WebSocket("ws://localhost/chat.do");
+        ws.onopen = function() {
+				  console.log("웹소켓 연결 생성");
+          
+          var msg = {
+            type: "register",
+            memberId: memberId
+          }
+          
+          ws.send(JSON.stringify(msg));
+        };
+			
+        ws.onmessage = function() {
+          var msg = e.data;
+          var chat = $("#msgArea").val() + "\n상대방 : " + msg;
+          $("#msgArea").val(chat);
+        };
+			
+        ws.onclose = function() {
+          console.log("연결종료");
+        };
+      }
+      
+      $(function() {
+        connect();
+        $("#sendBtn").click(function() {
+          var chat = $("#chatMsg").val();
+          var msg = $("msgArea").val() + "\n나 : " + chat;
+          $("#msgArea").val(msg);
+          $("#chatMsg").val("");
+
+          var sendMsg = {
+            type: "chat",
+            target: $("#target").val(),
+            msg: chat
+          }
+
+          ws.send(JSON.stringify(sendMsg));
+        });
+      });
+    </script>
+  </body>
+  </html>
+  ```
+  8. 스크립트 추가
+
 ## 3. 이클립스 기능
 - 단축키
   - ctrl + shift + F : 자동 줄맞춤
