@@ -8,13 +8,13 @@
     <h1>Welcome</h1>
     <div class="menuList">
         <div>
-            <a href="#">Notice</a>
+            <a href="/board.do?boardType=1&reqPage=1">Notice</a>
         </div>
         <div>
-            <a href="#">우리회사게시판</a>
+            <a href="/board.do?boardType=2&reqPage=1">우리회사게시판</a>
         </div>
         <div>
-            <a href="#">자유게시판</a>
+            <a href="/board.do?boardType=3&reqPage=1">자유게시판</a>
         </div>
         <div>
             <a href="#">익명게시판</a>
@@ -29,21 +29,20 @@
                     marginLeft: "0px"
                 }, 300);
                 $("nav").removeClass("hide");
-//                $(".main").addClass("showMenu");
-//                $(".main").removeClass("hideMenu");
             } else {
                 $("nav").animate({
                     marginLeft: "-200px"
                 }, 300);
                 $("nav").addClass("hide");
                 $(".main").removeClass("showMenu");
-//                $(".main").addClass("hideMenu");
-//                $(".main").removeClass("showMenu");
             }
         });
         
         var loc = location.href;
-        var menuList = $(".menuList>div");
-        
+        var menuList = $(".menuList>div>a");
+
+        if(loc.includes("/board.do")) {
+            menuList.eq(${boardType} - 1).addClass("select");
+        } 
     });
 </script>

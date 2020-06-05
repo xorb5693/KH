@@ -57,7 +57,33 @@ CREATE TABLE BOARD(
     WRITE_DATE      VARCHAR2(20),
     FILE_NAME       VARCHAR2(1000),
     FILE_PATH       VARCHAR2(1000),
-    BOARD_TYPE      NUMBER          NOT NULL
+    BOARD_TYPE      NUMBER          NOT NULL,
+    COMPANY_CODE    NUMBER          REFERENCES COMPANY(COMPANY_CODE)
 );
+ALTER TABLE BOARD
+MODIFY BOARD_WRITER VARCHAR2(100);
+
+INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL, '테스트중', '지금 이것은 테스트용 문서입니다.', 'user02@gmail.com', 0, sysdate, null, null, 2, 1);
+commit;
 
 CREATE SEQUENCE BOARD_SEQ;
+
+select * from (
+			select rownum as rnum, s.*
+			from (
+				select
+					board_no as boardNo,
+					board_title as boardTitle,
+					board_content as boardContent,
+					member_name as boardWriter,
+					read_count as readCount,
+					write_date as writeDate,
+					file_name as fileName,
+					file_path as filePath,
+					board_type as boardType,
+					b.company_code as companyCode
+				from board b
+				join member m on (member_id = board_writer)
+				where board_type = 2
+			) s
+		) where rnum between 1 and 5;

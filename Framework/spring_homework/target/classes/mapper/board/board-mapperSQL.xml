@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="board">
-
+	<select id="totalCount" parameterType="hashmap" resultType="_int">
+		select count(*) from board
+		where board_type = #{boardType}
+		<if test="type != null and !type.equals('')">
+			<if test="type.equals('boardTitle')">
+				and board_title like '%'||#{keyword}||'%'
+			</if>
+			<if test="type.equals('boardNo')">
+				and board_no  like '%'||#{keyword}||'%'
+			</if>
+		</if>
+	</select>
+	<select id="selectAllBoard" parameterType="hashmap" resultType="board">
+		select * from (
+			select rownum as rnum, s.*
+			from (
+				select
+					board_no as boardNo,
+					board_title as boardTitle,
+					board_content as boardContent,
+					member_name as boardWriter,
+					read_count as readCount,
+					write_date as writeDate,
+					file_name as fileName,
+					file_path as filePath,
+					board_type as boardType,
+					b.company_code as companyCode
+				from board b
+				join member m on (member_id = board_writer)
+				where board_type = #{boardType}
+				<if test="boardType == 2">
+					and b.company_code = #{companyCode}
+				</if>
+				<if test="type != null and !type.equals('')">
+					<if test="type.equals('boardTitle')">
+						and board_title like '%'||#{keyword}||'%'
+					</if>
+					<if test="type.equals('boardNo')">
+						and board_no  like '%'||#{keyword}||'%'
+					</if>
+				</if>
+			) s
+		) where rnum between #{start} and #{end}
+	</select>
 </mapper>

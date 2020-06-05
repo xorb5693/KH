@@ -6,7 +6,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>A_CLASS</title>
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css">
     <script type='text/javascript' src='http://code.jquery.com/jquery-3.3.1.js'></script>
     <style>

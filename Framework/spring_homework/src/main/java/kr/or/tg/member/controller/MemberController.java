@@ -73,21 +73,18 @@ public class MemberController {
 		if (member == null){
 			model.addAttribute("msg", "아이디 혹은 비밀번호를 확인하세요.");
 			model.addAttribute("loc", "/");
+			return "common/msg";
 		} else if (member.getMemberLevel() == 1){
 			Company company = companyService.selectOneCompany(member.getCompanyCode());
-//			System.out.println(company.getCompanyCode());
-//			System.out.println(company.getCompanyLogo());
-//			System.out.println(company.getCompanyName());
 			session.setAttribute("company", company);
 			session.setAttribute("member", member);
-			model.addAttribute("msg", "로그인 성공");
-			model.addAttribute("loc", "/main.do");
+			return "redirect:/main.do";
 		} else {
 			model.addAttribute("msg", "관리자가 허용하지 않은 회원입니다.");
 			model.addAttribute("loc", "/");
+			return "common/msg";
 		}
 		
-		return "common/msg";
 	}
 	
 	@RequestMapping("/main.do")

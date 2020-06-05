@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/resources/css/style.css?after" rel="stylesheet" type="text/css">
 <script type='text/javascript' src='http://code.jquery.com/jquery-3.3.1.js'></script>
-<title>Insert title here</title>
+<title>A_CLASS - 메인 페이지</title>
 <style>
 	table {
 		width: 600px;
@@ -55,6 +55,22 @@
 		float: left;
         text-align: center;
 	}
+    
+    .main>button {
+        width: 90%; 
+        height: 50px; 
+        background-color: #30A9DE; 
+        border: none; 
+        color: white; 
+        font-size: 1.3em; 
+        font-weight: bold; 
+        border-radius: 10px; 
+        outline: none;
+    }
+    
+    .main>button:hover {
+        cursor: pointer;
+    }
 </style>
 <script>
     $(function() {
@@ -106,6 +122,7 @@
                     </tr>
                 </table>
             </div>
+            <button>비밀번호 변경하기</button>
         </div>
     </section>
 </body>

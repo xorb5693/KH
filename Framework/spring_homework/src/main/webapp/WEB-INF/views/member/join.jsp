@@ -6,7 +6,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>A_CLASS - 회원가입</title>
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css">
     <script type='text/javascript' src='http://code.jquery.com/jquery-3.3.1.js'></script>
     <style>
@@ -186,6 +186,7 @@
             <div>
                 <p>회사 <span></span></p>
                 <select name="companyCode" class="input">
+                    <optgroup label="회사명"/>
                     <c:forEach items="${list }" var="com">
                         <option value="${com.companyCode }">${com.companyName }</option>
                     </c:forEach>
@@ -209,7 +210,7 @@
             </div>
             <div>
                 <p>나이 <span></span></p>
-                <input type="text" name="age" id="age" class="input check" required><br>
+                <input type="text" name="age" id="age" class="input check" placeholder="숫자만 입력" required><br>
             </div>
             <div>
                 <p>휴대전화 <span></span></p>

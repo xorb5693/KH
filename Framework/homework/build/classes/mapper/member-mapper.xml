@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+	<insert id="insertMember" parameterType="member">
+		insert into member values(member_seq.nextval, #{memberId}, #{memberPw}, #{memberName}, #{age}, sysdate, #{companyCode}, 0, #{phone})
+	</insert>
+	<select id="selectOneMember" parameterType="member" resultType="member">
+		select 
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			age,
+			enroll_date as enrollDate,
+			company_code as companyCode,
+			member_level as memberLevel,
+			phone
+		from member where member_id = #{memberId}
+		<if test="memberPw != null and !memberPw.equals('')">
+			and member_pw = #{memberPw}
+		</if>
+	</select>
+</mapper>

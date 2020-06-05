@@ -7,10 +7,11 @@ public class Board {
 	private String boardContent;
 	private String boardWriter;
 	private int readCount;
-	private String wirteDate;
+	private String writeDate;
 	private String fileName;
 	private String filePath;
 	private int boardType;
+	private int companyCode;
 
 	public Board() {
 		super();
@@ -18,17 +19,18 @@ public class Board {
 	}
 
 	public Board(int boardNo, String boardTitle, String boardContent, String boardWriter, int readCount,
-			String wirteDate, String fileName, String filePath, int boardType) {
+			String writeDate, String fileName, String filePath, int boardType, int companyCode) {
 		super();
 		this.boardNo = boardNo;
 		this.boardTitle = boardTitle;
 		this.boardContent = boardContent;
 		this.boardWriter = boardWriter;
 		this.readCount = readCount;
-		this.wirteDate = wirteDate;
+		this.writeDate = writeDate;
 		this.fileName = fileName;
 		this.filePath = filePath;
 		this.boardType = boardType;
+		this.companyCode = companyCode;
 	}
 
 	public int getBoardNo() {
@@ -71,12 +73,12 @@ public class Board {
 		this.readCount = readCount;
 	}
 
-	public String getWirteDate() {
-		return wirteDate;
+	public String getWriteDate() {
+		return writeDate;
 	}
 
-	public void setWirteDate(String wirteDate) {
-		this.wirteDate = wirteDate;
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
 	}
 
 	public String getFileName() {
@@ -101,6 +103,14 @@ public class Board {
 
 	public void setBoardType(int boardType) {
 		this.boardType = boardType;
+	}
+
+	public int getCompanyCode() {
+		return companyCode;
+	}
+
+	public void setCompanyCode(int companyCode) {
+		this.companyCode = companyCode;
 	}
 
 }

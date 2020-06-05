@@ -60,7 +60,7 @@
 }
 
 .login .btn:hover {
-    background: linear-gradient(45deg, #41D3BD, #791E94);
+    background: linear-gradient(45deg, #00DBE1, #698BEC, #FF1EFF);
     cursor: pointer;
 }
 
@@ -134,8 +134,8 @@
 
 .menuList>div {
     width: 100%;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
 }
 
 .menuList>div>a {
@@ -188,4 +188,38 @@
     margin-top: 25px;
     background-color: #30A9DE;
     color: white;
+}
+
+table.boardList {
+    margin: 0 auto;
+    min-width: 930px;
+    width: 95%;
+/*    min-height: 537.8px;*/
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+    height: 70px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.table tr {
+    height: 70px;
+}
+
+button {
+    outline: none;
 }
