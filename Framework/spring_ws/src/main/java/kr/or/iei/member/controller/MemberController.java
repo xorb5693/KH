@@ -144,4 +144,11 @@ public class MemberController {
 	public String chat() {
 		return "member/chat";
 	}
+	
+	@ResponseBody
+	@RequestMapping("/arduinoTest.do")
+	public String arduino(String str) {
+		System.out.println(str);
+		return "ok";
+	}
 }
