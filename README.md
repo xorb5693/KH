@@ -25,7 +25,7 @@
 | [2.61](#261-61일차2020-05-04) | [2.62](#262-62일차2020-05-06) | [2.63](#263-63일차2020-05-07) | [2.64](#264-64일차2020-05-08) | [2.65](#265-65일차2020-05-11) | [2.66](#265-65일차2020-05-11) | [2.67](#265-65일차2020-05-11) | [2.68](#265-65일차2020-05-11) | [2.69](#265-65일차2020-05-11) | [2.70](#265-65일차2020-05-11) |
 | [2.71](#265-65일차2020-05-11) | [2.72](#265-65일차2020-05-11) | [2.73](#265-65일차2020-05-11) | [2.74](#265-65일차2020-05-11) | [2.75](#275-75일차2020-05-25) | [2.76](#276-76일차2020-05-26) | [2.77](#277-77일차2020-05-27) | [2.78](#278-78일차2020-05-28) | [2.79](#279-79일차2020-05-29) | [2.80](#280-80일차2020-06-01) |
 | [2.81](#281-81일차2020-06-02) | [2.82](#282-82일차2020-06-03) | [2.83](#283-83일차2020-06-04) | [2.84](#284-84일차2020-06-05) | [2.85](#285-85일차2020-06-08) | [2.86](#286-86일차2020-06-09) | [2.87](#287-87일차2020-06-10) | [2.88](#288-88일차2020-06-11) | [2.89](#289-89일차2020-06-12) | [2.90](#290-90일차2020-06-15) |
-| [2.91](#290-90일차2020-06-16) | [2.92](#) | [2.93](#) | [2.94](#) | [2.95](#) | [2.96](#) | [2.97](#) | [2.98](#) | [2.99](#) | [2.100](#) |
+| [2.91](#291-91일차2020-06-16) | [2.92](#292-92일차2020-06-17) | [2.93](#) | [2.94](#) | [2.95](#) | [2.96](#) | [2.97](#) | [2.98](#) | [2.99](#) | [2.100](#) |
 
 </div>
 </details>  
@@ -9347,7 +9347,62 @@
     5. 테스트용 java 파일 추가
         - src/test/java 밑에 테스트할 컨트롤러의 패키지와 동일하게 패키지 생성
         - 테스트할 컨트롤러 java 파일과 동일한 이름 뒤에 Test만 추가하여 생성
-    6. 
+    6. 라이브러리 추가
+        - 프로젝트 우클릭 -> Build Path -> Add Library -> JUnit -> 버전 4 선택
+    7. 프로젝트 업데이트
+        - 프로젝트 우클릭 -> Maven -> Update Project -> 프로젝트 선택
+    8. 이클립스 버그 수정
+        - 프로젝트 우클릭 -> Proferties -> Deployment Assembly -> Add -> Java Build Path Entries -> Maven Dependencies
+    9. java 파일 Annotation 추가
+      ```
+      @RunWith(SpringJUnit4ClassRunner.class) //스프링에서 단위테스트를 하기 위한 선언문
+      @WebAppConfiguration                    //WebApplicationConetxt @Autowired하기 위한 선언
+      @ContextConfiguration({"file:src/main/webapp/WEB-INF/spring/root-context.xml"
+                            , "file:src/main/webapp/WEB-INF/spring/appServlet/servelet-context.xml"})
+      //필요한 context 파일 경로 지정
+      public class MemberControllerTest {
+        //로그를 출력하기 위한 객체 생성
+        //org.slf4j.Logger;
+        //org.slf4j.LoggerFactory;
+        private static final Logger logger = LoggerFactory.getLogger(MemberControllerTest.class);
+        
+        @Autowired
+        private WebApplicationContext wac;
+        
+        //가상의 요청과 응답을 처리하기 위한 객체 선언
+        private MockMvc mockMvc;
+	
+        @Before
+        public void setUp() {
+          //MockMvc 객체 생성
+          this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+          logger.info("MockMvc 객체 생성 완료!!");
+        }
+
+        @After
+        public void after() {
+          logger.info("테스트 다 끝남!!!!!!!!!!!");
+        }
+        
+        @Test
+        public void testMemberLogin() {
+          logger.info("테스트 시작!!");
+
+          try {
+            mockMvc.perform(post("/kh/member/login.kh") //perform 메소드로 URL 맵핑
+                    .param("memberId", "user01")
+                    .param("memberPw", "1234"))         //param 메소드로 데이터 전달
+                    .andDo(print())                     //실행을 하고 print를 통해서 처리된 내용을 출력
+                    .andExpect(status().isOk());        //에러 없이 정상적인 상태(status 200)가 되도록 검증
+            logger.info("테스트 성공!!");
+          } catch (Exception e) {
+            logger.error("테스트 수행 중 예외 발생 : " + e.getMessage());
+          }
+        }
+      }
+      ```
+    10. 테스트하기
+        - 테스트용 java 파일 우클릭 -> Run As -> JUnit Test
 
 ## 3. 이클립스 기능
 - 단축키
