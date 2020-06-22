@@ -28,6 +28,8 @@
 		<hr>
 		<a href="/noticeWriteFrm.do">게시글 작성</a><br>
 		<a href="/noticeList.do?reqPage=1">게시글 목록</a><br>
+		<hr>
+		<a href="/goCard.do">카드 등록</a><br>
 	</c:if>
 </body>
 </html>

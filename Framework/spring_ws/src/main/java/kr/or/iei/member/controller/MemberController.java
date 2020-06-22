@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
+import kr.or.iei.common.CardHandler;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
 
@@ -23,6 +24,11 @@ public class MemberController {
 	@Autowired
 	@Qualifier("memberService")
 	private MemberService service;
+//	public static String carcNo;
+	
+	@Autowired
+	@Qualifier("cardHandler")
+	private CardHandler cardHandler;
 	
 	public MemberController() {
 		System.out.println("시슴!!!!!!!!!!!!!!!!!");
@@ -145,10 +151,39 @@ public class MemberController {
 		return "member/chat";
 	}
 	
+	@RequestMapping("/goCard.do")
+	public String card() {
+		return "member/test";
+	}
+	
 	@ResponseBody
 	@RequestMapping("/arduinoTest.do")
 	public String arduino(String str) {
 		System.out.println(str);
 		return "ok";
+	}
+
+	@ResponseBody
+	@RequestMapping("/arduinoInsert.do")
+	public String arduinoInsert(String card) {
+		card.replace(" ", "");
+		String cardNo = card.replaceAll(" ", ".").substring(1);
+		System.out.println("Insert : " + cardNo);
+		try {
+			cardHandler.cardResponse(cardNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "$" + cardNo;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/arduinoAttendance.do")
+	public String arduinoAttendance(String card) {
+		card.replace(" ", "");
+		String cardNo = card.replaceAll(" ", ".").substring(1);
+		System.out.println("Insert : " + cardNo);
+		int index = cardNo.lastIndexOf(".");
+		return "$user" + cardNo.substring(index + 1);
 	}
 }

@@ -67,6 +67,13 @@
 		</websocket:handshake-interceptors>
 	</websocket:handlers>
 	
+	<websocket:handlers>
+		<websocket:mapping handler="cardHandler" path="/card.do"/>
+		<websocket:handshake-interceptors>
+			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"></bean>
+		</websocket:handshake-interceptors>
+	</websocket:handlers>
+	
 	<context:component-scan base-package="kr.or.iei.member"/>
 	<context:component-scan base-package="kr.or.iei.notice"/>
 	<context:component-scan base-package="kr.or.iei.common"/>
